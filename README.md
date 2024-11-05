@@ -48,3 +48,8 @@
   + 從右側「Available for installation」下方清單找到並多選「anchordockingdsgn 1.0」、「dockedformediteor 0.0」，再按下下方的「Install Selection」。
   + 最後按一次最下方「Save and rebuild IDE」，再按「Continue」，接下來要稍等一下子，完成後會自動重新開啟主程式。
 
+# 其他有用的資源
++ https://github.com/t-edson/UnTerminal
+  + UnTerminal-trunk.zip
++ TProcessEx:
+  + biglines_output.zip
