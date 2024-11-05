@@ -30,7 +30,7 @@
 + 再使用工具3: PNG轉ICO線上工具 例如:https://www.aconvert.com/tw/icon/png-to-ico/
   + 需要的多解析度包含:  
     + 全部清單中有的
-+ ICO下載位置: [右鍵另存]([https://raw.githubusercontent.com/cgrgncu/lazarus_study/refs/heads/main/%E7%9B%A3%E6%B8%AC%E7%AB%99%E8%99%95%E7%90%86%E6%B5%81%E7%A8%8B/R2MS_Lite_API_Server/ico/R2MS_Lite_API_Server.ico](https://raw.githubusercontent.com/cgrgncu/lazarus_study/refs/heads/main/TProcess/ico/TAsyncProcess_example_01.ico))  
++ ICO下載位置: [右鍵另存](https://raw.githubusercontent.com/cgrgncu/lazarus_study/refs/heads/main/TProcess/ico/TAsyncProcess_example_01.ico) 
 
 > ICO:  
 >  ![image](https://raw.githubusercontent.com/cgrgncu/lazarus_study/refs/heads/main/TProcess/ico/TAsyncProcess_example_01.ico)  
