@@ -212,13 +212,13 @@
       ```
     + **5.5 設定「ExternalProgramRUN_Button」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
-      procedure TForm1.AsyncProcess1Terminate(Sender: TObject);
+      procedure TForm1.ExternalProgramRUN_ButtonClick(Sender: TObject);
       begin
         AsyncProcess1.Executable:='notepad.exe';
         AsyncProcess1.Parameters.Clear;
         AsyncProcess1.Parameters.Add('/c');
         AsyncProcess1.Parameters.Add('dir');
         AsyncProcess1.Options:=[poUsePipes];
-        AsyncProcess1.Execute; 
-      end;  
+        AsyncProcess1.Execute;
+      end; 
       ```
