@@ -165,7 +165,7 @@
         + **4.1.1.4 設定完後關閉Anchors設定視窗。**
       + **4.1.2 設定「Lines」的內容清空**
       + **4.1.3 設定「ScrollBars」為「ssBoth」。**
-      + **4.1.4 設定「WordWrap」為「false」。**
+      + **4.1.4 設定「WordWrap」為「false」。**   
    + **4.2 設定「Memo1Clear_Button」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
       procedure TForm1.Memo1Clear_ButtonClick(Sender: TObject);
@@ -187,35 +187,38 @@
         Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ExtCtrls,
         StdCtrls, AsyncProcess, Process, LazUTF8;       
       ```
-7. API_Notes:  
-    + **6.1 拖拉一個「Standard>TGroupBox」到「Web Server」標籤頁(物件名稱為「Main_TabSheet」)。預設名稱會是「GroupBox1」。**  
-      + **6.1.1 設定「Anchors」。**  
-        + **6.1.1.1 「Top anchoring>Slbling」選為「APIList_PageControl:TPageControl」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選子下面的。**  
-        + **6.1.1.2 「Left anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**
-        + **6.1.1.3 「Right anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Right anchoring」右側三個鈕選右邊的。**
-        + **6.1.1.4 「Bottom anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Bottom anchoring」右側三個鈕選下邊的。**  
-        + **6.1.1.5 「Border space」正中間那格填「10」。**  
-        + **6.1.1.6 設定完後關閉Anchors設定視窗。**  
-      + **6.1.2 設定「Caption」為「API命令說明:」。**  
-      + **6.1.3 設定「Name」為「API_Notes_GroupBox」。**
-    + **6.2 拖拉一個「Standard>TMemo」到「API_Notes_GroupBox」中。預設名稱會是「Memo1」。**
-      + **6.2.1 設定「Anchors」。**  
-        + **6.2.1.1 「Top anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選子上面的。**  
-        + **6.2.1.2 「Left anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**
-        + **6.2.1.3 「Right anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Right anchoring」右側三個鈕選右邊的。**
-        + **6.2.1.4 「Bottom anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Bottom anchoring」右側三個鈕選下邊的。**  
-        + **6.2.1.5 「Border space」正中間那格填「5」。**  
-        + **6.2.1.6 設定完後關閉Anchors設定視窗。**
-      + **6.2.2 設定「Lines」的內容清空。並填入以下內容:**
-        ```
-        運行需求:
-        Windosw作業系統。
-        可運行64位元應用程式。
-        允許程式通過防火牆。
-        Server Port預設值為18002。
-        --
-        ```
-      + **6.2.3 設定「Name」為「API_Notes_Memo」。** 
-      + **6.2.4 設定「ReadOnly」為「true」。**
-      + **6.2.5 設定「ScrollBars」為「ssBoth」。**
-      + **6.2.6 設定「WordWrap」為「false」。**
+    + **5.3 設定「AsyncProcess1」的「Event」頁面下「OnReadData」為如下程式碼。**
+      ```pascal
+      procedure TForm1.AsyncProcess1ReadData(Sender: TObject);
+      var
+        temp_Buffer:string='';
+        temp_BytesAvailable:DWord;
+      begin
+        Memo1.Lines.Add('AsyncProcess1ReadData...');
+        temp_BytesAvailable:=AsyncProcess1.Output.NumBytesAvailable;
+        if temp_BytesAvailable>0 Then begin
+          setlength(temp_Buffer,temp_BytesAvailable);
+          AsyncProcess1.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+          Memo1.Lines.Add(WinCPToUTF8(temp_Buffer));
+        end;
+      end;   
+      ```
+    + **5.4 設定「AsyncProcess1」的「Event」頁面下「OnTerminate」為如下程式碼。**
+      ```pascal
+      procedure TForm1.AsyncProcess1Terminate(Sender: TObject);
+      begin
+        Memo1.Lines.Add('AsyncProcess1Terminate...');
+      end;  
+      ```
+    + **5.5 設定「ExternalProgramRUN_Button」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.AsyncProcess1Terminate(Sender: TObject);
+      begin
+        AsyncProcess1.Executable:='notepad.exe';
+        AsyncProcess1.Parameters.Clear;
+        AsyncProcess1.Parameters.Add('/c');
+        AsyncProcess1.Parameters.Add('dir');
+        AsyncProcess1.Options:=[poUsePipes];
+        AsyncProcess1.Execute; 
+      end;  
+      ```
