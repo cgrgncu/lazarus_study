@@ -222,3 +222,10 @@
         AsyncProcess1.Execute;
       end; 
       ```
+    + **5.6 設定「ExternalProgramSTOP_Button」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.ExternalProgramSTOP_ButtonClick(Sender: TObject);
+      begin
+        AsyncProcess1.Terminate(0);  
+      end; 
+      ```
