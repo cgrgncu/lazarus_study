@@ -214,6 +214,17 @@
       ```pascal
       procedure TForm1.ExternalProgramRUN_ButtonClick(Sender: TObject);
       begin
+        AsyncProcess1.Executable:=ExternalProgram_Edit.Text;
+        AsyncProcess1.Parameters.Clear;
+        AsyncProcess1.Parameters.Add(ExternalProgramParameters_Edit.Text);
+        AsyncProcess1.Options:=[poUsePipes];
+        AsyncProcess1.Execute;
+      end;
+      ```
+      + 其他呼叫範例如下:
+      ```pascal
+      procedure TForm1.ExternalProgramRUN_ButtonClick(Sender: TObject);
+      begin
         AsyncProcess1.Executable:='notepad.exe';
         AsyncProcess1.Parameters.Clear;
         AsyncProcess1.Parameters.Add('/c');
