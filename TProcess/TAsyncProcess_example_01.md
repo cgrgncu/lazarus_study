@@ -91,3 +91,131 @@
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
         ```  
+
+### 開發紀錄(主頁面)  
+1. 外部應用程式(External Program):  
+    + **1.1 拖拉一個「Standard>TLabel」到「Form1」中。預設名稱會是「Label1」。**  
+      + **1.1.1 設定「Anchors」。**  
+        + **1.1.1.1 「Top anchoring>Slbling」選為「Form1:TForm1」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+        + **1.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **1.1.1.3 「Border space」正中間那格填「20」。**  
+        + **1.1.1.4 設定完後關閉Anchors設定視窗。**  
+      + **1.1.2 設定「Caption」為「外部應用程式:」。**  
+      + **1.1.3 設定「Name」為「ExternalProgram_Label」。**  
+    + **1.2 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
+      + **1.2.1 設定「Anchors」。**  
+        + **1.2.1.1 「Top anchoring>Slbling」選為「Form1:TForm1」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。**  
+        + **1.2.1.2 「Left anchoring>Slbling」選為「ExternalProgram_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
+        + **1.2.1.3 「Right anchoring>Slbling」選為「Form1:TForm1」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.2.1.4 「Border space」正中間那格填「10」，上面那格填「7」，右邊那格填「20」。**  
+        + **1.2.1.5 設定完後關閉Anchors設定視窗。**  
+      + **1.2.2 設定「Name」為「ExternalProgram_Edit」。**  
+      + **1.2.3 設定「Text」為「cmd.exe」。**
+2. 外部應用程式參數(External Program Parameters):  
+    + **2.1 拖拉一個「Standard>TLabel」到「Form1」中。預設名稱會是「Label1」。**  
+      + **2.1.1 設定「Anchors」。**  
+        + **2.1.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
+        + **2.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **2.1.1.3 「Border space」正中間那格填「20」。**  
+        + **2.1.1.4 設定完後關閉Anchors設定視窗。**  
+      + **2.1.2 設定「Caption」為「外部應用程式參數:」。**  
+      + **2.1.3 設定「Name」為「ExternalProgramParameters_Label」。**  
+    + **2.2 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
+      + **2.2.1 設定「Anchors」。**  
+        + **2.2.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
+        + **2.2.1.2 「Left anchoring>Slbling」選為「ExternalProgramParameters_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
+        + **2.2.1.3 「Right anchoring>Slbling」選為「Form1:TForm1」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.2.1.4 「Border space」正中間那格填「10」，上面那格填「7」，右邊那格填「20」。**  
+        + **2.2.1.5 設定完後關閉Anchors設定視窗。**  
+      + **2.2.2 設定「Name」為「ExternalProgramParameters_Edit」。**  
+      + **2.2.3 設定「Text」為「/c "dir"」。**
+3. 外部應用程式按鈕(External Program Button):  
+    + **3.1 拖拉一個「Standard>TButton」到「Form1」中。預設名稱會是「Button1」。**  
+      + **3.1.1 設定「Anchors」。**  
+        + **3.1.1.1 「Top anchoring>Slbling」選為「ExternalProgramParameters_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
+        + **3.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **3.1.1.3 「Border space」正中間那格填「20」。**  
+        + **3.1.1.4 設定完後關閉Anchors設定視窗。**  
+      + **2.1.2 設定「Caption」為「RUN」。**  
+      + **2.1.3 設定「Name」為「ExternalProgramRUN_Button」。**
+    + **3.2 拖拉一個「Standard>TButton」到「Form1」中。預設名稱會是「Button1」。**  
+      + **3.2.1 設定「Anchors」。**  
+        + **3.2.1.1 「Top anchoring>Slbling」選為「ExternalProgramParameters_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
+        + **3.2.1.2 「Left anchoring>Slbling」選為「ExternalProgramRUN_Button:TButton」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
+        + **3.2.1.3 「Border space」正中間那格填「20」。**  
+        + **3.2.1.4 設定完後關閉Anchors設定視窗。**  
+      + **3.2.2 設定「Caption」為「STOP」。**  
+      + **3.2.3 設定「Name」為「ExternalProgramSTOP_Button」。** 
+    + **3.3 拖拉一個「Standard>TButton」到「Form1」中。預設名稱會是「Button1」。**  
+      + **3.3.1 設定「Anchors」。**  
+        + **3.3.1.1 「Top anchoring>Slbling」選為「ExternalProgramParameters_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
+        + **3.3.1.2 「Left anchoring>Slbling」選為「ExternalProgramSTOP_Button:TButton」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
+        + **3.3.1.3 「Border space」正中間那格填「20」。**  
+        + **3.3.1.4 設定完後關閉Anchors設定視窗。**  
+      + **3.3.2 設定「Caption」為「CLEAR」。**  
+      + **3.3.3 設定「Name」為「Memo1Clear_Button」。**
+4. Memo1:
+    + **4.1 拖拉一個「Standard>TMemo」到「Form1」中。預設名稱會是「Memo1」。**  
+      + **4.1.1 設定「Anchors」。**  
+        + **4.1.1.1 「Top anchoring>Slbling」選為「ExternalProgramRUN_Button:TButton」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
+        + **4.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **4.1.1.3 「Right anchoring>Slbling」選為「Form1:TForm1」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **4.1.1.4 「Bottom anchoring>Slbling」選為「Form1:TForm1」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
+        + **4.1.1.3 「Border space」正中間那格填「20」。**  
+        + **4.1.1.4 設定完後關閉Anchors設定視窗。**
+      + **4.1.2 設定「Lines」的內容清空**
+      + **4.1.3 設定「ScrollBars」為「ssBoth」。**
+      + **4.1.4 設定「WordWrap」為「false」。**
+   + **4.2 設定「Memo1Clear_Button」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.Memo1Clear_ButtonClick(Sender: TObject);
+      begin
+        Memo1.Clear;
+      end;    
+      ```
+5. AsyncProcess1:
+    + **5.1 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」。**
+    + 從程式碼最頂端的uses區塊會看到如下內容:
+      ```pascal
+      uses
+        Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ExtCtrls,
+        StdCtrls, AsyncProcess;  
+      ```
+    +  **5.2 在uses區塊手動添加「Process」、「LazUTF8」。使其變成如下內容:**
+      ```pascal
+      uses
+        Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ExtCtrls,
+        StdCtrls, AsyncProcess, Process, LazUTF8;       
+      ```
+7. API_Notes:  
+    + **6.1 拖拉一個「Standard>TGroupBox」到「Web Server」標籤頁(物件名稱為「Main_TabSheet」)。預設名稱會是「GroupBox1」。**  
+      + **6.1.1 設定「Anchors」。**  
+        + **6.1.1.1 「Top anchoring>Slbling」選為「APIList_PageControl:TPageControl」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選子下面的。**  
+        + **6.1.1.2 「Left anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**
+        + **6.1.1.3 「Right anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Right anchoring」右側三個鈕選右邊的。**
+        + **6.1.1.4 「Bottom anchoring>Slbling」選為「Main_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。維持「Bottom anchoring」右側三個鈕選下邊的。**  
+        + **6.1.1.5 「Border space」正中間那格填「10」。**  
+        + **6.1.1.6 設定完後關閉Anchors設定視窗。**  
+      + **6.1.2 設定「Caption」為「API命令說明:」。**  
+      + **6.1.3 設定「Name」為「API_Notes_GroupBox」。**
+    + **6.2 拖拉一個「Standard>TMemo」到「API_Notes_GroupBox」中。預設名稱會是「Memo1」。**
+      + **6.2.1 設定「Anchors」。**  
+        + **6.2.1.1 「Top anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選子上面的。**  
+        + **6.2.1.2 「Left anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**
+        + **6.2.1.3 「Right anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Right anchoring」右側三個鈕選右邊的。**
+        + **6.2.1.4 「Bottom anchoring>Slbling」選為「API_Notes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Bottom anchoring」右側三個鈕選下邊的。**  
+        + **6.2.1.5 「Border space」正中間那格填「5」。**  
+        + **6.2.1.6 設定完後關閉Anchors設定視窗。**
+      + **6.2.2 設定「Lines」的內容清空。並填入以下內容:**
+        ```
+        運行需求:
+        Windosw作業系統。
+        可運行64位元應用程式。
+        允許程式通過防火牆。
+        Server Port預設值為18002。
+        --
+        ```
+      + **6.2.3 設定「Name」為「API_Notes_Memo」。** 
+      + **6.2.4 設定「ReadOnly」為「true」。**
+      + **6.2.5 設定「ScrollBars」為「ssBoth」。**
+      + **6.2.6 設定「WordWrap」為「false」。**
