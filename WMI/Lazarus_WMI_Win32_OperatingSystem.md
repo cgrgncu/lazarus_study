@@ -28,7 +28,7 @@
   > **Variants** 用於處理從 COM 物件返回的變體類型資料。  
 
 ### 步驟3
-+ 編輯 ** **的程式碼
++ 雙擊 **Button1** 元件，進入編輯 **Button1**的程式碼。
 + 原本:
   ```pascal
   procedure TForm1.Button1Click(Sender: TObject);
@@ -89,3 +89,6 @@
     Memo1.Lines.Add('Win32_OperatingSystem 查詢完成。');
   end;       
   ```
+### 步驟4
++ 編譯後，運行軟體。
++ 點擊按鈕就可以看到效果。
