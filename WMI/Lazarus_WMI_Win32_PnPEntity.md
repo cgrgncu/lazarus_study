@@ -1,4 +1,4 @@
-# Lazarus用WMI查詢Win32_OperatingSystem資訊
+# Lazarus用WMI查詢Win32_PnPEntity資訊
 + 作者: HsiupoYeh
 + 更新日期：2025-04-30
 
