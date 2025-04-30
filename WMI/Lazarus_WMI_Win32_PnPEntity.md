@@ -71,10 +71,10 @@
       while MyWmiObjectEnumerator.Next(1, MyWmiObjectItem, MyWmiObjectItemFetched) = 0 do
       begin
         MyWmiObject := MyWmiObjectItem;
-        Memo1.Lines.Add('  裝置名稱: ' + String(MyWmiObject.Properties_.Item('Caption').Value));
-        Memo1.Lines.Add('  描述: ' + String(MyWmiObject.Properties_.Item('Description').Value));
-        Memo1.Lines.Add('  裝置 ID: ' + String(MyWmiObject.Properties_.Item('DeviceID').Value));
-        Memo1.Lines.Add('  PNPClass: ' + String(MyWmiObject.Properties_.Item('PNPClass').Value));
+        Memo1.Lines.Add('  裝置名稱: ' + VarToStrDef(MyWmiObject.Properties_.Item('Caption').Value, ''));  
+        Memo1.Lines.Add('  描述: ' + VarToStrDef(MyWmiObject.Properties_.Item('Description').Value, ''));  
+        Memo1.Lines.Add('  裝置 ID: ' + VarToStrDef(MyWmiObject.Properties_.Item('DeviceID').Value, ''));  
+        Memo1.Lines.Add('  PNPClass: ' + VarToStrDef(MyWmiObject.Properties_.Item('PNPClass').Value, ''));
         Memo1.Lines.Add('');
         MyWmiObject := Unassigned;
       end;
