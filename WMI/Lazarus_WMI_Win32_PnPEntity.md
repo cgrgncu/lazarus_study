@@ -50,7 +50,7 @@
     MyWmiObjectItemFetched: LongWord;  // 記錄在單次呼叫枚舉器的 Next 方法時，實際成功獲取的 WMI 物件的數量
   begin
     Memo1.Clear;
-    Memo1.Lines.Add('正在使用 WMI 查詢 Win32_OperatingSystem...');
+    Memo1.Lines.Add('正在使用 WMI 查詢 Win32_PnPEntity...');
     Memo1.Lines.Add('');
     try
       Memo1.Lines.Add('步驟 1: 建立 MyWmiLocator 物件...');
@@ -62,8 +62,8 @@
       Memo1.Lines.Add('步驟 2 完成。');
   
       Memo1.Lines.Add('步驟 3: 執行 WQL 查詢...');
-      MyWmiObjectSet := MyWmiServices.ExecQuery(OleVariant(StringToOleStr('SELECT Caption, Version, BuildNumber, Manufacturer, RegisteredUser FROM Win32_OperatingSystem')));
-      Memo1.Lines.Add('步驟 3 完成。找到 ' + IntToStr(MyWmiObjectSet.Count) + ' 個作業系統實例。');
+      MyWmiObjectSet := MyWmiServices.ExecQuery(OleVariant(StringToOleStr('SELECT Caption, Description, DeviceID, PNPClass FROM Win32_PnPEntity')));
+      Memo1.Lines.Add('步驟 3 完成。找到 ' + IntToStr(MyWmiObjectSet.Count) + ' 個 PnP 裝置。');
   
       Memo1.Lines.Add('步驟 4: 遍歷查詢結果並顯示資訊...');
       MyWmiObjectEnumerator := IUnknown(MyWmiObjectSet._NewEnum) as IEnumVariant;
@@ -71,11 +71,10 @@
       while MyWmiObjectEnumerator.Next(1, MyWmiObjectItem, MyWmiObjectItemFetched) = 0 do
       begin
         MyWmiObject := MyWmiObjectItem;
-        Memo1.Lines.Add('  作業系統名稱: ' + String(MyWmiObject.Properties_.Item('Caption').Value));
-        Memo1.Lines.Add('  版本: ' + String(MyWmiObject.Properties_.Item('Version').Value));
-        Memo1.Lines.Add('  組建編號: ' + String(MyWmiObject.Properties_.Item('BuildNumber').Value));
-        Memo1.Lines.Add('  製造商: ' + String(MyWmiObject.Properties_.Item('Manufacturer').Value));
-        Memo1.Lines.Add('  註冊使用者: ' + String(MyWmiObject.Properties_.Item('RegisteredUser').Value));
+        Memo1.Lines.Add('  裝置名稱: ' + String(MyWmiObject.Properties_.Item('Caption').Value));
+        Memo1.Lines.Add('  描述: ' + String(MyWmiObject.Properties_.Item('Description').Value));
+        Memo1.Lines.Add('  裝置 ID: ' + String(MyWmiObject.Properties_.Item('DeviceID').Value));
+        Memo1.Lines.Add('  PNPClass: ' + String(MyWmiObject.Properties_.Item('PNPClass').Value));
         Memo1.Lines.Add('');
         MyWmiObject := Unassigned;
       end;
@@ -86,7 +85,7 @@
         Memo1.Lines.Add('查詢 WMI 時發生錯誤: ' + E.Message);
     end;
   
-    Memo1.Lines.Add('Win32_OperatingSystem 查詢完成。');
+    Memo1.Lines.Add('Win32_PnPEntity 查詢完成。');
   end;       
   ```
 ### 步驟4
