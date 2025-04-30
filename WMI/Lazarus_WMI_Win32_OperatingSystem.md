@@ -5,7 +5,7 @@
 ### 目標
 + 可以用PowerShell先確認想查的資訊：
   ```
-  PowerShell "Get-WMIObject -Class Win32_OperatingSystem"
+  PowerShell "Get-WmiObject -Class Win32_OperatingSystem | Select-Object *"
   ```
 + 確認好之後就練習用Lazarus查出相同內容。
 
