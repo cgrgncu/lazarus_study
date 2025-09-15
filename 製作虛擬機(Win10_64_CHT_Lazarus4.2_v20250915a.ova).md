@@ -2,7 +2,10 @@
 + 作者: HsiupoYeh
 + 更新日期: 2025-09-15
 + 使用「Win10_64_CHT_START_v20241022a.ova」。  
-+ 輸出為「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。  
++ 輸出為「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。
+  + 用 **Open Virtualization Format 2.0** 。
+  + 刪除所有網路卡MAC位址。
+  + 不勾選額外。
 + 安裝套件:
   + Indy10
     + 官網: http://www.indyproject.org
