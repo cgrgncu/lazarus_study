@@ -10,7 +10,12 @@
   + 縮放大小: 100%  
 + 2025-09-15，安裝最新版主程式(lazarus-4.2-fpc-3.2.2-win64.exe)到Win10中。  
   + 安裝英文版，預設安裝路徑及選項。  
-    + 介面語言有簡體中文，安裝後可以再進去改語言設定。  
+    + 介面語言有簡體中文，安裝後可以再進去改語言設定。
+  + 第一次開啟要選擇IDE Layout:
+    + 選 **Modern IDE(Single-Window)**
+    + 選 **Modern Form Editor(docked/tabbed)**
+    + 按下 **Start IDE**
+    
 ### 線上安裝Package。  
 + 在連接網路的情況下:  
   + 選擇「Package>Online Package Manager ...」，開啟後靜待一下，等清單載入。  
