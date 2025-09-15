@@ -64,8 +64,8 @@
         + 4.1.2.1 說明:設定窗體的標題列文字。  
       + **4.1.3 設定「Form1」的「properties」頁面下「Color」為「clWindow」。**  
         + 4.1.3.1 說明:設定成白色使工具列元件底色是白色。  
-      + **4.1.4 設定「Form1」的「properties」頁面下「Height」為「800」。**  
-        + 4.1.4.1 說明:設定窗體的外框高度。  
+      + **4.1.4 設定「Form1」的「properties」頁面下「Height」為「700」。**  
+        + 4.1.4.1 說明:設定窗體的外框高度。Lazarus比較特別，窗體不含標題之類的區域，只有內部，所以會比Delphi還大一點。
       + **4.1.5 設定「Form1」的「properties」頁面下「Position」為「poScreenCenter」。**  
         + 4.1.5.1 說明:設定窗體的出現位置，建議是用「poScreenCenter」，在螢幕中央。  
       + **4.1.6 設定「Form1」的「properties」頁面下「Width」為「1100」。**  
