@@ -52,7 +52,7 @@
       + 3.1.1 說明: 程式圖示。  
     + 3.2 檢查「Application」頁面下「Execution Level 」為「As Invoker」。  
       + 3.2.1 說明: 「As Invoker、Highest Available」都是普通權限就可以執行，「requireAdministrator」是執行前請求獲得管理者權限才能執行。
-    + **3.3 選擇「Project>Project Options ...」設定「Compiler Options」頁面下，按下「Build modes」最右邊的「...」按鈕。再按「Create Debug and Release modes」，並將「Release」勾選「Active」，再按「OK」，再按「OK」**
+    + **3.3 選擇「Project>Project Options ...」設定「Compiler Options」頁面下，按下「Build modes」最右邊的「齒輪」按鈕。再按「Create Debug and Release modes」，並將「Release」勾選「Active」，再按「OK」，再按「OK」**
       + 3.3.1 說明: 用Debug有時候防毒會報錯。  
 4. 預設狀況下就有一個Form元件存在，預設名稱叫做「Form1」，先做一些基礎設定以利後續排版。  
     + 4.1 設定「Form1」的「properties」。這裡主要列出常用的一些。  
