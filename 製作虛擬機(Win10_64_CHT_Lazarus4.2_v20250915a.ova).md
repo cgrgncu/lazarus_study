@@ -27,13 +27,10 @@
 ### 線上安裝Package。  
 + 在連接網路的情況下:  
   + 選擇「Package>Online Package Manager ...」，開啟後靜待一下，等清單載入。  
-  + 從清單中勾選「Indy10」與「UniqueInstance」，再按下位於視窗下方的「Install」。
+  + 從清單中勾選「Indy10」、「UniqueInstance」、「LazSerial」與「PythonForLazarus」，再按下位於視窗下方的「Install」。
   + 出現提示「Do you want to rebuild Lazarus with profiles: Normal IDE?」，按下「Yes」。
   + 等待編譯完成會重新啟動IDE。
-+ 固定IDE的小視窗們:
-  + 「Package」>「Install/Uninstall Packages ...」
-  + 從右側「Available for installation」下方清單找到並多選「anchordockingdsgn 1.0」、「dockedformediteor 0.0」，再按下位於視窗下方的「Install selection」。
-  + 最後按一次最下方「Save and rebuild IDE」，再按「Continue」，接下來要稍等一下子，完成後會自動重新開啟主程式。
+
         
 ### 離線安裝方法(前面成功就不需要用這個)
 + Indy10:
