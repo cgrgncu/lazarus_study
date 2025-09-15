@@ -25,9 +25,9 @@
 ### 開發紀錄(製作APP Icon)  
 + 使用工具1: https://icon.kitchen/  
   + IOS Icon  
-  + Text: 「TProcess」  
+  + Text: 「R2MS Lite」  
   + BackGround>Type=「Gradient」  
-  + More>Badge = 「example01」  
+  + More>Badge = 「Scheduler」  
 + 再使用工具2: https://tfin.ch/iosicon.html  
   + 輸出有圓角的圖片  
 + 再使用工具3: PNG轉ICO線上工具 例如:https://www.aconvert.com/tw/icon/png-to-ico/
