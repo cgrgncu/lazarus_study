@@ -91,7 +91,7 @@
         var
           temp_str: AnsiString;
         begin
-          temp_str:='作者: HsiuPoYeh.'+#13#10+'程式版本: '+version_str;
+          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str;
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
         ```  
