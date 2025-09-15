@@ -3,6 +3,14 @@
 + 更新日期: 2025-09-15
 + 使用「Win10_64_CHT_START_v20241022a.ova」。  
 + 輸出為「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。  
++ 安裝套件:
+  + Indy10
+    + 官網: http://www.indyproject.org
+  + UniqueInstance
+  + LazSerial
+    + 官網: https://github.com/JurassicPork/TLazSerial
+  + PythonForLazarus
+    + 官網: http://wiki.freepascal.org/Using_Python_in_Lazarus_on_Windows/Linux
 
 ### 安裝主程式  
 + 依照官網建議，為了避免DPI問題，各項操作建議(安裝IDE、設計窗體、編寫程式碼)在縮放大小100%的情況下進行。編譯出來的軟體可以拿去其他DPI設定下的電腦測試。  
