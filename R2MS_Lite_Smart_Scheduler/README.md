@@ -94,4 +94,67 @@
           temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str;
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
-        ```  
+        ```
+6. 設計狀態列。經典的Windows應用程式會在下方放置一個狀態列。如果不趕時間應該避免當作SimplePanel來使用。建議使用標準的(TStatusPanels)來規劃出多分隔的狀態列。可參考經典軟體「記事本」與「NotePad++」的狀態列規劃。
+  + **6.1 拖拉一個「TStatusBar」到「Form1」中。預設名稱會是「StatusBar1」。**
+  + **6.2 設定「TStatusBar」的「Properties」。這裡主要列出常用的一些。**
+  + 6.2.1 檢查「StatusBar1」的「Properties」頁面下「Align」為「alBottom」。
+    + 6.2.1.1 說明:設定狀態列位置緊貼窗體下方。**
+  + **6.2.2 設定「StatusBar1」的「Properties」頁面下「Panel」，按下「...」後會出現編輯介面。從編輯介面建立5個TStatusPanels。**
+    + 6.2.2.1 說明:建立狀態列中多個小版面。
+  + **6.2.3 設定各「TStatusPanels」的「Properties」。**
+    + 6.2.3.1 檢查「TStatusPanels」的「Properties」頁面下「Alignment」為「taLeftJustify」。
+      + 6.2.3.1.1 說明:「taLeftJustify」是文字靠左對齊，「taCenter」是文字水平置中，「taRightJustify」是文字靠右對齊。注意，如果有人改掉「BiDiMode」可能會顛倒，所以建議不要動「BiDiMode」這個屬性。
+    + 6.2.3.2 檢查「TStatusPanels」的「Properties」頁面下「Style」為「psText」。
+      + 6.2.3.2.1 說明:「psText」是可寫文字，「psOwnerDraw」是用另外的函數處理非文字。
+    + **6.2.3.3 設定「TStatusPanels」的「Properties」頁面下「Text」為「初始文字」。**
+      + 6.2.3.3.1 說明:初始文字可以預先在排版階段測試顯示效果，其中最靠右會被吃掉字元，請依需求測試設定文字內容。
+    + **6.2.3.4 設定「TStatusPanels」的「Properties」頁面下「Width」為「120」。**
+      + 6.2.3.4.1 說明:可以搭配初始文字來調整Width，以利排版。預設只能靠右對齊來分配欄位，其他效果則需要利用程式碼做調整。
+    + **6.2.4 設定「StatusBar1」的「Properties」頁面下「SimplePanel」為「false」。**
+      + 6.2.4.1 說明:要使前面設定的TStatusPanels有效，須將「SimplePanel」設為「false」。
+  + 6.3 設定「TStatusBar」的「Event」。
+    + **6.3.1 設定「StatusBar1」的「Event」頁面下「OnResize」為如下程式碼。**
+    ```
+    void __fastcall TForm1::StatusBar1Resize(TObject *Sender)
+    {
+    int temp_remain_width=StatusBar1->Width;
+    //--
+    // 先配置最後一格，希望是150
+    StatusBar1->Panels->Items[4]->Width=150;
+    // 計算剩餘空間
+    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[4]->Width;
+    //--
+    // 配置隔壁一格，希望是100
+    StatusBar1->Panels->Items[3]->Width=100;
+    if (temp_remain_width<StatusBar1->Panels->Items[3]->Width)
+    {
+    StatusBar1->Panels->Items[3]->Width=temp_remain_width;
+    }
+    // 計算剩餘空間
+    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[3]->Width;
+    //--
+    // 配置隔壁一格，希望是100
+    StatusBar1->Panels->Items[2]->Width=100;
+    if (temp_remain_width<StatusBar1->Panels->Items[2]->Width)
+    {
+    StatusBar1->Panels->Items[2]->Width=temp_remain_width;
+    }
+    // 計算剩餘空間
+    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[2]->Width;
+    //--
+    // 配置隔壁一格，希望是100
+    StatusBar1->Panels->Items[1]->Width=100;
+    if (temp_remain_width<StatusBar1->Panels->Items[1]->Width)
+    {
+    StatusBar1->Panels->Items[1]->Width=temp_remain_width;
+    }
+    // 計算剩餘空間
+    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[1]->Width;
+    //--
+    // 最前方一格享受最大空間
+    StatusBar1->Panels->Items[0]->Width=temp_remain_width;
+    //--
+    }
+    ```
+    
