@@ -29,7 +29,7 @@
   + BackGround>Type=「Gradient」  
   + More>Badge = 「Scheduler」  
 + 再使用工具2: https://tfin.ch/iosicon.html  
-  + 輸出有圓角的圖片  
+  + 輸出有圓角的圖片。通常選 **android/play_store_512.png** 來做圓角。
 + 再使用工具3: PNG轉ICO線上工具 例如:https://www.aconvert.com/tw/icon/png-to-ico/
   + 需要的多解析度包含:  
     + 全部清單中有的
