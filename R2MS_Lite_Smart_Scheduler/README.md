@@ -203,8 +203,20 @@
     + **2.2 拖拉一個「Standard>TLabel」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Label」**
       + **2.2.1 設定「Caption」為「存檔路徑:」。**
       + **2.2.2 設定「Left」為「27」。**
-      + **2.2.3 設定「Top」為「23」。** 
-    + **2.3 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
+      + **2.2.3 設定「Top」為「23」。**
+    + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
+      + **2.3.1 設定「Anchors」。**  
+        + **2.3.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+        + **2.3.1.2 「Left anchoring>Slbling」維持「(nil)」。取消「Left anchoring>Enable」為不打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **2.3.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.3.1.4 「Border space」右邊那格填「16」。**  
+        + **2.3.1.5 設定完後關閉Anchors設定視窗。**  
+      + **2.3.2 設定「Caption」為「開啟資料夾」。**
+      + **2.3.2 設定「Height」為「41」。**
+      + **2.3.2 設定「Top」為「16」。**
+      + **2.3.2 設定「Width」為「105」。**
+
+    + **2.3 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Edit」**
       + **2.2.1 設定「Anchors」。**  
         + **2.2.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
         + **2.2.1.2 「Left anchoring>Slbling」選為「ExternalProgramParameters_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
