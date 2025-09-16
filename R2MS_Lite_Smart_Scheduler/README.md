@@ -116,45 +116,60 @@
   + 6.3 設定「TStatusBar」的「Event」。
     + **6.3.1 設定「StatusBar1」的「Event」頁面下「OnResize」為如下程式碼。**
     ```
-    void __fastcall TForm1::StatusBar1Resize(TObject *Sender)
-    {
-    int temp_remain_width=StatusBar1->Width;
-    //--
-    // 先配置最後一格，希望是150
-    StatusBar1->Panels->Items[4]->Width=150;
-    // 計算剩餘空間
-    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[4]->Width;
-    //--
-    // 配置隔壁一格，希望是100
-    StatusBar1->Panels->Items[3]->Width=100;
-    if (temp_remain_width<StatusBar1->Panels->Items[3]->Width)
-    {
-    StatusBar1->Panels->Items[3]->Width=temp_remain_width;
-    }
-    // 計算剩餘空間
-    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[3]->Width;
-    //--
-    // 配置隔壁一格，希望是100
-    StatusBar1->Panels->Items[2]->Width=100;
-    if (temp_remain_width<StatusBar1->Panels->Items[2]->Width)
-    {
-    StatusBar1->Panels->Items[2]->Width=temp_remain_width;
-    }
-    // 計算剩餘空間
-    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[2]->Width;
-    //--
-    // 配置隔壁一格，希望是100
-    StatusBar1->Panels->Items[1]->Width=100;
-    if (temp_remain_width<StatusBar1->Panels->Items[1]->Width)
-    {
-    StatusBar1->Panels->Items[1]->Width=temp_remain_width;
-    }
-    // 計算剩餘空間
-    temp_remain_width=temp_remain_width-StatusBar1->Panels->Items[1]->Width;
-    //--
-    // 最前方一格享受最大空間
-    StatusBar1->Panels->Items[0]->Width=temp_remain_width;
-    //--
-    }
+    procedure TForm1.StatusBar1Resize(Sender: TObject);
+    var
+      temp_remain_width: Integer;
+    begin
+      // --
+      // 計算剩餘空間
+      temp_remain_width := StatusBar1.Width;
+    
+      // --
+      // 先配置最後一格（索引4），希望是200
+      //
+      StatusBar1.Panels.Items[4].Width := 200;
+      // 計算剩餘空間
+      temp_remain_width := temp_remain_width - StatusBar1.Panels.Items[4].Width;
+    
+      // --
+      // 配置隔壁一格（索引3），希望是150
+      //
+      StatusBar1.Panels.Items[3].Width := 150;
+      if temp_remain_width < StatusBar1.Panels.Items[3].Width then
+      begin
+        StatusBar1.Panels.Items[3].Width := temp_remain_width;
+      end;
+      // 計算剩餘空間
+      temp_remain_width := temp_remain_width - StatusBar1.Panels.Items[3].Width;
+    
+      // --
+      // 配置隔壁一格（索引2），希望是150
+      //
+      StatusBar1.Panels.Items[2].Width := 150;
+      if temp_remain_width < StatusBar1.Panels.Items[2].Width then
+      begin
+        StatusBar1.Panels.Items[2].Width := temp_remain_width;
+      end;
+      // 計算剩餘空間
+      temp_remain_width := temp_remain_width - StatusBar1.Panels.Items[2].Width;
+    
+      // --
+      // 配置隔壁一格（索引1），希望是150
+      //
+      StatusBar1.Panels.Items[1].Width := 150;
+      if temp_remain_width < StatusBar1.Panels.Items[1].Width then
+      begin
+        StatusBar1.Panels.Items[1].Width := temp_remain_width;
+      end;
+      // 計算剩餘空間
+      temp_remain_width := temp_remain_width - StatusBar1.Panels.Items[1].Width;
+    
+      // --
+      // 最前方一格（索引0）享受最大空間
+      //
+      StatusBar1.Panels.Items[0].Width := temp_remain_width;
+    
+      // --
+    end; 
     ```
     
