@@ -175,7 +175,7 @@
 7.設計視窗卷軸(TScrollBox)，避免窗體縮小後排板被吃掉。
   + **7.1 拖拉一個「Additional>TScrollBox」到「Form1」中。預設名稱會是「ScrollBox1」。**
   + **7.2 拖拉一個「Standard>TPanel」到「ScrollBox1」中。預設名稱會是「Panel1」，修改「Name」為「EmptyPanel」**
-    + 7.2.1 設定各「Panel1」的「Properties」。
+    + 7.2.1 設定「EmptyPanel」的「Properties」。
       + **7.2.1.1 設定「EmptyPanel」的「Properties」頁面下「BevelOuter」為「bvNone」。**
       + **7.2.1.2 設定「EmptyPanel」的「Properties」頁面下「Caption」為空白。**
       + **7.2.1.3 設定「EmptyPanel」的「Properties」頁面下「Left」為「926」。**
