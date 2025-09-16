@@ -3,7 +3,7 @@
 + 更新日期: 2025-09-15
 
 ## 開發環境  
-+ 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。
++ 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_Smart_Scheduler_v20250915a.ova」。**
   + Windows 10 22H2 64bit 企業版 繁體中文(SW_DVD9_Win_Pro_10_22H2.19_64BIT_ChnTrad_Pro_Ent_EDU_N_MLF_X23-74684.ISO)  
   + Lazarus 4.2 (lazarus-4.2-fpc-3.2.2-win64.exe)
     + 安裝套件:
