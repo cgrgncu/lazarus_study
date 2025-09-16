@@ -172,7 +172,7 @@
       // --
     end; 
     ```
-7.設計視窗卷軸(TScrollBox)，避免窗體縮小後排板被吃掉。
+7.設計視窗卷軸(TScrollBox)，搭配空白版面(TPanel)避免窗體縮小後排板被吃掉。
   + **7.1 拖拉一個「Additional>TScrollBox」到「Form1」中。預設名稱會是「ScrollBox1」。**
   + **7.2 拖拉一個「Standard>TPanel」到「ScrollBox1」中。預設名稱會是「Panel1」，修改「Name」為「EmptyPanel」**
     + 7.2.1 設定「EmptyPanel」的「Properties」。
@@ -180,4 +180,36 @@
       + **7.2.1.2 設定「EmptyPanel」的「Properties」頁面下「Caption」為空白。**
       + **7.2.1.3 設定「EmptyPanel」的「Properties」頁面下「Left」為「926」。**
       + **7.2.1.4 設定「EmptyPanel」的「Properties」頁面下「Top」為「624」。**
-      + 
+
+### 開發紀錄(主頁面)  
+1. 四個分頁(TPageControl):  
+    + **1.1 拖拉一個「Common Controls>TPageControl」到「ScrollBox1」中。預設名稱會是「PageControl1」。**  
+      + **1.1.1 設定「Align」為「AlClient」。**
+      + **1.1.2 設定「Font」，按下「...」，選「大小」為「14」。**
+    + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」。**
+      + **1.2.1 設定「Caption」為「智慧排程工具」。**
+    + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet2」。**
+      + **1.3.1 設定「Caption」為「參數檔案內容」。**
+    + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。** 
+      + **1.4.1 設定「Caption」為「運行紀錄」。**
+    + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。**
+      + **1.5.1 設定「Caption」為「更新紀錄」。**
+      
+2. 第一個分頁「智慧排程工具」(TabSheet1):  
+    + **2.1 拖拉一個「Standard>TLabel」到「Form1」中。預設名稱會是「Label1」。**  
+      + **2.1.1 設定「Anchors」。**  
+        + **2.1.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
+        + **2.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **2.1.1.3 「Border space」正中間那格填「20」。**  
+        + **2.1.1.4 設定完後關閉Anchors設定視窗。**  
+      + **2.1.2 設定「Caption」為「外部應用程式參數:」。**  
+      + **2.1.3 設定「Name」為「ExternalProgramParameters_Label」。**  
+    + **2.2 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
+      + **2.2.1 設定「Anchors」。**  
+        + **2.2.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
+        + **2.2.1.2 「Left anchoring>Slbling」選為「ExternalProgramParameters_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
+        + **2.2.1.3 「Right anchoring>Slbling」選為「Form1:TForm1」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.2.1.4 「Border space」正中間那格填「10」，上面那格填「7」，右邊那格填「20」。**  
+        + **2.2.1.5 設定完後關閉Anchors設定視窗。**  
+      + **2.2.2 設定「Name」為「ExternalProgramParameters_Edit」。**  
+      + **2.2.3 設定「Text」為「/c "dir"」。**
