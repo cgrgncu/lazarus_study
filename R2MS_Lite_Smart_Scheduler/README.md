@@ -200,7 +200,11 @@
       + **2.1.1 設定「Align」為「AlTop」。**
       + **2.1.2 設定「Caption」為「ERT_ver2_9_9_Client」。**
       + **2.1.3 設定「Height」為「550」。**
-    + **2.2 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
+    + **2.2 拖拉一個「Standard>TLabel」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Label」**
+      + **2.2.1 設定「Caption」為「存檔路徑:」。**
+      + **2.2.2 設定「Left」為「27」。**
+      + **2.2.3 設定「Top」為「23」。** 
+    + **2.3 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
       + **2.2.1 設定「Anchors」。**  
         + **2.2.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
         + **2.2.1.2 「Left anchoring>Slbling」選為「ExternalProgramParameters_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選右邊的。**  
