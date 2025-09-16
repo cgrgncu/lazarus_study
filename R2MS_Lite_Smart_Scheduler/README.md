@@ -196,14 +196,10 @@
       + **1.5.1 設定「Caption」為「更新紀錄」。**
       
 2. 第一個分頁「智慧排程工具」(TabSheet1):  
-    + **2.1 拖拉一個「Standard>TLabel」到「Form1」中。預設名稱會是「Label1」。**  
-      + **2.1.1 設定「Anchors」。**  
-        + **2.1.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**  
-        + **2.1.1.2 「Left anchoring>Slbling」選為「Form1:TForm1」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.1.1.3 「Border space」正中間那格填「20」。**  
-        + **2.1.1.4 設定完後關閉Anchors設定視窗。**  
-      + **2.1.2 設定「Caption」為「外部應用程式參數:」。**  
-      + **2.1.3 設定「Name」為「ExternalProgramParameters_Label」。**  
+    + **2.1 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_ver2_9_9_Client_GroupBox」**
+      + **2.1.1 設定「Align」為「AlTop」。**
+      + **2.1.2 設定「Caption」為「ERT_ver2_9_9_Client」。**
+      + **2.1.3 設定「Height」為「550」。**
     + **2.2 拖拉一個「Standard>TEdit」到「Form1」中。預設名稱會是「Edit1」。**  
       + **2.2.1 設定「Anchors」。**  
         + **2.2.1.1 「Top anchoring>Slbling」選為「ExternalProgram_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
