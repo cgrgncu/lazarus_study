@@ -366,7 +366,7 @@
       + **2.22.2 設定「Text」為空白。**  
     + **2.23 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ScheduleSetting_GroupBox」**
       + **2.23.1 設定「Anchors」。** 
-        + **2.23.1.1 「Top anchoring>Slbling」選為「PSU_SN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **2.23.1.1 「Top anchoring>Slbling」選為「PSU_SN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
         + **2.23.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
         + **2.23.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
         + **2.23.1.4 「Bottom anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
@@ -376,4 +376,8 @@
       + **2.24.1 設定「Caption」為「每天」。**
       + **2.24.2 設定「Left」為「48」。**
       + **2.24.3 設定「Top」為「8」。**
-
+    + **2.25 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「OnlyToday_RadioButton」**
+      + **2.25.1 設定「Caption」為「只有今天」。**
+      + **2.25.2 設定「Left」為「134」。**
+      + **2.25.3 設定「Top」為「8」。**
+ListView1
