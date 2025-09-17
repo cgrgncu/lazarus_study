@@ -538,4 +538,21 @@
         
         
         ```
-      + **2.26.3 設定「ScrollBars」為「ssBoth」。**
+      + **2.26.3 設定「ReadOnly」為「True」。**
+      + **2.26.4 設定「ScrollBars」為「ssBoth」。**
+3. 第2個分頁「參數檔案內容」(TabSheet2):  
+    + **3.1 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「v299_DefaultSetting_GroupBox」**
+      + **2.1.1 設定「Align」為「AlTop」。**
+      + **2.1.2 設定「Caption」為「v299_DefaultSetting」。**
+      + **2.1.3 設定「Height」為「300」。**
+    + **3.1 拖拉一個「Standard>TMemo」到「TabSheet2」中。預設名稱會是「Memo1」，修改「Name」為「v299_DefaultSetting_Memo」**
+      + **3.1.1 設定「Anchors」。**  
+        + **3.1.1.1 「Top anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **3.1.1.2 「Left anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **3.1.1.3 「Right anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **3.1.1.4 「Bottom anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **3.1.1.5 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
+        + **3.1.1.6 設定完後關閉Anchors設定視窗。**  
+      + **3.1.2 設定「Lines」清空。**
+      + **3.1.3 設定「ReadOnly」為「True」。**
+      + **3.1.4 設定「ScrollBars」為「ssBoth」。**
