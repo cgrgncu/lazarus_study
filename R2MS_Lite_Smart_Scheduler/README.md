@@ -545,7 +545,7 @@
       + **3.1.1 設定「Align」為「AlTop」。**
       + **3.1.2 設定「Caption」為「v299_DefaultSetting」。**
       + **3.1.3 設定「Height」為「250」。**
-    + **3.2 拖拉一個「Standard>TMemo」到「TabSheet2」中。預設名稱會是「Memo1」，修改「Name」為「v299_DefaultSetting_Memo」**
+    + **3.2 拖拉一個「Standard>TMemo」到「v299_DefaultSetting_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「v299_DefaultSetting_Memo」**
       + **3.2.1 設定「Anchors」。**  
         + **3.2.1.1 「Top anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
         + **3.2.1.2 「Left anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
@@ -560,7 +560,7 @@
       + **3.3.1 設定「Align」為「AlTop」。**
       + **3.3.2 設定「Caption」為「v299_NowSetting」。**
       + **3.3.3 設定「Height」為「250」。**
-    + **3.4 拖拉一個「Standard>TMemo」到「TabSheet2」中。預設名稱會是「Memo1」，修改「Name」為「v299_NowSetting_Memo」**
+    + **3.4 拖拉一個「Standard>TMemo」到「v299_NowSetting_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「v299_NowSetting_Memo」**
       + **3.4.1 設定「Anchors」。**  
         + **3.4.1.1 「Top anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
         + **3.4.1.2 「Left anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
@@ -571,5 +571,18 @@
       + **3.4.2 設定「Lines」清空。**
       + **3.4.3 設定「ReadOnly」為「True」。**
       + **3.4.4 設定「ScrollBars」為「ssBoth」。**
-
+    + **3.5 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「TXT_GroupBox」**
+      + **3.5.1 設定「Align」為「AlClient」。**
+      + **3.5.2 設定「Caption」為「TXT」。**
+    + **3.4 拖拉一個「Standard>TMemo」到「TXT_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「v299_NowSetting_Memo」**
+      + **3.4.1 設定「Anchors」。**  
+        + **3.4.1.1 「Top anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **3.4.1.2 「Left anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **3.4.1.3 「Right anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **3.4.1.4 「Bottom anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **3.4.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **3.4.1.6 設定完後關閉Anchors設定視窗。**  
+      + **3.4.2 設定「Lines」清空。**
+      + **3.4.3 設定「ReadOnly」為「True」。**
+      + **3.4.4 設定「ScrollBars」為「ssBoth」。**
 
