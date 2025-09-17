@@ -347,16 +347,16 @@
         + **2.20.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
         + **2.20.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.20.2 設定「Text」為空白。**  
-    + **2.17 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ESP32_GroupBox」**
-      + **2.17.1 設定「Anchors」。**  
-        + **2.17.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.17.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.17.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.17.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
-        + **2.17.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.17.2 設定「Caption」為「SwitchArray序列埠:」。**
-      + **2.17.3 設定「Height」為「66」。**
-      + **2.17.4 設定「Top」為「207」。**
+    + **2.21 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_GroupBox」**
+      + **2.21.1 設定「Anchors」。**  
+        + **2.21.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+        + **2.21.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+        + **2.21.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.21.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
+        + **2.21.1.5 設定完後關閉Anchors設定視窗。**  
+      + **2.21.2 設定「Caption」為「PSU序列埠:」。**
+      + **2.21.3 設定「Height」為「66」。**
+      + **2.21.4 設定「Top」為「279」。**
     + **2.18 拖拉一個「Standard>TEdit」到「DMM_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ESP32_Edit」**
       + **2.18.1 設定「Anchors」。**  
         + **2.18.1.1 「Top anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
