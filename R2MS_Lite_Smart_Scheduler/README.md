@@ -597,3 +597,27 @@
       + **3.7.2 設定「Lines」清空。**
       + **3.7.3 設定「ReadOnly」為「True」。**
       + **3.7.4 設定「ScrollBars」為「ssBoth」。**
+4. 第3個分頁「運行紀錄」(TabSheet3):  
+    + **4.1 拖拉一個「Standard>TMemo」到「TabSheet3」中。預設名稱會是「Memo1」，修改「Name」為「RunningLog_Memo」**
+      + **4.1.1 設定「Align」為「alClient」。**
+      + **4.1.2 設定「Lines」清空。**
+      + **4.1.3 設定「ReadOnly」為「True」。**
+      + **4.1.4 設定「ScrollBars」為「ssBoth」。**
+5. 第4個分頁「更新紀錄」(TabSheet4):  
+    + **5.1 拖拉一個「Standard>TMemo」到「TabSheet4」中。預設名稱會是「Memo1」，修改「Name」為「Update_Memo」**
+      + **5.1.1 設定「Align」為「alClient」。**
+      + **5.1.2 設定「Lines」為以下文字。**
+        ```
+        軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
+        作者: HsiupoYeh
+        --
+        v20250918a
+        重新調整UI。
+        --
+        v20240510a:
+        初版
+        
+        ```
+      + **5.1.3 設定「ReadOnly」為「True」。**
+      + **5.1.4 設定「ScrollBars」為「ssBoth」。**
+
