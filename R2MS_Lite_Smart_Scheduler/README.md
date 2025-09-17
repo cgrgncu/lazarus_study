@@ -215,7 +215,6 @@
       + **2.3.2 設定「Height」為「41」。**
       + **2.3.2 設定「Top」為「16」。**
       + **2.3.2 設定「Width」為「105」。**
-
     + **2.4 拖拉一個「Standard>TEdit」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Edit」**
       + **2.4.1 設定「Anchors」。**  
         + **2.4.1.1 「Top anchoring>Slbling」選為維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
@@ -224,8 +223,7 @@
         + **2.4.1.4 「Border space」正中間那格填「0」，左邊那格填「5」，右邊那格填「15」。**  
         + **2.4.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.4.2 設定「Text」為空白。**  
-      + **2.4.3 設定「Top」為「20」。**
-   
+      + **2.4.3 設定「Top」為「20」。**   
     + **2.5 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「NowRun_Button」**
       + **2.5.1 設定「Caption」為「立刻單次運行」。**
       + **2.5.2 設定「Height」為「49」。**
@@ -245,3 +243,11 @@
       + **2.5.3 設定「Left」為「180」。**
       + **2.5.4 設定「Top」為「63」。**
       + **2.5.5 設定「Width」為「400」。**
+    + **2.8 拖拉一個「Standard>TEdit」到「ERT_Profile_Name_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_Profile_Name_Edit」**
+      + **2.4.1 設定「Anchors」。**  
+        + **2.4.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+        + **2.4.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **2.4.1.3 「Right anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.4.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+        + **2.4.1.5 設定完後關閉Anchors設定視窗。**  
+      + **2.4.2 設定「Text」為空白。**  
