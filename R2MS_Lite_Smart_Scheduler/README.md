@@ -230,11 +230,17 @@
       + **2.5.3 設定「Left」為「8」。**
       + **2.5.4 設定「Top」為「77」。**
       + **2.5.5 設定「Width」為「163」。**   
+    + **2.5a 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「NowSystemTest_Button」**
+      + **2.5a.1 設定「Caption」為「立刻單次檢測」。**
+      + **2.5a.2 設定「Height」為「49」。**
+      + **2.5a.3 設定「Left」為「8」。**
+      + **2.5a.4 設定「Top」為「144」。**
+      + **2.5a.5 設定「Width」為「163」。**
     + **2.6 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ScheduleRun_Button」**
       + **2.6.1 設定「Caption」為「啟動智慧排程」。**
       + **2.6.2 設定「Height」為「49」。**
       + **2.6.3 設定「Left」為「8」。**
-      + **2.6.4 設定「Top」為「144」。**
+      + **2.6.4 設定「Top」為「211」。**
       + **2.6.5 設定「Width」為「163」。**
     + **2.7 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_Profile_Name_GroupBox」**
       + **2.7.1 設定「Caption」為「測線名稱:」。**
