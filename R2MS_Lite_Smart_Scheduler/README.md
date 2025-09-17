@@ -332,7 +332,6 @@
         + **2.18.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
         + **2.18.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.18.2 設定「Text」為空白。**
-
     + **2.19 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_SN_GroupBox」**
       + **2.19.1 設定「Caption」為「PSU序號:」。**
       + **2.19.2 設定「Height」為「66」。**
@@ -365,3 +364,16 @@
         + **2.22.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
         + **2.22.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.22.2 設定「Text」為空白。**  
+    + **2.23 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ScheduleSetting_GroupBox」**
+      + **2.23.1 設定「Anchors」。**  
+        + **2.23.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+        + **2.23.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
+        + **2.23.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+        + **2.23.1.4 「Bottom anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **2.23.1.5 「Border space」正中間那格填「0」，右邊那格填「15」，下面那格填「3」。**  
+        + **2.23.1.6 設定完後關閉Anchors設定視窗。**  
+      + **2.23.3 設定「Left」為「180」。**
+      + **2.23.4 設定「Top」為「279」。**
+      + **2.23.5 設定「Width」為「400」。**
+
+ScheduleSetting_GroupBox
