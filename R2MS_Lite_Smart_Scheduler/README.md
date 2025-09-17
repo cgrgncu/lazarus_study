@@ -574,15 +574,16 @@
     + **3.5 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「TXT_GroupBox」**
       + **3.5.1 設定「Align」為「AlClient」。**
       + **3.5.2 設定「Caption」為「TXT」。**
-    + **3.4 拖拉一個「Standard>TMemo」到「TXT_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「v299_NowSetting_Memo」**
-      + **3.4.1 設定「Anchors」。**  
-        + **3.4.1.1 「Top anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
-        + **3.4.1.2 「Left anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **3.4.1.3 「Right anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **3.4.1.4 「Bottom anchoring>Slbling」選為「v299_NowSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
-        + **3.4.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
-        + **3.4.1.6 設定完後關閉Anchors設定視窗。**  
-      + **3.4.2 設定「Lines」清空。**
-      + **3.4.3 設定「ReadOnly」為「True」。**
-      + **3.4.4 設定「ScrollBars」為「ssBoth」。**
+    + **3.6 拖拉一個「Standard>TMemo」到「TXT_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「TXT_Memo」**
+      + **3.6.1 設定「Anchors」。**  
+        + **3.6.1.1 「Top anchoring>Slbling」選為「TXT_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **3.6.1.2 「Left anchoring>Slbling」選為「TXT_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **3.6.1.3 「Right anchoring>Slbling」維持「nil」。維持「Right anchoring>Enable」不打勾。維持「Right anchoring」右側三個鈕選右邊的。**  
+        + **3.6.1.4 「Bottom anchoring>Slbling」選為「TXT_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **3.6.1.5 「Border space」正中間那格填正中間那格填「0」，上面那格填「3」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **3.6.1.6 設定完後關閉Anchors設定視窗。**  
+      + **3.6.2 設定「Lines」清空。**
+      + **3.6.3 設定「ReadOnly」為「True」。**
+      + **3.6.4 設定「ScrollBars」為「ssBoth」。**
+      + **3.6.5 設定「Width」為「800」。**
 
