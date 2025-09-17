@@ -380,4 +380,12 @@
       + **2.25.1 設定「Caption」為「只有今天」。**
       + **2.25.2 設定「Left」為「134」。**
       + **2.25.3 設定「Top」為「8」。**
-ListView1
+    + **2.25 拖拉一個「Standard>TListView」到「ScheduleSetting_GroupBox」中。預設名稱會是「ListView1」，修改「Name」為「ScheduleSetting_ListView」**
+      + **2.25.1 設定「Anchors」。** 
+        + **2.25.1.1 「Top anchoring>Slbling」選為「EveryDay_RadioButton:TRadioButton」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **2.25.1.2 「Left anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
+        + **2.25.1.3 「Right anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+        + **2.25.1.4 「Bottom anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **2.25.1.5 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **2.25.1.6 設定完後關閉Anchors設定視窗。**  
+      + **2.25.2 設定「Font」，按下「...」，選「大小」為「12」。**
