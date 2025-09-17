@@ -372,5 +372,8 @@
         + **2.23.1.4 「Bottom anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
         + **2.23.1.5 「Border space」正中間那格填「0」，右邊那格填「15」，下面那格填「3」。**  
         + **2.23.1.6 設定完後關閉Anchors設定視窗。**  
+    + **2.24 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「EveryDay_RadioButton」**
+      + **2.24.1 設定「Caption」為「每天」。**
+      + **2.24.2 設定「Left」為「48」。**
+      + **2.24.3 設定「Top」為「8」。**
 
-ScheduleSetting_GroupBox
