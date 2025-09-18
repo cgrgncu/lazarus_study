@@ -78,12 +78,15 @@
       + 5.3.1 設定「MainMenu1_1_1」的「Event」。  
         + **5.3.1.1 原始碼最前面部分先宣告為如下程式碼。**  
         ```pascal  
+        implementation
+        
+        //--------------------------------------------------------------------------
+        //Global Variable add by HsiupoYeh
         var
-          Form1: TForm1;
-          //--
-          //Global Variable add by HsiupoYeh
           version_str: AnsiString = 'v20250915a';
-          //--  
+        //--------------------------------------------------------------------------
+        
+        {$R *.lfm}    
         ```  
         + **5.3.1.2 設定「MainMenu1_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal  
