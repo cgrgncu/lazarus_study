@@ -400,15 +400,15 @@
         + **2.25.1.5 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「15」，右邊那格填「15」，下面那格填「3」。**  
         + **2.25.1.6 設定完後關閉Anchors設定視窗。**
       + **2.25.2 設定「Caption」為「啟動時間設定:」。**
-    + **2.24 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「EveryDay_RadioButton」**
-      + **2.24.1 設定「Caption」為「每天」。**
-      + **2.24.2 設定「Left」為「48」。**
-      + **2.24.3 設定「Top」為「8」。**
-    + **2.25 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「OnlyToday_RadioButton」**
-      + **2.25.1 設定「Caption」為「只有今天」。**
-      + **2.25.2 設定「Left」為「134」。**
-      + **2.25.3 設定「Top」為「8」。**
-    + **2.25 拖拉一個「Standard>TListView」到「ScheduleSetting_GroupBox」中。預設名稱會是「ListView1」，修改「Name」為「ScheduleSetting_ListView」**
+    + **2.26 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「EveryDay_RadioButton」**
+      + **2.26.1 設定「Caption」為「每天」。**
+      + **2.26.2 設定「Left」為「48」。**
+      + **2.26.3 設定「Top」為「8」。**
+    + **2.27 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「OnlyToday_RadioButton」**
+      + **2.27.1 設定「Caption」為「只有今天」。**
+      + **2.27.2 設定「Left」為「134」。**
+      + **2.27.3 設定「Top」為「8」。**
+    + **2.28 拖拉一個「Standard>TListView」到「ScheduleSetting_GroupBox」中。預設名稱會是「ListView1」，修改「Name」為「ScheduleSetting_ListView」**
       + **2.25.1 設定「Anchors」。** 
         + **2.25.1.1 「Top anchoring>Slbling」選為「EveryDay_RadioButton:TRadioButton」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
         + **2.25.1.2 「Left anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
@@ -418,43 +418,44 @@
         + **2.25.1.6 設定完後關閉Anchors設定視窗。**
       + **2.25.2 設定「Checkboxes」，打勾為「True」。**
       + **2.25.3 設定「Font」，按下「...」，選「大小」為「12」。**
-      + **2.25.4 設定「Columns」，按下「...」，利用「Add」增加6個項目。**
-        + 2.25.4.1 第1個項目:
-          + **2.25.4.1.1 設定「Caption」為「索引」。**
-          + **2.25.4.1.2 設定「Width」為「80」。**
-        + 2.25.4.2 第2個項目:
-          + **2.25.4.2.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.2.2 設定「Caption」為「排程時間(HH:NN)」。**
-          + **2.25.4.2.3 設定「Width」為「150」。**
-        + 2.25.4.3 第3個項目:
-          + **2.25.4.3.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.3.2 設定「Caption」為「放電模式」。**
-          + **2.25.4.3.3 設定「Width」為「100」。**
-        + 2.25.4.4 第4個項目:
-          + **2.25.4.4.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.4.2 設定「Caption」為「限電壓」。**
-          + **2.25.4.4.3 設定「Width」為「80」。**
-        + 2.25.4.5 第5個項目:
-          + **2.25.4.5.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.5.2 設定「Caption」為「限電流」。**
-          + **2.25.4.5.3 設定「Width」為「80」。**
-        + 2.25.4.6 第6個項目:
-          + **2.25.4.6.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.6.2 設定「Caption」為「狀態」。**
-          + **2.25.4.6.3 設定「Width」為「100」。**
-        + 2.25.4.7 第7個項目:
-          + **2.25.4.7.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.7.2 設定「Caption」為「上次時間」。**
-          + **2.25.4.7.3 設定「Width」為「205」。**
-        + 2.25.4.8 第8個項目:
-          + **2.25.4.8.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.8.2 設定「Caption」為「下次時間」。**
-          + **2.25.4.8.3 設定「Width」為「205」。**
-        + 2.25.4.9 第8個項目:
-          + **2.25.4.9.1 設定「Alignment」為「taCenter」。**
-          + **2.25.4.9.2 設定「Caption」為「放電時間預估(分鐘)」。**
-          + **2.25.4.9.3 設定「Width」為「205」。**    
-      + **2.25.5 設定「Items」，按下「...」，利用「Add」增加26個項目。**
+      + **2.25.4 設定「ViewStyle」為「vsReport」。**
+      + **2.25.5 設定「Columns」，按下「...」，利用「Add」增加9個項目。**
+        + 2.25.5.1 第1個項目:
+          + **2.25.5.1.1 設定「Caption」為「索引」。**
+          + **2.25.5.1.2 設定「Width」為「80」。**
+        + 2.25.5.2 第2個項目:
+          + **2.25.5.2.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.2.2 設定「Caption」為「排程時間(HH:NN)」。**
+          + **2.25.5.2.3 設定「Width」為「150」。**
+        + 2.25.5.3 第3個項目:
+          + **2.25.5.3.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.3.2 設定「Caption」為「放電模式」。**
+          + **2.25.5.3.3 設定「Width」為「100」。**
+        + 2.25.5.4 第4個項目:
+          + **2.25.5.4.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.4.2 設定「Caption」為「限電壓」。**
+          + **2.25.5.4.3 設定「Width」為「80」。**
+        + 2.25.5.5 第5個項目:
+          + **2.25.5.5.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.5.2 設定「Caption」為「限電流」。**
+          + **2.25.5.5.3 設定「Width」為「80」。**
+        + 2.25.5.6 第6個項目:
+          + **2.25.5.6.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.6.2 設定「Caption」為「狀態」。**
+          + **2.25.5.6.3 設定「Width」為「100」。**
+        + 2.25.5.7 第7個項目:
+          + **2.25.5.7.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.7.2 設定「Caption」為「上次時間」。**
+          + **2.25.5.7.3 設定「Width」為「205」。**
+        + 2.25.5.8 第8個項目:
+          + **2.25.5.8.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.8.2 設定「Caption」為「下次時間」。**
+          + **2.25.5.8.3 設定「Width」為「205」。**
+        + 2.25.5.9 第9個項目:
+          + **2.25.5.9.1 設定「Alignment」為「taCenter」。**
+          + **2.25.5.9.2 設定「Caption」為「放電時間預估(分鐘)」。**
+          + **2.25.5.9.3 設定「Width」為「205」。**    
+      + **2.25.6 設定「Items」，按下「...」，利用「Add」增加26個項目。**
         + 2.25.5.1 第1個項目:
           + **2.25.5.1.1 設定「Caption」為「000」。**
           + **2.25.5.1.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「00:00」，其餘子項目「Caption」為空白。**
