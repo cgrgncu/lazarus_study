@@ -1,6 +1,6 @@
 # R2MS_Lite_Smart_Scheduler 開發筆記
 + 作者: HsiupoYeh  
-+ 更新日期: 2025-09-15
++ 更新日期: 2025-09-18
 
 ## 開發環境  
 + 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_Smart_Scheduler_v20250915a.ova」。**
