@@ -644,27 +644,73 @@
       + **3.7.2 設定「Lines」清空。**
       + **3.7.3 設定「ReadOnly」為「True」。**
       + **3.7.4 設定「ScrollBars」為「ssBoth」。**
-4. 第3個分頁「運行紀錄」(TabSheet3):  
-    + **4.1 拖拉一個「Standard>TMemo」到「TabSheet3」中。預設名稱會是「Memo1」，修改「Name」為「RunningLog_Memo」**
-      + **4.1.1 設定「Align」為「alClient」。**
-      + **4.1.2 設定「Lines」清空。**
-      + **4.1.3 設定「ReadOnly」為「True」。**
-      + **4.1.4 設定「ScrollBars」為「ssBoth」。**
-5. 第4個分頁「更新紀錄」(TabSheet4):  
-    + **5.1 拖拉一個「Standard>TMemo」到「TabSheet4」中。預設名稱會是「Memo1」，修改「Name」為「Update_Memo」**
+4. 第3個分頁「支援裝置」(TabSheet3):  
+    + **4.1 拖拉一個「Standard>TGroupBox」到「TabSheet3」中。預設名稱會是「GroupBox1」，修改「Name」為「DMM_SupportedSerialNumbers_GroupBox」**
+      + **4.1.1 設定「Align」為「AlTop」。**
+      + **4.1.2 設定「Caption」為「DMM支援裝置序號清單:」。**
+      + **4.1.3 設定「Height」為「200」。**
+    + **4.2 拖拉一個「Standard>TMemo」到「DMM_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「DMM_SupportedSerialNumbers_Memo」**
+      + **4.2.1 設定「Anchors」。**  
+        + **4.2.1.1 「Top anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **4.2.1.2 「Left anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **4.2.1.3 「Right anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **4.2.1.4 「Bottom anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **4.2.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **4.2.1.6 設定完後關閉Anchors設定視窗。**  
+      + **4.2.2 設定「Lines」清空。**
+      + **4.2.3 設定「ReadOnly」為「True」。**
+      + **4.2.4 設定「ScrollBars」為「ssBoth」。**
+    + **4.3 拖拉一個「Standard>TGroupBox」到「TabSheet3」中。預設名稱會是「GroupBox1」，修改「Name」為「ESP32_SupportedSerialNumbers_GroupBox」**
+      + **4.3.1 設定「Align」為「AlTop」。**
+      + **4.3.2 設定「Caption」為「SwitchArray支援裝置序號清單:」。**
+      + **4.3.3 設定「Height」為「200」。**
+    + **4.4 拖拉一個「Standard>TMemo」到「ESP32_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ESP32_SupportedSerialNumbers_Memo」**
+      + **4.4.1 設定「Anchors」。**  
+        + **4.4.1.1 「Top anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **4.4.1.2 「Left anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **4.4.1.3 「Right anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **4.4.1.4 「Bottom anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **4.4.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **4.4.1.6 設定完後關閉Anchors設定視窗。**  
+      + **4.4.2 設定「Lines」清空。**
+      + **4.4.3 設定「ReadOnly」為「True」。**
+      + **4.4.4 設定「ScrollBars」為「ssBoth」。**
+    + **4.5 拖拉一個「Standard>TGroupBox」到「TabSheet3」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_SupportedSerialNumbers_GroupBox」**
+      + **4.5.1 設定「Align」為「AlTop」。**
+      + **4.5.2 設定「Caption」為「PSU支援裝置序號清單:」。**
+      + **4.5.3 設定「Height」為「200」。**
+    + **4.6 拖拉一個「Standard>TMemo」到「PSU_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「PSU_SupportedSerialNumbers_Memo」**
+      + **4.6.1 設定「Anchors」。**  
+        + **4.6.1.1 「Top anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **4.6.1.2 「Left anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **4.6.1.3 「Right anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **4.6.1.4 「Bottom anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **4.6.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **4.6.1.6 設定完後關閉Anchors設定視窗。**  
+      + **4.6.2 設定「Lines」清空。**
+      + **4.6.3 設定「ReadOnly」為「True」。**
+      + **4.6.4 設定「ScrollBars」為「ssBoth」。**    
+5. 第4個分頁「運行紀錄」(TabSheet4):  
+    + **5.1 拖拉一個「Standard>TMemo」到「TabSheet4」中。預設名稱會是「Memo1」，修改「Name」為「RunningLog_Memo」**
       + **5.1.1 設定「Align」為「alClient」。**
-      + **5.1.2 設定「Lines」為以下文字。**
+      + **5.1.2 設定「Lines」清空。**
+      + **5.1.3 設定「ReadOnly」為「True」。**
+      + **5.1.4 設定「ScrollBars」為「ssBoth」。**
+6. 第5個分頁「更新紀錄」(TabSheet5):  
+    + **6.1 拖拉一個「Standard>TMemo」到「TabSheet5」中。預設名稱會是「Memo1」，修改「Name」為「Update_Memo」**
+      + **6.1.1 設定「Align」為「alClient」。**
+      + **6.1.2 設定「Lines」為以下文字。**
         ```
         軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
         作者: HsiupoYeh
         --
-        v20250918a
+        v20250919a
         重新調整UI。
         --
         v20240510a:
         初版
         
         ```
-      + **5.1.3 設定「ReadOnly」為「True」。**
-      + **5.1.4 設定「ScrollBars」為「ssBoth」。**
+      + **6.1.3 設定「ReadOnly」為「True」。**
+      + **6.1.4 設定「ScrollBars」為「ssBoth」。**
 
