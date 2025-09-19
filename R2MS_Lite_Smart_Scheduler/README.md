@@ -195,7 +195,7 @@
     + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet2」。**
       + **1.3.1 設定「Caption」為「參數檔案內容」。**
     + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。** 
-      + **1.4.1 設定「Caption」為「支援裝置」。**
+      + **1.4.1 設定「Caption」為「支援外部裝置」。**
     + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。**
       + **1.5.1 設定「Caption」為「運行紀錄」。**
     + **1.6 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet5」。**
@@ -644,7 +644,7 @@
       + **3.7.2 設定「Lines」清空。**
       + **3.7.3 設定「ReadOnly」為「True」。**
       + **3.7.4 設定「ScrollBars」為「ssBoth」。**
-4. 第3個分頁「支援裝置」(TabSheet3):  
+4. 第3個分頁「支援外部裝置」(TabSheet3):  
     + **4.1 拖拉一個「Standard>TGroupBox」到「TabSheet3」中。預設名稱會是「GroupBox1」，修改「Name」為「DMM_SupportedSerialNumbers_GroupBox」**
       + **4.1.1 設定「Align」為「AlTop」。**
       + **4.1.2 設定「Caption」為「DMM支援裝置序號清單:」。**
