@@ -88,6 +88,7 @@
         //Global Variable add by HsiupoYeh
         var
           version_str: AnsiString = 'v20250918a';
+          Current_Folder_Path: AnsiString;
         //--------------------------------------------------------------------------
         
         {$R *.lfm}    
