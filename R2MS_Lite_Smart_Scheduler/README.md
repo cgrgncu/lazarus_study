@@ -545,6 +545,7 @@
         + 2.28.6.26 第26個項目:
           + **2.28.6.26.1 設定「Caption」為「999」。**
           + **2.28.6.26.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「23:59」，其餘子項目「Caption」為空白。**
+      + **2.28.7 設定「GridLines」為「True」。**
     + **2.29 拖拉一個「Standard>TMemo」到「TabSheet1」中。預設名稱會是「Memo1」，修改「Name」為「ReadMe_Memo」**
       + **2.29.1 設定「Align」為「AlClient」。**
       + **2.29.2 設定「Lines」為以下文字。**
