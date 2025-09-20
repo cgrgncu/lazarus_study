@@ -414,11 +414,11 @@
     + **2.26 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「EveryDay_RadioButton」**
       + **2.26.1 設定「Caption」為「每天」。**
       + **2.26.2 設定「Left」為「48」。**
-      + **2.26.3 設定「Top」為「8」。**
+      + **2.26.3 設定「Top」為「0」。**
     + **2.27 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「OnlyToday_RadioButton」**
       + **2.27.1 設定「Caption」為「只有今天」。**
       + **2.27.2 設定「Left」為「134」。**
-      + **2.27.3 設定「Top」為「8」。**
+      + **2.27.3 設定「Top」為「0」。**
     + **2.28 拖拉一個「Standard>TListView」到「ScheduleSetting_GroupBox」中。預設名稱會是「ListView1」，修改「Name」為「ScheduleSetting_ListView」**
       + **2.28.1 設定「Anchors」。** 
         + **2.28.1.1 「Top anchoring>Slbling」選為「EveryDay_RadioButton:TRadioButton」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
