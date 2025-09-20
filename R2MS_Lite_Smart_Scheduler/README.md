@@ -85,7 +85,7 @@
         ```pascal  
         implementation        
         //--------------------------------------------------------------------------
-        //Global Variable add by HsiupoYeh
+        //宣告全域變數 add by HsiupoYeh
         var
           version_str: AnsiString = 'v20250918a';
           Current_Folder_Path: AnsiString;
