@@ -69,7 +69,29 @@
       + **4.1.5 設定「Form1」的「properties」頁面下「Position」為「poScreenCenter」。**  
         + 4.1.5.1 說明:設定窗體的出現位置，建議是用「poScreenCenter」，在螢幕中央。  
       + **4.1.6 設定「Form1」的「properties」頁面下「Width」為「1100」。**  
-        + 4.1.6.1 說明:設定窗體的外框寬度。  
+        + 4.1.6.1 說明:設定窗體的外框寬度。
+      + **4.1.7 設定「Form1」的「Event」頁面下的「OnCreate」為如下程式碼。**
+        ```pascal
+        procedure TForm1.FormCreate(Sender: TObject);
+        begin
+          //--------------------------------------------------------------------------
+          // 在這裡對全域變數進行初始化
+          version_str := 'v20250915a';
+          Current_Folder_Path := ExtractFilePath(Application.ExeName);
+          //--------------------------------------------------------------------------
+        end;
+        ```
+      + **4.1.8 原始碼最前面部分先宣告為如下程式碼。**  
+        ```pascal  
+        implementation        
+        //--------------------------------------------------------------------------
+        //Global Variable add by HsiupoYeh
+        var
+          version_str: AnsiString = 'v20250918a';
+        //--------------------------------------------------------------------------
+        
+        {$R *.lfm}    
+        ```  
     > 以上預設尺寸確定後就可以開始排版。  
 5. 設計主選單  
     + **5.1 拖拉一個「Standard>TMainMenu」到「Form1」中。預設名稱會是「MainMenu1」。**  
