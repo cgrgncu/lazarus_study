@@ -724,7 +724,7 @@
         軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
         作者: HsiupoYeh
         --
-        v20250918a
+        v20250918b
         重新調整UI。
         --
         v20240510a:
