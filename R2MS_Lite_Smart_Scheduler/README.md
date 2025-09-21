@@ -76,7 +76,7 @@
         begin
           //--------------------------------------------------------------------------
           // 在這裡對全域變數進行初始化
-          version_str := 'v20250918a';
+          version_str := 'v20250918b';
           Current_Folder_Path := ExtractFilePath(Application.ExeName);
           //--------------------------------------------------------------------------
           //--------------------------------------------------------------------------
@@ -546,9 +546,17 @@
           + **2.28.6.26.1 設定「Caption」為「999」。**
           + **2.28.6.26.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「23:59」，其餘子項目「Caption」為空白。**
       + **2.28.7 設定「GridLines」為「True」。**
-    + **2.29 拖拉一個「Standard>TMemo」到「TabSheet1」中。預設名稱會是「Memo1」，修改「Name」為「ReadMe_Memo」**
-      + **2.29.1 設定「Align」為「AlClient」。**
-      + **2.29.2 設定「Lines」為以下文字。**
+    + **2.29 拖拉一個「Standard>TCheckBox」到「ScheduleSetting_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「PSU_RangeHIGH_CheckBox」**
+      + **2.29.1 設定「Caption」為「HIGH(600V/0.5A)」。**
+      + **2.29.2 設定「Left」為「288」。**
+      + **2.29.3 設定「Top」為「0」。**
+    + **2.30 拖拉一個「Standard>TCheckBox」到「ScheduleSetting_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「PSU_RangeLOW_CheckBox」**
+      + **2.30.1 設定「Caption」為「LOW(400V/0.35A)」。**
+      + **2.30.2 設定「Left」為「496」。**
+      + **2.30.3 設定「Top」為「0」。**
+    + **2.31 拖拉一個「Standard>TMemo」到「TabSheet1」中。預設名稱會是「Memo1」，修改「Name」為「ReadMe_Memo」**
+      + **2.31.1 設定「Align」為「AlClient」。**
+      + **2.31.2 設定「Lines」為以下文字。**
         ```
         ==============================================
         使用說明:
@@ -597,8 +605,8 @@
         
         
         ```
-      + **2.29.3 設定「ReadOnly」為「True」。**
-      + **2.29.4 設定「ScrollBars」為「ssBoth」。**
+      + **2.31.3 設定「ReadOnly」為「True」。**
+      + **2.31.4 設定「ScrollBars」為「ssBoth」。**
 3. 第2個分頁「參數檔案內容」(TabSheet2):  
     + **3.1 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「v299_DefaultSetting_GroupBox」**
       + **3.1.1 設定「Align」為「AlTop」。**
