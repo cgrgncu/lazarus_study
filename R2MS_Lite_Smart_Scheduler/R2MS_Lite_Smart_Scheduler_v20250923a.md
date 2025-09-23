@@ -5630,16 +5630,17 @@ end;
 procedure TForm1.PSU_RangeHIGH_CheckBoxKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   // 阻止使用者改變 CheckBox 的勾選狀態
+  // 阻止使用者改變 CheckBox 的勾選狀態
   PSU_RangeHIGH_CheckBox.Checked := not PSU_RangeHIGH_CheckBox.Checked;
-end; 
+end;
 ```
 + 4.3 選「PSU_RangeHIGH_CheckBox」，去編輯「MouseDown」
 ```pascal
-procedure TForm1.PSU_RangeHIGH_CheckBoxMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TForm1.PSU_RangeHIGH_CheckBoxMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   // 阻止使用者改變 CheckBox 的勾選狀態
-   PSU_RangeHIGH_CheckBox.Checked := not PSU_RangeHIGH_CheckBox.Checked;
+  PSU_RangeHIGH_CheckBox.Checked := not PSU_RangeHIGH_CheckBox.Checked;
 end; 
 ```
 + 4.4 選「PSU_RangeLOW_CheckBox」，去編輯「OnKeyDown」
@@ -5647,17 +5648,18 @@ end;
 procedure TForm1.PSU_RangeLOW_CheckBoxKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   // 阻止使用者改變 CheckBox 的勾選狀態
+  // 阻止使用者改變 CheckBox 的勾選狀態
   PSU_RangeLOW_CheckBox.Checked := not PSU_RangeLOW_CheckBox.Checked;
 end; 
 ```
 + 4.5 選「PSU_RangeLOW_CheckBox」，去編輯「MouseDown」
 ```pascal
-procedure TForm1.PSU_RangeLOW_CheckBoxMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TForm1.PSU_RangeLOW_CheckBoxMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   // 阻止使用者改變 CheckBox 的勾選狀態
-   PSU_RangeLOW_CheckBox.Checked := not PSU_RangeLOW_CheckBox.Checked;
-end; 
+  PSU_RangeLOW_CheckBox.Checked := not PSU_RangeLOW_CheckBox.Checked;
+end;  
 ```
 
 ### 偵測外部裝置
