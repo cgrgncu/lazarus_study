@@ -6388,7 +6388,7 @@ end;
 
 ### ERT_ver2_9_9_Client_Schedule_Timer
 + 10.1 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「ERT_ver2_9_9_Client_Schedule_Timer」。
-+ 10.2 選「ERT_ver2_9_9_Client_Schedule_Timer」，去編輯「OnClick」。
++ 10.2 選「ERT_ver2_9_9_Client_Schedule_Timer」，去編輯「OnTimer」。
 ```pascal
 procedure TForm1.ERT_ver2_9_9_Client_Schedule_TimerTimer(Sender: TObject);
 var
