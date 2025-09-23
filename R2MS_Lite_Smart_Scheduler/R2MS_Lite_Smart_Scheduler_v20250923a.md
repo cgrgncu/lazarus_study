@@ -5951,10 +5951,39 @@ begin
   //--------------------------------------------------------------------------
 end;  
 ```
-+ 4.4 選「PSU_SupportedSerialNumbers_Memo」，去編輯「Lines」
-```pascal
-508F24126
+
+### 編輯支援序號清單
++ 6.1 選「DMM_SupportedSerialNumbers_Memo」，去編輯「Lines」
 ```
+MY59004074
+MY60077634
+MY60090449
+MY60076563
+MY60078728
+MY60681084
+MY64001649
+```
+
++ 6.2 選「ESP32_SupportedSerialNumbers_Memo」，去編輯「Lines」
+```
+2025-S001
+2025-S002
+2025-S003
+2025-S004
+2025-S005
+2025-S006
+```
+
++ 6.3 選「PSU_SupportedSerialNumbers_Memo」，去編輯「Lines」
+```
+508I23118
+508F24126
+508F24128
+508F24129
+508F24130
+508F24133
+```
+
 
 ### 啟動智慧排程
 + 6.1 去implementation區塊追加宣告
