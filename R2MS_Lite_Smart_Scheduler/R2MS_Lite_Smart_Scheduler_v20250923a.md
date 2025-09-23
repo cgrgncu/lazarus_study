@@ -6387,8 +6387,27 @@ end;
 ```
 
 ### ERT_ver2_9_9_Client_Schedule_Timer
-+ 10.1 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「ERT_ver2_9_9_Client_Schedule_Timer」。
-+ 10.2 選「ERT_ver2_9_9_Client_Schedule_Timer」，去編輯「OnTimer」。
++ 10.1 去implementation區塊追加宣告
+```pascal
+implementation
+//--------------------------------------------------------------------------
+//uses add by HsiupoYeh
+uses
+  IniFiles, Windows, ShellApi, ComObj, ActiveX, Variants, DateUtils, FileUtil, Zipper, Math;
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+//宣告全域變數 add by HsiupoYeh
+var
+  version_str: AnsiString;
+  Current_Folder_Path: AnsiString;
+  ERT_ver2_9_9_Client_Schedule_flag: Integer = 0;  // 0=不要做事,1=查找下一個即將,2=針對即將的時間倒數計時.
+  ERT_ver2_9_9_Client_Schedule_Timer_busy: Boolean = False;
+//--------------------------------------------------------------------------
+
+{$R *.lfm} 
+```
++ 10.2 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「ERT_ver2_9_9_Client_Schedule_Timer」。
++ 10.3 選「ERT_ver2_9_9_Client_Schedule_Timer」，去編輯「OnTimer」。
 ```pascal
 procedure TForm1.ERT_ver2_9_9_Client_Schedule_TimerTimer(Sender: TObject);
 var
