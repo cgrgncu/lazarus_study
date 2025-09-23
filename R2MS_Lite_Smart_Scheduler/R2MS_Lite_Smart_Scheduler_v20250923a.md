@@ -5693,6 +5693,7 @@ var
   MyWmiObjectItem: OleVariant;       // 在枚舉過程中，臨時儲存當前遍歷到的單個 WMI 物件；注意：使用 OleVariant 需要 uses Variants 單元
   MyWmiObjectItemFetched: LongWord;  // 記錄在單次呼叫枚舉器的 Next 方法時，實際成功獲取的 WMI 物件的數量
   Response: String;
+  temp_i: Integer;
 begin
   CheckExternalDevices_Button.Enabled := False;
   //--------------------------------------------------------------------------
@@ -5871,15 +5872,84 @@ begin
   end;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
-  // 設定按鈕啟用禁用
+  // 更新INI 及 設定按鈕啟用禁用
   if (DMM_Edit.Font.Color = clGreen) and (ESP32_Edit.Font.Color = clGreen) and (PSU_Edit.Font.Color = clGreen) then
   begin
+    //--------------------------------------------------------------------------
+    // 讀INI檔案
+    TXT_Memo.Lines.LoadFromFile( ChangeFileExt(ExtractFileName(Application.ExeName), '.ini'));
+    //--------------------------------------------------------------------------
+    // DMM_SN
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('DMM_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'DMM_SN="' + DMM_SN_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // DMM_ComPort
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('DMM_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'DMM_ComPort="' + DMM_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // SwitchArray_SN
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('SwitchArray_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'SwitchArray_SN="' + ESP32_SN_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // SwitchArray_ComPort
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('SwitchArray_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'SwitchArray_ComPort="' + ESP32_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // PSU_SN
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('PSU_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'PSU_SN="' + PSU_SN_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // PSU_ComPort
+    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    begin
+      if Pos('PSU_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
+      begin
+        TXT_Memo.Lines.Strings[temp_i] := 'PSU_ComPort="' + PSU_Edit.Text + '"';
+        break;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    // 存INI檔案
+    TXT_Memo.Lines.SaveToFile( ChangeFileExt(ExtractFileName(Application.ExeName), '.ini'));
+    //--------------------------------------------------------------------------
+    // 設定按鈕啟用禁用
     NowRun_Button.Enabled := True;
     NowSystemTest_Button.Enabled := True;
     ScheduleRun_Button.Enabled := True;
+    //--------------------------------------------------------------------------
   end;
   //--------------------------------------------------------------------------
-end;     
+end;  
 ```
 + 4.4 選「PSU_SupportedSerialNumbers_Memo」，去編輯「Lines」
 ```pascal
