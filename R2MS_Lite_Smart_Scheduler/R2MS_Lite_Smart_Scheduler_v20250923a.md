@@ -6079,7 +6079,7 @@ end;
 
 
 ### 啟動智慧排程
-+ 7.1 去implementation區塊追加宣告
++ 9.1 去implementation區塊追加宣告
 ```pascal
 implementation
 //--------------------------------------------------------------------------
@@ -6097,7 +6097,7 @@ var
 
 {$R *.lfm} 
 ```
-+ 7.2 選「ScheduleRun_Button」，去編輯「OnClick」
++ 9.2 選「ScheduleRun_Button」，去編輯「OnClick」
 ```pascal
 procedure TForm1.ScheduleRun_ButtonClick(Sender: TObject);
 var
@@ -6383,5 +6383,5 @@ begin
   StatusBar1.Panels[1].Text := '排程狀態=' +IntToStr(ERT_ver2_9_9_Client_Schedule_flag);
   RunningLog_Memo.Lines.Add('開始ERT_ver2_9_9_Client計時器監控...結束');
   //--
-end;     
+end;  
 ```
