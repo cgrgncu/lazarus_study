@@ -6101,7 +6101,6 @@ var
 ```pascal
 procedure TForm1.ScheduleRun_ButtonClick(Sender: TObject);
 var
-  temp_str: string;
   temp_i: Integer;
 begin
   //
@@ -6374,14 +6373,15 @@ begin
     // 檢查項目的勾選狀態
     if not ScheduleSetting_ListView.Items[temp_i].Checked then
     begin
-      ScheduleSetting_ListView.Items[temp_i].SubItems.Strings[3] := '停用';
+      ScheduleSetting_ListView.Items[temp_i].SubItems.Strings[4] := '停用';
     end;
   end;
   //--
   // 開始ERT_ver2_9_9_Client計時器監控
   RunningLog_Memo.Lines.Add('開始ERT_ver2_9_9_Client計時器監控...');
   ERT_ver2_9_9_Client_Schedule_flag := 1;  // 0=不要做事,1=查找下一個即將,2=針對即將的時間倒數計時.
+  StatusBar1.Panels[1].Text := '排程狀態=' +IntToStr(ERT_ver2_9_9_Client_Schedule_flag);
   RunningLog_Memo.Lines.Add('開始ERT_ver2_9_9_Client計時器監控...結束');
   //--
-end;    
+end;     
 ```
