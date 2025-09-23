@@ -5985,6 +5985,60 @@ MY64001649
 ```
 
 
+### 立刻單次運行
++ 7.1 去implementation區塊追加宣告
+```pascal
+implementation
+//--------------------------------------------------------------------------
+//uses add by HsiupoYeh
+uses
+  IniFiles, Windows, ShellApi, ComObj, ActiveX, Variants, DateUtils;
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+//宣告全域變數 add by HsiupoYeh
+var
+  version_str: AnsiString;
+  Current_Folder_Path: AnsiString;
+//--------------------------------------------------------------------------
+
+{$R *.lfm} 
+```
+
++ 7.2 選「NowRun_Button」，去編輯「OnClick」
+```pascal
+procedure TForm1.NowRun_ButtonClick(Sender: TObject);
+var
+  temp_i: Integer;
+  temp_now_TDateTime: TDateTime;
+begin
+  //--
+  for temp_i := 0 to ScheduleSetting_ListView.Items.Count - 1 do
+  begin
+    ScheduleSetting_ListView.Items[temp_i].Checked := False;
+  end;
+  //--
+  ScheduleSetting_ListView.Items[0].Checked := True;
+  temp_now_TDateTime := Now;
+  ScheduleSetting_ListView.Items[0].SubItems.Strings[0] := FormatDateTime('HH:MM', IncSecond(temp_now_TDateTime, 65)) ;
+  //----------------------------------------------------------
+  // 選到該列，並使其可被看到(調整捲軸)
+  ScheduleSetting_ListView.SetFocus;
+  ScheduleSetting_ListView.Items[0].Selected := True;
+  ScheduleSetting_ListView.Items[0].Focused := True;
+  ScheduleSetting_ListView.Items[0].MakeVisible(True);
+  Application.ProcessMessages;
+  //----------------------------------------------------------
+  //--
+  //--------------------------------------------------------------------------
+  // 設定按鈕啟用禁用
+  NowRun_Button.Enabled := False;
+  NowSystemTest_Button.Enabled := False;
+  ScheduleRun_Button.Enabled := True;
+  //--------------------------------------------------------------------------
+  //--
+end;
+```
+
 ### 啟動智慧排程
 + 7.1 去implementation區塊追加宣告
 ```pascal
