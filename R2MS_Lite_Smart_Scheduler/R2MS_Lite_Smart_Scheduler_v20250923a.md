@@ -6092,7 +6092,7 @@ uses
 var
   version_str: AnsiString;
   Current_Folder_Path: AnsiString;
-  ERT_ver2_9_9_Client_Schedule_flag: Integer = 0; // 0=不要做事,1=查找下一個即將,2=針對即將的時間倒數計時.
+  ERT_ver2_9_9_Client_Schedule_flag: Integer = 0; //0=不要做事,1=查找下個即將,2=針對即將進行工作,3=針對初始化進行工作,4=針對等待運作進行工作
 //--------------------------------------------------------------------------
 
 {$R *.lfm} 
@@ -6379,7 +6379,7 @@ begin
   //--
   // 開始ERT_ver2_9_9_Client計時器監控
   RunningLog_Memo.Lines.Add('開始ERT_ver2_9_9_Client計時器監控...');
-  ERT_ver2_9_9_Client_Schedule_flag := 1;  // 0=不要做事,1=查找下一個即將,2=針對即將的時間倒數計時.
+  ERT_ver2_9_9_Client_Schedule_flag := 1;  //0=不要做事,1=查找下個即將,2=針對即將進行工作,3=針對初始化進行工作,4=針對等待運作進行工作
   StatusBar1.Panels[1].Text := '排程狀態=' +IntToStr(ERT_ver2_9_9_Client_Schedule_flag);
   RunningLog_Memo.Lines.Add('開始ERT_ver2_9_9_Client計時器監控...結束');
   //--
