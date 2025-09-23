@@ -5986,7 +5986,7 @@ MY64001649
 
 
 ### 啟動智慧排程
-+ 6.1 去implementation區塊追加宣告
++ 7.1 去implementation區塊追加宣告
 ```pascal
 implementation
 //--------------------------------------------------------------------------
@@ -6004,7 +6004,7 @@ var
 
 {$R *.lfm} 
 ```
-+ 6.2 選「ScheduleRun_Button」，去編輯「OnClick」
++ 7.2 選「ScheduleRun_Button」，去編輯「OnClick」
 ```pascal
 procedure TForm1.ScheduleRun_ButtonClick(Sender: TObject);
 var
