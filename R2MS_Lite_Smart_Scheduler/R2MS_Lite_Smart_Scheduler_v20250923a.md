@@ -82,6 +82,19 @@ begin
   Form1.Caption := Form1.Caption + ' ' + version_str;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
+  // 設定Memo不換行
+  ReadMe_Memo.WordWrap := False;
+  v299_DefaultSetting_Memo.WordWrap := False;
+  v299_NowSetting_Memo.WordWrap := False;
+  TXT_Memo.WordWrap := False;
+  Curl_Memo.WordWrap := False;
+  DMM_SupportedSerialNumbers_Memo.WordWrap := False;
+  ESP32_SupportedSerialNumbers_Memo.WordWrap := False;
+  PSU_SupportedSerialNumbers_Memo.WordWrap := False;
+  RunningLog_Memo.WordWrap := False;
+  Update_Memo.WordWrap := False;
+  //-------------------------------------------------------------------------- 
+  //--------------------------------------------------------------------------
   // 設定我指定的路徑作為R2MS_Lite_WorkSpace資料夾，路徑命名格式依照ERT_ver2_9_9_Client的白痴路徑格式。
   // 例如:「/C/Users/USER/Desktop/R2MS_Lite_Smart_Scheduler_v20250920a/R2MS_Lite_WorkSpace/ERT_ver2_9_9_Client_Data」
   ERT_ver2_9_9_Client_SavePath_Edit.Text := '/' + Current_Folder_Path + 'R2MS_Lite_WorkSpace\ERT_ver2_9_9_Client_Data';
