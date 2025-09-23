@@ -7368,3 +7368,20 @@ begin
 
 end; 
 ```
+
+### 更新紀錄
++ 選「Update_Memo」，去編輯「Lines」 
+```
+軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
+作者: HsiupoYeh
+--
+v20250923a
+實作基本功能。穩定可用版。
+--
+v20250918b
+重新調整UI。
+--
+v20240510a:
+初版
+
+```
