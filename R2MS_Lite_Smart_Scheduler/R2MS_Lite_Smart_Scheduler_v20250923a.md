@@ -6085,14 +6085,14 @@ implementation
 //--------------------------------------------------------------------------
 //uses add by HsiupoYeh
 uses
-  IniFiles, Windows, ShellApi, ComObj, ActiveX, Variants, FileUtil;
+  IniFiles, Windows, ShellApi, ComObj, ActiveX, Variants, DateUtils, FileUtil;
 //--------------------------------------------------------------------------
 //--------------------------------------------------------------------------
 //宣告全域變數 add by HsiupoYeh
 var
   version_str: AnsiString;
   Current_Folder_Path: AnsiString;
-  ERT_ver2_9_9_Client_Schedule_flag: Integer = 0; //0=不要做事,1=查找下個即將,2=針對即將進行工作,3=針對初始化進行工作,4=針對等待運作進行工作
+  ERT_ver2_9_9_Client_Schedule_flag: Integer = 0;  // 0=不要做事,1=查找下一個即將,2=針對即將的時間倒數計時.
 //--------------------------------------------------------------------------
 
 {$R *.lfm} 
