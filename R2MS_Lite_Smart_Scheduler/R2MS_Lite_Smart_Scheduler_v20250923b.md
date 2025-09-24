@@ -66,4 +66,23 @@ begin
   //--
   RunningLog_Memo.Lines.Add('啟動檢測排程...');  
 ```
-+ 
+
+### 更新紀錄
++ 3.1 選「Update_Memo」，去編輯「Lines」
+```pascal
+軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
+作者: HsiupoYeh
+--
+v20250923b
+修正UI流程。
+--
+v20250923a
+實作基本功能。穩定可用版。
+--
+v20250918b
+重新調整UI。
+--
+v20240510a:
+初版
+
+```
