@@ -240,3 +240,27 @@
         AsyncProcess1.Terminate(0);  
       end; 
       ```
+
+### 補充可調整部分:
+
+```
+  AsyncProcess1.Options:=[poUsePipes] + [poNoConsole]; 
+```
+
+```
+procedure TForm1.AsyncProcess1ReadData(Sender: TObject);
+var
+  temp_Buffer:string='';
+  temp_BytesAvailable:DWord;
+begin
+  Memo1.Lines.Add('AsyncProcess1ReadData...');
+  temp_BytesAvailable:=AsyncProcess1.Output.NumBytesAvailable;
+  if temp_BytesAvailable>0 Then begin
+    setlength(temp_Buffer,temp_BytesAvailable);
+    AsyncProcess1.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+    temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+    temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+    Memo1.Lines.Add(WinCPToUTF8(temp_Buffer));
+  end;
+end;  
+```
