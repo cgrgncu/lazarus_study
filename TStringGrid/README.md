@@ -36,6 +36,10 @@ begin
       // ----------------------------------------------------------------------
       // 利用 TStringList 讀取 CSV 檔案到 StringGrid1 元件中
 
+      // 將 ColCount 和 RowCount 重設為最小，釋放 Grid 佔用的資源
+      StringGrid1.RowCount := 1;
+      StringGrid1.ColCount := 1;
+
       // 讀取檔案到物件中
       all_csv_TStringList.LoadFromFile(OpenDialog1.FileName);
       Log_Memo.Lines.Add('檔案行數 = ' + IntToStr(all_csv_TStringList.Count));
