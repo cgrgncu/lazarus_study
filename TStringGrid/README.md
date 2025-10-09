@@ -7,7 +7,7 @@
 + 1.4 拖拉一個「Standard>TMainMenu」到「Form1」中。預設名稱會是「MainMenu1」。
 +  點兩下元件，進入編輯模式，建立第一層第一個選單「開啟檔案」，「Caption」設為「開啟檔案(&O)」，「Name」設為「MainMenu1_1」。
 ```pascal
-procedure TForm1.MenuItem1Click(Sender: TObject);
+procedure TForm1.MainMenu1_1Click(Sender: TObject);
 var
   all_csv_TStringList: TStringList;
   one_line_csv_TStringList: TStringList;
