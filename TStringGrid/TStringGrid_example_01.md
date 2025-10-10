@@ -132,48 +132,42 @@
 + 1.3 拖拉一個「Dialogs>TOpenDialog」到「Form1」中。預設名稱會是「OpenDialog1」。
 + 1.4 選擇「MainMenu1」，進入編輯模式，建立第一層第二個選單「開啟檔案」，「Caption」設為「開啟檔案(&O)」，「Name」設為「MainMenu1_2」。
   + 1.4.1 設定「MainMenu1_2」的「Event」。
-        + **1.4.1.1 設定「MainMenu1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
-        ```pascal  
-        procedure TForm1.MenuItem1_2Click(Sender: TObject);
-        var
-          temp_i: Integer;
+    + **1.4.1.1 設定「MainMenu1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
+    ```pascal   
+    procedure TForm1.MenuItem1_2Click(Sender: TObject);
+    var
+      temp_i: Integer;
+    begin
+      // OpenDialog1 的初始資料夾路徑
+      OpenDialog1.InitialDir := Current_Folder_Path;
+      // OpenDialog1 下拉選單過濾檔名
+      OpenDialog1.Filter := '逗號分隔檔案 (*.csv)|*.csv';
+      // 呼叫 OpenDialog1
+      if OpenDialog1.Execute then
+      begin
+        // 展示檔案名稱
+        Log_Memo.Lines.Add('選擇檔案名稱 = ' + OpenDialog1.FileName);
+        // 載入到 StringGrid1
+        StringGrid1.LoadFromCSVFile(OpenDialog1.FileName, ',', False, 0, True);
+        StringGrid1.InsertColRow(True,0);
+        StringGrid1.FixedCols := 1;
+        // 補上 Row 編號 (在讓出的 Col[0] 灰色欄位中)
+        for temp_i := StringGrid1.FixedRows to StringGrid1.RowCount - 1 do
         begin
-          // OpenDialog1 的初始資料夾路徑
-          OpenDialog1.InitialDir := Current_Folder_Path;
-        
-          // OpenDialog1 下拉選單過濾檔名
-          OpenDialog1.Filter := '逗號分隔檔案 (*.csv)|*.csv';
-        
-          // 呼叫 OpenDialog1
-          if OpenDialog1.Execute then
-          begin
-            // 展示檔案名稱
-            Log_Memo.Lines.Add('選擇檔案名稱 = ' + OpenDialog1.FileName);
-        
-            // 載入到 StringGrid1
-            StringGrid1.LoadFromCSVFile(OpenDialog1.FileName, ',', False, 0, True);
-            StringGrid1.InsertColRow(True,0);
-            StringGrid1.FixedCols := 1;
-        
-            // 補上 Row 編號 (在讓出的 Col[0] 灰色欄位中)
-            for temp_i := StringGrid1.FixedRows to StringGrid1.RowCount - 1 do
-            begin
-                StringGrid1.Cells[0, temp_i] := IntToStr(temp_i - StringGrid1.FixedRows + 1);
-            end;
-        
-            // 補上 Col 編號 (在讓出的 Row[0] 灰色欄位中)
-            for temp_i := StringGrid1.FixedCols to StringGrid1.ColCount - 1 do
-            begin
-                StringGrid1.Cells[temp_i, 0] := IntToStr(temp_i - StringGrid1.FixedCols + 1);
-            end;
-        
-          end
-          else
-          begin
-            // 使用者取消
-            Log_Memo.Lines.Add('使用者取消!');
-            Application.MessageBox('使用者取消!','錯誤',16);
-            Exit;
-          end;
-        end;       
-        ``` 
+            StringGrid1.Cells[0, temp_i] := IntToStr(temp_i - StringGrid1.FixedRows + 1);
+        end;
+        // 補上 Col 編號 (在讓出的 Row[0] 灰色欄位中)
+        for temp_i := StringGrid1.FixedCols to StringGrid1.ColCount - 1 do
+        begin
+            StringGrid1.Cells[temp_i, 0] := IntToStr(temp_i - StringGrid1.FixedCols + 1);
+        end;
+      end
+      else
+      begin
+        // 使用者取消
+        Log_Memo.Lines.Add('使用者取消!');
+        Application.MessageBox('使用者取消!','錯誤',16);
+        Exit;
+      end;
+    end;       
+    ``` 
