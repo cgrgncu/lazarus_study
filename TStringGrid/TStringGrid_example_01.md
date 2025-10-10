@@ -149,14 +149,15 @@
         Log_Memo.Lines.Add('選擇檔案名稱 = ' + OpenDialog1.FileName);
         // 載入到 StringGrid1
         StringGrid1.LoadFromCSVFile(OpenDialog1.FileName, ',', False, 0, True);
+        // 插入最左方col並且固定灰色欄位數量為1
         StringGrid1.InsertColRow(True,0);
         StringGrid1.FixedCols := 1;
-        // 補上 Row 編號 (在讓出的 Col[0] 灰色欄位中)
+        // 補上 Row 編號 (在 Col[0] 灰色欄位中)
         for temp_i := StringGrid1.FixedRows to StringGrid1.RowCount - 1 do
         begin
             StringGrid1.Cells[0, temp_i] := IntToStr(temp_i - StringGrid1.FixedRows + 1);
         end;
-        // 補上 Col 編號 (在讓出的 Row[0] 灰色欄位中)
+        // 補上 Col 編號 (在 Row[0] 灰色欄位中)
         for temp_i := StringGrid1.FixedCols to StringGrid1.ColCount - 1 do
         begin
             StringGrid1.Cells[temp_i, 0] := IntToStr(temp_i - StringGrid1.FixedCols + 1);
