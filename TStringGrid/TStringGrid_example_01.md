@@ -69,32 +69,50 @@
       + **4.1.5 設定「Form1」的「properties」頁面下「Position」為「poScreenCenter」。**  
         + 4.1.5.1 說明:設定窗體的出現位置，建議是用「poScreenCenter」，在螢幕中央。  
       + **4.1.6 設定「Form1」的「properties」頁面下「Width」為「800」。**  
-        + 4.1.6.1 說明:設定窗體的外框寬度。  
+        + 4.1.6.1 說明:設定窗體的外框寬度。
+      + **4.1.7 設定「Form1」的「Event」頁面下的「OnCreate」為如下程式碼。**
+        ```pascal
+        procedure TForm1.FormCreate(Sender: TObject);
+        begin
+          //--------------------------------------------------------------------------
+          // 在這裡對全域變數進行初始化
+          version_str := 'v20251010a';
+          Current_Folder_Path := ExtractFilePath(Application.ExeName);
+          //--------------------------------------------------------------------------
+          //--------------------------------------------------------------------------
+          // 表單標題追加版本
+          Form1.Caption := Form1.Caption + ' ' + version_str;
+          //--------------------------------------------------------------------------
+        end;
+        ```
+      + **4.1.8 原始碼最前面部分先宣告為如下程式碼。**  
+        ```pascal  
+        implementation        
+        //--------------------------------------------------------------------------
+        //宣告全域變數 add by HsiupoYeh
+        var
+          version_str: AnsiString;
+          Current_Folder_Path: AnsiString;
+        //--------------------------------------------------------------------------
+        
+        {$R *.lfm}    
+        ```  
     > 以上預設尺寸確定後就可以開始排版。  
 5. 設計主選單  
     + **5.1 拖拉一個「Standard>TMainMenu」到「Form1」中。預設名稱會是「MainMenu1」。**  
     + **5.2 點兩下元件，進入編輯模式，建立第一層第一個選單「說明(&H)」，「Caption」設為「說明(&H)」，「Name」設為「MainMenu1_1」。**  
     + **5.3 繼續建立子選單「說明(&H)->關於我(&A)」，「Caption」設為「關於我(&A)」，「Name」設為「MainMenu1_1_1」。**  
-      + 5.3.1 設定「MainMenu1_1_1」的「Event」。  
-        + **5.3.1.1 原始碼最前面部分先宣告為如下程式碼。**  
-        ```pascal  
-        var
-          Form1: TForm1;
-          //--
-          //Global Variable add by HsiupoYeh
-          version_str: AnsiString = 'v20241105a';
-          //--  
-        ```  
-        + **5.3.1.2 設定「MainMenu1_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
+      + 5.3.1 設定「MainMenu1_1_1」的「Event」。
+        + **5.3.1.1 設定「MainMenu1_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal  
         procedure TForm1.MainMenu1_1_1Click(Sender: TObject);
         var
           temp_str: AnsiString;
         begin
-          temp_str:='作者: HsiuPoYeh.'+#13#10+'程式版本: '+version_str;
+          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str;
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
-        ```  
+        ``` 
 
 ### 開發紀錄(主頁面)  
 1. 外部應用程式(External Program):  
