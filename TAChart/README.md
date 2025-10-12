@@ -24,6 +24,11 @@
 + TChartToolset: 控制器元件
   + 不要設定的話，內建有拖個框來放大，等效於ChartToolset1ZoomDragTool1然後修改Shift為`[ssLeft]`
   + ChartToolset1ZoomMouseWheelTool1通常設定ZoomFactor為`1.1`，就會有很好的使用體驗。最好維持FixedPoint為true，這使縮放以滑鼠所在位置為中心縮放。
+    + 滑鼠滾輪的水平和垂直縮放:ZoomFactor和ZoomRatio？
+      + 這是因為該工具可以進行非比例縮放：x 軸縮放因子由 單獨給出，ZoomFactor而y 軸縮放因子由 的乘積決定ZoomFactor*ZoomRatio。
+      + 只要ZoomRatio=1，縮放就會在所有方向上各向同性地進行。
+      + 當您設定ZoomFactor=1和 時，ZoomRatio=1.1我們保持x方向不變，但僅沿y方向縮放。
+      + 或者，如果我們設定 ，ZoomRatio = 1/ZoomFactor則縮放僅沿x軸水平方向進行。
 + TChartAxisTransformations: 細節控制元件
 + TChartStyles: 細節控制元件
 + TChartLegendPanel: 獨立的客製化圖說元件
