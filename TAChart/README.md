@@ -23,7 +23,7 @@
 + TDbChartSource: 資料庫相關的底層數據源 (Base Data Source) 元件
 + TChartToolset: 控制器元件
   + 不要設定的話，內建有拖個框來放大，等效於ChartToolset1ZoomDragTool1然後修改Shift為`[ssLeft]`
-  + ChartToolset1ZoomMouseWheelTool1通常設定ZoomFactor為`1.1`，就會有很好的使用體驗。
+  + ChartToolset1ZoomMouseWheelTool1通常設定ZoomFactor為`1.1`，就會有很好的使用體驗。最好維持FixedPoint為true，這使縮放以滑鼠所在位置為中心縮放。
 + TChartAxisTransformations: 細節控制元件
 + TChartStyles: 細節控制元件
 + TChartLegendPanel: 獨立的客製化圖說元件
