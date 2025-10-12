@@ -22,8 +22,9 @@
 + TCalculatedChartSource: 中介數據源 (Intermediary Data Source) 元件。
 + TDbChartSource: 資料庫相關的底層數據源 (Base Data Source) 元件
 + TChartToolset: 控制器元件
-  + 不要設定的話，內建有拖個框來放大，等效於ChartToolset1ZoomDragTool1然後修改Shift為`[ssLeft]`
-  + ChartToolset1ZoomMouseWheelTool1通常設定ZoomFactor為`1.1`，就會有很好的使用體驗。最好維持FixedPoint為true，這使縮放以滑鼠所在位置為中心縮放。
+  + 不要設定的話，內建有左鍵拖框來放大，等效於ChartToolset1ZoomDragTool1然後修改Shift為`[ssLeft]`
+  + 不要設定的畫，內建有個右鍵拖動來平移，等效於ChartToolset1PanDragTool1然後修改Shift為`[ssRight]`
+  + 建議追加滑鼠滾輪功能: ChartToolset1ZoomMouseWheelTool1通常設定ZoomFactor為`1.1`，就會有很好的使用體驗。最好維持FixedPoint為true，這使縮放以滑鼠所在位置為中心縮放。
     + 滑鼠滾輪的水平和垂直縮放:ZoomFactor和ZoomRatio？
       + 這是因為該工具可以進行非比例縮放：x 軸縮放因子由 單獨給出，ZoomFactor而y 軸縮放因子由 的乘積決定ZoomFactor*ZoomRatio。
       + 只要ZoomRatio=1，縮放就會在所有方向上各向同性地進行。
