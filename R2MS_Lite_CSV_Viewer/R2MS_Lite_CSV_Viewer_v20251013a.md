@@ -247,8 +247,9 @@
       + **2.4.3 設定「AxisList>Left>Title>Visible」為「True」。**
       + **2.4.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
       + **2.4.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
-      + **2.4.6 設定「Series」按下「...」。**
-        + **2.4.6.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Voltage_PSU、Voltage_CH01、Voltage_CH02...」...。**
+      + **2.4.6 設定「Color」為「clWindow」。**
+      + **2.4.7 設定「Series」按下「...」。**
+        + **2.4.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Voltage_PSU、Voltage_CH01、Voltage_CH02...」...。**
         + Caption:
         ```
         PSU
@@ -325,12 +326,105 @@
         #63: RGB(120, 40, 200)   // 柔和藍紫色
         #64: RGB(120, 120, 90)   // 柔和卡其色
         ```
-      + **2.4.3 設定「Caption」為空白。**
-      + 
+      + **2.4.8 設定「Title>Text」為「Voltage Chart」。**
+      + **2.4.9 設定「Title>Visible」為「True」。**
     + **2.5 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
       + **2.5.1 設定「Align」為「alRight」。**
       + **2.5.2 設定「Chart」為「Voltage_Chart」。**
-      + **2.5.3 設定「Color」為「clForm」。**
+      + **2.5.3 設定「Color」為「clWindow」。**
+      + **2.5.4 設定「FontSize」為「10」。**
+      + **2.5.5 設定「Width」為「120」。**
+    + **2.6 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
+      + **2.6.1 設定「Align」為「AlClient」。**
+      + **2.6.2 設定「AxisList>Left>Title>Caption」為「Current[mA]」。**
+      + **2.6.3 設定「AxisList>Left>Title>Visible」為「True」。**
+      + **2.6.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
+      + **2.6.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
+      + **2.6.6 設定「Color」為「clWindow」。**
+      + **2.6.7 設定「Series」按下「...」。**
+        + **2.6.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Current_PSU、Current_CH01、Current_CH02...」...。**
+        + Caption:
+        ```
+        PSU
+        CH01
+        CH02
+        ...
+        CH65
+        ```
+        + 顏色:
+        ```
+        #0:  RGB(204, 0, 0)      // 柔和紅 (Muted Red)
+        #1:  RGB(0, 179, 0)      // 森林綠 (Forest Green)
+        #2:  RGB(0, 0, 204)      // 柔和藍 (Muted Blue)
+        #3:  RGB(240, 179, 0)    // 柔和黃 (Mustard Yellow)
+        #4:  RGB(0, 204, 204)    // 柔和青 (Turquoise)
+        #5:  RGB(204, 0, 204)    // 柔和洋紅 (Plum)
+        #6:  RGB(102, 0, 204)    // 深靛青
+        #7:  RGB(220, 100, 0)    // 較深橘色
+        #8:  RGB(0, 190, 90)     // 較深春綠
+        #9:  RGB(128, 0, 0)      // 深紅
+        #10: RGB(0, 128, 0)      // 深綠
+        #11: RGB(0, 0, 128)      // 深藍
+        #12: RGB(128, 128, 0)    // 橄欖
+        #13: RGB(0, 128, 128)    // 海綠
+        #14: RGB(128, 0, 128)    // 紫色
+        #15: RGB(255, 102, 102)  // 鮭魚粉
+        #16: RGB(102, 204, 102)  // 柔和淺草綠
+        #17: RGB(102, 102, 220)  // 柔和淺靛藍
+        #18: RGB(220, 220, 102)  // 柔和淺檸檬黃
+        #19: RGB(102, 220, 220)  // 柔和淺青色
+        #20: RGB(220, 102, 220)  // 柔和淺紫紅
+        #21: RGB(179, 0, 0)      // 磚紅
+        #22: RGB(0, 179, 0)      // 濃森林綠
+        #23: RGB(0, 0, 179)      // 普魯士藍
+        #24: RGB(179, 179, 0)    // 深黃綠
+        #25: RGB(0, 179, 179)    // 深青色
+        #26: RGB(179, 0, 179)    // 深洋紅
+        #27: RGB(220, 150, 0)    // 柔和琥珀
+        #28: RGB(0, 200, 150)    // 柔和薄荷綠
+        #29: RGB(150, 200, 0)    // 柔和萊姆綠
+        #30: RGB(200, 0, 150)    // 柔和樹莓紅
+        #31: RGB(150, 0, 200)    // 柔和較淺靛青
+        #32: RGB(255, 204, 204)  // 極淺紅 (保留對比度)
+        #33: RGB(220, 60, 0)     // 柔和熾熱橘
+        #34: RGB(0, 60, 220)     // 柔和鮮豔藍
+        #35: RGB(60, 200, 0)     // 柔和酸性綠
+        #36: RGB(200, 0, 60)     // 柔和猩紅色
+        #37: RGB(0, 150, 150)    // 深青色 (Deep Cyan)
+        #38: RGB(60, 0, 200)     // 柔和閃電紫
+        #39: RGB(255, 153, 153)  // 粉紅
+        #40: RGB(153, 220, 153)  // 柔和淡薄荷
+        #41: RGB(153, 153, 220)  // 柔和天藍
+        #42: RGB(220, 220, 153)  // 柔和奶油黃
+        #43: RGB(153, 220, 220)  // 柔和淡水藍
+        #44: RGB(220, 153, 220)  // 柔和淡紫
+        #45: RGB(179, 179, 179)  // 中灰 (Medium Gray)
+        #46: RGB(128, 128, 128)  // 經典灰 (Classic Gray)
+        #47: RGB(64, 64, 64)     // 深灰 (Dark Gray)
+        #48: RGB(192, 192, 192)  // 淺銀灰
+        #49: RGB(204, 150, 150)  // 加深極淺紅
+        #50: RGB(150, 204, 150)  // 加深極淺綠
+        #51: RGB(150, 150, 204)  // 加深極淺藍
+        #52: RGB(200, 200, 150)  // 加深極淺黃
+        #53: RGB(150, 204, 204)  // 加深極淺青
+        #54: RGB(204, 150, 204)  // 加深極淺洋紅
+        #55: RGB(100, 149, 237)  // 矢車菊藍
+        #56: RGB(218, 165, 32)   // 金色
+        #57: RGB(139, 69, 19)    // 咖啡棕
+        #58: RGB(240, 128, 128)  // 淺珊瑚紅
+        #59: RGB(70, 130, 180)   // 鋼藍
+        #60: RGB(184, 134, 11)   // 金黃色
+        #61: RGB(34, 139, 34)    // 濃森林綠
+        #62: RGB(200, 20, 120)   // 柔和深粉紅
+        #63: RGB(120, 40, 200)   // 柔和藍紫色
+        #64: RGB(120, 120, 90)   // 柔和卡其色
+        ```
+      + **2.6.8 設定「Title>Text」為「Voltage Chart」。**
+      + **2.6.9 設定「Title>Visible」為「True」。**
+    + **2.5 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Current_ChartListbox」**
+      + **2.5.1 設定「Align」為「alRight」。**
+      + **2.5.2 設定「Chart」為「Voltage_Chart」。**
+      + **2.5.3 設定「Color」為「clWindow」。**
       + **2.5.4 設定「FontSize」為「10」。**
       + **2.5.5 設定「Width」為「120」。**
      
