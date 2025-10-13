@@ -232,10 +232,16 @@
       + **2.1.4 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CurrentChartOnlyLayout_ToolButton」**
         + **2.1.4.1 設定「Caption」為「電流波形」。**
         + **2.1.4.2 設定「Grouped」為「True」。**
-    + **2.2 拖拉一個「Standard>TLabel」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Label」**
-      + **2.2.1 設定「Caption」為「存檔路徑:」。**
-      + **2.2.2 設定「Left」為「27」。**
-      + **2.2.3 設定「Top」為「23」。**
+    + **2.2 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「VoltageChart_Panel」**
+      + **2.2.1 設定「Align」為「alLeft」。**
+      + **2.2.2 設定「BevelOuter」為「bvNone」。**
+      + **2.2.3 設定「Caption」為空白。**
+      + **2.2.4 設定「Width」為「544」。**
+    + **2.3 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「CurrentChart_Panel」**
+      + **2.2.1 設定「Align」為「AlClient」。**
+      + **2.2.2 設定「BevelOuter」為「bvNone」。**
+      + **2.2.3 設定「Caption」為空白。**
+
     + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
       + **2.3.1 設定「Anchors」。**  
         + **2.3.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
