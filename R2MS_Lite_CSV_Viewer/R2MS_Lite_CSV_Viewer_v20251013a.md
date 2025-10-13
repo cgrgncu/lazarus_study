@@ -208,21 +208,30 @@
       + **1.1.1 設定「Align」為「AlClient」。**
       + **1.1.2 設定「Font」，按下「...」，選「大小」為「14」。**
     + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」。**
-      + **1.2.1 設定「Caption」為「智慧排程工具」。**
+      + **1.2.1 設定「Caption」為「資料波形」。**
     + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet2」。**
-      + **1.3.1 設定「Caption」為「參數檔案內容」。**
-    + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。** 
-      + **1.4.1 設定「Caption」為「支援外部裝置」。**
+      + **1.3.1 設定「Caption」為「資料內容」。**
+    + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。**
+      + **1.4.1 設定「Caption」為「運行紀錄」。**
     + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。**
-      + **1.5.1 設定「Caption」為「運行紀錄」。**
-    + **1.6 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet5」。**
-      + **1.6.1 設定「Caption」為「更新紀錄」。**
+      + **1.5.1 設定「Caption」為「更新紀錄」。**
             
-2. 第一個分頁「智慧排程工具」(TabSheet1):  
-    + **2.1 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_ver2_9_9_Client_GroupBox」**
-      + **2.1.1 設定「Align」為「AlTop」。**
-      + **2.1.2 設定「Caption」為「ERT_ver2_9_9_Client」。**
-      + **2.1.3 設定「Height」為「550」。**
+2. 第一個分頁「資料波形」(TabSheet1):  
+    + **2.1 拖拉一個「Standard>TToolBar」到「TabSheet1」中。預設名稱會是「ToolBar1」。**
+      + **2.1.1 設定「ShowCaptions」為「True」。**
+      + **2.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VerticalChartLayout_ToolButton」**
+        + **2.1.2.1 設定「Caption」為「垂直排列」。**
+        + **2.1.2.2 設定「Down」為「True」。**
+        + **2.1.2.3 設定「Grouped」為「True」。**
+      + **2.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「HorizontalChartLayout_ToolButton」**
+        + **2.1.2.1 設定「Caption」為「水平排列」。**
+        + **2.1.2.2 設定「Grouped」為「True」。**
+      + **2.1.3 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VoltageChartOnlyLayout_ToolButton」**
+        + **2.1.3.1 設定「Caption」為「電壓波形」。**
+        + **2.1.3.2 設定「Grouped」為「True」。**
+      + **2.1.4 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CurrentChartOnlyLayout_ToolButton」**
+        + **2.1.4.1 設定「Caption」為「電流波形」。**
+        + **2.1.4.2 設定「Grouped」為「True」。**
     + **2.2 拖拉一個「Standard>TLabel」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Label」**
       + **2.2.1 設定「Caption」為「存檔路徑:」。**
       + **2.2.2 設定「Left」為「27」。**
