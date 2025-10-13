@@ -100,13 +100,14 @@
         ```  
     > 以上預設尺寸確定後就可以開始排版。  
 5. 設計主選單  
-    + **5.1 拖拉一個「Standard>TMainMenu」到「Form1」中。預設名稱會是「MainMenu1」。**  
-    + **5.2 點兩下元件，進入編輯模式，建立第一層第一個選單「說明(&H)」，「Caption」設為「說明(&H)」，「Name」設為「MainMenu1_1」。**  
-    + **5.3 繼續建立子選單「說明(&H)->關於我(&A)」，「Caption」設為「關於我(&A)」，「Name」設為「MainMenu1_1_1」。**  
-      + 5.3.1 設定「MainMenu1_1_1」的「Event」。
-        + **5.3.1.1 設定「MainMenu1_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
+    + **5.1 拖拉一個「Standard>TMainMenu」到「Form1」中。預設名稱會是「MainMenu1」。**
+    + **5.2 點兩下元件，進入編輯模式，建立第一層第一個選單「開啟檔案(&O)」，「Caption」設為「開啟檔案(&O)」，「Name」設為「MainMenu1_1」。** 
+    + **5.3 點兩下元件，進入編輯模式，建立第一層第二個選單「說明(&H)」，「Caption」設為「說明(&H)」，「Name」設為「MainMenu1_2」。**  
+    + **5.4 繼續建立第一層第二個選單的子選單「說明(&H)->關於我(&A)」，「Caption」設為「關於我(&A)」，「Name」設為「MainMenu1_2_1」。**  
+      + 5.4.1 設定「MainMenu1_2_1」的「Event」。
+        + **5.4.1.1 設定「MainMenu1_2_1」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal  
-        procedure TForm1.MainMenu1_1_1Click(Sender: TObject);
+        procedure TForm1.MainMenu1_2_1Click(Sender: TObject);
         var
           temp_str: AnsiString;
         begin
