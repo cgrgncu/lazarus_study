@@ -328,14 +328,19 @@
         ```
       + **2.4.8 設定「Title>Text」為「Voltage Chart」。**
       + **2.4.9 設定「Title>Visible」為「True」。**
-    + **2.5 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
-      + **2.5.1 設定「Align」為「alRight」。**
-      + **2.5.2 設定「BorderSpacing>Bottom」為「40」。**
-      + **2.5.3 設定「BorderSpacing>Top」為「30」。**
-      + **2.5.4 設定「Chart」為「Voltage_Chart」。**
-      + **2.5.5 設定「Color」為「clWindow」。**
-      + **2.5.6 設定「FontSize」為「10」。**
-      + **2.5.7 設定「Width」為「120」。**
+    + **2.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Voltage_PopupMenu」**
+      + **2.5 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Voltage_PopupMenu_1_1」。** 
+      + **2.5 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Voltage_PopupMenu_1_2」。**  
+    + **2.6 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
+      + **2.6.1 設定「Align」為「alRight」。**
+      + **2.6.2 設定「BorderSpacing>Bottom」為「40」。**
+      + **2.6.3 設定「BorderSpacing>Top」為「30」。**
+      + **2.6.4 設定「Chart」為「Voltage_Chart」。**
+      + **2.6.5 設定「Color」為「clWindow」。**
+      + **2.6.6 設定「FontSize」為「10」。**
+      + **2.6.7 設定「PopupMenu」為「Voltage_PopupMenu」。**
+      + **2.6.8 設定「Width」為「120」。**
+
     + **2.6 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
       + **2.6.1 設定「Align」為「AlClient」。**
       + **2.6.2 設定「AxisList>Left>Title>Caption」為「Current[mA]」。**
