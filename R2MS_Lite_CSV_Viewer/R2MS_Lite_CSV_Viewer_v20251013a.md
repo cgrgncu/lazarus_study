@@ -238,10 +238,27 @@
       + **2.2.3 設定「Caption」為空白。**
       + **2.2.4 設定「Width」為「544」。**
     + **2.3 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「CurrentChart_Panel」**
-      + **2.2.1 設定「Align」為「AlClient」。**
-      + **2.2.2 設定「BevelOuter」為「bvNone」。**
-      + **2.2.3 設定「Caption」為空白。**
-
+      + **2.3.1 設定「Align」為「AlClient」。**
+      + **2.3.2 設定「BevelOuter」為「bvNone」。**
+      + **2.3.3 設定「Caption」為空白。**
+    + **2.4 拖拉一個「Chart>TChart」到「VoltageChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Voltage_Chart」**
+      + **2.4.1 設定「Align」為「AlClient」。**
+      + **2.4.2 設定「AxisList>Left>Title>Caption」為「Voltage[mV]」。**
+      + **2.4.3 設定「AxisList>Left>Title>Visible」為「True」。**
+      + **2.4.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
+      + **2.4.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
+      + **2.4.6 設定「Series」按下「...」。**
+        + **2.4.6.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Voltage_PSU、Voltage_CH01、Voltage_CH02...」...。**
+      + **2.4.3 設定「Caption」為空白。**
+      + 
+    + **2.5 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
+      + **2.5.1 設定「Align」為「alRight」。**
+      + **2.5.2 設定「Chart」為「Voltage_Chart」。**
+      + **2.5.3 設定「Color」為「clForm」。**
+      + **2.5.4 設定「FontSize」為「10」。**
+      + **2.5.5 設定「Width」為「120」。**
+     
+      + 
     + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
       + **2.3.1 設定「Anchors」。**  
         + **2.3.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
