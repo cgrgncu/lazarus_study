@@ -262,7 +262,7 @@
         #0:  RGB(204, 0, 0)      // 柔和紅 (Muted Red)
         #1:  RGB(0, 179, 0)      // 森林綠 (Forest Green)
         #2:  RGB(0, 0, 204)      // 柔和藍 (Muted Blue)
-        #3:  RGB(204, 204, 0)    // 柔和黃 (Mustard Yellow)
+        #3:  RGB(240, 179, 0)    // 柔和黃 (Mustard Yellow)
         #4:  RGB(0, 204, 204)    // 柔和青 (Turquoise)
         #5:  RGB(204, 0, 204)    // 柔和洋紅 (Plum)
         #6:  RGB(102, 0, 204)    // 深靛青
