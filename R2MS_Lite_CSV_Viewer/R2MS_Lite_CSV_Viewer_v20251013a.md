@@ -723,391 +723,72 @@
       + **2.9.6 設定「FontSize」為「10」。**
       + **2.9.7 設定「PopupMenu」為「Current_PopupMenu」。**
       + **2.9.8 設定「Width」為「120」。**
-   
+    + **2.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
+      + **2.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.VerticalChartLayout_ToolButtonClick(Sender: TObject);
+      begin
+        // 1. 確保 Panel 可見並設定為水平分割 (一左一右)
+        VoltageChart_Panel.Visible := True;
+        CurrentChart_Panel.Visible := True;
+        VoltageChart_Panel.Align := alLeft;
+        CurrentChart_Panel.Align := alClient;
+        // 2. 隨便亂改一個高寬來觸發Resize
+        VoltageChart_Panel.Height:=10;
+        VoltageChart_Panel.Width:=10;
+      end; 
+      ```
+      + **2.9.2 設定「HorizontalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.HorizontalChartLayout_ToolButtonClick(Sender: TObject);
+      begin
+        // 1. 確保 Panel 可見並設定為垂直分割 (一上一下)
+        VoltageChart_Panel.Visible := True;
+        CurrentChart_Panel.Visible := True;
+        VoltageChart_Panel.Align := alTop;
+        CurrentChart_Panel.Align := alClient;
+        // 2. 隨便亂改一個高寬來觸發Resize
+        VoltageChart_Panel.Height:=10;
+        VoltageChart_Panel.Width:=10;
+      end;
+      ```
+      + **2.9.3 設定「VoltageChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.VoltageChartOnlyLayout_ToolButtonClick(Sender: TObject);
+      begin
+        CurrentChart_Panel.Align := alNone;
+        CurrentChart_Panel.Visible := False;
+        VoltageChart_Panel.Align := alClient;
+        VoltageChart_Panel.Visible := True;
+      end; 
+      ```
+      + **2.9.4 設定「CurrentChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      ```pascal
+      procedure TForm1.CurrentChartOnlyLayout_ToolButtonClick(Sender: TObject);
+      begin
+        VoltageChart_Panel.Align := alNone;
+        VoltageChart_Panel.Visible := False;
+        CurrentChart_Panel.Align := alClient;
+        CurrentChart_Panel.Visible := True;
+      end; 
+      ```
+      + **2.9.5 設定「VoltageChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
+      ```pascal
+      procedure TForm1.VoltageChart_PanelResize(Sender: TObject);
+      begin
+        // 檢查是否處於垂直分割模式 (ToolButton.Down 狀態)
+        if VerticalChartLayout_ToolButton.Down then
+        begin
+          VoltageChart_Panel.Width := (VoltageChart_Panel.Width + CurrentChart_Panel.Width) div 2;
+        end
+        // 檢查是否處於水平分割模式
+        else if HorizontalChartLayout_ToolButton.Down then
+        begin
+          VoltageChart_Panel.Height := (VoltageChart_Panel.Height + CurrentChart_Panel.Height) div 2;
+        end;
+      end; 
+      ```
      
-      + 
-    + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
-      + **2.3.1 設定「Anchors」。**  
-        + **2.3.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.3.1.2 「Left anchoring>Slbling」維持「(nil)」。取消「Left anchoring>Enable」為不打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.3.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.3.1.4 「Border space」右邊那格填「16」。**  
-        + **2.3.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.3.2 設定「Caption」為「開啟資料夾」。**
-      + **2.3.2 設定「Height」為「41」。**
-      + **2.3.2 設定「Top」為「16」。**
-      + **2.3.2 設定「Width」為「105」。**
-    + **2.4 拖拉一個「Standard>TEdit」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Edit」**
-      + **2.4.1 設定「Anchors」。**  
-        + **2.4.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.4.1.2 「Left anchoring>Slbling」選為「ERT_ver2_9_9_Client_SavePath_Label:TLabel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.4.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_OpenSavePath_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-        + **2.4.1.4 「Border space」正中間那格填「0」，左邊那格填「5」，右邊那格填「15」。**  
-        + **2.4.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.4.2 設定「ReadOnly」為「True」。**
-      + **2.4.3 設定「Text」為空白。**  
-      + **2.4.4 設定「Top」為「20」。**
-    + **2.5 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「CheckExternalDevices_Button」**
-      + **2.5.1 設定「Caption」為「偵測外部裝置」。**
-      + **2.5.2 設定「Height」為「49」。**
-      + **2.5.3 設定「Left」為「8」。**
-      + **2.5.4 設定「Top」為「77」。**
-      + **2.5.5 設定「Width」為「163」。** 
-    + **2.6 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「NowRun_Button」**
-      + **2.6.1 設定「Caption」為「立刻單次運行」。**
-      + **2.6.2 設定「Height」為「49」。**
-      + **2.6.3 設定「Left」為「8」。**
-      + **2.6.4 設定「Top」為「144」。**
-      + **2.6.5 設定「Width」為「163」。**   
-    + **2.7 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「NowSystemTest_Button」**
-      + **2.7.1 設定「Caption」為「立刻單次檢測」。**
-      + **2.7.2 設定「Height」為「49」。**
-      + **2.7.3 設定「Left」為「8」。**
-      + **2.7.4 設定「Top」為「211」。**
-      + **2.7.5 設定「Width」為「163」。**
-    + **2.8 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ScheduleRun_Button」**
-      + **2.8.1 設定「Caption」為「啟動智慧排程」。**
-      + **2.8.2 設定「Height」為「49」。**
-      + **2.8.3 設定「Left」為「8」。**
-      + **2.8.4 設定「Top」為「278」。**
-      + **2.8.5 設定「Width」為「163」。**
-    + **2.9 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_Profile_Name_GroupBox」**
-      + **2.9.1 設定「Caption」為「測線名稱:」。**
-      + **2.9.2 設定「Height」為「66」。**
-      + **2.9.3 設定「Left」為「180」。**
-      + **2.9.4 設定「Top」為「63」。**
-      + **2.9.5 設定「Width」為「400」。**
-    + **2.10 拖拉一個「Standard>TEdit」到「ERT_Profile_Name_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_Profile_Name_Edit」**
-      + **2.10.1 設定「Anchors」。**  
-        + **2.10.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.10.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.10.1.3 「Right anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.10.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.10.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.10.2 設定「ReadOnly」為「True」。**
-      + **2.10.2 設定「Text」為空白。**  
-    + **2.11 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_Project_Name_GroupBox」**
-      + **2.11.1 設定「Anchors」。**  
-        + **2.11.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.11.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.11.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.11.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
-        + **2.11.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.11.2 設定「Caption」為「計畫名稱:」。**
-      + **2.11.3 設定「Height」為「66」。**
-    + **2.12 拖拉一個「Standard>TEdit」到「ERT_Project_Name_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_Project_Name_Edit」**
-      + **2.12.1 設定「Anchors」。**  
-        + **2.12.1.1 「Top anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.12.1.2 「Left anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.12.1.3 「Right anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.12.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.12.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.12.2 設定「ReadOnly」為「True」。**
-      + **2.12.3 設定「Text」為空白。**  
-    + **2.13 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「DMM_SN_GroupBox」**
-      + **2.13.1 設定「Caption」為「DMM序號:」。**
-      + **2.13.2 設定「Height」為「66」。**
-      + **2.13.3 設定「Left」為「180」。**
-      + **2.13.4 設定「Top」為「135」。**
-      + **2.13.5 設定「Width」為「400」。**
-    + **2.14 拖拉一個「Standard>TEdit」到「DMM_SN_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「DMM_SN_Edit」**
-      + **2.14.1 設定「Anchors」。**  
-        + **2.14.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.14.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.14.1.3 「Right anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.14.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.14.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.14.2 設定「ReadOnly」為「True」。**
-      + **2.14.3 設定「Text」為空白。**  
-    + **2.15 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「DMM_GroupBox」**
-      + **2.15.1 設定「Anchors」。**  
-        + **2.15.1.1 「Top anchoring>Slbling」選為「DMM_SN_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.15.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.15.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.15.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
-        + **2.15.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.15.2 設定「Caption」為「DMM(34465A,34470A)序列埠:」。**
-      + **2.15.3 設定「Height」為「66」。**
-    + **2.16 拖拉一個「Standard>TEdit」到「DMM_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「DMM_Edit」**
-      + **2.16.1 設定「Anchors」。**  
-        + **2.16.1.1 「Top anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.16.1.2 「Left anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.16.1.3 「Right anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.16.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.16.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.16.2 設定「ReadOnly」為「True」。**
-      + **2.16.3 設定「Text」為空白。**  
-    + **2.17 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ESP32_SN_GroupBox」**
-      + **2.17.1 設定「Caption」為「SwitchArray序號:」。**
-      + **2.17.2 設定「Height」為「66」。**
-      + **2.17.3 設定「Left」為「180」。**
-      + **2.17.4 設定「Top」為「207」。**
-      + **2.17.5 設定「Width」為「400」。**
-    + **2.18 拖拉一個「Standard>TEdit」到「ESP32_SN_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ESP32_SN_Edit」**
-      + **2.18.1 設定「Anchors」。**  
-        + **2.18.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.18.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.18.1.3 「Right anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.18.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.18.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.18.2 設定「ReadOnly」為「True」。**
-      + **2.18.2 設定「Text」為空白。**  
-    + **2.19 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ESP32_GroupBox」**
-      + **2.19.1 設定「Anchors」。**  
-        + **2.19.1.1 「Top anchoring>Slbling」選為「ESP32_SN_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.19.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.19.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.19.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
-        + **2.19.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.19.2 設定「Caption」為「SwitchArray序列埠:」。**
-      + **2.19.3 設定「Height」為「66」。**
-    + **2.20 拖拉一個「Standard>TEdit」到「ESP32_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ESP32_Edit」**
-      + **2.20.1 設定「Anchors」。**  
-        + **2.20.1.1 「Top anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.20.1.2 「Left anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.20.1.3 「Right anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.20.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.20.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.20.2 設定「ReadOnly」為「True」。**
-      + **2.20.2 設定「Text」為空白。**
-    + **2.21 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_SN_GroupBox」**
-      + **2.21.1 設定「Caption」為「PSU序號:」。**
-      + **2.21.2 設定「Height」為「66」。**
-      + **2.21.3 設定「Left」為「180」。**
-      + **2.21.4 設定「Top」為「279」。**
-      + **2.21.5 設定「Width」為「400」。**
-    + **2.22 拖拉一個「Standard>TEdit」到「PSU_SN_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「PSU_SN_Edit」**
-      + **2.22.1 設定「Anchors」。**  
-        + **2.22.1.1 「Top anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.22.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.22.1.3 「Right anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.22.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.22.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.22.2 設定「ReadOnly」為「True」。**
-      + **2.22.2 設定「Text」為空白。**  
-    + **2.23 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_GroupBox」**
-      + **2.23.1 設定「Anchors」。**  
-        + **2.23.1.1 「Top anchoring>Slbling」選為「PSU_SN_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
-        + **2.23.1.2 「Left anchoring>Slbling」選為「ERT_Profile_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.23.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.23.1.4 「Border space」正中間那格填「0」，左邊那格填「6」，右邊那格填「15」。**  
-        + **2.23.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.23.2 設定「Caption」為「PSU序列埠:」。**
-      + **2.23.3 設定「Height」為「66」。**
-    + **2.24 拖拉一個「Standard>TEdit」到「PSU_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「PSU_Edit」**
-      + **2.24.1 設定「Anchors」。**  
-        + **2.24.1.1 「Top anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.24.1.2 「Left anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.24.1.3 「Right anchoring>Slbling」選為「ERT_Project_Name_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **2.24.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-        + **2.24.1.5 設定完後關閉Anchors設定視窗。**  
-      + **2.24.2 設定「ReadOnly」為「True」。**
-      + **2.24.2 設定「Text」為空白。**  
-    + **2.25 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ScheduleSetting_GroupBox」**
-      + **2.25.1 設定「Anchors」。** 
-        + **2.25.1.1 「Top anchoring>Slbling」選為「PSU_SN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **2.25.1.2 「Left anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
-        + **2.25.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
-        + **2.25.1.4 「Bottom anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
-        + **2.25.1.5 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「15」，右邊那格填「15」，下面那格填「3」。**  
-        + **2.25.1.6 設定完後關閉Anchors設定視窗。**
-      + **2.25.2 設定「Caption」為「啟動時間設定:」。**
-    + **2.26 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「EveryDay_RadioButton」**
-      + **2.26.1 設定「Caption」為「每天」。**
-      + **2.26.2 設定「Left」為「48」。**
-      + **2.26.3 設定「Top」為「0」。**
-    + **2.27 拖拉一個「Standard>TRadioButton」到「ScheduleSetting_GroupBox」中。預設名稱會是「RadioButton1」，修改「Name」為「OnlyToday_RadioButton」**
-      + **2.27.1 設定「Caption」為「只有今天」。**
-      + **2.27.2 設定「Left」為「134」。**
-      + **2.27.3 設定「Top」為「0」。**
-    + **2.28 拖拉一個「Standard>TListView」到「ScheduleSetting_GroupBox」中。預設名稱會是「ListView1」，修改「Name」為「ScheduleSetting_ListView」**
-      + **2.28.1 設定「Anchors」。** 
-        + **2.28.1.1 「Top anchoring>Slbling」選為「EveryDay_RadioButton:TRadioButton」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **2.28.1.2 「Left anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。** 
-        + **2.28.1.3 「Right anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
-        + **2.28.1.4 「Bottom anchoring>Slbling」選為「ScheduleSetting_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
-        + **2.28.1.5 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
-        + **2.28.1.6 設定完後關閉Anchors設定視窗。**
-      + **2.28.2 設定「Checkboxes」，打勾為「True」。**
-      + **2.28.3 設定「Font」，按下「...」，選「大小」為「12」。**
-      + **2.28.4 設定「ViewStyle」為「vsReport」。**
-      + **2.28.5 設定「Columns」，按下「...」，利用「Add」增加9個項目。**
-        + 2.28.5.1 第1個項目:
-          + **2.28.5.1.1 設定「Caption」為「索引」。**
-          + **2.28.5.1.2 設定「Width」為「80」。**
-        + 2.28.5.2 第2個項目:
-          + **2.28.5.2.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.2.2 設定「Caption」為「排程時間(HH:NN)」。**
-          + **2.28.5.2.3 設定「Width」為「150」。**
-        + 2.28.5.3 第3個項目:
-          + **2.28.5.3.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.3.2 設定「Caption」為「放電模式」。**
-          + **2.28.5.3.3 設定「Width」為「100」。**
-        + 2.28.5.4 第4個項目:
-          + **2.28.5.4.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.4.2 設定「Caption」為「限電壓」。**
-          + **2.28.5.4.3 設定「Width」為「80」。**
-        + 2.28.5.5 第5個項目:
-          + **2.28.5.5.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.5.2 設定「Caption」為「限電流」。**
-          + **2.28.5.5.3 設定「Width」為「80」。**
-        + 2.28.5.6 第6個項目:
-          + **2.28.5.6.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.6.2 設定「Caption」為「狀態」。**
-          + **2.28.5.6.3 設定「Width」為「100」。**
-        + 2.28.5.7 第7個項目:
-          + **2.28.5.7.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.7.2 設定「Caption」為「上次時間」。**
-          + **2.28.5.7.3 設定「Width」為「205」。**
-        + 2.28.5.8 第8個項目:
-          + **2.28.5.8.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.8.2 設定「Caption」為「下次時間」。**
-          + **2.28.5.8.3 設定「Width」為「205」。**
-        + 2.28.5.9 第9個項目:
-          + **2.28.5.9.1 設定「Alignment」為「taCenter」。**
-          + **2.28.5.9.2 設定「Caption」為「放電時間預估(分鐘)」。**
-          + **2.28.5.9.3 設定「Width」為「205」。**    
-      + **2.28.6 設定「Items」，按下「...」，利用「Add」增加26個項目。**
-        + 2.28.6.1 第1個項目:
-          + **2.28.6.1.1 設定「Caption」為「000」。**
-          + **2.28.6.1.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「00:00」，其餘子項目「Caption」為空白。**
-        + 2.28.6.2 第2個項目:
-          + **2.28.6.2.1 設定「Caption」為「001」。**
-          + **2.28.6.2.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「00:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.3 第3個項目:
-          + **2.28.6.3.1 設定「Caption」為「002」。**
-          + **2.28.6.3.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「01:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.4 第4個項目:
-          + **2.28.6.4.1 設定「Caption」為「003」。**
-          + **2.28.6.4.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「02:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.5 第5個項目:
-          + **2.28.6.5.1 設定「Caption」為「004」。**
-          + **2.28.6.5.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「03:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.6 第6個項目:
-          + **2.28.6.6.1 設定「Caption」為「005」。**
-          + **2.28.6.6.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「04:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.7 第7個項目:
-          + **2.28.6.7.1 設定「Caption」為「006」。**
-          + **2.28.6.7.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「05:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.8 第8個項目:
-          + **2.28.6.8.1 設定「Caption」為「007」。**
-          + **2.28.6.8.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「06:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.9 第9個項目:
-          + **2.28.6.9.1 設定「Caption」為「008」。**
-          + **2.28.6.9.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「07:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.10 第10個項目:
-          + **2.28.6.10.1 設定「Caption」為「009」。**
-          + **2.28.6.10.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「08:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.11 第11個項目:
-          + **2.28.6.11.1 設定「Caption」為「010」。**
-          + **2.28.6.11.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「09:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.12 第12個項目:
-          + **2.28.6.12.1 設定「Caption」為「011」。**
-          + **2.28.6.12.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「10:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.13 第13個項目:
-          + **2.28.6.13.1 設定「Caption」為「012」。**
-          + **2.28.6.13.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「11:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.14 第14個項目:
-          + **2.28.6.14.1 設定「Caption」為「013」。**
-          + **2.28.6.14.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「12:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.15 第15個項目:
-          + **2.28.6.15.1 設定「Caption」為「014」。**
-          + **2.28.6.15.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「13:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.16 第16個項目:
-          + **2.28.6.16.1 設定「Caption」為「015」。**
-          + **2.28.6.16.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「14:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.17 第17個項目:
-          + **2.28.6.17.1 設定「Caption」為「016」。**
-          + **2.28.6.17.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「15:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.18 第18個項目:
-          + **2.28.6.18.1 設定「Caption」為「017」。**
-          + **2.28.6.18.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「16:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.19 第19個項目:
-          + **2.28.6.19.1 設定「Caption」為「018」。**
-          + **2.28.6.19.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「17:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.20 第20個項目:
-          + **2.28.6.20.1 設定「Caption」為「019」。**
-          + **2.28.6.20.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「18:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.21 第21個項目:
-          + **2.28.6.21.1 設定「Caption」為「020」。**
-          + **2.28.6.21.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「19:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.22 第22個項目:
-          + **2.28.6.22.1 設定「Caption」為「021」。**
-          + **2.28.6.22.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「20:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.23 第23個項目:
-          + **2.28.6.23.1 設定「Caption」為「022」。**
-          + **2.28.6.23.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「21:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.24 第24個項目:
-          + **2.28.6.24.1 設定「Caption」為「023」。**
-          + **2.28.6.24.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「22:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.25 第25個項目:
-          + **2.28.6.25.1 設定「Caption」為「024」。**
-          + **2.28.6.25.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「23:01」，其餘子項目「Caption」為空白。**
-        + 2.28.6.26 第26個項目:
-          + **2.28.6.26.1 設定「Caption」為「999」。**
-          + **2.28.6.26.2 利用「New SubItem」增加8個子項目。並設定第一個子項目「Caption」為「23:59」，其餘子項目「Caption」為空白。**
-      + **2.28.7 設定「GridLines」為「True」。**
-    + **2.29 拖拉一個「Standard>TCheckBox」到「ScheduleSetting_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「PSU_RangeHIGH_CheckBox」**
-      + **2.29.1 設定「Caption」為「HIGH(600V/0.5A)」。**
-      + **2.29.2 設定「Left」為「288」。**
-      + **2.29.3 設定「Top」為「0」。**
-    + **2.30 拖拉一個「Standard>TCheckBox」到「ScheduleSetting_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「PSU_RangeLOW_CheckBox」**
-      + **2.30.1 設定「Caption」為「LOW(400V/0.35A)」。**
-      + **2.30.2 設定「Left」為「496」。**
-      + **2.30.3 設定「Top」為「0」。**
-    + **2.31 拖拉一個「Standard>TMemo」到「TabSheet1」中。預設名稱會是「Memo1」，修改「Name」為「ReadMe_Memo」**
-      + **2.31.1 設定「Align」為「AlClient」。**
-      + **2.31.2 設定「Lines」為以下文字。**
-        ```
-        ==============================================
-        使用說明:
-        (1)請準備好正確內容的INI參數檔案(本工具軟體同名的INI檔案，放在執行檔所在目錄)，再運行本程式。
-         *若內容有誤，請重新編輯INI檔案後重新運行本工具軟體，直到內容正確。
-         *若INI檔案損毀，請手動刪除該檔案後重新運行本工具軟體，將會產生一個新的預設INI檔案。
-        (2)確認內容正確後，按下「啟動檢測排程」按鈕，軟體將自動依照排程進行工作。
-         *每次按下「啟動檢測排程」按鈕，都會清空「R2MS_Lite_WorkSpace」資料夾。
-         *每次排程工作都會把所需的資料存到「local」資料夾中，因此「R2MS_Lite_WorkSpace」資料夾中的內容不太重要。
-         *因外部程式「ERT_ver2_9_9_Client.exe」輸出資料無檔頭，不利後續資料分享與使用。本軟體將另存為有檔頭的CSV檔案。
-        (3)不想要繼續進行工作時，直接關閉本工具軟體。
-         *若正在運行外部程式，建議等待工作完成。或手動操作該外部程式，使其正常關閉。
-         *待外部軟體工作結束後，趁還在倒數的時候關閉軟體。請注意是否會觸發下一個工作排程。
-        ==============================================
-        
-        ==============================================
-        狀態說明:
-        未知:
-        軟體開啟後，尚未確認工作內容時，狀態為「未知」。 表示軟體剛開啟。
-        
-        停用:
-        按下「啟動檢測排程」按鈕後，未勾選的排程，狀態為「停用」。表示此排程將不會被使用。
-        
-        待機:
-        按下「啟動檢測排程」按鈕後，經查詢清單後，可用的工作排程之狀態填入「待機」。其「下次時間」欄位則填入預期進行工作的確切時間。
-        
-        略過:
-        按下「啟動檢測排程」按鈕後，經查詢清單後，若在「只有今天」的設定下，已經超過當下時間的工作排程，其狀態表示為「略過」。被略過不運行的工作，其「上次時間」欄位將保持空白。
-        
-        完成:
-        正常運作完成的排程工作狀態將顯示為「完成」。其「上次時間」欄位將填入其工作完成時間。在「只有今天」的設定下，狀態維持為「完成」；在「每天」設定下，狀態會再次改為「待機」。
-        
-        即將:
-        按下「啟動檢測排程」按鈕後，經查詢清單後，將下一個可運作的工作狀態表示為「即將」。同時按鈕會倒數計時，當秒數小於0時進行呼叫「ERT_ver2_9_9_Client.exe」軟體的工作。
-        
-        初始化:
-        「即將」的工作時間到後，將呼叫外部程式，該程式進行初始化檢驗的時候，狀態為「初始化」。進入下個階段的時間將顯示在「下次時間」欄位中。注意，倒數時間會比外部程式所需實際時間更久一些。
-        
-        等待運作:
-        「初始化」的工作時間到後，外部程式自動進行運作，狀態填入「等待運作」。目前的檢測工作內容耗時要4分鐘。時間到會自動關閉外部程式。當工作正常運作後，狀態將顯示為「完成」。
-        
-        運作失敗:
-        各項工作若遇到不正常的狀況，將在狀態顯示「運作失敗」。錯誤原因可查詢「運行記錄」頁面。多數情況下，異常發生與儀器設備異常有關，將停止排程以避免發生進一步損害。使用者應於異常排除後重新運行本軟體。
-        
-        ==============================================
-        
-        
-        ```
-      + **2.31.3 設定「ReadOnly」為「True」。**
-      + **2.31.4 設定「ScrollBars」為「ssBoth」。**
 3. 第2個分頁「參數檔案內容」(TabSheet2):  
     + **3.1 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「v299_DefaultSetting_GroupBox」**
       + **3.1.1 設定「Align」為「AlTop」。**
