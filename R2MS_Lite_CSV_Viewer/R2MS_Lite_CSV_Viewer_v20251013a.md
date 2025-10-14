@@ -402,9 +402,9 @@
         end; 
         ```
       + **2.5.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Voltage_PopupMenu_1_2」。**
-        + **2.5.2.1 設定「Voltage_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
+        + **2.5.2.1 設定「Voltage_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal
-        procedure TForm1.Voltage_PopupMenu_1_1Click(Sender: TObject);
+        procedure TForm1.Voltage_PopupMenu_1_2Click(Sender: TObject);
         begin
           Voltage_PSU.Active := False;
           Voltage_CH01.Active := False;
