@@ -482,16 +482,15 @@
       + **2.6.6 設定「FontSize」為「10」。**
       + **2.6.7 設定「PopupMenu」為「Voltage_PopupMenu」。**
       + **2.6.8 設定「Width」為「120」。**
-
-    + **2.6 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
-      + **2.6.1 設定「Align」為「AlClient」。**
-      + **2.6.2 設定「AxisList>Left>Title>Caption」為「Current[mA]」。**
-      + **2.6.3 設定「AxisList>Left>Title>Visible」為「True」。**
-      + **2.6.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
-      + **2.6.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
-      + **2.6.6 設定「Color」為「clWindow」。**
-      + **2.6.7 設定「Series」按下「...」。**
-        + **2.6.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Current_PSU、Current_CH01、Current_CH02...」...。**
+    + **2.7 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
+      + **2.7.1 設定「Align」為「AlClient」。**
+      + **2.7.2 設定「AxisList>Left>Title>Caption」為「Current[mA]」。**
+      + **2.7.3 設定「AxisList>Left>Title>Visible」為「True」。**
+      + **2.7.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
+      + **2.7.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
+      + **2.7.6 設定「Color」為「clWindow」。**
+      + **2.7.7 設定「Series」按下「...」。**
+        + **2.7.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Current_PSU、Current_CH01、Current_CH02、...、Current_CH64」。**
         + Caption:
         ```
         PSU
@@ -568,16 +567,163 @@
         #63: RGB(120, 40, 200)   // 柔和藍紫色
         #64: RGB(120, 120, 90)   // 柔和卡其色
         ```
-      + **2.6.8 設定「Title>Text」為「Current Chart」。**
-      + **2.6.9 設定「Title>Visible」為「True」。**
-    + **2.7 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Current_ChartListbox」**
-      + **2.7.1 設定「Align」為「alRight」。**
-      + **2.7.2 設定「BorderSpacing>Bottom」為「40」。**
-      + **2.7.3 設定「BorderSpacing>Top」為「30」。**
-      + **2.7.4 設定「Chart」為「Current_Chart」。**
-      + **2.7.5 設定「Color」為「clWindow」。**
-      + **2.7.6 設定「FontSize」為「10」。**
-      + **2.7.7 設定「Width」為「120」。**
+      + **2.7.8 設定「Title>Text」為「Current Chart」。**
+      + **2.7.9 設定「Title>Visible」為「True」。**
+    + **2.8 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Current_PopupMenu」**
+      + **2.8.1 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Current_PopupMenu_1_1」。**
+        + **2.8.1.1 設定「Current_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
+        ```pascal
+        procedure TForm1.Current_PopupMenu_1_1Click(Sender: TObject);
+        begin
+          Current_PSU.Active := True;
+          Current_CH01.Active := True;
+          Current_CH02.Active := True;
+          Current_CH03.Active := True;
+          Current_CH04.Active := True;
+          Current_CH05.Active := True;
+          Current_CH06.Active := True;
+          Current_CH07.Active := True;
+          Current_CH08.Active := True;
+          Current_CH09.Active := True;
+          Current_CH10.Active := True;
+          Current_CH11.Active := True;
+          Current_CH12.Active := True;
+          Current_CH13.Active := True;
+          Current_CH14.Active := True;
+          Current_CH15.Active := True;
+          Current_CH16.Active := True;
+          Current_CH17.Active := True;
+          Current_CH18.Active := True;
+          Current_CH19.Active := True;
+          Current_CH20.Active := True;
+          Current_CH21.Active := True;
+          Current_CH22.Active := True;
+          Current_CH23.Active := True;
+          Current_CH24.Active := True;
+          Current_CH25.Active := True;
+          Current_CH26.Active := True;
+          Current_CH27.Active := True;
+          Current_CH28.Active := True;
+          Current_CH29.Active := True;
+          Current_CH30.Active := True;
+          Current_CH31.Active := True;
+          Current_CH32.Active := True;
+          Current_CH33.Active := True;
+          Current_CH34.Active := True;
+          Current_CH35.Active := True;
+          Current_CH36.Active := True;
+          Current_CH37.Active := True;
+          Current_CH38.Active := True;
+          Current_CH39.Active := True;
+          Current_CH40.Active := True;
+          Current_CH41.Active := True;
+          Current_CH42.Active := True;
+          Current_CH43.Active := True;
+          Current_CH44.Active := True;
+          Current_CH45.Active := True;
+          Current_CH46.Active := True;
+          Current_CH47.Active := True;
+          Current_CH48.Active := True;
+          Current_CH49.Active := True;
+          Current_CH50.Active := True;
+          Current_CH51.Active := True;
+          Current_CH52.Active := True;
+          Current_CH53.Active := True;
+          Current_CH54.Active := True;
+          Current_CH55.Active := True;
+          Current_CH56.Active := True;
+          Current_CH57.Active := True;
+          Current_CH58.Active := True;
+          Current_CH59.Active := True;
+          Current_CH60.Active := True;
+          Current_CH61.Active := True;
+          Current_CH62.Active := True;
+          Current_CH63.Active := True;
+          Current_CH64.Active := True;
+        end; 
+        ```
+      + **2.8.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Current_PopupMenu_1_2」。**
+        + **2.8.2.1 設定「Current_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
+        ```pascal
+        procedure TForm1.Current_PopupMenu_1_2Click(Sender: TObject);
+        begin
+          Current_PSU.Active := False;
+          Current_CH01.Active := False;
+          Current_CH02.Active := False;
+          Current_CH03.Active := False;
+          Current_CH04.Active := False;
+          Current_CH05.Active := False;
+          Current_CH06.Active := False;
+          Current_CH07.Active := False;
+          Current_CH08.Active := False;
+          Current_CH09.Active := False;
+          Current_CH10.Active := False;
+          Current_CH11.Active := False;
+          Current_CH12.Active := False;
+          Current_CH13.Active := False;
+          Current_CH14.Active := False;
+          Current_CH15.Active := False;
+          Current_CH16.Active := False;
+          Current_CH17.Active := False;
+          Current_CH18.Active := False;
+          Current_CH19.Active := False;
+          Current_CH20.Active := False;
+          Current_CH21.Active := False;
+          Current_CH22.Active := False;
+          Current_CH23.Active := False;
+          Current_CH24.Active := False;
+          Current_CH25.Active := False;
+          Current_CH26.Active := False;
+          Current_CH27.Active := False;
+          Current_CH28.Active := False;
+          Current_CH29.Active := False;
+          Current_CH30.Active := False;
+          Current_CH31.Active := False;
+          Current_CH32.Active := False;
+          Current_CH33.Active := False;
+          Current_CH34.Active := False;
+          Current_CH35.Active := False;
+          Current_CH36.Active := False;
+          Current_CH37.Active := False;
+          Current_CH38.Active := False;
+          Current_CH39.Active := False;
+          Current_CH40.Active := False;
+          Current_CH41.Active := False;
+          Current_CH42.Active := False;
+          Current_CH43.Active := False;
+          Current_CH44.Active := False;
+          Current_CH45.Active := False;
+          Current_CH46.Active := False;
+          Current_CH47.Active := False;
+          Current_CH48.Active := False;
+          Current_CH49.Active := False;
+          Current_CH50.Active := False;
+          Current_CH51.Active := False;
+          Current_CH52.Active := False;
+          Current_CH53.Active := False;
+          Current_CH54.Active := False;
+          Current_CH55.Active := False;
+          Current_CH56.Active := False;
+          Current_CH57.Active := False;
+          Current_CH58.Active := False;
+          Current_CH59.Active := False;
+          Current_CH60.Active := False;
+          Current_CH61.Active := False;
+          Current_CH62.Active := False;
+          Current_CH63.Active := False;
+          Current_CH64.Active := False;
+        end; 
+        ```
+    + **2.9 拖拉一個「Chart>TChartListbox」到「CurrentChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Current_ChartListbox」**
+      + **2.9.1 設定「Align」為「alRight」。**
+      + **2.9.2 設定「BorderSpacing>Bottom」為「40」。**
+      + **2.9.3 設定「BorderSpacing>Top」為「30」。**
+      + **2.9.4 設定「Chart」為「Current_Chart」。**
+      + **2.9.5 設定「Color」為「clWindow」。**
+      + **2.9.6 設定「FontSize」為「10」。**
+      + **2.9.7 設定「PopupMenu」為「Current_PopupMenu」。**
+      + **2.9.8 設定「Width」為「120」。**
+   
      
       + 
     + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
