@@ -789,11 +789,15 @@
       end; 
       ```
      
-3. 第2個分頁「參數檔案內容」(TabSheet2):  
-    + **3.1 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「v299_DefaultSetting_GroupBox」**
-      + **3.1.1 設定「Align」為「AlTop」。**
-      + **3.1.2 設定「Caption」為「v299_DefaultSetting」。**
-      + **3.1.3 設定「Height」為「250」。**
+3. 第2個分頁「資料內容」(TabSheet2):  
+    + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
+      + **3.1.1 設定「Align」為「alClient」。**
+      + **3.1.2 設定「ColCount」為「100」。**
+      + **3.1.3 設定「MouseWheelOption」為「mwGrid」。**
+      + **3.1.4 設定「Options>goColSizing」為「True」。**
+      + **3.1.5 設定「Options>goDblClickAutoSize」為「True」。**
+      + **3.1.6 設定「RowCount」為「100」。**
+
     + **3.2 拖拉一個「Standard>TMemo」到「v299_DefaultSetting_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「v299_DefaultSetting_Memo」**
       + **3.2.1 設定「Anchors」。**  
         + **3.2.1.1 「Top anchoring>Slbling」選為「v299_DefaultSetting_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
