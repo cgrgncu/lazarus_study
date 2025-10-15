@@ -232,6 +232,19 @@
       + **2.1.4 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CurrentChartOnlyLayout_ToolButton」**
         + **2.1.4.1 設定「Caption」為「電流波形」。**
         + **2.1.4.2 設定「Grouped」為「True」。**
+      + **2.1.5 在「ToolBar1」元件上按「右鍵>New Separator」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「ToolButtonSeparator1」**
+      + **2.1.6 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「FirstPart_ToolButton」**
+        + **2.1.6.1 設定「Caption」為「最前次」。**
+      + **2.1.7 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「PreviousPart_ToolButton」**
+        + **2.1.7.1 設定「Caption」為「前次」。**
+      + **2.1.8 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「SelectPart_ToolButton」**
+        + **2.1.8.1 設定「Caption」為「選擇目標」。**
+      + **2.1.9 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「NextPart_ToolButton」**
+        + **2.1.9.1 設定「Caption」為「後次」。**
+      + **2.1.10 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「LastPart_ToolButton」**
+        + **2.1.10.1 設定「Caption」為「最後次」。**
+      + **2.1.11 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「AllPart_ToolButton」**
+        + **2.1.11.1 設定「Caption」為「全資料」。**        
     + **2.2 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「VoltageChart_Panel」**
       + **2.2.1 設定「Align」為「alLeft」。**
       + **2.2.2 設定「BevelOuter」為「bvNone」。**
