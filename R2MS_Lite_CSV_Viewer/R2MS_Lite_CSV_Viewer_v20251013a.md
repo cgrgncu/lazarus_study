@@ -849,7 +849,24 @@
       + **5.1.4 設定「ScrollBars」為「ssBoth」。**
 
 ### 寫功能
-1. **設定「MainMenu1_1」的「Event」頁面下「OnClick」為如下程式碼。**
+1. **去implementation區塊追加宣告全域變數**
+```pascal
+implementation
+//--------------------------------------------------------------------------
+//uses add by HsiupoYeh
+uses
+  Math;
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+//宣告全域變數 add by HsiupoYeh
+var
+  version_str: AnsiString;
+  Current_Folder_Path: AnsiString;
+//--------------------------------------------------------------------------
+
+{$R *.lfm}
+```
+2. **設定「MainMenu1_1」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.MainMenu1_1Click(Sender: TObject);
 var
@@ -1475,7 +1492,7 @@ begin
   end;
 end;        
 ```
-2. **設定「FirstPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+3. **設定「FirstPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.FirstPart_ToolButtonClick(Sender: TObject);
 var
@@ -2165,7 +2182,7 @@ begin
   //--
 end; 
 ```
-3. **設定「PreviousPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+4. **設定「PreviousPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.PreviousPart_ToolButtonClick(Sender: TObject);
 var
@@ -2863,7 +2880,7 @@ begin
   //--
 end;  
 ```
-4. **設定「SelectPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+5. **設定「SelectPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.SelectPart_ToolButtonClick(Sender: TObject);
 var
@@ -3567,7 +3584,7 @@ begin
   //--
 end;  
 ```
-5. **設定「NextPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+6. **設定「NextPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.NextPart_ToolButtonClick(Sender: TObject);
 var
@@ -4265,7 +4282,7 @@ begin
   //--
 end; 
 ```
-6. **設定「LastPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+7. **設定「LastPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.LastPart_ToolButtonClick(Sender: TObject);
 var
@@ -4955,7 +4972,7 @@ begin
   //--
 end;   
 ```
-7. **設定「AllPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+8. **設定「AllPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
 ```pascal
 procedure TForm1.AllPart_ToolButtonClick(Sender: TObject);
 var
@@ -5633,8 +5650,25 @@ begin
   StatusBar1.Panels[0].Text := '載入完成!';
 end;  
 ```
-8. **設定「Form1」的「properties」頁面下「KeyPreview」為「True」。。**
-9. **設定「Form1」的「Event」頁面下「OnKeyDown」為如下程式碼。**
+9. **設定「Form1」的「properties」頁面下「KeyPreview」為「True」。。**
+10. **去implementation區塊追加宣告全域變數**
+```pascal
+implementation
+//--------------------------------------------------------------------------
+//uses add by HsiupoYeh
+uses
+  Math,LCLType;
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+//宣告全域變數 add by HsiupoYeh
+var
+  version_str: AnsiString;
+  Current_Folder_Path: AnsiString;
+//--------------------------------------------------------------------------
+
+{$R *.lfm}
+```
+11. **設定「Form1」的「Event」頁面下「OnKeyDown」為如下程式碼。**
 ```pascal
 procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
   );
