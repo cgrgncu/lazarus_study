@@ -5633,3 +5633,34 @@ begin
   StatusBar1.Panels[0].Text := '載入完成!';
 end;  
 ```
+8. **設定「Form1」的「properties」頁面下「KeyPreview」為「True」。。**
+9. **設定「Form1」的「Event」頁面下「OnKeyDown」為如下程式碼。**
+```pascal
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+  );
+begin
+  // 檢查釋放的鍵是否為左箭頭鍵 (VK_LEFT)
+  if Key = VK_LEFT then
+  begin
+    // **檢查是否同時按下了 CTRL 鍵**
+    if ssCtrl in Shift then
+    begin
+      // 1. 阻止預設行為
+      Key := 0;
+      // 2. 呼叫您指定的按鈕事件
+      PreviousPart_ToolButtonClick(PreviousPart_ToolButton);
+    end;
+  end
+  else if Key = VK_RIGHT then
+  begin
+    // **檢查是否同時按下了 CTRL 鍵**
+    if ssCtrl in Shift then
+    begin
+      // 1. 阻止預設行為
+      Key := 0;
+      // 2. 呼叫您指定的按鈕事件
+      NextPart_ToolButtonClick(NextPart_ToolButton);
+    end;
+  end;
+end;  
+```
