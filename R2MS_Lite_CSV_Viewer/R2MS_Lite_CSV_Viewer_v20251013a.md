@@ -1,7 +1,7 @@
 # R2MS_Lite_CSV_Viewer 開發筆記
 + 作者: HsiupoYeh  
 + 更新日期: 2025-10-13
-+ 這部分只有UI，功能另外寫。
++ 第一部分只有UI，第二部分寫功能。
 
 ## 開發環境  
 + 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_CSV_Viewer_v20251013a.ova」。**
