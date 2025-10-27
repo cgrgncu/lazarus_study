@@ -1481,3 +1481,7 @@ begin
   //--
 end;  
 ```
++ 1.7 PreviousPart_ToolButton
+```pascal
+```
++ 
