@@ -72,7 +72,7 @@ end;
   + 1.5.2 設定「DropdownMenu」為「ChannelDisplayStyle_PopupMenu」。
   + 1.5.3 設定「Style」為「tbsButtonDrop」。
 
-+ 1.6
++ 1.6 修改「FirstPart_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.FirstPart_ToolButtonClick(Sender: TObject);
 var
