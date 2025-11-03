@@ -245,17 +245,27 @@
       + **2.9.1 設定「Caption」為「逆推模擬運算參數」。** 
     + 2.10 第一個分頁「模型網格建立」(CreateMesh_TabSheet):
       + **2.10.1 拖拉一個「Standard>TToolBar」到「CreateMesh_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「CreateMesh_ToolBar」。**
-      + **2.10.2 設定「ShowCaptions」為「True」。** 
-      + **2.10.3 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「DefaultMesh_ToolButton」**
-        + **2.10.3.1 設定「Caption」為「預設網格」。**
-        + **2.10.3.2 設定「DefaultMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **2.10.2 設定「BorderSpacing>Top」為「1」。**
+      + **2.10.3 設定「Edge>Borders>ebBottom」為「True」。**
+      + **2.10.4 設定「Edge>Borders>ebLeft」為「True」。**
+      + **2.10.5 設定「Edge>Borders>ebRight」為「True」。**
+      + **2.10.6 設定「ShowCaptions」為「True」。** 
+      + **2.10.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「DefaultMesh_ToolButton」**
+        + **2.10.7.1 設定「Caption」為「預設網格」。**
+        + **2.10.7.2 設定「DefaultMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
         ```pascal
 
         ```
-       
-   
+      + **2.10.8 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshParameters_GroupBox」。**
+        + **2.10.8.1 設定「Align」為「alRight」。**
+        + **2.10.8.2 設定「BorderSpacing>Left」為「3」。**
+        + **2.10.8.3 設定「BorderSpacing>Right」為「1」。**
+        + **2.10.8.4 設定「Caption」為「參數設定:」。** 
+        + **2.10.8.3 設定「Width」為「500」。**
+      + **2.10.9 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPreview_GroupBox」。**
+        + **2.10.9.1 設定「Align」為「alClient」。**
+        + **2.10.9.2 設定「Caption」為「模型預覽:」。** 
 
-      
     
     + **2.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
       + **2.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
