@@ -2,7 +2,6 @@
 + 作者: HsiupoYeh  
 + 更新日期: 2025-11-03
 
-
 ## 開發環境  
 + 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_ERTMaker_v20251103a.ova」。**
   + Windows 10 22H2 64bit 企業版 繁體中文(SW_DVD9_Win_Pro_10_22H2.19_64BIT_ChnTrad_Pro_Ent_EDU_N_MLF_X23-74684.ISO)  
@@ -22,6 +21,16 @@
 + 依照官網建議，為了避免DPI問題，各項操作建議(安裝IDE、設計窗體、編寫程式碼)在縮放大小100%的情況下進行。編譯出來的軟體可以拿去其他DPI設定下的電腦測試。
   + 使用解析度: 1920x1080
   + 縮放大小: 100%
++ 需要使用外部python程式
+  + 使用Lite_PyGimli_Env (pygimli==1.5.4)
+    + https://github.com/cgrgncu/pyGimli_dev/releases/tag/Lite_PyGimli_Env
+  + 將目錄規定為以下結構
+  ```
+  ...\R2MS_Lite_ERTMaker.exe
+  ...\PythonEnv\
+  ...\PythonEnv\python.exe
+  ...\PythonPrograms\... (相關的python程式)
+  ```
 
 ### 開發紀錄(製作APP Icon)  
 + 使用工具1: https://icon.kitchen/  
