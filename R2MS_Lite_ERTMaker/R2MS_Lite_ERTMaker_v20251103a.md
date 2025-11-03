@@ -213,6 +213,7 @@
 1. 五個分頁(TPageControl):  
     + **1.1 拖拉一個「Common Controls>TPageControl」到「ScrollBox1」中。預設名稱會是「PageControl1」，修改「Name」為「Main_PageControl」。**  
       + **1.1.1 設定「Align」為「AlClient」。**
+      + **1.1.1 設定「TabStop」為「False」。**
     + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「Forward_TabSheet」。**
       + **1.2.1 設定「Caption」為「順推工具」。**
     + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「Inversion_TabSheet」。**
