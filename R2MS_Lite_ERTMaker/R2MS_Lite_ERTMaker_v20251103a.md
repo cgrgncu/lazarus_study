@@ -211,16 +211,15 @@
 
 ### 開發紀錄(主頁面)  
 1. 五個分頁(TPageControl):  
-    + **1.1 拖拉一個「Common Controls>TPageControl」到「ScrollBox1」中。預設名稱會是「PageControl1」。**  
+    + **1.1 拖拉一個「Common Controls>TPageControl」到「ScrollBox1」中。預設名稱會是「PageControl1」，修改「Name」為「Main_PageControl」。**  
       + **1.1.1 設定「Align」為「AlClient」。**
-      + **1.1.2 設定「Font」，按下「...」，選「大小」為「14」。**
-    + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」。**
-      + **1.2.1 設定「Caption」為「資料波形」。**
-    + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet2」。**
-      + **1.3.1 設定「Caption」為「資料內容」。**
-    + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。**
+    + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「Forward_TabSheet」。**
+      + **1.2.1 設定「Caption」為「順推工具」。**
+    + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「Inversion_TabSheet」。**
+      + **1.3.1 設定「Caption」為「逆推工具」。**
+    + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「RunningLog_TabSheet」。**
       + **1.4.1 設定「Caption」為「運行紀錄」。**
-    + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。**
+    + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「UpdateLog_TabSheet」。**
       + **1.5.1 設定「Caption」為「更新紀錄」。**
             
 2. 第一個分頁「資料波形」(TabSheet1):  
