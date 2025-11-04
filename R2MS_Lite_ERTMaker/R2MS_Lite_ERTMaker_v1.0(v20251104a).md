@@ -228,7 +228,7 @@
     + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「UpdateLog_TabSheet」。**
       + **1.5.1 設定「Caption」為「更新紀錄」。**
             
-2. 第一個分頁「順推工具」(Forward_TabSheet):  
+2. 第1個分頁「順推工具」(Forward_TabSheet):  
     + **2.1 拖拉一個「Common Controls>TPageControl」到「Forward_TabSheet」中。預設名稱會是「PageControl1」，修改「Name」為「Forward_PageControl」。**  
       + **2.1.1 設定「Align」為「AlClient」。**
       + **2.1.2 設定「TabStop」為「False」。**
@@ -244,11 +244,9 @@
       + **2.6.1 設定「Caption」為「時間序列解算」。**
     + **2.7 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「TimeSeriesProcessingSettings_TabSheet」。**
       + **2.7.1 設定「Caption」為「時間序列解算參數」。**
-    + **2.8 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModeling_TabSheet」。**
-      + **2.8.1 設定「Caption」為「逆推模擬運算」。**
-    + **2.9 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModelingSettings_TabSheet」。**
-      + **2.9.1 設定「Caption」為「逆推模擬運算參數」。** 
-    + 2.10 第一個分頁「模型網格建立」(CreateMesh_TabSheet):
+    + **2.8 略過。**
+    + **2.9 略過。** 
+    + 2.10 第1個分頁「模型網格建立」(CreateMesh_TabSheet):
       + **2.10.1 拖拉一個「Standard>TToolBar」到「CreateMesh_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「CreateMesh_ToolBar」。**
       + **2.10.2 設定「BorderSpacing>Top」為「1」。**
       + **2.10.3 設定「Edge>Borders>ebBottom」為「True」。**
@@ -262,7 +260,7 @@
 
         ```
       + **2.10.8 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CreateMeshRun_ToolButton」**
-        + **2.10.8.1 設定「Caption」為「建立模型」。**
+        + **2.10.8.1 設定「Caption」為「建立模型網格」。**
         + **2.10.8.2 設定「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
         ```pascal
 
@@ -278,7 +276,7 @@
         + **2.10.10.2 設定「BorderSpacing>Left」為「3」。**
         + **2.10.10.3 設定「BorderSpacing>Right」為「1」。**
         + **2.10.10.4 設定「Caption」為「參數設定:」。** 
-        + **2.10.10.3 設定「Width」為「500」。**
+        + **2.10.10.5 設定「Width」為「500」。**
       + **2.10.11 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPreview_GroupBox」。**
         + **2.10.11.1 設定「Align」為「alClient」。**
         + **2.10.11.2 設定「Caption」為「模型預覽:」。** 
@@ -416,7 +414,7 @@
         + **2.10.25.1 設定「Anchors」。**  
           + **2.10.25.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.25.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。**  
+          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
           + **2.10.25.1.4 「Border space」正中間那格填「0」，右邊那格填「3」，下面那格填「3」。**  
           + **2.10.25.1.5 設定完後關閉Anchors設定視窗。**
         + **2.10.25.2 設定「Caption」為「地表節點(X,Z,電極索引)，單位=公尺:」。**
@@ -526,7 +524,154 @@
         ```
         + **2.10.26.3 設定「ScrollBars」為「ssBoth」。**
         + **2.10.26.4 設定「WordWrap」為「False」。**
-     
+    + 2.11 第2個分頁「模型網格建立參數」(CreateMeshSettings_TabSheet):      
+      + **2.11.1 拖拉一個「Standard>TGroupBox」到「CreateMeshSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshSettingsCmdLog_GroupBox」。**
+        + **2.11.1.1 設定「Align」為「alRight」。**
+        + **2.11.1.2 設定「BorderSpacing>Left」為「3」。**
+        + **2.11.1.3 設定「BorderSpacing>Right」為「1」。**
+        + **2.11.1.4 設定「Caption」為「建立模型網格運行紀錄:」。** 
+        + **2.11.1.5 設定「Width」為「500」。**
+      + **2.11.2 拖拉一個「Standard>TMemo」到「CreateMeshSettingsCmdLog_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSettingsCmdLog_Memo」**
+        + **2.11.2.1 設定「Anchors」。**  
+          + **2.11.2.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsCmdLog_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.11.2.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsCmdLog_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.2.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.11.2.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSettingsCmdLog_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.11.2.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.11.2.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.11.2.2 設定「Color」為「clBlack」。**
+        + **2.11.2.3 設定「Font>Color」為「clLime」。**
+        + **2.11.2.4 設定「Lines」清空。**
+        + **2.11.2.5 設定「ReadOnly」為「True」。**
+        + **2.11.2.6 設定「ScrollBars」為「ssBoth」。**
+        + **2.11.2.7 設定「WordWrap」為「False」。**
+      + **2.11.3 拖拉一個「Standard>TGroupBox」到「CreateMeshSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshSettingsDefaultJson_GroupBox」**
+        + **2.11.3.1 設定「Anchors」。**  
+          + **2.11.3.1.1 「Top anchoring>Slbling」選為「CreateMeshSettings_TabSheet:TTabSheet」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.11.3.1.2 「Left anchoring>Slbling」選為「CreateMeshSettings_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.3.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+          + **2.11.3.1.4 設定完後關閉Anchors設定視窗。**  
+        + **2.11.3.2 設定「Caption」為「預設參數(Default_CreateAndModifyMeshSettings.json):」。**
+        + **2.11.3.3 設定「Height」為「200」。**
+      + **2.11.4 拖拉一個「Standard>TMemo」到「CreateMeshSettingsDefaultJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSettingsDefaultJson_Memo」**
+        + **2.11.4.1 設定「Anchors」。**  
+          + **2.11.4.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.11.4.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.4.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.11.4.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.11.4.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.11.4.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.11.4.2 設定「Lines」清空。**
+        + **2.11.4.3 設定「ReadOnly」為「True」。**
+        + **2.11.4.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.11.4.5 設定「WordWrap」為「False」。**
+      + **2.11.5 拖拉一個「Standard>TGroupBox」到「CreateMeshSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshSettingsNowJson_GroupBox」**
+        + **2.11.5.1 設定「Anchors」。**  
+          + **2.11.5.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+          + **2.11.5.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.5.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.11.5.1.4 設定完後關閉Anchors設定視窗。**  
+        + **2.11.5.2 設定「Caption」為「目前參數(CreateAndModifyMeshSettings.json):」。**
+        + **2.11.5.3 設定「Height」為「200」。**
+      + **2.11.6 拖拉一個「Standard>TMemo」到「CreateMeshSettingsNowJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSettingsNowJson_Memo」**
+        + **2.11.6.1 設定「Anchors」。**  
+          + **2.11.6.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.11.6.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.6.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.11.6.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.11.6.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.11.6.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.11.6.2 設定「Lines」清空。**
+        + **2.11.6.3 設定「ReadOnly」為「True」。**
+        + **2.11.6.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.11.6.5 設定「WordWrap」為「False」。**
+      + **2.11.7 拖拉一個「Standard>TGroupBox」到「CreateMeshSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshSettingsReadme_GroupBox」**
+        + **2.11.7.1 設定「Anchors」。**  
+          + **2.11.7.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+          + **2.11.7.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.7.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+          + **2.11.7.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSettings_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選右邊的。** 
+          + **2.11.7.1.5 設定完後關閉Anchors設定視窗。**  
+        + **2.11.7.2 設定「Caption」為「說明:」。**
+      + **2.11.8 拖拉一個「Standard>TMemo」到「CreateMeshSettingsReadme_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSettingsReadme_Memo」**
+        + **2.11.8.1 設定「Anchors」。**  
+          + **2.11.8.1.1 「Top anchoring>Slbling」選為「CreateMeshSettingsReadme_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.11.8.1.2 「Left anchoring>Slbling」選為「CreateMeshSettingsReadme_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.11.8.1.3 「Right anchoring>Slbling」選為「CreateMeshSettingsReadme_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.11.8.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSettingsReadme_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.11.8.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.11.8.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.11.8.2 設定「Lines」清空。**
+        + **2.11.8.3 設定「ReadOnly」為「True」。**
+        + **2.11.8.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.11.6.5 設定「WordWrap」為「False」。**
+    + 2.12 第3個分頁「順推模擬運算」(ForwardModeling_TabSheet):
+      + **2.12.1 拖拉一個「Standard>TToolBar」到「ForwardModeling_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「ForwardModeling_ToolBar」。**
+      + **2.12.2 設定「BorderSpacing>Top」為「1」。**
+      + **2.12.3 設定「Edge>Borders>ebBottom」為「True」。**
+      + **2.12.4 設定「Edge>Borders>ebLeft」為「True」。**
+      + **2.12.5 設定「Edge>Borders>ebRight」為「True」。**
+      + **2.12.6 設定「ShowCaptions」為「True」。** 
+      + **2.12.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「ForwardModelingRun_ToolButton」**
+        + **2.12.7.1 設定「Caption」為「運行順推模擬」。**
+        + **2.12.7.2 設定「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+        ```pascal
+
+        ```
+      + **2.12.8 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「ForwardModelingOpenOutputFolder_ToolButton」**
+        + **2.12.8.1 設定「Caption」為「開啟輸出資料夾」。**
+        + **2.12.8.2 設定「CreateMeshOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+        ```pascal
+
+        ```   
+      + **2.12.9 拖拉一個「Standard>TGroupBox」到「ForwardModeling_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingParameters_GroupBox」。**
+        + **2.12.9.1 設定「Align」為「alRight」。**
+        + **2.12.9.2 設定「BorderSpacing>Left」為「3」。**
+        + **2.12.9.3 設定「BorderSpacing>Right」為「1」。**
+        + **2.12.9.4 設定「Caption」為「參數設定:」。** 
+        + **2.12.9.5 設定「Width」為「500」。**
+      + **2.12.10 拖拉一個「Standard>TGroupBox」到「ForwardModeling_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingPreview_GroupBox」。**
+        + **2.12.10.1 設定「Align」為「alClient」。**
+        + **2.12.10.2 設定「Caption」為「模型預覽:」。** 
+      + **2.12.11 拖拉一個「Additional>TImage」到「ForwardModeling_TabSheet」中。預設名稱會是「Image1」，修改「Name」為「ForwardModelingPreview_Image」。**
+        + **2.12.11.1 設定「Align」為「alClient」。**
+        + **2.12.11.2 設定「AntialiasingMode」為「amOn」。**
+        + **2.12.11.3 設定「Center」為「True」。**
+        + **2.12.11.4 設定「Proportional」為「True」。**
+        + **2.12.11.5 設定「Streth」為「True」。**
+        + 加程式碼
+        ```pascal
+        procedure TForm1.FormResize(Sender: TObject);
+        begin
+          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
+          begin
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+          if PageControl1.ActivePage = ForwardModeling_TabSheet then
+          begin
+            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+        end;
+        ```
+        + 加程式碼
+        ```pascal
+        procedure TForm1.Forward_PageControlChange(Sender: TObject);
+        begin
+          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
+          begin
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+          if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
+          begin
+            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+        end 
+        ```
+        
 3. 第2個分頁「資料內容」(TabSheet2):  
     + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
       + **3.1.1 設定「Align」為「alClient」。**
