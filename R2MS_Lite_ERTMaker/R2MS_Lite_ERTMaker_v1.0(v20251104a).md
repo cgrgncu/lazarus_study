@@ -648,7 +648,7 @@
             CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
             CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
           end;
-          if PageControl1.ActivePage = ForwardModeling_TabSheet then
+          if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
           begin
             ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
             ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
