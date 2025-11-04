@@ -31,6 +31,11 @@
   ...\PythonEnv\python.exe
   ...\PythonPrograms\... (相關的python程式)
   ```
+  + 準備VC檔案，沒有安裝過散發套件的電腦會需要。
+  ```
+  ...\PythonEnv\vcruntime140.dll
+  ...\PythonEnv\vcruntime140_1.dll
+  ```
 
 ### 開發紀錄(製作APP Icon)  
 + 使用工具1: https://icon.kitchen/  
@@ -250,9 +255,9 @@
       + **2.10.4 設定「Edge>Borders>ebLeft」為「True」。**
       + **2.10.5 設定「Edge>Borders>ebRight」為「True」。**
       + **2.10.6 設定「ShowCaptions」為「True」。** 
-      + **2.10.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「DefaultMesh_ToolButton」**
-        + **2.10.7.1 設定「Caption」為「預設網格」。**
-        + **2.10.7.2 設定「DefaultMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **2.10.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「LoadMesh_ToolButton」**
+        + **2.10.7.1 設定「Caption」為「載入參數」。**
+        + **2.10.7.2 設定「LoadMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
         ```pascal
 
         ```
@@ -267,87 +272,8 @@
         + **2.10.9.2 設定「Caption」為「模型預覽:」。** 
 
     
-    + **2.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
-      + **2.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VerticalChartLayout_ToolButtonClick(Sender: TObject);
-      begin
-        // 1. 確保 Panel 可見並設定為水平分割 (一左一右)
-        VoltageChart_Panel.Visible := True;
-        CurrentChart_Panel.Visible := True;
-        VoltageChart_Panel.Align := alLeft;
-        CurrentChart_Panel.Align := alClient;
-        // 2. 隨便亂改一個高寬來觸發Resize
-        VoltageChart_Panel.Height:=10;
-        VoltageChart_Panel.Width:=10;
-      end; 
-      ```
-      + **2.9.2 設定「HorizontalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.HorizontalChartLayout_ToolButtonClick(Sender: TObject);
-      begin
-        // 1. 確保 Panel 可見並設定為垂直分割 (一上一下)
-        VoltageChart_Panel.Visible := True;
-        CurrentChart_Panel.Visible := True;
-        VoltageChart_Panel.Align := alTop;
-        CurrentChart_Panel.Align := alClient;
-        // 2. 隨便亂改一個高寬來觸發Resize
-        VoltageChart_Panel.Height:=10;
-        VoltageChart_Panel.Width:=10;
-      end;
-      ```
-      + **2.9.3 設定「VoltageChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VoltageChartOnlyLayout_ToolButtonClick(Sender: TObject);
-      begin
-        CurrentChart_Panel.Align := alNone;
-        CurrentChart_Panel.Visible := False;
-        VoltageChart_Panel.Align := alClient;
-        VoltageChart_Panel.Visible := True;
-      end; 
-      ```
-      + **2.9.4 設定「CurrentChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.CurrentChartOnlyLayout_ToolButtonClick(Sender: TObject);
-      begin
-        VoltageChart_Panel.Align := alNone;
-        VoltageChart_Panel.Visible := False;
-        CurrentChart_Panel.Align := alClient;
-        CurrentChart_Panel.Visible := True;
-      end; 
-      ```
-      + **2.9.5 設定「VoltageChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VoltageChart_PanelResize(Sender: TObject);
-      begin
-        // 檢查是否處於垂直分割模式 (ToolButton.Down 狀態)
-        if VerticalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Width := (VoltageChart_Panel.Width + CurrentChart_Panel.Width) div 2;
-        end
-        // 檢查是否處於水平分割模式
-        else if HorizontalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Height := (VoltageChart_Panel.Height + CurrentChart_Panel.Height) div 2;
-        end;
-      end; 
-      ```
-       + **2.9.6 設定「CurrentChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
-      ```pascal
-      procedure TForm1.CurrentChart_PanelResize(Sender: TObject);
-      begin
-        // 檢查是否處於垂直分割模式 (ToolButton.Down 狀態)
-        if VerticalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Width := (VoltageChart_Panel.Width + CurrentChart_Panel.Width) div 2;
-        end
-        // 檢查是否處於水平分割模式
-        else if HorizontalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Height := (VoltageChart_Panel.Height + CurrentChart_Panel.Height) div 2;
-        end;
-      end; 
-      ```     
+
+      
      
 3. 第2個分頁「資料內容」(TabSheet2):  
     + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
