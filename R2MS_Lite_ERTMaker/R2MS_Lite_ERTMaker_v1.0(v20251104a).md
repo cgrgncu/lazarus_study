@@ -1,9 +1,9 @@
 # R2MS_Lite_ERTMaker 開發筆記
 + 作者: HsiupoYeh  
-+ 更新日期: 2025-11-03
++ 更新日期: 2025-11-04
 
 ## 開發環境  
-+ 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_ERTMaker_v20251103a.ova」。**
++ 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_ERTMaker_v20251104a.ova」。**
   + Windows 10 22H2 64bit 企業版 繁體中文(SW_DVD9_Win_Pro_10_22H2.19_64BIT_ChnTrad_Pro_Ent_EDU_N_MLF_X23-74684.ISO)  
   + Lazarus 4.2 (lazarus-4.2-fpc-3.2.2-win64.exe)
     + 安裝套件:
@@ -30,6 +30,11 @@
   ...\PythonEnv\
   ...\PythonEnv\python.exe
   ...\PythonPrograms\... (相關的python程式)
+  ```
+  + 準備VC檔案，沒有安裝過散發套件的電腦會需要。
+  ```
+  ...\PythonEnv\vcruntime140.dll
+  ...\PythonEnv\vcruntime140_1.dll
   ```
 
 ### 開發紀錄(製作APP Icon)  
@@ -85,7 +90,7 @@
         begin
           //--------------------------------------------------------------------------
           // 在這裡對全域變數進行初始化
-          version_str := 'v20251103a';
+          version_str := 'v1.0(v20251104a)';
           Current_Folder_Path := ExtractFilePath(Application.ExeName);
           //--------------------------------------------------------------------------
           //--------------------------------------------------------------------------
@@ -118,7 +123,7 @@
         var
           temp_str: AnsiString;
         begin
-          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str;
+          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str+#13#10+'數值模擬運算核心: PyGIMLi';
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
         ```
@@ -227,21 +232,21 @@
     + **2.1 拖拉一個「Common Controls>TPageControl」到「Forward_TabSheet」中。預設名稱會是「PageControl1」，修改「Name」為「Forward_PageControl」。**  
       + **2.1.1 設定「Align」為「AlClient」。**
       + **2.1.2 設定「TabStop」為「False」。**
-   + **2.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「CreateMesh_TabSheet」。**
+   + **2.2 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「CreateMesh_TabSheet」。**
       + **2.2.1 設定「Caption」為「模型網格建立」。**
-    + **2.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「CreateMeshSettings_TabSheet」。**
+    + **2.3 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「CreateMeshSettings_TabSheet」。**
       + **2.3.1 設定「Caption」為「模型網格建立參數」。**
-    + **2.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「ForwardModeling_TabSheet」。**
+    + **2.4 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「ForwardModeling_TabSheet」。**
       + **2.4.1 設定「Caption」為「順推模擬運算」。**
-    + **2.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「ForwardModelingSettings_TabSheet」。**
+    + **2.5 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「ForwardModelingSettings_TabSheet」。**
       + **2.5.1 設定「Caption」為「順推模擬運算參數」。**
-    + **2.6 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「TimeSeriesProcessing_TabSheet」。**
+    + **2.6 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「TimeSeriesProcessing_TabSheet」。**
       + **2.6.1 設定「Caption」為「時間序列解算」。**
-    + **2.7 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「TimeSeriesProcessingSettings_TabSheet」。**
+    + **2.7 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「TimeSeriesProcessingSettings_TabSheet」。**
       + **2.7.1 設定「Caption」為「時間序列解算參數」。**
-    + **2.8 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModeling_TabSheet」。**
+    + **2.8 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModeling_TabSheet」。**
       + **2.8.1 設定「Caption」為「逆推模擬運算」。**
-    + **2.9 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModelingSettings_TabSheet」。**
+    + **2.9 在「Forward_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InverseModelingSettings_TabSheet」。**
       + **2.9.1 設定「Caption」為「逆推模擬運算參數」。** 
     + 2.10 第一個分頁「模型網格建立」(CreateMesh_TabSheet):
       + **2.10.1 拖拉一個「Standard>TToolBar」到「CreateMesh_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「CreateMesh_ToolBar」。**
@@ -250,104 +255,64 @@
       + **2.10.4 設定「Edge>Borders>ebLeft」為「True」。**
       + **2.10.5 設定「Edge>Borders>ebRight」為「True」。**
       + **2.10.6 設定「ShowCaptions」為「True」。** 
-      + **2.10.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「DefaultMesh_ToolButton」**
-        + **2.10.7.1 設定「Caption」為「預設網格」。**
-        + **2.10.7.2 設定「DefaultMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **2.10.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CreateMeshLoad_ToolButton」**
+        + **2.10.7.1 設定「Caption」為「載入參數」。**
+        + **2.10.7.2 設定「CreateMeshLoad_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
         ```pascal
 
         ```
-      + **2.10.8 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshParameters_GroupBox」。**
-        + **2.10.8.1 設定「Align」為「alRight」。**
-        + **2.10.8.2 設定「BorderSpacing>Left」為「3」。**
-        + **2.10.8.3 設定「BorderSpacing>Right」為「1」。**
-        + **2.10.8.4 設定「Caption」為「參數設定:」。** 
-        + **2.10.8.3 設定「Width」為「500」。**
-      + **2.10.9 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPreview_GroupBox」。**
-        + **2.10.9.1 設定「Align」為「alClient」。**
-        + **2.10.9.2 設定「Caption」為「模型預覽:」。** 
+      + **2.10.8 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CreateMeshRun_ToolButton」**
+        + **2.10.8.1 設定「Caption」為「建立模型」。**
+        + **2.10.8.2 設定「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+        ```pascal
 
+        ```
+      + **2.10.9 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CreateMeshOpenOutputFolder_ToolButton」**
+        + **2.10.9.1 設定「Caption」為「開啟輸出資料夾」。**
+        + **2.10.9.2 設定「CreateMeshOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+        ```pascal
+
+        ```   
+      + **2.10.10 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshParameters_GroupBox」。**
+        + **2.10.10.1 設定「Align」為「alRight」。**
+        + **2.10.10.2 設定「BorderSpacing>Left」為「3」。**
+        + **2.10.10.3 設定「BorderSpacing>Right」為「1」。**
+        + **2.10.10.4 設定「Caption」為「參數設定:」。** 
+        + **2.10.10.3 設定「Width」為「500」。**
+      + **2.10.11 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPreview_GroupBox」。**
+        + **2.10.11.1 設定「Align」為「alClient」。**
+        + **2.10.11.2 設定「Caption」為「模型預覽:」。** 
+      + **2.10.12 拖拉一個「Additional>TImage」到「CreateMeshPreview_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「CreateMeshPreview_Image」。**
+        + **2.10.12.1 設定「Align」為「alClient」。**
+        + **2.10.12.2 設定「AntialiasingMode」為「amOn」。**
+        + **2.10.12.3 設定「Center」為「True」。**
+        + **2.10.12.4 設定「Proportional」為「True」。**
+        + **2.10.12.5 設定「Streth」為「True」。**
+        + 加程式碼
+        ```pascal
+        procedure TForm1.FormResize(Sender: TObject);
+        begin
+          if PageControl1.ActivePage = CreateMesh_TabSheet then
+          begin
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+        end; 
+        ```
+        + 加程式碼
+        ```pascal
+        procedure TForm1.Forward_PageControlChange(Sender: TObject);
+        begin
+          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
+          begin
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+          end;
+        end;  
+        ```
     
-    + **2.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
-      + **2.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VerticalChartLayout_ToolButtonClick(Sender: TObject);
-      begin
-        // 1. 確保 Panel 可見並設定為水平分割 (一左一右)
-        VoltageChart_Panel.Visible := True;
-        CurrentChart_Panel.Visible := True;
-        VoltageChart_Panel.Align := alLeft;
-        CurrentChart_Panel.Align := alClient;
-        // 2. 隨便亂改一個高寬來觸發Resize
-        VoltageChart_Panel.Height:=10;
-        VoltageChart_Panel.Width:=10;
-      end; 
-      ```
-      + **2.9.2 設定「HorizontalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.HorizontalChartLayout_ToolButtonClick(Sender: TObject);
-      begin
-        // 1. 確保 Panel 可見並設定為垂直分割 (一上一下)
-        VoltageChart_Panel.Visible := True;
-        CurrentChart_Panel.Visible := True;
-        VoltageChart_Panel.Align := alTop;
-        CurrentChart_Panel.Align := alClient;
-        // 2. 隨便亂改一個高寬來觸發Resize
-        VoltageChart_Panel.Height:=10;
-        VoltageChart_Panel.Width:=10;
-      end;
-      ```
-      + **2.9.3 設定「VoltageChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VoltageChartOnlyLayout_ToolButtonClick(Sender: TObject);
-      begin
-        CurrentChart_Panel.Align := alNone;
-        CurrentChart_Panel.Visible := False;
-        VoltageChart_Panel.Align := alClient;
-        VoltageChart_Panel.Visible := True;
-      end; 
-      ```
-      + **2.9.4 設定「CurrentChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-      ```pascal
-      procedure TForm1.CurrentChartOnlyLayout_ToolButtonClick(Sender: TObject);
-      begin
-        VoltageChart_Panel.Align := alNone;
-        VoltageChart_Panel.Visible := False;
-        CurrentChart_Panel.Align := alClient;
-        CurrentChart_Panel.Visible := True;
-      end; 
-      ```
-      + **2.9.5 設定「VoltageChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
-      ```pascal
-      procedure TForm1.VoltageChart_PanelResize(Sender: TObject);
-      begin
-        // 檢查是否處於垂直分割模式 (ToolButton.Down 狀態)
-        if VerticalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Width := (VoltageChart_Panel.Width + CurrentChart_Panel.Width) div 2;
-        end
-        // 檢查是否處於水平分割模式
-        else if HorizontalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Height := (VoltageChart_Panel.Height + CurrentChart_Panel.Height) div 2;
-        end;
-      end; 
-      ```
-       + **2.9.6 設定「CurrentChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
-      ```pascal
-      procedure TForm1.CurrentChart_PanelResize(Sender: TObject);
-      begin
-        // 檢查是否處於垂直分割模式 (ToolButton.Down 狀態)
-        if VerticalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Width := (VoltageChart_Panel.Width + CurrentChart_Panel.Width) div 2;
-        end
-        // 檢查是否處於水平分割模式
-        else if HorizontalChartLayout_ToolButton.Down then
-        begin
-          VoltageChart_Panel.Height := (VoltageChart_Panel.Height + CurrentChart_Panel.Height) div 2;
-        end;
-      end; 
-      ```     
+
+      
      
 3. 第2個分頁「資料內容」(TabSheet2):  
     + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
