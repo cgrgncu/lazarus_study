@@ -312,7 +312,7 @@
         ```
       + **2.10.13 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshModelName_GroupBox」。**
         + **2.10.13.1 設定「Anchors」。**  
-          + **2.10.13.1.1 「Top anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+          + **2.10.13.1.1 「Top anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
           + **2.10.13.1.2 「Left anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.13.1.3 「Right anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.13.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -321,7 +321,7 @@
         + **2.10.13.3 設定「Height」為「48」。**
       + **2.10.14 拖拉一個「Standard>TEdit」到「CreateMeshModelName_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshModelName_Edit」**
         + **2.10.14.1 設定「Anchors」。**  
-          + **2.10.14.1.1 「Top anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.14.1.1 「Top anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.14.1.2 「Left anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.14.1.3 「Right anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.14.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -329,7 +329,7 @@
         + **2.10.14.2 設定「Text」為「Demo」。**  
       + **2.10.15 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshColorbarMinMax_GroupBox」。**
         + **2.10.15.1 設定「Anchors」。**  
-          + **2.10.15.1.1 「Top anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.15.1.1 「Top anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.15.1.2 「Left anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
           + **2.10.15.1.3 「Right anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.15.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
@@ -338,7 +338,7 @@
         + **2.10.15.3 設定「Height」為「48」。**
       + **2.10.16 拖拉一個「Standard>TEdit」到「CreateMeshColorbarMinMax_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshColorbarMinMax_Edit」**
         + **2.10.16.1 設定「Anchors」。**  
-          + **2.10.16.1.1 「Top anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.16.1.1 「Top anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.16.1.2 「Left anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.16.1.3 「Right anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.16.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -346,7 +346,7 @@
         + **2.10.16.2 設定「Text」為「1,10000」。**  
       + **2.10.17 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshStudyAreaMeshLayerSettings_GroupBox」。**
         + **2.10.17.1 設定「Anchors」。**  
-          + **2.10.17.1.1 「Top anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.17.1.1 「Top anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.17.1.2 「Left anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.17.1.3 「Right anchoring>Slbling」選為「CreateMeshColorbarMinMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.17.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
@@ -355,7 +355,7 @@
         + **2.10.17.3 設定「Height」為「48」。**
       + **2.10.18 拖拉一個「Standard>TEdit」到「CreateMeshStudyAreaMeshLayerSettings_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshStudyAreaMeshLayerSettings_Edit」**
         + **2.10.18.1 設定「Anchors」。**  
-          + **2.10.18.1.1 「Top anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.18.1.1 「Top anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.18.1.2 「Left anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.18.1.3 「Right anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.18.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -363,7 +363,7 @@
         + **2.10.18.2 設定「Text」為「30,1,1」。**  
       + **2.10.19 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPaddingMeshLeftSettings_GroupBox」。**
         + **2.10.19.1 設定「Anchors」。**  
-          + **2.10.19.1.1 「Top anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.19.1.1 「Top anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.19.1.2 「Left anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.19.1.3 「Right anchoring>Slbling」選為「CreateMeshStudyAreaMeshLayerSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.19.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
@@ -372,7 +372,7 @@
         + **2.10.19.3 設定「Height」為「48」。**
       + **2.10.20 拖拉一個「Standard>TEdit」到「CreateMeshPaddingMeshLeftSettings_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshPaddingMeshLeftSettings_Edit」**
         + **2.10.20.1 設定「Anchors」。**  
-          + **2.10.20.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.20.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.20.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.20.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.20.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -380,7 +380,7 @@
         + **2.10.20.2 設定「Text」為「5,1.2,-1」。**  
       + **2.10.21 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPaddingMeshRightSettings_GroupBox」。**
         + **2.10.21.1 設定「Anchors」。**  
-          + **2.10.21.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.21.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.21.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.21.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshLeftSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.21.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
@@ -389,7 +389,7 @@
         + **2.10.21.3 設定「Height」為「48」。**
       + **2.10.22 拖拉一個「Standard>TEdit」到「CreateMeshPaddingMeshRightSettings_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshPaddingMeshRightSettings_Edit」**
         + **2.10.22.1 設定「Anchors」。**  
-          + **2.10.22.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.22.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.22.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.22.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.22.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -397,7 +397,7 @@
         + **2.10.22.2 設定「Text」為「5,1.2,-1」。**  
       + **2.10.23 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshPaddingMeshBottomSettings_GroupBox」。**
         + **2.10.23.1 設定「Anchors」。**  
-          + **2.10.23.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.23.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.23.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.23.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.23.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
@@ -406,7 +406,7 @@
         + **2.10.23.3 設定「Height」為「48」。**
       + **2.10.24 拖拉一個「Standard>TEdit」到「CreateMeshPaddingMeshBottomSettings_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「CreateMeshPaddingMeshBottomSettings_Edit」**
         + **2.10.24.1 設定「Anchors」。**  
-          + **2.10.24.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.24.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.24.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.24.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.24.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
@@ -414,18 +414,18 @@
         + **2.10.24.2 設定「Text」為「5,1.2,-1」。**  
       + **2.10.25 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshSurfaceNodeSettings_GroupBox」。**
         + **2.10.25.1 設定「Anchors」。**  
-          + **2.10.25.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.25.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.25.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。**  
+          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。**  
           + **2.10.25.1.4 「Border space」正中間那格填「0」，右邊那格填「3」，下面那格填「3」。**  
           + **2.10.25.1.5 設定完後關閉Anchors設定視窗。**
         + **2.10.25.2 設定「Caption」為「地表節點(X,Z,電極索引)，單位=公尺:」。**
       + **2.10.26 拖拉一個「Standard>TMemo」到「CreateMeshSurfaceNodeSettings_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSurfaceNodeSettings_Memo」**
         + **2.10.26.1 設定「Anchors」。**  
-          + **2.10.26.1.1 「Top anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.26.1.1 「Top anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
           + **2.10.26.1.2 「Left anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.26.1.3 「Right anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
-          + **2.10.26.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。**  
+          + **2.10.26.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
           + **2.10.26.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
           + **2.10.26.1.6 設定完後關閉Anchors設定視窗。**  
         + **2.10.26.2 設定「Lines」為以下文字。**
@@ -501,7 +501,31 @@
         ```
         + **2.10.26.3 設定「ScrollBars」為「ssBoth」。**
         + **2.10.26.4 設定「WordWrap」為「False」。**
-
+      + **2.10.27 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshModifyMeshResistivitySettings_GroupBox」。**
+        + **2.10.27.1 設定「Anchors」。**  
+          + **2.10.27.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.10.27.1.2 「Left anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**
+          + **2.10.27.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.10.27.1.4 「Bottom anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
+          + **2.10.27.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，下面那格填「3」。**  
+          + **2.10.27.1.6 設定完後關閉Anchors設定視窗。**
+        + **2.10.27.2 設定「Caption」為「電阻率規則(xmin,xmax,zmin,zmax,newRes):」。**
+      + **2.10.28 拖拉一個「Standard>TMemo」到「CreateMeshModifyMeshResistivitySettings_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshModifyMeshResistivitySettings_Memo」**
+        + **2.10.28.1 設定「Anchors」。**  
+          + **2.10.28.1.1 「Top anchoring>Slbling」選為「CreateMeshModifyMeshResistivitySettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.10.28.1.2 「Left anchoring>Slbling」選為「CreateMeshModifyMeshResistivitySettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.10.28.1.3 「Right anchoring>Slbling」選為「CreateMeshModifyMeshResistivitySettings_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+          + **2.10.28.1.4 「Bottom anchoring>Slbling」選為「CreateMeshModifyMeshResistivitySettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
+          + **2.10.28.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.10.28.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.10.28.2 設定「Lines」為以下文字。**
+        ```
+        -9999, 9999, -9999, 9999, 100
+        15, 25, 795, 805, 10
+        50, 60, 795, 805, 3000
+        ```
+        + **2.10.26.3 設定「ScrollBars」為「ssBoth」。**
+        + **2.10.26.4 設定「WordWrap」為「False」。**
      
 3. 第2個分頁「資料內容」(TabSheet2):  
     + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
