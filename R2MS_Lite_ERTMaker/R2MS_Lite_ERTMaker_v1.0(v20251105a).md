@@ -213,6 +213,14 @@
       + **7.2.1.2 設定「EmptyPanel」的「Properties」頁面下「Caption」為空白。**
       + **7.2.1.3 設定「EmptyPanel」的「Properties」頁面下「Left」為「926」。**
       + **7.2.1.4 設定「EmptyPanel」的「Properties」頁面下「Top」為「524」。**
+      + 加程式碼
+      ```pascal
+      procedure TForm1.FormShow(Sender: TObject);
+      begin
+        // 使焦點落在一個沒有用處的東西上面，避免使用者鍵盤操作發生不預期的影響。
+        EmptyPanel.SetFocus;
+      end;  
+      ```
 
 ### 開發紀錄(主頁面)  
 1. 五個分頁(TPageControl):  
