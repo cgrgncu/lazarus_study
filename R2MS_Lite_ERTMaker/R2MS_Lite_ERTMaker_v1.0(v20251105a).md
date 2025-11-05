@@ -345,7 +345,7 @@
       + **2.10.15 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshColorbarMinMax_GroupBox」。**
         + **2.10.15.1 設定「Anchors」。**  
           + **2.10.15.1.1 「Top anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
-          + **2.10.15.1.2 「Left anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+          + **2.10.15.1.2 「Left anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.10.15.1.3 「Right anchoring>Slbling」選為「CreateMeshModelName_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
           + **2.10.15.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
           + **2.10.15.1.5 設定完後關閉Anchors設定視窗。**
