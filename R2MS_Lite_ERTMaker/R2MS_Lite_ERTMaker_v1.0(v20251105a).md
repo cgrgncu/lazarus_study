@@ -123,7 +123,7 @@
         var
           temp_str: AnsiString;
         begin
-          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str+#13#10+'數值模擬運算核心: PyGIMLi';
+          temp_str:='作者: HsiupoYeh.'+#13#10+'程式版本: '+version_str+#13#10+'數值模擬運算核心: PyGIMLi v1.5.4';
           Application.MessageBox(PChar(temp_str),'關於我',64);
         end;  
         ```
