@@ -769,9 +769,10 @@
           //--------------------------------------------------------------------------
           //--------------------------------------------------------------------------
           // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
-          Form1ForwardModelingPreview_ImageWidthDiffPx:=Form1.Width-ForwardModelingPreview_Image.Width;
-          Form1ForwardModelingPreview_ImageHeightDiffPx:=Form1.Height-ForwardModelingPreview_Image.Height;
-          //--------------------------------------------------------------------------
+          // 只能用一開始就有顯示的元件尺寸
+          Form1ForwardModelingPreview_ImageWidthDiffPx:=Form1CreateMeshPreview_ImageWidthDiffPx;
+          Form1ForwardModelingPreview_ImageHeightDiffPx:=Form1CreateMeshPreview_ImageHeightDiffPx;
+          //--------------------------------------------------------------------------  
         end;       
         ```
      
