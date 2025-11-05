@@ -288,25 +288,56 @@
         + **2.10.12.5 設定「Streth」為「True」。**
         + 加程式碼
         ```pascal
+        implementation
+        //--------------------------------------------------------------------------
+        //宣告全域變數 add by HsiupoYeh
+        var
+          version_str: AnsiString;
+          Current_Folder_Path: AnsiString;
+          Form1CreateMeshPreview_ImageWidthDiffPx: Integer;
+          Form1CreateMeshPreview_ImageHeightDiffPx: Integer;
+        //--------------------------------------------------------------------------
+        
+        {$R *.lfm} 
+        ```
+     
+        ```pascal
+        procedure TForm1.FormShow(Sender: TObject);
+        begin
+          //--------------------------------------------------------------------------
+          // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+          Form1CreateMeshPreview_ImageWidthDiffPx:=Form1.Width-CreateMeshPreview_Image.Width;
+          Form1CreateMeshPreview_ImageHeightDiffPx:=Form1.Height-CreateMeshPreview_Image.Height;
+          //--------------------------------------------------------------------------
+        end;       
+        ```
+     
+        ```pascal
         procedure TForm1.FormResize(Sender: TObject);
         begin
-          if PageControl1.ActivePage = CreateMesh_TabSheet then
+          //--------------------------------------------------------------------------
+          // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
           begin
-            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
           end;
-        end; 
+          //--------------------------------------------------------------------------
+        end;  
         ```
         + 加程式碼
         ```pascal
-        procedure TForm1.Forward_PageControlChange(Sender: TObject);
+        procedure TForm1.FormResize(Sender: TObject);
         begin
+          //--------------------------------------------------------------------------
+          // 限制圖片尺寸，來修補圖片尺寸異常的Bug
           if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
           begin
-            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
           end;
-        end;  
+          //--------------------------------------------------------------------------
+        end;    
         ```
       + **2.10.13 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshModelName_GroupBox」。**
         + **2.10.13.1 設定「Anchors」。**  
