@@ -605,8 +605,8 @@
           + **2.10.27.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.27.1.2 「Left anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**
           + **2.10.27.1.3 「Right anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-          + **2.10.27.1.4 「Bottom anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
-          + **2.10.27.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，下面那格填「3」。**  
+          + **2.10.27.1.4 「Bottom anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
+          + **2.10.27.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，下面那格填「0」。**  
           + **2.10.27.1.6 設定完後關閉Anchors設定視窗。**
         + **2.10.27.2 設定「Caption」為「電阻率規則(xmin,xmax,zmin,zmax,newRes):」。**
       + **2.10.28 拖拉一個「Standard>TMemo」到「CreateMeshModifyMeshResistivitySettings_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshModifyMeshResistivitySettings_Memo」**
