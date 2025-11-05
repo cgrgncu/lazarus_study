@@ -731,15 +731,95 @@
         + **2.12.9.3 設定「BorderSpacing>Right」為「1」。**
         + **2.12.9.4 設定「Caption」為「參數設定:」。** 
         + **2.12.9.5 設定「Width」為「500」。**
-      + **2.12.10 拖拉一個「Standard>TGroupBox」到「ForwardModeling_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingPreview_GroupBox」。**
-        + **2.12.10.1 設定「Align」為「alClient」。**
-        + **2.12.10.2 設定「Caption」為「模型預覽:」。** 
-      + **2.12.11 拖拉一個「Additional>TImage」到「ForwardModeling_TabSheet」中。預設名稱會是「Image1」，修改「Name」為「ForwardModelingPreview_Image」。**
-        + **2.12.11.1 設定「Align」為「alClient」。**
-        + **2.12.11.2 設定「AntialiasingMode」為「amOn」。**
-        + **2.12.11.3 設定「Center」為「True」。**
-        + **2.12.11.4 設定「Proportional」為「True」。**
-        + **2.12.11.5 設定「Streth」為「True」。**
+      + **2.12.10 拖拉一個「Standard>TGroupBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox」。**
+        + **2.12.10.1 設定「Anchors」。**  
+          + **2.12.10.1.1 「Top anchoring>Slbling」選為「ForwardModelingParameters_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+          + **2.12.10.1.2 「Left anchoring>Slbling」選為「ForwardModelingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.10.1.3 「Right anchoring>Slbling」選為「ForwardModelingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.10.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+          + **2.12.10.1.5 設定完後關閉Anchors設定視窗。**
+        + **2.12.10.2 設定「Caption」為「AB電極的發射器最大電壓，單位=伏特:」。**
+        + **2.12.10.3 設定「Height」為「48」。**
+      + **2.12.11 拖拉一個「Standard>TEdit」到「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ForwardModelingElectrodeIndexABTxVoltageMax_Edit」**
+        + **2.12.11.1 設定「Anchors」。**  
+          + **2.12.11.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.12.11.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.11.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.11.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+          + **2.12.11.1.5 設定完後關閉Anchors設定視窗。**  
+        + **2.12.11.2 設定「Text」為「400」。**
+      + **2.12.12 拖拉一個「Standard>TGroupBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox」。**
+        + **2.12.12.1 設定「Anchors」。**  
+          + **2.12.12.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.12.12.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.12.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxVoltageMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.12.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
+          + **2.12.12.1.5 設定完後關閉Anchors設定視窗。**
+        + **2.12.12.2 設定「Caption」為「AB電極的發射器最大電流，單位=安培:」。**
+        + **2.12.12.3 設定「Height」為「48」。**
+      + **2.12.13 拖拉一個「Standard>TEdit」到「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ForwardModelingElectrodeIndexABTxCurrentMax_Edit」**
+        + **2.12.13.1 設定「Anchors」。**  
+          + **2.12.13.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.12.13.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.13.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.13.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+          + **2.12.13.1.5 設定完後關閉Anchors設定視窗。**  
+        + **2.12.13.2 設定「Text」為「0.5」。**
+      + **2.12.14 拖拉一個「Standard>TGroupBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingElectrodeIndexABResistance_GroupBox」。**
+        + **2.12.14.1 設定「Anchors」。**  
+          + **2.12.14.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.12.14.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.14.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABTxCurrentMax_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.14.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
+          + **2.12.14.1.5 設定完後關閉Anchors設定視窗。**
+        + **2.12.14.2 設定「Caption」為「AB電極的接地電阻，單位=歐姆:」。**
+        + **2.12.14.3 設定「Height」為「48」。**
+      + **2.12.15 拖拉一個「Standard>TEdit」到「ForwardModelingElectrodeIndexABResistance_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ForwardModelingElectrodeIndexABResistance_Edit」**
+        + **2.12.15.1 設定「Anchors」。**  
+          + **2.12.15.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.12.15.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.15.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.15.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+          + **2.12.15.1.5 設定完後關閉Anchors設定視窗。**  
+        + **2.12.15.2 設定「Text」為「1000」。**  
+      + **2.12.16 拖拉一個「Standard>TCheckBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「ForwardModelingOutputPNGEnable_CheckBox」。**
+        + **2.12.16.1 設定「Anchors」。**  
+          + **2.12.16.1.1 「Top anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+          + **2.12.16.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.16.1.3 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「3」。**  
+          + **2.12.16.1.4 設定完後關閉Anchors設定視窗。**  
+        + **2.12.16.2 設定「Caption」為「儲存PNG檔案(若勾選，將繪製電流分佈圖，耗時較久。)」。** 
+        + **2.12.16.3 設定「Checked」為「True」。**
+      + **2.12.17 拖拉一個「Standard>TGroupBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingRuntimeEnvironmentDescription_GroupBox」。**
+        + **2.12.17.1 設定「Anchors」。**  
+          + **2.12.17.1.1 「Top anchoring>Slbling」選為「ForwardModelingOutputPNGEnable_CheckBox:TCheckBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+          + **2.12.17.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.17.1.3 「Right anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+          + **2.12.17.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingParameters_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.12.17.1.4 「Border space」正中間那格填「0」，上面那格填「3」，下面那格填「2」。**  
+          + **2.12.17.1.5 設定完後關閉Anchors設定視窗。**
+        + **2.12.17.2 設定「Caption」為「運行環境說明:」。**
+      + **2.12.18 拖拉一個「Standard>TMemo」到「ForwardModelingRuntimeEnvironmentDescription_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ForwardModelingRuntimeEnvironmentDescription_Memo」**
+        + **2.12.18.1 設定「Anchors」。**  
+          + **2.12.18.1.1 「Top anchoring>Slbling」選為「ForwardModelingRuntimeEnvironmentDescription_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.12.18.1.2 「Left anchoring>Slbling」選為「ForwardModelingRuntimeEnvironmentDescription_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.12.18.1.3 「Right anchoring>Slbling」選為「ForwardModelingRuntimeEnvironmentDescription_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.12.18.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingRuntimeEnvironmentDescription_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.12.18.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.12.18.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.12.18.2 設定「Lines」清空。**
+        + **2.12.18.3 設定「ReadOnly」為「True」。**
+        + **2.12.18.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.12.18.5 設定「WordWrap」為「False」。**
+      + **2.12.19 拖拉一個「Standard>TGroupBox」到「CreateMesh_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingPreview_GroupBox」。**
+        + **2.12.19.1 設定「Align」為「alClient」。**
+        + **2.12.19.2 設定「Caption」為「模型預覽:」。** 
+      + **2.12.20 拖拉一個「Additional>TImage」到「ForwardModelingPreview_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「ForwardModelingPreview_Image」。**
+        + **2.12.20.1 設定「Align」為「alClient」。**
+        + **2.12.20.2 設定「AntialiasingMode」為「amOn」。**
+        + **2.12.20.3 設定「Center」為「True」。**
+        + **2.12.20.4 設定「Proportional」為「True」。**
+        + **2.12.20.5 設定「Streth」為「True」。**
         + 加程式碼
         ```pascal
         implementation
@@ -785,12 +865,16 @@
           begin
             CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
             CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
+            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
           end;
           //--------------------------------------------------------------------------
           //--------------------------------------------------------------------------
           // 限制圖片尺寸，來修補圖片尺寸異常的Bug
           if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
           begin
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
             ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
             ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
           end;
