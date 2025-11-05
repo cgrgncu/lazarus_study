@@ -325,20 +325,6 @@
           //--------------------------------------------------------------------------
         end;  
         ```
-        + 加程式碼
-        ```pascal
-        procedure TForm1.FormResize(Sender: TObject);
-        begin
-          //--------------------------------------------------------------------------
-          // 限制圖片尺寸，來修補圖片尺寸異常的Bug
-          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
-          begin
-            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
-            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
-          end;
-          //--------------------------------------------------------------------------
-        end;    
-        ```
       + **2.10.13 拖拉一個「Standard>TGroupBox」到「CreateMeshParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「CreateMeshModelName_GroupBox」。**
         + **2.10.13.1 設定「Anchors」。**  
           + **2.10.13.1.1 「Top anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
