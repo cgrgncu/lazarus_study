@@ -312,6 +312,8 @@
         ```pascal
         procedure TForm1.FormShow(Sender: TObject);
         begin
+          // 使焦點落在一個沒有用處的東西上面，避免使用者鍵盤操作發生不預期的影響。
+          EmptyPanel.SetFocus;
           //--------------------------------------------------------------------------
           // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
           Form1CreateMeshPreview_ImageWidthDiffPx:=Form1.Width-CreateMeshPreview_Image.Width;
