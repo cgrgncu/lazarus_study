@@ -441,10 +441,11 @@
         + **2.10.25.1 設定「Anchors」。**  
           + **2.10.25.1.1 「Top anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
           + **2.10.25.1.2 「Left anchoring>Slbling」選為「CreateMeshPaddingMeshBottomSettings_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshPaddingMeshRightSettings_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
+          + **2.10.25.1.3 「Bottom anchoring>Slbling」選為「CreateMeshParameters_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**  
           + **2.10.25.1.4 「Border space」正中間那格填「0」，右邊那格填「3」，下面那格填「3」。**  
           + **2.10.25.1.5 設定完後關閉Anchors設定視窗。**
         + **2.10.25.2 設定「Caption」為「地表節點(X,Z,電極索引)，單位=公尺:」。**
+        + **2.10.25.3 設定「Width」為「215」。**
       + **2.10.26 拖拉一個「Standard>TMemo」到「CreateMeshSurfaceNodeSettings_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「CreateMeshSurfaceNodeSettings_Memo」**
         + **2.10.26.1 設定「Anchors」。**  
           + **2.10.26.1.1 「Top anchoring>Slbling」選為「CreateMeshSurfaceNodeSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
