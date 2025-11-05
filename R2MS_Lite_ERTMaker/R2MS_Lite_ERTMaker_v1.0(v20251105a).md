@@ -742,35 +742,59 @@
         + **2.12.11.5 設定「Streth」為「True」。**
         + 加程式碼
         ```pascal
+        implementation
+        //--------------------------------------------------------------------------
+        //宣告全域變數 add by HsiupoYeh
+        var
+          version_str: AnsiString;
+          Current_Folder_Path: AnsiString;
+          Form1CreateMeshPreview_ImageWidthDiffPx: Integer;
+          Form1CreateMeshPreview_ImageHeightDiffPx: Integer;
+          Form1ForwardModelingPreview_ImageWidthDiffPx: Integer;
+          Form1ForwardModelingPreview_ImageHeightDiffPx: Integer;
+        //--------------------------------------------------------------------------
+        
+        {$R *.lfm}
+        ```
+     
+        ```pascal
+        procedure TForm1.FormShow(Sender: TObject);
+        begin
+          // 使焦點落在一個沒有用處的東西上面，避免使用者鍵盤操作發生不預期的影響。
+          EmptyPanel.SetFocus;
+          //--------------------------------------------------------------------------
+          // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+          Form1CreateMeshPreview_ImageWidthDiffPx:=Form1.Width-CreateMeshPreview_Image.Width;
+          Form1CreateMeshPreview_ImageHeightDiffPx:=Form1.Height-CreateMeshPreview_Image.Height;
+          //--------------------------------------------------------------------------
+          //--------------------------------------------------------------------------
+          // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+          Form1ForwardModelingPreview_ImageWidthDiffPx:=Form1.Width-ForwardModelingPreview_Image.Width;
+          Form1ForwardModelingPreview_ImageHeightDiffPx:=Form1.Height-ForwardModelingPreview_Image.Height;
+          //--------------------------------------------------------------------------
+        end;       
+        ```
+     
+        ```pascal
         procedure TForm1.FormResize(Sender: TObject);
         begin
+          //--------------------------------------------------------------------------
+          // 限制圖片尺寸，來修補圖片尺寸異常的Bug
           if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
           begin
-            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
           end;
+          //--------------------------------------------------------------------------
+          //--------------------------------------------------------------------------
+          // 限制圖片尺寸，來修補圖片尺寸異常的Bug
           if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
           begin
-            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
+            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
           end;
-        end;
-        ```
-        + 加程式碼
-        ```pascal
-        procedure TForm1.Forward_PageControlChange(Sender: TObject);
-        begin
-          if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
-          begin
-            CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
-          end;
-          if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
-          begin
-            ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-(1100-572); //原本Form1寬度=1100，原本CreateMeshPreview_Image寬度=572，可知其他占用空間為(1100-572)
-            ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-(600-471); //原本Form1高度=600，原本CreateMeshPreview_Image高度=471，可知其他占用空間為(600-471)
-          end;
-        end 
+          //--------------------------------------------------------------------------
+        end; 
         ```
         
 3. 第2個分頁「資料內容」(TabSheet2):  
