@@ -987,8 +987,8 @@
         作者: HsiupoYeh
         --
         v20251105a
-        初版
-        
+        初版 (僅設計排版)
+
         ```
       + **5.1.3 設定「ReadOnly」為「True」。**
       + **5.1.4 設定「ScrollBars」為「ssBoth」。**
