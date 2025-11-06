@@ -788,7 +788,7 @@
           + **2.12.16.1.2 「Left anchoring>Slbling」選為「ForwardModelingElectrodeIndexABResistance_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
           + **2.12.16.1.3 「Border space」正中間那格填「0」，上面那格填「3」，左邊那格填「3」。**  
           + **2.12.16.1.4 設定完後關閉Anchors設定視窗。**  
-        + **2.12.16.2 設定「Caption」為「儲存PNG檔案(若勾選，將繪製電流分佈圖，耗時較久。)」。** 
+        + **2.12.16.2 設定「Caption」為「儲存PNG檔案(若不勾選，將省略繪製電流分佈圖，耗時較短。)」。** 
         + **2.12.16.3 設定「Checked」為「True」。**
       + **2.12.17 拖拉一個「Standard>TGroupBox」到「ForwardModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingRuntimeEnvironmentDescription_GroupBox」。**
         + **2.12.17.1 設定「Anchors」。**  
@@ -807,7 +807,12 @@
           + **2.12.18.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingRuntimeEnvironmentDescription_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
           + **2.12.18.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
           + **2.12.18.1.6 設定完後關閉Anchors設定視窗。**  
-        + **2.12.18.2 設定「Lines」清空。**
+        + **2.12.18.2 設定「Lines」為以下文字。**
+        ```
+        作業系統: Windows 
+        Python版本: 3.12.7 (64-bit)
+        PyGimli版本: v1.5.4 
+        ```
         + **2.12.18.3 設定「ReadOnly」為「True」。**
         + **2.12.18.4 設定「ScrollBars」為「ssBoth」。**
         + **2.12.18.5 設定「WordWrap」為「False」。**
