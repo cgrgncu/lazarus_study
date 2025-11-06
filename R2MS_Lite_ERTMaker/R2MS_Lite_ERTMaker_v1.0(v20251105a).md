@@ -705,7 +705,7 @@
         + **2.11.8.2 設定「Lines」清空。**
         + **2.11.8.3 設定「ReadOnly」為「True」。**
         + **2.11.8.4 設定「ScrollBars」為「ssBoth」。**
-        + **2.11.6.5 設定「WordWrap」為「False」。**
+        + **2.11.8.5 設定「WordWrap」為「False」。**
     + 2.12 第3個分頁「順推模擬運算」(ForwardModeling_TabSheet):
       + **2.12.1 拖拉一個「Standard>TToolBar」到「ForwardModeling_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「ForwardModeling_ToolBar」。**
       + **2.12.2 設定「BorderSpacing>Top」為「1」。**
@@ -886,35 +886,112 @@
           //--------------------------------------------------------------------------
         end; 
         ```
+    + 2.13 第3個分頁「順推模擬運算參數」(ForwardModelingSettings_TabSheet):      
+      + **2.13.1 拖拉一個「Standard>TGroupBox」到「ForwardModelingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingSettingsCmdLog_GroupBox」。**
+        + **2.13.1.1 設定「Align」為「alRight」。**
+        + **2.13.1.2 設定「BorderSpacing>Left」為「3」。**
+        + **2.13.1.3 設定「BorderSpacing>Right」為「1」。**
+        + **2.13.1.4 設定「Caption」為「順推模擬運算運行紀錄:」。** 
+        + **2.13.1.5 設定「Width」為「500」。**
+      + **2.13.2 拖拉一個「Standard>TMemo」到「ForwardModelingSettingsCmdLog_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ForwardModelingSettingsCmdLog_Memo」**
+        + **2.13.2.1 設定「Anchors」。**  
+          + **2.13.2.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsCmdLog_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.13.2.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsCmdLog_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.2.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.13.2.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.13.2.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.13.2.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.13.2.2 設定「Color」為「clBlack」。**
+        + **2.13.2.3 設定「Font>Color」為「clLime」。**
+        + **2.13.2.4 設定「Lines」清空。**
+        + **2.13.2.5 設定「ReadOnly」為「True」。**
+        + **2.13.2.6 設定「ScrollBars」為「ssBoth」。**
+        + **2.13.2.7 設定「WordWrap」為「False」。**
+      + **2.13.3 拖拉一個「Standard>TGroupBox」到「ForwardModelingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingSettingsDefaultJson_GroupBox」**
+        + **2.13.3.1 設定「Anchors」。**  
+          + **2.13.3.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettings_TabSheet:TTabSheet」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.13.3.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettings_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.3.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+          + **2.13.3.1.4 設定完後關閉Anchors設定視窗。**  
+        + **2.13.3.2 設定「Caption」為「預設參數(Default_SimulateForTimeSeriesSettings.json):」。**
+        + **2.13.3.3 設定「Height」為「200」。**
+      + **2.13.4 拖拉一個「Standard>TMemo」到「ForwardModelingSettingsDefaultJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ForwardModelingSettingsDefaultJson_Memo」**
+        + **2.13.4.1 設定「Anchors」。**  
+          + **2.13.4.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.13.4.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.4.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.13.4.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.13.4.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.13.4.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.13.4.2 設定「Lines」清空。**
+        + **2.13.4.3 設定「ReadOnly」為「True」。**
+        + **2.13.4.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.13.4.5 設定「WordWrap」為「False」。**
+      + **2.13.5 拖拉一個「Standard>TGroupBox」到「ForwardModelingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingSettingsNowJson_GroupBox」**
+        + **2.13.5.1 設定「Anchors」。**  
+          + **2.13.5.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+          + **2.13.5.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.5.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.13.5.1.4 設定完後關閉Anchors設定視窗。**  
+        + **2.13.5.2 設定「Caption」為「目前參數(SimulateForTimeSeriesSettings.json):」。**
+        + **2.13.5.3 設定「Height」為「200」。**
+      + **2.13.6 拖拉一個「Standard>TMemo」到「ForwardModelingSettingsNowJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ForwardModelingSettingsNowJson_Memo」**
+        + **2.13.6.1 設定「Anchors」。**  
+          + **2.13.6.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.13.6.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.6.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.13.6.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.13.6.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.13.6.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.13.6.2 設定「Lines」清空。**
+        + **2.13.6.3 設定「ReadOnly」為「True」。**
+        + **2.13.6.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.13.6.5 設定「WordWrap」為「False」。**
+      + **2.13.7 拖拉一個「Standard>TGroupBox」到「ForwardModelingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「ForwardModelingSettingsReadme_GroupBox」**
+        + **2.13.7.1 設定「Anchors」。**  
+          + **2.13.7.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+          + **2.13.7.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.7.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+          + **2.13.7.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingSettings_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選右邊的。** 
+          + **2.13.7.1.5 設定完後關閉Anchors設定視窗。**  
+        + **2.13.7.2 設定「Caption」為「說明:」。**
+      + **2.13.8 拖拉一個「Standard>TMemo」到「ForwardModelingSettingsReadme_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ForwardModelingSettingsReadme_Memo」**
+        + **2.13.8.1 設定「Anchors」。**  
+          + **2.13.8.1.1 「Top anchoring>Slbling」選為「ForwardModelingSettingsReadme_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+          + **2.13.8.1.2 「Left anchoring>Slbling」選為「ForwardModelingSettingsReadme_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+          + **2.13.8.1.3 「Right anchoring>Slbling」選為「ForwardModelingSettingsReadme_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+          + **2.13.8.1.4 「Bottom anchoring>Slbling」選為「ForwardModelingSettingsReadme_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+          + **2.13.8.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+          + **2.13.8.1.6 設定完後關閉Anchors設定視窗。**  
+        + **2.13.8.2 設定「Lines」清空。**
+        + **2.13.8.3 設定「ReadOnly」為「True」。**
+        + **2.13.8.4 設定「ScrollBars」為「ssBoth」。**
+        + **2.13.8.5 設定「WordWrap」為「False」。**
         
-3. 第2個分頁「資料內容」(TabSheet2):  
-    + **3.1 拖拉一個「Additional>TStringGrid」到「TabSheet2」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
-      + **3.1.1 設定「Align」為「alClient」。**
-      + **3.1.2 設定「ColCount」為「100」。**
-      + **3.1.3 設定「MouseWheelOption」為「mwGrid」。**
-      + **3.1.4 設定「Options>goColSizing」為「True」。**
-      + **3.1.5 設定「Options>goDblClickAutoSize」為「True」。**
-      + **3.1.6 設定「RowCount」為「100」。**
+3. 第2個分頁「逆推工具」(Inversion_TabSheet):  
+
   
-4. 第3個分頁「運行紀錄」(TabSheet3):  
-    + **4.1 拖拉一個「Standard>TMemo」到「TabSheet3」中。預設名稱會是「Memo1」，修改「Name」為「RunningLog_Memo」**
+4. 第3個分頁「運行紀錄」(RunningLog_TabSheet):  
+    + **4.1 拖拉一個「Standard>TMemo」到「RunningLog_TabSheet」中。預設名稱會是「Memo1」，修改「Name」為「RunningLog_Memo」**
       + **4.1.1 設定「Align」為「alClient」。**
       + **4.1.2 設定「Lines」清空。**
       + **4.1.3 設定「ReadOnly」為「True」。**
       + **4.1.4 設定「ScrollBars」為「ssBoth」。**
-5. 第4個分頁「更新紀錄」(TabSheet4):  
-    + **5.1 拖拉一個「Standard>TMemo」到「TabSheet4」中。預設名稱會是「Memo1」，修改「Name」為「Update_Memo」**
+      + **4.1.5 設定「WordWrap」為「False」。**
+5. 第4個分頁「更新紀錄」(UpdateLog_TabSheet):  
+    + **5.1 拖拉一個「Standard>TMemo」到「UpdateLog_TabSheet」中。預設名稱會是「Memo1」，修改「Name」為「UpdateLog_Memo」**
       + **5.1.1 設定「Align」為「alClient」。**
       + **5.1.2 設定「Lines」為以下文字。**
         ```
-        軟體名稱: R2MS_Lite_CSV_Viewer
+        軟體名稱: R2MS_Lite_ERTMaker
         作者: HsiupoYeh
         --
-        v20251013a
+        v20251105a
         初版
         
         ```
       + **5.1.3 設定「ReadOnly」為「True」。**
       + **5.1.4 設定「ScrollBars」為「ssBoth」。**
+      + **5.1.5 設定「WordWrap」為「False」。**
 
 ### 寫功能
