@@ -429,5 +429,19 @@ begin
   //--------------------------------------------------------------------------
 end;     
 ```
-+ 1.4
-  
++ 1.4 拖拉一個「System>TProcess」到「Form1」中。預設名稱會是「Process1」，修改「Name」為「CreateMesh_AsyncProcess」。其實只是想要uses Process。
+  + 1.4.1 其實只是想要「uses Process」才能用程式碼設定「Option」。與其自行添加不如就使用元件自動引入的「uses Process」。目前這個Process1是沒用到的。 
++ 1.5 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「CreateMesh_AsyncProcess」。
+
++ 1.6
+```
+    //--------------------------------------------------------------------------
+    // 使用 CreateMesh_AsyncProcess 運行外部程式
+    CreateMesh_AsyncProcess.Executable:='cmd.exe';
+    CreateMesh_AsyncProcess.Parameters.Clear;
+    CreateMesh_AsyncProcess.Parameters.Add('/c');
+    CreateMesh_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_CreateAndModifyMesh_v20251031a.cpython-312.pyc');
+    CreateMesh_AsyncProcess.Options:=[poUsePipes] + [poNoConsole];
+    CreateMesh_AsyncProcess.Execute;
+    //--------------------------------------------------------------------------
+```  
