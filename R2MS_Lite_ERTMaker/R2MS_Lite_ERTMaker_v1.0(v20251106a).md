@@ -40,7 +40,7 @@
 
 ## 開發紀錄(寫功能部分)
 ### 版本
-+ 1.1選選Form，去編輯FormCreate，修改部分:
++ 1.1選Form，去編輯FormCreate，修改部分:
 ```pascal
 procedure TForm1.FormCreate(Sender: TObject);
 begin
@@ -429,11 +429,73 @@ begin
   //--------------------------------------------------------------------------
 end;     
 ```
-+ 1.4 拖拉一個「System>TProcess」到「Form1」中。預設名稱會是「Process1」，修改「Name」為「CreateMesh_AsyncProcess」。其實只是想要uses Process。
-  + 1.4.1 其實只是想要「uses Process」才能用程式碼設定「Option」。與其自行添加不如就使用元件自動引入的「uses Process」。目前這個Process1是沒用到的。 
-+ 1.5 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「CreateMesh_AsyncProcess」。
++ 1.4 原始碼最前面部分先宣告修改為如下程式碼。
+```
+implementation
+uses
+  RegExpr,LazUTF8;
+//--------------------------------------------------------------------------
+//宣告全域變數 add by HsiupoYeh
+var
+  version_str: AnsiString;
+  Current_Folder_Path: AnsiString;
+  Form1CreateMeshPreview_ImageWidthDiffPx: Integer;
+  Form1CreateMeshPreview_ImageHeightDiffPx: Integer;
+  Form1ForwardModelingPreview_ImageWidthDiffPx: Integer;
+  Form1ForwardModelingPreview_ImageHeightDiffPx: Integer;
+//--------------------------------------------------------------------------
 
-+ 1.6
+{$R *.lfm} 
+```
++ 1.5 拖拉一個「System>TProcess」到「Form1」中。預設名稱會是「Process1」，修改「Name」為「CreateMesh_AsyncProcess」。其實只是想要uses Process。
+  + 1.5.1 其實只是想要「uses Process」才能用程式碼設定「Option」。與其自行添加不如就使用元件自動引入的「uses Process」。目前這個Process1是沒用到的。 
++ 1.6 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「CreateMesh_AsyncProcess」。
++ 1.7 去修改「CreateMesh_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
+```pascal
+procedure TForm1.CreateMesh_AsyncProcessReadData(Sender: TObject);
+var
+  temp_Buffer:string='';
+  temp_BytesAvailable:DWord;
+begin
+  temp_BytesAvailable:=CreateMesh_AsyncProcess.Output.NumBytesAvailable;
+  if temp_BytesAvailable>0 Then begin
+    setlength(temp_Buffer,temp_BytesAvailable);
+    CreateMesh_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+    temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+    temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+    CreateMeshSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+  end;
+end;
+```
++ 1.8 去修改「CreateMesh_AsyncProcess」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.CreateMesh_AsyncProcessTerminate(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  // 載入結果圖片
+  temp_str:=CreateMeshSettingsDefaultJson_Memo.Lines.Strings[41-1];
+  temp_str:=StringReplace(temp_str, '"OutputFile06_BasicMeshPNG_FileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  CreateMeshPreview_Image.Picture.LoadFromFile(temp_str);
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 啟用元件
+  CreateMeshRun_ToolButton.Enabled:=True;
+  CreateMeshModelName_Edit.Enabled:=True;
+  CreateMeshColorbarMinMax_Edit.Enabled:=True;
+  CreateMeshStudyAreaMeshLayerSettings_Edit.Enabled:=True;
+  CreateMeshPaddingMeshLeftSettings_Edit.Enabled:=True;
+  CreateMeshPaddingMeshRightSettings_Edit.Enabled:=True;
+  CreateMeshPaddingMeshBottomSettings_Edit.Enabled:=True;
+  CreateMeshSurfaceNodeSettings_Memo.Enabled:=True;
+  CreateMeshModifyMeshResistivitySettings_Memo.Enabled:=True;
+  //--------------------------------------------------------------------------
+  StatusBar1.Panels[0].Text:='建立模型網格...完成!';
+end;
+```
++ 1.9 去修改「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
     //--------------------------------------------------------------------------
     // 使用 CreateMesh_AsyncProcess 運行外部程式
