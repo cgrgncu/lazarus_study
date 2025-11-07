@@ -150,4 +150,284 @@ end;
 ]
 }
 ```
-+ 1.2
++ 1.2 去修改「CreateMeshLoad_ToolButton」的「Visible」為「False」。
++ 1.3 去修改「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.CreateMeshRun_ToolButtonClick(Sender: TObject);
+var
+  temp_i: Integer;
+  RegexObj: TRegExpr;
+  temp_str: AnsiString;
+begin
+  CreateMeshSettingsNowJson_Memo.Clear;
+  //--------------------------------------------------------------------------
+  //
+  for temp_i := 0 to 64-1 do
+  begin
+    CreateMeshSettingsNowJson_Memo.Lines.Add(CreateMeshSettingsDefaultJson_Memo.Lines.Strings[temp_i]);
+  end;
+  //--------------------------------------------------------------------------
+
+  RegexObj := TRegExpr.Create;
+  try
+    //--------------------------------------------------------------------------
+    // CreateMeshModelName_Edit
+    RegexObj.Expression := '[<>:"/\\|?*]';
+    if RegexObj.Exec(CreateMeshModelName_Edit.Text) then
+    begin
+      // --- 發現非法字元 ---
+      temp_str := '錯誤:' + #13#10 +
+        '模型名稱為不接受的字元。' + #13#10 +
+        '不可使用以下字元: <>:"/\\|?*';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[31-1] := ('"OutputFile01_MeshBCMarkersJSON_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModelBCMarkers.json",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[33-1] := ('"OutputFile02_MeshBCMarkersVTK_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.vtk",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[35-1] := ('"OutputFile03_GEO_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.geo",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[37-1] := ('"OutputFile04_TRN_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.trn",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[39-1] := ('"OutputFile05_OHM_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.ohm",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[41-1] := ('"OutputFile06_BasicMeshPNG_FileName":"Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.png",');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[49-1] := ('"OutputFile06_BasicMeshPNG_Title":"'+CreateMeshModelName_Edit.Text+' Synthetic Model",');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshColorbarMinMax_Edit
+    RegexObj.Expression := '^\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshColorbarMinMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) >= StrToFloat(RegexObj.Match[3]) then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階最小值必須小於最大值。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[51-1] := ('"OutputFile06_BasicMeshPNG_ColorBarResistivityMin":'+RegexObj.Match[1]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[53-1] := ('"OutputFile06_BasicMeshPNG_ColorBarResistivityMax":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshStudyAreaMeshLayerSettings_Edit
+    RegexObj.Expression := '^\s*(\d+)\s*,\s*(\d*\.?\d+)\s*,\s*(\d*\.?\d+)\s*$';
+    if not RegexObj.Exec(CreateMeshStudyAreaMeshLayerSettings_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '研究區域內網格設定(地層數,厚度因子,首層厚度)值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '研究區域內網格設定(地層數,厚度因子,首層厚度)值第1個數字必須為正整數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[2]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '研究區域內網格設定(地層數,厚度因子,首層厚度)值第2個數字必須為正數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[3]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '研究區域內網格設定(地層數,厚度因子,首層厚度)值第3個數字必須為正數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[57-1] := ('"StudyAreaMesh_RectangleGrid_LayerCount":'+RegexObj.Match[1]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[59-1] := ('"StudyAreaMesh_RectangleGrid_LayerThicknessFacfor":'+RegexObj.Match[2]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Strings[61-1] := ('"StudyAreaMesh_RectangleGrid_FirstLayerThickness":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshSurfaceNodeSettings_Memo
+    RegexObj.Expression := '^\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*(null|([-+]?(\d+\.?\d*|\.\d+)))\s*,\s*(\d+)\s*$';
+    for temp_i := 0 to CreateMeshSurfaceNodeSettings_Memo.Lines.Count-1 do
+    begin
+      //--
+      if Trim(CreateMeshSurfaceNodeSettings_Memo.Lines.Strings[temp_i]) = '' then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '地表節點(X,Z,電極索引)值不允許有空白行。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      //--
+      if not RegexObj.Exec(CreateMeshSurfaceNodeSettings_Memo.Lines.Strings[temp_i]) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '地表節點(X,Z,電極索引)值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      if temp_i = CreateMeshSurfaceNodeSettings_Memo.Lines.Count-1 then
+      begin
+        CreateMeshSettingsNowJson_Memo.Lines.Add('['+Trim(CreateMeshSurfaceNodeSettings_Memo.Lines.Strings[temp_i])+']');
+      end
+      else
+      begin
+        CreateMeshSettingsNowJson_Memo.Lines.Add('['+Trim(CreateMeshSurfaceNodeSettings_Memo.Lines.Strings[temp_i])+'],');
+      end;
+      //--
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Add('],');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshPaddingMeshLeftSettings_Edit
+    RegexObj.Expression := '^\s*(\d+)\s*,\s*(\d*\.?\d+)\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshPaddingMeshLeftSettings_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域左側網格設定(層數,寬度因子,首層寬度)值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域左側網格設定(層數,寬度因子,首層寬度)值第1個數字必須為正整數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[2]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域左側網格設定(層數,寬度因子,首層寬度)值第2個數字必須為正數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_GridStyle_Readme":"附加區域的網格類型。目前只支援「Rectangle」，就是指以矩形為基礎的網格類型。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_GridStyle":"Rectangle",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_LeftPaddingLayerCount_Readme":"附加區域左側要追加的網格層數。就是指-X方向追加的地層數量。此值必須是0或是正整數。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_LeftPaddingLayerCount":'+RegexObj.Match[1]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_LeftPaddingLayerWidthFacfor_Readme":"附加區域左側的地層寬度控制因子。此值必須是正數。1表示寬度不變化，0.9表示寬度變小為原本的90%，1.1表示寬度變大為原本的110%。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_LeftPaddingLayerWidthFacfor":'+RegexObj.Match[2]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstLeftPaddingLayerWidth_Readme":"附加區域左側的第一層寬度。單位:[m]。此值小於等於0的時候，表示自動使用最靠近的一層搭配厚度因子計算出第一層寬度，否則直接使用指定數值為第一層寬度。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstLeftPaddingLayerWidth":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshPaddingMeshRightSettings_Edit
+    RegexObj.Expression := '^\s*(\d+)\s*,\s*(\d*\.?\d+)\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshPaddingMeshRightSettings_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域右側網格設定(層數,寬度因子,首層寬度)值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域右側網格設定(層數,寬度因子,首層寬度)值第1個數字必須為正整數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[2]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域右側網格設定(層數,寬度因子,首層寬度)值第2個數字必須為正數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_RightPaddingLayerCount_Readme":"附加區域右側要追加的網格層數。就是指+X方向追加的地層數量。此值必須是0或是正整數。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_RightPaddingLayerCount":'+RegexObj.Match[1]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_RightPaddingLayerWidthFacfor_Readme":"附加區域右側的地層寬度控制因子。此值必須是正數。1表示寬度不變化，0.9表示寬度變小為原本的90%，1.1表示寬度變大為原本的110%。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_RightPaddingLayerWidthFacfor":'+RegexObj.Match[2]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstRightPaddingLayerWidth_Readme":"附加區域右側的第一層寬度。單位:[m]。此值小於等於0的時候，表示自動使用最靠近的一層搭配厚度因子計算出第一層寬度，否則直接使用指定數值為第一層寬度。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstRightPaddingLayerWidth":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshPaddingMeshBottomSettings_Edit
+    RegexObj.Expression := '^\s*(\d+)\s*,\s*(\d*\.?\d+)\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshPaddingMeshBottomSettings_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域下方網格設定(層數,寬度因子,首層寬度)值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域下方網格設定(層數,寬度因子,首層寬度)值第1個數字必須為正整數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[2]) <= 0 then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '附加區域下方網格設定(層數,寬度因子,首層寬度)值第2個數字必須為正數。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_BottomPaddingLayerCount_Readme":"附加區域下方的網格層數。是指Z方向的地層數量。此值必須是0或正整數。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_BottomPaddingLayerCount":'+RegexObj.Match[1]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_BottomPaddingLayerThicknessFacfor_Readme":"附加區域右側的地層寬度控制因子。此值必須是正數。1表示寬度不變化，0.9表示寬度變小為原本的90%，1.1表示寬度變大為原本的110%。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_BottomPaddingLayerThicknessFacfor":'+RegexObj.Match[2]+',');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstBottomPaddingLayerThickness_Readme":"附加區域的第一層厚度。單位:[m]。此值小於等於0的時候，表示自動使用最靠近的一層搭配厚度因子計算出第一層厚度，否則直接使用指定數值為第一層厚度。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"PaddingMesh_RectangleGrid_FirstBottomPaddingLayerThickness":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // CreateMeshModifyMeshResistivitySettings_Memo
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"ModifyMeshResistivity_Readme":"依序填入多則修改範圍，將依照規則順序修改模型。",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"ModifyMeshResistivity_Readme2":"x_min[m],x_max[m],z_min[m],z_max[m],New_Resistivity[ohm-m]",');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('"ModifyMeshResistivity":[');
+    RegexObj.Expression := '^\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*(\d*\.?\d+)\s*$';
+    for temp_i := 0 to CreateMeshModifyMeshResistivitySettings_Memo.Lines.Count-1 do
+    begin
+      //--
+      if Trim(CreateMeshModifyMeshResistivitySettings_Memo.Lines.Strings[temp_i]) = '' then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '電阻率規則(xmin,xmax,zmin,zmax,newRes)值不允許有空白行。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      //--
+      if not RegexObj.Exec(CreateMeshModifyMeshResistivitySettings_Memo.Lines.Strings[temp_i]) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '電阻率規則(xmin,xmax,zmin,zmax,newRes):值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      if temp_i = CreateMeshModifyMeshResistivitySettings_Memo.Lines.Count-1 then
+      begin
+        CreateMeshSettingsNowJson_Memo.Lines.Add('['+Trim(CreateMeshModifyMeshResistivitySettings_Memo.Lines.Strings[temp_i])+']');
+      end
+      else
+      begin
+        CreateMeshSettingsNowJson_Memo.Lines.Add('['+Trim(CreateMeshModifyMeshResistivitySettings_Memo.Lines.Strings[temp_i])+'],');
+      end;
+      //--
+    end;
+    CreateMeshSettingsNowJson_Memo.Lines.Add(']');
+    CreateMeshSettingsNowJson_Memo.Lines.Add('}');
+    //--------------------------------------------------------------------------
+    // 儲存預設JSON檔案
+    ForceDirectories('Input_ERTMaker_CreateAndModifyMesh');
+    CreateMeshSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_CreateAndModifyMesh/CreateAndModifyMeshSettings.json',TEncoding.UTF8);
+    //--------------------------------------------------------------------------
+  finally
+    RegexObj.Free; // 釋放 TRegExpr 物件
+  end;
+  //--------------------------------------------------------------------------
+end;     
+```
++ 1.4
+  
