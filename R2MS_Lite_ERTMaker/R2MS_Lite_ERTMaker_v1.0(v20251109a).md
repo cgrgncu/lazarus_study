@@ -276,3 +276,48 @@ end;
   + 1.1.1 設定「Anchors」。   
     + 1.1.1.1 「Top anchoring>Slbling」選為「ForwardModelingCurrentMode_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**
     + 1.1.1.2 設定完後關閉Anchors設定視窗。**
+
+### 寫功能
++ 2.1 修改「ForwardModelingSettingsDefaultJson_Memo」。
+  + 2.1.1 設定「Lines」為以下文字。
+  ```
+  {
+  "SimulateForTimeSeriesSettings_Version":"v20251031a",
+  "SimulateForTimeSeriesSettings_Author":"HsiupoYeh",
+  "InputFile01_MeshVTK_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+  "InputFile01_MeshVTK_FileName":"Input_ERTMaker_SimulateForTimeSeries/XP1_SyntheticModel.vtk",
+  "InputFile02_MeshBCMarkersJSON_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+  "InputFile02_MeshBCMarkersJSON_FileName":"Input_ERTMaker_SimulateForTimeSeries/XP1_SyntheticModelBCMarkers.json",
+  "InputFile03_OHM_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+  "InputFile03_OHM_FileName":"Input_ERTMaker_SimulateForTimeSeries/XP1_SyntheticModel.ohm",
+  "InputFile04_CurrentMode_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+  "InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_S64NCurrentMode/Current Mode.csv",
+  "MeshPNG_DPI_Readme":"圖片輸出的DPI，建議:100。",
+  "MeshPNG_DPI":100,
+  "MeshPNG_Width_Readme":"圖片輸出的寬度，建議:1280。",
+  "MeshPNG_Width":1280,
+  "MeshPNG_Height_Readme":"圖片輸出的寬度，建議:720。",
+  "MeshPNG_Height":720,
+  "MeshPNG_Title_Readme":"圖片的標題。",
+  "MeshPNG_Title":"XP1 Synthetic Model",
+  "MeshPNG_ColorBarResistivityMin_Readme":"電阻率色階下限，線性數值，必為正數。建議:1。",
+  "MeshPNG_ColorBarResistivityMin":1,
+  "MeshPNG_ColorBarResistivityMax_Readme":"電阻率色階下限，線性數值，必為正數。建議:10000。",
+  "MeshPNG_ColorBarResistivityMax":10000,
+  "OutputFolderPath_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。務必要使用「/」在結尾，表示資料夾。",
+  "OutputFolderPath":"Output_ERTMaker_SimulateForTimeSeries/",
+  "Output_MainFileName_Readme":"會產生很多檔案，這些檔案的主要檔名。",
+  "Output_MainFileName":"XP1_SyntheticModel",
+  "Output_PNG_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串Yes，若不啟用請填入字串No。輸出PNG每張圖約耗時",
+  "Output_PNG_Enable":"Yes",
+  "ElectrodeIndexAB_TxVoltageMax_Readme":"AB電極的發射器最大電壓，單位[V]",
+  "ElectrodeIndexAB_TxVoltageMax":400,
+  "ElectrodeIndexAB_TxCurrentMax_Readme":"AB電極的發射器最大電流，單位[A]",
+  "ElectrodeIndexAB_TxCurrentMax":0.5,
+  "ElectrodeIndexAB_Resistance_Readme":"AB電極的接地電阻，單位[Ohm]",
+  "ElectrodeIndexAB_Resistance":1000
+  }
+  ```
+
+  + 2.2 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+  + 
