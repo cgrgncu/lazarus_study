@@ -74,6 +74,23 @@ end;
     + 1.2.1.4 設定完後關閉Anchors設定視窗。**
   + 1.2.2 設定「Caption」為「自動設定」。
   + 1.2.3 設定「Checked」為「True」。
+  + 1.2.4「Event」頁面下「OnClick」為如下程式碼。
+  ```
+  procedure TForm1.ForwardModelingCurrentMode_CheckBoxClick(Sender: TObject);
+  begin
+    //--------------------------------------------------------------------------
+    // 控制下拉選單狀態
+    if ForwardModelingCurrentMode_CheckBox.Checked then
+    begin
+      ForwardModelingCurrentMode_ComboBox.Enabled := False;
+    end
+    else
+    begin
+      ForwardModelingCurrentMode_ComboBox.Enabled := True;
+    end;
+    //--------------------------------------------------------------------------
+  end;    
+  ```
 + 1.3 拖拉一個「Standard>TGroupBox」到「ForwardModelingCurrentMode_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「ForwardModelingCurrentMode_ComboBox」。
   + 1.3.1 設定「Anchors」。   
     + 1.3.1.1 「Top anchoring>Slbling」選為「ForwardModelingCurrentMode_CheckBox:TCheckBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
