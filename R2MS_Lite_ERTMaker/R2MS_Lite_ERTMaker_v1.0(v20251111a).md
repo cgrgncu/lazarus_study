@@ -656,10 +656,8 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-
-
-+ 2.1 修改「ForwardModelingSettingsDefaultJson_Memo」。
-  + 2.1.1 設定「Lines」為以下文字。
++ 2.3 修改「ForwardModelingSettingsDefaultJson_Memo」。
+  + 2.3.1 設定「Lines」為以下文字。
   ```
   {
   "SimulateForTimeSeriesSettings_Version":"v20251031a",
@@ -698,30 +696,364 @@ end;
   "ElectrodeIndexAB_Resistance":1000
   }
   ```
-
-  + 2.2 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「ForwardModeling_AsyncProcess」。
-  + 2.3 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
-  ```pascal
-  procedure TForm1.ForwardModeling_AsyncProcessReadData(Sender: TObject);
-  var
-    temp_Buffer:string='';
-    temp_BytesAvailable:DWord;
++ 2.4 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「ForwardModeling_AsyncProcess」。
++ 2.5 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModeling_AsyncProcessReadData(Sender: TObject);
+var
+  temp_Buffer:string='';
+  temp_BytesAvailable:DWord;
+begin
+  //--------------------------------------------------------------------------
+  // 顯示外部cmd.exe運行內容
+  temp_BytesAvailable:=ForwardModeling_AsyncProcess.Output.NumBytesAvailable;
+  if temp_BytesAvailable>0 Then begin
+    setlength(temp_Buffer,temp_BytesAvailable);
+    ForwardModeling_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+    temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+    temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+    ForwardModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.6 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModeling_AsyncProcessTerminate(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  // 啟用元件
+  ForwardModelingRun_ToolButton.Enabled:=True;
+  CreateMeshParameters_GroupBox.Enabled:=True;
+  ForwardModelingParameters_GroupBox.Enabled:=True;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 更新狀態列
+  //--
+  if ForwardModelingSettingsCmdLog_Memo.Lines.Count=0 Then
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...異常結束!';
+    ForwardModeling_Timer.Enabled:=False;
+    StatusBar1.Panels[4].Text:='自動播放: 停用';
+    Exit;
+  end;
+  //--
+  // 檢查結果csv
+  temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+  temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=temp_str+'_CurrentFlowLinesAB.v299S.csv';
+  if FileExists(temp_str) then
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...完成!';
+    // 成功提示
+    temp_str := '成功:' + #13#10 +
+      '運行順推模擬...完成!';
+    Application.MessageBox(PChar(temp_str), '提示', 64);
+    Exit;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...運作異常，請檢查紀錄!';
+    ForwardModeling_Timer.Enabled:=False;
+    StatusBar1.Panels[4].Text:='自動播放: 停用';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.7 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「ForwardModeling_Timer」。
++ 2.8 去修改「ForwardModeling_Timer」的「Event」頁面下「OnTimer」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModeling_TimerTimer(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  if StrToInt(StatusBar1.Panels[1].Text) = 0 then
   begin
     //--------------------------------------------------------------------------
-    // 顯示外部cmd.exe運行內容
-    temp_BytesAvailable:=ForwardModeling_AsyncProcess.Output.NumBytesAvailable;
-    if temp_BytesAvailable>0 Then begin
-      setlength(temp_Buffer,temp_BytesAvailable);
-      ForwardModeling_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
-      temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
-      temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
-      ForwardModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+    // 載入圖片
+    temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+    temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+    temp_str:=temp_str;
+    if FileExists(temp_str+'_electric_potential.npy') then
+    begin
+      ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'.png');
+      if not ForwardModelingOutputPNGEnable_CheckBox.Checked then
+      begin
+        ForwardModeling_Timer.Enabled:=False;
+        StatusBar1.Panels[4].Text:='自動播放: 停用';
+      end
+      else
+      begin
+        StatusBar1.Panels[1].Text:='1';
+        Exit;
+      end;
     end;
     //--------------------------------------------------------------------------
   end;
-  ```
-  + 2.4 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
-  ```pascal
-  ```
-  + 2.2 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
-  + 
+  //--
+  if StrToInt(StatusBar1.Panels[1].Text) > 0 then
+  begin
+    //--------------------------------------------------------------------------
+    // 載入圖片
+    temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+    temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+    temp_str:=temp_str;
+    // 分開檔案的.v299S.csv寫入後再讀取PNG到預覽區
+    if FileExists(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.v299S.csv') and FileExists(temp_str+'_electric_potential.npy') then
+    begin
+      ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
+      StatusBar1.Panels[1].Text:=IntToStr(StrToInt(StatusBar1.Panels[1].Text)+1);
+    end
+    else if ForwardModelingRun_ToolButton.Enabled then
+    begin
+      ForwardModeling_Timer.Enabled:=False;
+      StatusBar1.Panels[4].Text:='自動播放: 停用';
+    end;;
+    //--------------------------------------------------------------------------
+  end;
+  //--
+end;
+```
++ 2.9 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModelingRun_ToolButtonClick(Sender: TObject);
+var
+  temp_i: Integer;
+  RegexObj: TRegExpr;
+  temp_str: AnsiString;
+  temp_StartTime: DWord;
+begin
+  ForwardModelingSettingsNowJson_Memo.Clear;
+  ForwardModelingPreview_Image.Picture.Clear;
+  //--
+  StatusBar1.Panels[0].Text:='運行順推模擬...請稍後!';
+  StatusBar1.Panels[1].Text:='0';
+  //--------------------------------------------------------------------------
+  ForwardModelingSettingsNowJson_Memo.Lines:=ForwardModelingSettingsDefaultJson_Memo.Lines;
+  //--
+  if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[1] := '"SimulateForTimeSeriesSettings_Version":"v20251101a",';
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[1] := '"SimulateForTimeSeriesSettings_Version":"v20251031a",';
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.vtk';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[4] := '"InputFile01_MeshVTK_FileName":"'+temp_str+'",';
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'vtk檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModelBCMarkers.json';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[6] := '"InputFile02_MeshBCMarkersJSON_FileName":"'+temp_str+'",';
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'json檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.ohm';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[8] := '"InputFile03_OHM_FileName":"'+temp_str+'",';
+     ForwardModelingSettingsCmdLog_Memo.Lines.LoadFromFile(temp_str);
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'ohm檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  if ForwardModelingCurrentMode_CheckBox.Checked then
+  begin
+    for temp_i := 0 to ForwardModelingSettingsCmdLog_Memo.Lines.Count - 1 do
+    begin
+      if Pos('#x z', ForwardModelingSettingsCmdLog_Memo.Lines[temp_i]) = 1 then
+      begin
+        // 找到了！
+        ForwardModelingCurrentMode_ComboBox.ItemIndex:=-1;
+        if ForwardModelingSettingsCmdLog_Memo.Lines.Strings[temp_i-1].ToInteger > 64 then
+        begin
+          ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_S64NCurrentMode/Current Mode.csv",';
+        end
+        else
+        begin
+          ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_S'+ForwardModelingSettingsCmdLog_Memo.Lines.Strings[temp_i-1]+'NCurrentMode/Current Mode.csv",';
+        end;
+        Break;          // 立即跳出迴圈，因為找到了第一個目標
+      end;
+    end;
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_'+ForwardModelingCurrentMode_ComboBox.Text+'CurrentMode/Current Mode.csv",';
+  end;
+  //--
+  ForwardModelingSettingsNowJson_Memo.Lines.Strings[18] := '"MeshPNG_Title":"'+CreateMeshModelName_Edit.Text+' Synthetic Model",';
+  //--
+  ForwardModelingSettingsNowJson_Memo.Lines.Strings[26] := '"Output_MainFileName":"'+CreateMeshModelName_Edit.Text+'_SyntheticModel",';
+  //--
+  if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[28] := '"Output_PNG_Enable":"Yes",';
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[28] := '"Output_PNG_Enable":"No",';
+  end;
+  //--
+  RegexObj := TRegExpr.Create;
+  try
+    //--------------------------------------------------------------------------
+    // CreateMeshColorbarMinMax_Edit
+    RegexObj.Expression := '^\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshColorbarMinMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) >= StrToFloat(RegexObj.Match[3]) then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階最小值必須小於最大值。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[20] := ('"MeshPNG_ColorBarResistivityMin":'+RegexObj.Match[1]+',');
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[22] := ('"MeshPNG_ColorBarResistivityMax":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABTxVoltageMax_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABTxVoltageMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的發射器最大電壓數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[30] := '"ElectrodeIndexAB_TxVoltageMax":'+ForwardModelingElectrodeIndexABTxVoltageMax_Edit.Text+',';
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABTxCurrentMax_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABTxCurrentMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的發射器最大電流數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[32] := '"ElectrodeIndexAB_TxCurrentMax":'+ForwardModelingElectrodeIndexABTxCurrentMax_Edit.Text+',';
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABResistance_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABResistance_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的接地電阻數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[34] := '"ElectrodeIndexAB_Resistance":'+ForwardModelingElectrodeIndexABResistance_Edit.Text;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 儲存預設JSON檔案
+    ForceDirectories('Input_ERTMaker_SimulateForTimeSeries');
+    ForwardModelingSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_SimulateForTimeSeries/SimulateForTimeSeriesSettings.json',TEncoding.UTF8);
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 刪除預覽png
+    temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+    temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+    temp_str:=temp_str;
+    if FileExists(temp_str+'.png') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的預覽圖片，請稍後!';
+    end;
+    // 刪除結果npy'
+    if FileExists(temp_str+'_electric_potential.npy') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的npy，請稍後!';
+    end;
+    // 刪除結果csv
+    if FileExists(temp_str+'_CurrentFlowLinesAB.v299S.csv') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的csv，請稍後!';
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 等待1秒，讓刪除檔案有時間完成
+    temp_StartTime := GetTickCount; // 獲取當前系統時間(ms)
+    while(GetTickCount() - temp_StartTime < 1000*1) do//1000*1=等1秒
+    begin
+      Application.ProcessMessages;
+      Sleep(1);//休眠1msend;
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    ForwardModelingSettingsCmdLog_Memo.Lines.Clear;
+    // 使用 CreateMesh_AsyncProcess 運行外部程式
+    ForwardModeling_AsyncProcess.Executable:='cmd.exe';
+    ForwardModeling_AsyncProcess.Parameters.Clear;
+    ForwardModeling_AsyncProcess.Parameters.Add('/c');
+    if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+    begin
+      ForwardModeling_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_SimulateForTimeSeries_v20251101a.cpython-312.pyc');
+    end
+    else
+    begin
+      ForwardModeling_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_SimulateForTimeSeries_v20251031a.cpython-312.pyc');
+    end;
+    ForwardModeling_AsyncProcess.Options:=[poUsePipes] + [poNoConsole];
+    ForwardModeling_AsyncProcess.Execute;
+    // 啟用Timer
+    ForwardModeling_Timer.Enabled:=True;
+    StatusBar1.Panels[4].Text:='自動播放: 啟用';
+    // 禁用元件，等背景運作完再從事件重新啟用按鈕
+    ForwardModelingRun_ToolButton.Enabled:=False;
+    CreateMeshParameters_GroupBox.Enabled:=False;
+    ForwardModelingParameters_GroupBox.Enabled:=False;
+    //--------------------------------------------------------------------------
+  finally
+    RegexObj.Free; // 釋放 TRegExpr 物件
+  end;
+end;
+```
