@@ -319,5 +319,29 @@ end;
   }
   ```
 
+  + 2.2 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「ForwardModeling_AsyncProcess」。
+  + 2.3 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
+  ```pascal
+  procedure TForm1.ForwardModeling_AsyncProcessReadData(Sender: TObject);
+  var
+    temp_Buffer:string='';
+    temp_BytesAvailable:DWord;
+  begin
+    //--------------------------------------------------------------------------
+    // 顯示外部cmd.exe運行內容
+    temp_BytesAvailable:=ForwardModeling_AsyncProcess.Output.NumBytesAvailable;
+    if temp_BytesAvailable>0 Then begin
+      setlength(temp_Buffer,temp_BytesAvailable);
+      ForwardModeling_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+      temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+      temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+      ForwardModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+    end;
+    //--------------------------------------------------------------------------
+  end;
+  ```
+  + 2.4 去修改「ForwardModeling_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
+  ```pascal
+  ```
   + 2.2 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
   + 
