@@ -765,6 +765,7 @@ begin
 end;
 ```
 + 2.7 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「ForwardModeling_Timer」。
+  + 2.7.1 設定「Enabled」為「False」。
 + 2.8 去修改「ForwardModeling_Timer」的「Event」頁面下「OnTimer」為如下程式碼。
 ```pascal
 procedure TForm1.ForwardModeling_TimerTimer(Sender: TObject);
