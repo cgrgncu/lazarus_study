@@ -91,7 +91,7 @@ end;
     //--------------------------------------------------------------------------
   end;    
   ```
-+ 1.3 拖拉一個「Standard>TGroupBox」到「ForwardModelingCurrentMode_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「ForwardModelingCurrentMode_ComboBox」。
++ 1.3 拖拉一個「Standard>TComboBox」到「ForwardModelingCurrentMode_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「ForwardModelingCurrentMode_ComboBox」。
   + 1.3.1 設定「Anchors」。   
     + 1.3.1.1 「Top anchoring>Slbling」選為「ForwardModelingCurrentMode_CheckBox:TCheckBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
     + 1.3.1.2 「Left anchoring>Slbling」選為「ForwardModelingCurrentMode_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
