@@ -811,6 +811,7 @@ begin
         else
         begin
           StatusBar1.Panels[1].Text:='1';
+          StatusBar1.Panels[0].Text:='運行順推模擬...請稍後!';
           Exit;
         end;
       except
@@ -835,10 +836,10 @@ begin
       try
         ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
         StatusBar1.Panels[1].Text:=IntToStr(StrToInt(StatusBar1.Panels[1].Text)+1);
+        StatusBar1.Panels[0].Text:='運行順推模擬...請稍後!';
       except
         StatusBar1.Panels[0].Text:='載入失敗: '+(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
       end;
-
     end
     else if ForwardModelingRun_ToolButton.Enabled then
     begin
@@ -848,7 +849,7 @@ begin
     //--------------------------------------------------------------------------
   end;
   //--
-end; 
+end;
 ```
 + 2.9 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
