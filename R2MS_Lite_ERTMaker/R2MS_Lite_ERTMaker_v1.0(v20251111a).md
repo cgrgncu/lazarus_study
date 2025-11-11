@@ -1057,3 +1057,21 @@ begin
   end;
 end;
 ```
++ 2.10 去修改「ForwardModelingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModelingOpenOutputFolder_ToolButtonClick(Sender: TObject
+  );
+var
+  temp_str: string;
+begin
+  // 取得資料夾路徑
+  temp_str:=ForwardModelingSettingsDefaultJson_Memo.Lines.Strings[25-1];
+  temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=ExtractFilePath(Application.ExeName)+temp_str;
+  temp_str:=ExtractFilePath(temp_str);
+  // 記得在 uses 區塊中加入 Windows, ShellApi
+  // 使用 ShellExecute 打開該資料夾
+  ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);
+end;     
+```
