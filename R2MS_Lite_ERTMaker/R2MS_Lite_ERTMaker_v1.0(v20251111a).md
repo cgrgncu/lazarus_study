@@ -87,9 +87,13 @@ end;
     else
     begin
       ForwardModelingCurrentMode_ComboBox.Enabled := True;
+      if ForwardModelingCurrentMode_ComboBox.ItemIndex < 0 then
+      begin
+        ForwardModelingCurrentMode_ComboBox.ItemIndex:=0;
+      end;
     end;
     //--------------------------------------------------------------------------
-  end;    
+  end; 
   ```
 + 1.3 拖拉一個「Standard>TComboBox」到「ForwardModelingCurrentMode_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「ForwardModelingCurrentMode_ComboBox」。
   + 1.3.1 設定「Anchors」。   
