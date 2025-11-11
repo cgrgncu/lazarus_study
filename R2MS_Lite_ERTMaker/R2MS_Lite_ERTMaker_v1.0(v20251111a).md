@@ -283,7 +283,7 @@ end;
 
 ### 寫功能
 + 2.1 去修改「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
-```
+```pascal
 procedure TForm1.CreateMeshRun_ToolButtonClick(Sender: TObject);
 var
   temp_i: Integer;
@@ -613,6 +613,51 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
++ 2.2 去修改「CreateMesh_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
+```pascal
+procedure TForm1.CreateMesh_AsyncProcessTerminate(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  // 啟用元件
+  CreateMeshRun_ToolButton.Enabled:=True;
+  CreateMeshParameters_GroupBox.Enabled:=True;
+  ForwardModelingParameters_GroupBox.Enabled:=True;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 更新狀態列
+  //--
+  if CreateMeshSettingsCmdLog_Memo.Lines.Count=0 Then
+  begin
+    StatusBar1.Panels[0].Text:='建立模型網格...異常結束!';
+    Exit;
+  end;
+  //--
+  // 檢查結果圖片
+  temp_str:=CreateMeshSettingsNowJson_Memo.Lines.Strings[41-1];
+  temp_str:=StringReplace(temp_str, '"OutputFile06_BasicMeshPNG_FileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  if FileExists(temp_str) then
+  begin
+    CreateMeshPreview_Image.Picture.LoadFromFile(temp_str);
+    StatusBar1.Panels[0].Text:='建立模型網格...完成!';
+    // 成功提示
+    temp_str := '成功:' + #13#10 +
+      '建立模型網格...完成!';
+    Application.MessageBox(PChar(temp_str), '提示', 64);
+    Exit;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='建立模型網格...運作異常，請檢查紀錄!';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
+
+
 + 2.1 修改「ForwardModelingSettingsDefaultJson_Memo」。
   + 2.1.1 設定「Lines」為以下文字。
   ```
