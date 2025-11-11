@@ -28,9 +28,16 @@
   + 將目錄規定為以下結構
   ```
   ...\R2MS_Lite_ERTMaker.exe
+  ...\ERTMaker_CreateAndModifyMesh_v20251031a.cpython-312.pyc
+  ...\ERTMaker_SimulateForTimeSeries_v20251031a.cpython-312.pyc
+  ...\ERTMaker_SimulateForTimeSeries_v20251101a.cpython-312.pyc
+  ...\Input_ERTMaker_CreateAndModifyMesh\
+  ...\Input_ERTMaker_SimulateForTimeSeries\
+  ...\Input_ERTMaker_SimulateForTimeSeries\Configs\
+  ...\Input_ERTMaker_SimulateForTimeSeries\Configs\... (許多放電檔案)
   ...\PythonEnv\
   ...\PythonEnv\python.exe
-  ...\PythonPrograms\... (相關的python程式)
+  ...\PythonEnv\... (許多其他python所需檔案)
   ```
   + 準備VC檔案，沒有安裝過散發套件的電腦會需要。
   ```
