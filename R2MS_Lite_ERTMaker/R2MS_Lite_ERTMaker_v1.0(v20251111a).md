@@ -1047,6 +1047,30 @@ begin
     end;
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
+    // 外部Python程式檢查
+    if not FileExists('PythonEnv\Python.exe') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python環境不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if not FileExists('ERTMaker_SimulateForTimeSeries_v20251031a.cpython-312.pyc') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python程式不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if not FileExists('ERTMaker_SimulateForTimeSeries_v20251101a.cpython-312.pyc') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python程式不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     ForwardModelingSettingsCmdLog_Memo.Lines.Clear;
     // 使用 CreateMesh_AsyncProcess 運行外部程式
     ForwardModeling_AsyncProcess.Executable:='cmd.exe';
