@@ -801,16 +801,20 @@ begin
     temp_str:=temp_str;
     if FileExists(temp_str+'_electric_potential.npy') then
     begin
-      ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'.png');
-      if not ForwardModelingOutputPNGEnable_CheckBox.Checked then
-      begin
-        ForwardModeling_Timer.Enabled:=False;
-        StatusBar1.Panels[4].Text:='自動播放: 停用';
-      end
-      else
-      begin
-        StatusBar1.Panels[1].Text:='1';
-        Exit;
+      try
+        ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'.png');
+        if not ForwardModelingOutputPNGEnable_CheckBox.Checked then
+        begin
+          ForwardModeling_Timer.Enabled:=False;
+          StatusBar1.Panels[4].Text:='自動播放: 停用';
+        end
+        else
+        begin
+          StatusBar1.Panels[1].Text:='1';
+          Exit;
+        end;
+      except
+        StatusBar1.Panels[0].Text:='載入失敗: '+(temp_str+'.png');
       end;
     end;
     //--------------------------------------------------------------------------
@@ -828,8 +832,13 @@ begin
     // 分開檔案的.v299S.csv寫入後再讀取PNG到預覽區
     if FileExists(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.v299S.csv') and FileExists(temp_str+'_electric_potential.npy') then
     begin
-      ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
-      StatusBar1.Panels[1].Text:=IntToStr(StrToInt(StatusBar1.Panels[1].Text)+1);
+      try
+        ForwardModelingPreview_Image.Picture.LoadFromFile(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
+        StatusBar1.Panels[1].Text:=IntToStr(StrToInt(StatusBar1.Panels[1].Text)+1);
+      except
+        StatusBar1.Panels[0].Text:='載入失敗: '+(temp_str+'_CurrentFlowLinesAB_'+Format('%.4d', [StrToInt(StatusBar1.Panels[1].Text)])+'.png');
+      end;
+
     end
     else if ForwardModelingRun_ToolButton.Enabled then
     begin
@@ -839,7 +848,7 @@ begin
     //--------------------------------------------------------------------------
   end;
   //--
-end;
+end; 
 ```
 + 2.9 去修改「ForwardModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
