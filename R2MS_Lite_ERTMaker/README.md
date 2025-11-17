@@ -392,3 +392,65 @@ fprintf('480.0 %.1f\n',-15-(22-1)*(3))
 1 4 2 3 100
 #------------------------------------------------------------
 ```
+11. custom03 CurrentMode
++ A= 1 ~ 16, B= 17 ~ 32
++ A= 17 ~ 32, B= 33 ~ 48
++ A= 1 ~ 16, B= 49 ~ 64
++ A= 17 ~ 32, B= 49 ~ 64
++ A= 33 ~ 48, B= 49 ~ 64
+```
+clear;clc;close all   
+%--
+% 找出需要的放電AB
+EarthImagerCmdFile.AB_index.Data=[
+];
+% E1-3 vs E1-4
+for i=1:16
+    for j=17:32
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-4 vs E1-5
+for i=17:32
+    for j=33:48
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-3 vs E2-1
+for i=1:16
+    for j=49:64
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-4 vs E2-1
+for i=17:32
+    for j=49:64
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-5 vs E2-1
+for i=33:48
+    for j=49:64
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% 寫成放電檔案
+EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[];
+for i=1:length(EarthImagerCmdFile.AB_index.Data(:,1))
+    temp_A_index=EarthImagerCmdFile.AB_index.Data(i,1);
+    temp_B_index=EarthImagerCmdFile.AB_index.Data(i,2);
+    temp_second_1_CurrentMode=zeros(1,64);
+    temp_second_1_CurrentMode(temp_A_index)=1;
+    temp_second_1_CurrentMode(temp_B_index)=2;
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_1_CurrentMode];
+    temp_second_2_CurrentMode=zeros(1,64);
+    temp_second_2_CurrentMode(temp_A_index)=2;
+    temp_second_2_CurrentMode(temp_B_index)=1;
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_2_CurrentMode];
+    temp_second_3_CurrentMode=zeros(1,64);
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_3_CurrentMode];
+end
+EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data';
+%--------------------------------------------------------------------------
+csvwrite('Current Mode.csv',EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data); 
+```
