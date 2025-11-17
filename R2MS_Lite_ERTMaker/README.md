@@ -457,6 +457,7 @@ csvwrite('Current Mode.csv',EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data);
 
 
 #### 換電池
+```
 ECOFLOWDELTA 2 儲能電源 電量約1kWh
 https://24h.pchome.com.tw/prod/DEBQ7S-A900GZ5ZL
 22,990
@@ -613,3 +614,4 @@ https://24h.pchome.com.tw/prod/DCAR1D-A900AYSX0
 消耗1% (待機)
 17:00 更換70mai(80%)
 1/4 18:01 ECOFLOWDELTA=100%,70mai=80%
+```
