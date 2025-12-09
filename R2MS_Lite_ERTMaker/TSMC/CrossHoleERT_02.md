@@ -16,7 +16,217 @@
 + E1-3(E1-520): 簡化模型中，地表位置訂為 X=40,Z=201。Z為高程，往上為正。
 + E2-1: 簡化模型中，地表位置訂為 X=60,Z=201。Z為高程，往上為正。
 
-### ERTMaker設定 (下邊坡四口井: E1-1(E4-480)、 E1-2(E1-500)、 E1-3(E1-520)、 E2-1)
+### ERTMaker設定 S003 (下邊坡四口井: E1-1(E4-480)、 E1-2(E1-500)、 E1-3(E1-520)、 E2-1)
+1. 名稱: `E1-1_E2-1_S003`
+2. 色階: `1,10000`
+3. 內網格: `100,1,1`
+4. 左網格: `5,1.2,-1`
+5. 右網格: `5,1.2,-1`
+6. 下網格: `5,1.2,-1`
+7. 地表節點:
+```
+-5,205,0
+-4,205,0
+-3,205,0
+-2,205,0
+-1,205,0
+0,205,1
+1,205,2
+2,205,3
+3,205,4
+4,205,5
+5,205,0
+6,205,0
+7,205,0
+8,205,0
+9,205,0
+10,null,0
+11,null,0
+12,null,0
+13,null,0
+14,null,0
+15,null,0
+16,null,0
+17,null,0
+18,null,0
+19,null,0
+20,202,0
+21,202,0
+22,202,0
+23,202,0
+24,202,0
+25,202,0
+26,202,0
+27,202,0
+28,202,0
+29,202,0
+30,null,0
+31,null,0
+32,null,0
+33,null,0
+34,null,0
+35,null,0
+36,null,0
+37,null,0
+38,null,0
+39,null,0
+40,201,0
+41,201,0
+42,201,0
+43,201,0
+44,201,0
+45,201,0
+46,201,0
+47,201,0
+48,201,0
+49,201,0
+50,201,0
+51,201,0
+52,201,0
+53,201,0
+54,201,0
+55,201,0
+56,201,0
+57,201,0
+58,201,0
+59,201,0
+60,201,0
+61,201,0
+62,201,0
+63,201,0
+64,201,0
+65,201,0
+```
+8. 電阻率規則:
+```
+-9999, 9999, -9999, 9999, 100
+15, 25, 140, 145, 10
+50, 60, 140, 145, 1000
+```
+9. ohm
+```
+#============================================================
+# Data Format: unified data format(*.ohm)
+# REF: http://resistivity.net/bert/data_format.html
+# Description: 
+#     pyGIMLI 2D ERT OHM Data
+# 注意事項:
+#   HsiupoYeh 2024-04-29整理，適用pyGIMLI v.1.5.4
+#   電極資料從編號1開始到電極數量。例如:電極數量為38，編號為1~38。
+#   編號0表示位置無限遠，留給特殊陣列使用。
+#   所有資料可以用空白或tab分隔。
+#   註解用「#」
+#============================================================
+
+#------------------------------------------------------------
+# 在2D的情況下，電極定義為「#x z」。
+# x 單位公尺，側向位置向右為正。
+# z 單位公尺，高程向上為正。
+# 注意: 讀檔程式不聰明，電極數量寫在本區塊某一行，其下一行必須是「#x z」。
+#       這個「#x z」不是註解，讀檔要解析...
+#--
+# 電極數量:
+21
+#x z
+0 186
+0 183
+0 180
+0 177
+0 174
+20 186
+20 183
+20 180
+20 177
+20 174
+40 186
+40 183
+40 180
+40 177
+40 174
+60 186
+60 183
+60 180
+60 177
+60 174
+60 171
+#------------------------------------------------------------
+
+#------------------------------------------------------------
+# 注意: 讀檔程式不聰明，觀測資料數量寫在本區塊某一行，其下一行必須是「#A B M N R」。
+#       這個「#A B M N R」不是註解，讀檔要解析...
+#       A,B,M,N均為電極編號，以上方區塊電極位置的順序當作編號，第一個電極為編號1。
+#       R為AB電流與MN電壓比值(V_MN/I_AB)，單位「Ohm」。
+# 觀測資料數量:
+1
+#A B M N R
+1 4 2 3 100
+#------------------------------------------------------------
+```
+10. custom02 CurrentMode
++ A= 1 ~ 5, B= 6 ~ 10
++ A= 6 ~ 10, B= 11 ~ 15
++ A= 1 ~ 5, B= 16 ~ 20
++ A= 6 ~ 10, B= 16 ~ 20
++ A= 11 ~ 15, B= 16 ~ 20
+```
+clear;clc;close all   
+%--
+% 找出需要的放電AB
+EarthImagerCmdFile.AB_index.Data=[
+];
+% E1-1 vs E1-2
+for i=1:5
+    for j=6:10
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-2 vs E1-3
+for i=6:10
+    for j=11:15
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-1 vs E2-1
+for i=1:5
+    for j=16:20
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-2 vs E2-1
+for i=6:10
+    for j=16:20
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% E1-3 vs E2-1
+for i=11:15
+    for j=16:20
+        EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
+    end
+end
+% 寫成放電檔案
+EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[];
+for i=1:length(EarthImagerCmdFile.AB_index.Data(:,1))
+    temp_A_index=EarthImagerCmdFile.AB_index.Data(i,1);
+    temp_B_index=EarthImagerCmdFile.AB_index.Data(i,2);
+    temp_second_1_CurrentMode=zeros(1,64);
+    temp_second_1_CurrentMode(temp_A_index)=1;
+    temp_second_1_CurrentMode(temp_B_index)=2;
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_1_CurrentMode];
+    temp_second_2_CurrentMode=zeros(1,64);
+    temp_second_2_CurrentMode(temp_A_index)=2;
+    temp_second_2_CurrentMode(temp_B_index)=1;
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_2_CurrentMode];
+    temp_second_3_CurrentMode=zeros(1,64);
+    EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=[EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data;temp_second_3_CurrentMode];
+end
+EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data=EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data';
+%--------------------------------------------------------------------------
+csvwrite('Current Mode.csv',EarthImagerCmdFile.R2MS_Lite_CurrentModeCsv.Data); 
+```
+
+
+### ERTMaker設定 S006 (下邊坡四口井: E1-1(E4-480)、 E1-2(E1-500)、 E1-3(E1-520)、 E2-1)
 1. 名稱: `E1-1_E2-1_S006`
 2. 色階: `1,10000`
 3. 內網格: `100,1,1`
@@ -218,31 +428,31 @@ clear;clc;close all
 % 找出需要的放電AB
 EarthImagerCmdFile.AB_index.Data=[
 ];
-% E1-3 vs E1-4
+% E1-1 vs E1-2
 for i=1:16
     for j=17:32
         EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
     end
 end
-% E1-4 vs E1-5
+% E1-2 vs E1-3
 for i=17:32
     for j=33:48
         EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
     end
 end
-% E1-3 vs E2-1
+% E1-1 vs E2-1
 for i=1:16
     for j=49:64
         EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
     end
 end
-% E1-4 vs E2-1
+% E1-2 vs E2-1
 for i=17:32
     for j=49:64
         EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
     end
 end
-% E1-5 vs E2-1
+% E1-3 vs E2-1
 for i=33:48
     for j=49:64
         EarthImagerCmdFile.AB_index.Data=[EarthImagerCmdFile.AB_index.Data;[i,j]];
