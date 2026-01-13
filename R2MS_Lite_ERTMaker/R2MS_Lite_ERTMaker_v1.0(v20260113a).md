@@ -652,4 +652,5 @@ begin
   end;
 end;
 ```
-+ 
++ 2.3 修改「ForwardModeling_Timer」。
+  + 2.3.1 設定「Interval」為「500」。
