@@ -63,7 +63,7 @@ begin
 end;      
 ```
 ### 寫功能
-+ 2.1 去修改「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。(改成ERTMaker_CreateAndModifyMesh_v20260112a.cpython-312.pyc)
++ 2.1 去修改「CreateMeshRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。(改成ERTMaker_SimulateForTimeSeries_v20251031b.cpython-312.pyc、ERTMaker_SimulateForTimeSeries_v20251101b.cpython-312.pyc)
 ```pascal
 procedure TForm1.CreateMeshRun_ToolButtonClick(Sender: TObject);
 var
