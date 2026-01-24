@@ -1,4 +1,4 @@
-<img width="64" height="35" alt="image" src="https://github.com/user-attachments/assets/a9ea8b8f-938d-4a28-b9c8-061980c58b04" /># 開發紀錄
+# 開發紀錄
 + 作者: HsiupoYeh  
 + 更新日期: 2025-11-03
 
