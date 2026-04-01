@@ -70,9 +70,14 @@
 2026-S010
 ```
 
+### 修正錯誤UI文字
++ 3.1 修改「Name」為「PSU_RangeHIGH_CheckBox」的元件:
+  + 3.1.1 設定「Caption」為「HIGH(600V/0.35A)」。
++ 3.2 修改「Name」為「PSU_RangeLOW_CheckBox」的元件:
+  + 3.2.1 設定「Caption」為「HIGH(400V/0.5A)」。
 
 ### 更新紀錄
-+ 3.1 選「Update_Memo」，去編輯「Lines」
++ 4.1 選「Update_Memo」，去編輯「Lines」
 ```pascal
 軟體名稱: R2MS_Lite_智慧排程工具(R2MS_Lite__Smart_Scheduler)
 作者: HsiupoYeh
