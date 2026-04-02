@@ -52,7 +52,7 @@
 
 ## 開發紀錄(寫功能部分)
 ### 版本
-+ 1.1選選Form，去編輯FormCreate，修改部分:
++ 1.1 選「Form」，去編輯「FormCreate」，修改部分:
 ```pascal
   //--------------------------------------------------------------------------
   // 在這裡對全域變數進行初始化
@@ -60,7 +60,7 @@
   Current_Folder_Path := ExtractFilePath(Application.ExeName);
   //--------------------------------------------------------------------------  
 ```
-
++ 1.2 選「Form」，去編輯「FormCreate」，修改部分:
 ```
   //--------------------------------------------------------------------------
   // 寫入參數檔案
@@ -218,7 +218,23 @@
   end;
   //--------------------------------------------------------------------------
 ```
-
++ 1.3 選「CheckExternalDevices_Button」，去編輯「OnClick」，修改部分:
+```
+        // 使用 IndexOf 檢查序號是否在SwitchArray支援清單中
+        if ESP32_SupportedSerialNumbers_Memo.Lines.IndexOf( ExtractFileName(VarToStrDef(MyWmiObject.Properties_.Item('DeviceID').Value, '')) ) <> -1 then
+        begin
+             RunningLog_Memo.Lines.Add('!!!該裝置為已支援的SwitchArray裝置。SN = ' + ExtractFileName(VarToStrDef(MyWmiObject.Properties_.Item('DeviceID').Value, '')) + '。更新資訊至主頁面板中...');
+             ESP32_SN_Edit.Text := ExtractFileName(VarToStrDef(MyWmiObject.Properties_.Item('DeviceID').Value, ''));
+             ESP32_SN_Edit.Text := StringReplace(ESP32_SN_Edit.Text, '2025-', '', []);
+             ESP32_SN_Edit.Text := StringReplace(ESP32_SN_Edit.Text, '2026-', '', []);
+             ESP32_SN_Edit.Font.Color := clGreen;
+             ESP32_Edit.Text := ExtractFileName(VarToStrDef(MyWmiObject.Properties_.Item('Caption').Value, ''));
+             ESP32_Edit.Text := StringReplace(ESP32_Edit.Text, 'Silicon Labs CP210x USB to UART Bridge (', '', []);
+             ESP32_Edit.Text := StringReplace(ESP32_Edit.Text, ')', '', []);
+             ESP32_Edit.Font.Color := clGreen;
+             RunningLog_Memo.Lines.Add('!!!該裝置為已支援的SwitchArray裝置。SN = ' + ExtractFileName(VarToStrDef(MyWmiObject.Properties_.Item('DeviceID').Value, '')) + '。更新資訊至主頁面板中...完成!');
+        end;
+```
 
 ### 編輯支援序號清單
 + 2.1 選「ESP32_SupportedSerialNumbers_Memo」，去編輯「Lines」
