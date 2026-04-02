@@ -69,7 +69,7 @@
     RunningLog_Memo.Lines.Add('「' + ChangeFileExt(ExtractFileName(Application.ExeName), '.ini') + '」不存在!');
     my_TMemIniFile.WriteString('Version', 'Version', '"' + version_str + '"');
     my_TMemIniFile.WriteString('Version', 'Author', '"HsiupoYeh"');
-    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'ERT_Profile_Name', '"QC1"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'ERT_Profile_Name', '"QC01"');
     my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'ERT_Project_Name', '"[20260401A]Taiwan-Taoyuan-Factory(QC01)"');
     my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'DMM_SN', '"MY60077634"');
     my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'DMM_ComPort', '"USB0::0x2A8D::0x0101::MY60077634::INSTR"');
