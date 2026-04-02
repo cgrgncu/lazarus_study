@@ -61,6 +61,165 @@
   //--------------------------------------------------------------------------  
 ```
 
+```
+  //--------------------------------------------------------------------------
+  // 寫入參數檔案
+  if need_write_ini_file then
+  begin
+    RunningLog_Memo.Lines.Add('「' + ChangeFileExt(ExtractFileName(Application.ExeName), '.ini') + '」不存在!');
+    my_TMemIniFile.WriteString('Version', 'Version', '"' + version_str + '"');
+    my_TMemIniFile.WriteString('Version', 'Author', '"HsiupoYeh"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'ERT_Profile_Name', '"QC1"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'ERT_Project_Name', '"[20260401A]Taiwan-Taoyuan-Factory(QC01)"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'DMM_SN', '"MY60077634"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'DMM_ComPort', '"USB0::0x2A8D::0x0101::MY60077634::INSTR"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'SwitchArray_SN', '"S000"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'SwitchArray_ComPort', '"COM3"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'PSU_SN', '"508I23118"');
+    my_TMemIniFile.WriteString('ERT_ver2_9_9_Client', 'PSU_ComPort', '"COM4"');
+    my_TMemIniFile.WriteString('Schedule', 'Every_Day_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'PSU_RANGE_HIGH_LOW', '"LOW"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_000', '"00:00"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_000_CurrentMode', '"S64N"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_000_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_000_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_001', '"00:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_001_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_001_CurrentMode', '"S64HS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_001_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_001_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_002', '"01:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_002_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_002_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_002_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_002_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_003', '"02:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_003_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_003_CurrentMode', '"M64"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_003_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_003_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_004', '"03:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_004_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_004_CurrentMode', '"SystemTest"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_004_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_004_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_005', '"04:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_005_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_005_CurrentMode', '"Custom01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_005_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_005_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_006', '"05:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_006_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_006_CurrentMode', '"Custom02"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_006_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_006_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_007', '"06:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_007_Enable', '"true"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_007_CurrentMode', '"Custom03"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_007_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_007_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_008', '"07:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_008_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_008_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_008_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_008_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_009', '"08:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_009_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_009_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_009_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_009_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_010', '"09:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_010_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_010_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_010_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_010_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_011', '"10:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_011_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_011_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_011_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_011_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_012', '"11:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_012_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_012_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_012_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_012_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_013', '"12:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_013_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_013_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_013_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_013_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_014', '"13:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_014_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_014_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_014_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_014_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_015', '"14:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_015_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_015_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_015_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_015_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_016', '"15:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_016_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_016_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_016_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_016_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_017', '"16:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_017_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_017_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_017_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_017_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_018', '"17:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_018_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_018_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_018_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_018_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_019', '"18:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_019_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_019_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_019_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_019_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_020', '"19:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_020_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_020_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_020_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_020_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_021', '"20:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_021_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_021_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_021_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_021_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_022', '"21:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_022_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_022_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_022_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_022_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_023', '"22:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_023_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_023_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_023_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_023_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_024', '"23:01"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_024_Enable', '"false"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_024_CurrentMode', '"S64VHS"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_024_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_024_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_999', '"23:59"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_999_CurrentMode', '"SystemTest"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_999_MaxVoltage_V', '"400"');
+    my_TMemIniFile.WriteString('Schedule', 'JOB_999_MaxCurrent_A', '"0.5"');
+    my_TMemIniFile.UpdateFile();
+    temp_str := '提示:' + #13#10 + '檔案「' +
+      ChangeFileExt(ExtractFileName(Application.ExeName), '.ini') +
+      '」不存在!程式將立即終止!' + #13#10 +
+      '本程式已自動重新產生預設INI檔案。' + #13#10 +
+      '請按下確定後手動重新運行本程式。';
+    Application.MessageBox(PChar(temp_str), '提示', 64);
+    Application.Terminate;
+  end;
+  //--------------------------------------------------------------------------
+```
+
+
 ### 編輯支援序號清單
 + 2.1 選「ESP32_SupportedSerialNumbers_Memo」，去編輯「Lines」
 ```
