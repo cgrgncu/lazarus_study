@@ -95,6 +95,20 @@ end;
     + **1.1.8.2 設定「TimeSeriesProcessingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
     ```pascal
 
-    ```   
+    ```
+  + **1.1.9 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessing_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingParameters_GroupBox」。**
+    + **1.1.9.1 設定「Align」為「alClient」。**
+    + **1.1.9.2 設定「BorderSpacing>Right」為「1」。**
+    + **1.1.9.3 設定「Caption」為「參數設定:」。** 
+  + **1.1.10 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox」。**
+    + **1.1.10.1 設定「Anchors」。**  
+      + **1.1.10.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.10.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.10.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.10.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.10.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.10.2 設定「Caption」為「必要輸入檔案#1(.geo):」。**
+    + **1.1.10.3 設定「Height」為「48」。**
+    
 ### 寫功能
 
