@@ -128,7 +128,7 @@ end;
       + **1.1.13.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
       + **1.1.13.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
       + **1.1.13.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_ManualSel:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-      + **1.1.13.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.13.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.13.1.5 設定完後關閉Anchors設定視窗。**  
     + **1.1.13.2 設定「Text」為空白。** 
 ### 寫功能
