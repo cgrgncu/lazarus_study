@@ -72,7 +72,7 @@ end;
   + **1.1.5 設定「Edge>Borders>ebRight」為「True」。**
   + **1.1.6 設定「ShowCaptions」為「True」。**
   + **1.1.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「TimeSeriesProcessingRun_ToolButton」**
-    + **1.1.7.1 設定「Caption」為「運行順推模擬」。**
+    + **1.1.7.1 設定「Caption」為「運行時間序列解算」。**
     + **1.1.7.2 設定「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
     ```pascal
 
