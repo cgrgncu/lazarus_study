@@ -130,6 +130,7 @@ end;
       + **1.1.13.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_ManualSel:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
       + **1.1.13.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.13.1.5 設定完後關閉Anchors設定視窗。**  
-    + **1.1.13.2 設定「Text」為空白。** 
+    + **1.1.13.2 設定「ReadOnly」為「True」。**
+    + **1.1.13.3 設定「Text」為空白。** 
 ### 寫功能
 
