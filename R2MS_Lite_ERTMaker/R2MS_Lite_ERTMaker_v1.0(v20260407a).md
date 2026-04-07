@@ -109,6 +109,27 @@ end;
       + **1.1.10.1.5 設定完後關閉Anchors設定視窗。**
     + **1.1.10.2 設定「Caption」為「必要輸入檔案#1(.geo):」。**
     + **1.1.10.3 設定「Height」為「48」。**
-    
+  + **1.1.11 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_AutoDetect_Button」**
+    + **1.1.11.1 設定「Anchors」。**  
+      + **1.1.11.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.1.11.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.11.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.11.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.11.2 設定「Caption」為「自動偵測」。**
+  + **1.1.12 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_ManualSelection_Button」**
+    + **1.1.12.1 設定「Anchors」。**  
+      + **1.1.12.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.1.12.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_AutoDetec:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.12.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.12.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.12.2 設定「Caption」為「手動選擇」。** 
+  + **1.1.13 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingInputFile01_Geo_FileName_Edit」**
+    + **1.1.13.1 設定「Anchors」。**  
+      + **1.1.13.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.1.13.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.13.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInputFile01_Geo_FileName_GroupBox_ManualSel:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.13.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.13.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.13.2 設定「Text」為空白。** 
 ### 寫功能
 
