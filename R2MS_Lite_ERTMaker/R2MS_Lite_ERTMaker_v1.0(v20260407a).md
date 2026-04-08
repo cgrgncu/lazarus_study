@@ -343,6 +343,52 @@ end;
     + **1.1.36.2 設定「Caption」為「Select」。**
     + **1.1.36.3 設定「Hint」為「指定陣列加篩選條件(Select)」。**
     + **1.1.36.4 設定「ShowHint」為「True」。**
+  + **1.1.37 拖拉一個「Standard>TRadioGroup」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「RadioGroup1」，修改「Name」為「TimeSeriesProcessingSelectFrom_RadioGroup」。**
+    + **1.1.37.1 設定「Anchors」。**  
+      + **1.1.37.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.1.37.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.37.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.37.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.37.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.37.2 設定「Caption」為「Select From:」。**
+    + **1.1.37.2 設定「ColumnLayout」為「clVerticalThenHorizontal」。**
+    + **1.1.37.3 設定「Height」為「48」。**
+  + **1.1.38 拖拉一個「Standard>TRadioButton」到「TimeSeriesProcessingSelectFrom_RadioGroup」中。預設名稱會是「RadioButton1」，修改「Name」為「TimeSeriesProcessingSelectFrom_All_RadioButton」。**
+    + **1.1.38.1 設定「Anchors」。**  
+      + **1.1.38.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.38.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.38.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.38.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.38.2 設定「Caption」為「All」。**
+    + **1.1.38.3 設定「Checked」為「True」。**
+  + **1.1.39 拖拉一個「Standard>TRadioButton」到「TimeSeriesProcessingSelectFrom_RadioGroup」中。預設名稱會是「RadioButton1」，修改「Name」為「TimeSeriesProcessingSelectFrom_WS_RadioButton」。**
+    + **1.1.39.1 設定「Anchors」。**  
+      + **1.1.39.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.39.1.2 「Left anchoring>Slbling」選為「All:TRadioButton」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.39.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.39.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.39.2 設定「Caption」為「WS」。**
+  + **1.1.40 拖拉一個「Standard>TRadioButton」到「TimeSeriesProcessingSelectFrom_RadioGroup」中。預設名稱會是「RadioButton1」，修改「Name」為「TimeSeriesProcessingSelectFrom_MGD_RadioButton」。**
+    + **1.1.40.1 設定「Anchors」。**  
+      + **1.1.40.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.40.1.2 「Left anchoring>Slbling」選為「All:TRadioButton」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.40.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.40.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.40.2 設定「Caption」為「MGD」。**
+  + **1.1.41 拖拉一個「Standard>TRadioButton」到「TimeSeriesProcessingSelectFrom_RadioGroup」中。預設名稱會是「RadioButton1」，修改「Name」為「TimeSeriesProcessingSelectFrom_MPR_RadioButton」。**
+    + **1.1.41.1 設定「Anchors」。**  
+      + **1.1.41.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.41.1.2 「Left anchoring>Slbling」選為「All:TRadioButton」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.41.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.41.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.41.2 設定「Caption」為「MPR」。**
+  + **1.1.42 拖拉一個「Standard>TRadioButton」到「TimeSeriesProcessingSelectFrom_RadioGroup」中。預設名稱會是「RadioButton1」，修改「Name」為「TimeSeriesProcessingSelectFrom_GD_RadioButton」。**
+    + **1.1.42.1 設定「Anchors」。**  
+      + **1.1.42.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSelectFrom_RadioGroup:TRadioGroup」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.42.1.2 「Left anchoring>Slbling」選為「All:TRadioButton」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.42.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.42.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.41.2 設定「Caption」為「GD」。**
   + **1.1.37 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSelectSettings_GroupBox」。**
     + **1.1.37.1 設定「Anchors」。**  
       + **1.1.37.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
