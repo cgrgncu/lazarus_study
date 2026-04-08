@@ -280,5 +280,77 @@ end;
       + **1.1.29.1.5 設定完後關閉Anchors設定視窗。**  
     + **1.1.29.2 設定「ReadOnly」為「True」。**
     + **1.1.29.3 設定「Text」為空白。**
+  + **1.1.30 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_GroupBox」。**
+    + **1.1.30.1 設定「Anchors」。**  
+      + **1.1.30.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.1.30.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.30.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.30.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.30.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.30.2 設定「Caption」為「儲存PNG檔案(若不勾選，將省略繪製分佈圖，耗時較短。):」。**
+    + **1.1.30.3 設定「Height」為「48」。**
+  + **1.1.31 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_All_CheckBox」**
+    + **1.1.31.1 設定「Anchors」。**  
+      + **1.1.31.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.31.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.31.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.31.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.31.2 設定「Caption」為「All」。**
+    + **1.1.31.3 設定「Hint」為「所有四極陣列(All)」。**
+    + **1.1.31.4 設定「ShowHint」為「True」。**
+  + **1.1.32 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_WS_CheckBox」**
+    + **1.1.32.1 設定「Anchors」。**  
+      + **1.1.32.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.32.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_All_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.1.32.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.32.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.32.2 設定「Caption」為「WS」。**
+    + **1.1.32.3 設定「Hint」為「Wenner-Schlumberger(WS)」。**
+    + **1.1.32.4 設定「ShowHint」為「True」。**
+  + **1.1.33 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_MGD_CheckBox」**
+    + **1.1.33.1 設定「Anchors」。**  
+      + **1.1.33.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.33.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_WS_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.1.33.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.33.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.33.2 設定「Caption」為「MGD」。**
+    + **1.1.33.3 設定「Hint」為「Multiple or Moving Gradient Array(MGD)」。**
+    + **1.1.33.4 設定「ShowHint」為「True」。**
+  + **1.1.34 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_MPR_CheckBox」**
+    + **1.1.34.1 設定「Anchors」。**  
+      + **1.1.34.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.34.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_MGD_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.1.34.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.34.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.34.2 設定「Caption」為「MPR」。**
+    + **1.1.34.3 設定「Hint」為「Multiple or Moving Gradient Array(MGD)」。**
+    + **1.1.34.4 設定「ShowHint」為「True」。**
+  + **1.1.35 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_GD_CheckBox」**
+    + **1.1.35.1 設定「Anchors」。**  
+      + **1.1.35.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.35.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_MPR_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.1.35.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.35.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.35.2 設定「Caption」為「GD」。**
+    + **1.1.35.3 設定「Hint」為「Gradient(GD) Array」。**
+    + **1.1.35.4 設定「ShowHint」為「True」。**
+  + **1.1.36 拖拉一個「Standard>TCheckBox」到「TimeSeriesProcessingOutputPNG_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「TimeSeriesProcessingOutputPNG_Select_CheckBox」**
+    + **1.1.36.1 設定「Anchors」。**  
+      + **1.1.36.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.36.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_MPR_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.1.36.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.1.36.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.36.2 設定「Caption」為「Select」。**
+    + **1.1.36.3 設定「Hint」為「指定陣列加篩選條件(Select)」。**
+    + **1.1.36.4 設定「ShowHint」為「True」。**
+  + **1.1.37 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSelectSettings_GroupBox」。**
+    + **1.1.37.1 設定「Anchors」。**  
+      + **1.1.37.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingOutputPNG_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.1.37.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.37.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.37.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.37.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.37.2 設定「Caption」為「Select篩選條件:」。**
+    + **1.1.37.3 設定「Height」為「48」。**
 ### 寫功能
 
