@@ -457,5 +457,86 @@ end;
       + **1.1.50.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.50.1.5 設定完後關閉Anchors設定視窗。**
     + **1.1.50.2 設定「Text」為「1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64」。**
++ 1.2 第6個分頁「時間序列解算參數」(TimeSeriesProcessingSettings_TabSheet):
+  + **1.2.1 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSettingsCmdLog_GroupBox」。**
+    + **1.2.1.1 設定「Align」為「alRight」。**
+    + **1.2.1.2 設定「BorderSpacing>Left」為「3」。**
+    + **1.2.1.3 設定「BorderSpacing>Right」為「1」。**
+    + **1.2.1.4 設定「Caption」為「時間序列解算運行紀錄:」。** 
+    + **1.2.1.5 設定「Width」為「500」。**
+  + **1.2.2 拖拉一個「Standard>TMemo」到「TimeSeriesProcessingSettingsCmdLog_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「TimeSeriesProcessingSettingsCmdLog_Memo」**
+    + **1.2.2.1 設定「Anchors」。**  
+      + **1.2.2.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsCmdLog_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+      + **1.2.2.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsCmdLog_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.2.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.2.2.1.4 「Bottom anchoring>Slbling」選為「TimeSeriesProcessingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+      + **1.2.2.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+      + **1.2.2.1.6 設定完後關閉Anchors設定視窗。**  
+    + **1.2.2.2 設定「Color」為「clBlack」。**
+    + **1.2.2.3 設定「Font>Color」為「clLime」。**
+    + **1.2.2.4 設定「Lines」清空。**
+    + **1.2.2.5 設定「ReadOnly」為「True」。**
+    + **1.2.2.6 設定「ScrollBars」為「ssBoth」。**
+    + **1.2.2.7 設定「WordWrap」為「False」。**
+  + **1.2.3 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSettingsDefaultJson_GroupBox」**
+    + **1.2.3.1 設定「Anchors」。**  
+      + **1.2.3.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettings_TabSheet:TTabSheet」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+      + **1.2.3.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettings_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.3.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsCmdLog_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.2.3.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.2.3.2 設定「Caption」為「預設參數(Default_v299ScsvToUrf.json):」。**
+    + **1.2.3.3 設定「Height」為「200」。**
+  + **1.2.4 拖拉一個「Standard>TMemo」到「TimeSeriesProcessingSettingsDefaultJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「TimeSeriesProcessingSettingsDefaultJson_Memo」**
+    + **1.2.4.1 設定「Anchors」。**  
+      + **1.2.4.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+      + **1.2.4.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.4.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.2.4.1.4 「Bottom anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+      + **1.2.4.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+      + **1.2.4.1.6 設定完後關閉Anchors設定視窗。**  
+    + **1.2.4.2 設定「Lines」清空。**
+    + **1.2.4.3 設定「ReadOnly」為「True」。**
+    + **1.2.4.4 設定「ScrollBars」為「ssBoth」。**
+    + **1.2.4.5 設定「WordWrap」為「False」。**
+  + **1.2.5 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSettingsNowJson_GroupBox」**
+    + **1.2.5.1 設定「Anchors」。**  
+      + **1.2.5.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+      + **1.2.5.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.5.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsDefaultJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.2.5.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.2.5.2 設定「Caption」為「目前參數(v299ScsvToUrf.json):」。**
+    + **1.2.5.3 設定「Height」為「200」。**
+  + **1.2.6 拖拉一個「Standard>TMemo」到「TimeSeriesProcessingSettingsNowJson_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「TimeSeriesProcessingSettingsNowJson_Memo」**
+    + **1.2.6.1 設定「Anchors」。**  
+      + **1.2.6.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+      + **1.2.6.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.6.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.2.6.1.4 「Bottom anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+      + **1.2.6.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+      + **1.2.6.1.6 設定完後關閉Anchors設定視窗。**  
+    + **1.2.6.2 設定「Lines」清空。**
+    + **1.2.6.3 設定「ReadOnly」為「True」。**
+    + **1.2.6.4 設定「ScrollBars」為「ssBoth」。**
+    + **1.2.6.5 設定「WordWrap」為「False」。**
+  + **1.2.7 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingSettings_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingSettingsReadme_GroupBox」**
+    + **1.2.7.1 設定「Anchors」。**  
+      + **1.2.7.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+      + **1.2.7.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.7.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsNowJson_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**
+      + **1.2.7.1.4 「Bottom anchoring>Slbling」選為「TimeSeriesProcessingSettings_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+      + **1.2.7.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.2.7.2 設定「Caption」為「說明:」。**
+  + **1.2.8 拖拉一個「Standard>TMemo」到「TimeSeriesProcessingSettingsReadme_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「TimeSeriesProcessingSettingsReadme_Memo」**
+    + **1.2.8.1 設定「Anchors」。**  
+      + **1.2.8.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingSettingsReadme_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+      + **1.2.8.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingSettingsReadme_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.2.8.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingSettingsReadme_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.2.8.1.4 「Bottom anchoring>Slbling」選為「TimeSeriesProcessingSettingsReadme_GroupBox:TGroupBox」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+      + **1.2.8.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+      + **1.2.8.1.6 設定完後關閉Anchors設定視窗。**  
+    + **1.2.8.2 設定「Lines」清空。**
+    + **1.2.8.3 設定「ReadOnly」為「True」。**
+    + **1.2.8.4 設定「ScrollBars」為「ssBoth」。**
+    + **1.2.8.5 設定「WordWrap」為「False」。**
 ### 寫功能
 
