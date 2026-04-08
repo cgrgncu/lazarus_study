@@ -190,73 +190,95 @@ end;
       + **1.1.19.1.5 設定完後關閉Anchors設定視窗。**  
     + **1.1.19.2 設定「ReadOnly」為「True」。**
     + **1.1.19.3 設定「Text」為空白。**
-  + **1.1.18 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_GroupBox」。**
-    + **1.1.18.1 設定「Anchors」。**  
-      + **1.1.18.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput02Ohm_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
-      + **1.1.18.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-      + **1.1.18.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-      + **1.1.18.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.18.1.5 設定完後關閉Anchors設定視窗。**
-    + **1.1.18.2 設定「Caption」為「必要輸入檔案#3(.v299S.csv):」。**
-    + **1.1.18.3 設定「Height」為「48」。**
-  + **1.1.19 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_AutoDetect_Button」**
-    + **1.1.19.1 設定「Anchors」。**  
-      + **1.1.19.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.19.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-      + **1.1.19.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.19.1.4 設定完後關閉Anchors設定視窗。**  
-    + **1.1.19.2 設定「Caption」為「自動偵測」。**
-    + **1.1.19.3 設定「Width」為「75」。**
-  + **1.1.20 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_ManualSelect_Button」**
+  + **1.1.20 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_GroupBox」。**
     + **1.1.20.1 設定「Anchors」。**  
-      + **1.1.20.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.20.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_AutoDetect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-      + **1.1.20.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.20.1.4 設定完後關閉Anchors設定視窗。**  
-    + **1.1.20.2 設定「Caption」為「手動選擇」。**
-    + **1.1.20.3 設定「Width」為「75」。**
-  + **1.1.21 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_Edit」**
+      + **1.1.20.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput02Ohm_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.1.20.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.20.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.20.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.20.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.20.2 設定「Caption」為「必要輸入檔案#3(.v299S.csv):」。**
+    + **1.1.20.3 設定「Height」為「48」。**
+  + **1.1.21 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_OpenFolder_Button」**
     + **1.1.21.1 設定「Anchors」。**  
-      + **1.1.21.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.21.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-      + **1.1.21.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-      + **1.1.21.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.21.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.21.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.21.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.21.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.21.1.5 設定完後關閉Anchors設定視窗。**  
-    + **1.1.21.2 設定「ReadOnly」為「True」。**
-    + **1.1.21.3 設定「Text」為空白。**
-  + **1.1.22 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_GroupBox」。**
+    + **1.1.21.2 設定「Caption」為「開啟資料夾」。**
+    + **1.1.21.3 設定「Width」為「75」。**
+  + **1.1.22 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_AutoDetect_Button」**
     + **1.1.22.1 設定「Anchors」。**  
-      + **1.1.22.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
-      + **1.1.22.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-      + **1.1.22.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.22.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.22.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.22.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
       + **1.1.22.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.22.1.5 設定完後關閉Anchors設定視窗。**
-    + **1.1.22.2 設定「Caption」為「必要輸入檔案#4(.abmn):」。**
-    + **1.1.22.3 設定「Height」為「48」。**
-  + **1.1.23 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_AutoDetect_Button」**
+      + **1.1.22.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.22.2 設定「Caption」為「自動偵測」。**
+    + **1.1.22.3 設定「Width」為「75」。**
+  + **1.1.23 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_ManualSelect_Button」**
     + **1.1.23.1 設定「Anchors」。**  
-      + **1.1.23.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.23.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-      + **1.1.23.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.23.1.4 設定完後關閉Anchors設定視窗。**  
-    + **1.1.23.2 設定「Caption」為「自動偵測」。**
+      + **1.1.23.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.23.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.23.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_AutoDetect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.23.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.23.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.23.2 設定「Caption」為「手動選擇」。**
     + **1.1.23.3 設定「Width」為「75」。**
-  + **1.1.24 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_ManualSelect_Button」**
+  + **1.1.24 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput03v299Scsv_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingInput03v299Scsv_Edit」**
     + **1.1.24.1 設定「Anchors」。**  
-      + **1.1.24.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.24.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_AutoDetect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-      + **1.1.24.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.24.1.4 設定完後關閉Anchors設定視窗。**  
-    + **1.1.24.2 設定「Caption」為「手動選擇」。**
-    + **1.1.24.3 設定「Width」為「75」。**
-  + **1.1.25 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_Edit」**
+      + **1.1.24.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.1.24.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.24.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.24.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.24.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.24.2 設定「ReadOnly」為「True」。**
+    + **1.1.24.3 設定「Text」為空白。**
+  + **1.1.25 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_GroupBox」。**
     + **1.1.25.1 設定「Anchors」。**  
-      + **1.1.25.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-      + **1.1.25.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-      + **1.1.25.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-      + **1.1.25.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
-      + **1.1.25.1.5 設定完後關閉Anchors設定視窗。**  
-    + **1.1.25.2 設定「ReadOnly」為「True」。**
-    + **1.1.25.3 設定「Text」為空白。**
+      + **1.1.25.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput03v299Scsv_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.1.25.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.25.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.25.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.25.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.1.25.2 設定「Caption」為「必要輸入檔案#4(.abmn):」。**
+    + **1.1.25.3 設定「Height」為「48」。**
+  + **1.1.26 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_OpenFolder_Button」**
+    + **1.1.26.1 設定「Anchors」。**  
+      + **1.1.26.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.26.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.26.1.2 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.26.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.26.1.4 設定完後關閉Anchors設定視窗。**  
+    + **1.1.26.2 設定「Caption」為「開啟資料夾」。**
+    + **1.1.26.3 設定「Width」為「75」。**
+  + **1.1.27 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_AutoDetect_Button」**
+    + **1.1.27.1 設定「Anchors」。**  
+      + **1.1.27.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.27.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.27.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.1.27.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.27.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.27.2 設定「Caption」為「自動偵測」。**
+    + **1.1.27.3 設定「Width」為「75」。**
+  + **1.1.28 拖拉一個「Standard>TButton」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_ManualSelect_Button」**
+    + **1.1.28.1 設定「Anchors」。**  
+      + **1.1.28.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.1.28.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+      + **1.1.28.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_AutoDetect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.28.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.28.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.28.2 設定「Caption」為「手動選擇」。**
+    + **1.1.28.3 設定「Width」為「75」。**
+  + **1.1.29 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput04ABMN_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingInput04ABMN_Edit」**
+    + **1.1.29.1 設定「Anchors」。**  
+      + **1.1.29.1.1 「Top anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.1.29.1.2 「Left anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.1.29.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingInput04ABMN_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.1.29.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.1.29.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.1.29.2 設定「ReadOnly」為「True」。**
+    + **1.1.29.3 設定「Text」為空白。**
 ### 寫功能
 
