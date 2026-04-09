@@ -941,18 +941,28 @@ end;
     end; 
     ```
 + 2.20 修改「TimeSeriesProcessingSelectKeepB_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepB_PopupMenu」。 
-+ 2.21 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepC_PopupMenu」。
-  + 2.21.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepC_PopupMenu_1_1」。
-    + 2.19.1.1 設定「TimeSeriesProcessingSelectKeepC_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
++ 2.21 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepM_PopupMenu」。
+  + 2.21.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepM_PopupMenu_1_1」。
+    + 2.21.1.1 設定「TimeSeriesProcessingSelectKeepM_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
     ```pascal
-    procedure TForm1.TimeSeriesProcessingSelectKeepC_PopupMenu_1_1Click(
+    procedure TForm1.TimeSeriesProcessingSelectKeepM_PopupMenu_1_1Click(
       Sender: TObject);
     begin
-      TimeSeriesProcessingSelectKeepC_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
+      TimeSeriesProcessingSelectKeepM_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
     end; 
     ```
-+ 2.20 修改「TimeSeriesProcessingSelectKeepB_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepB_PopupMenu」。
-
++ 2.22 修改「TimeSeriesProcessingSelectKeepM_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepM_PopupMenu」。
++ 2.23 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepN_PopupMenu」。
+  + 2.23.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepN_PopupMenu_1_1」。
+    + 2.23.1.1 設定「TimeSeriesProcessingSelectKeepN_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
+    ```pascal
+    procedure TForm1.TimeSeriesProcessingSelectKeepN_PopupMenu_1_1Click(
+      Sender: TObject);
+    begin
+      TimeSeriesProcessingSelectKeepN_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
+    end; 
+    ```
++ 2.24 修改「TimeSeriesProcessingSelectKeepN_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepN_PopupMenu」。
 
 
 + 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」的「Lines」為以下文字。
