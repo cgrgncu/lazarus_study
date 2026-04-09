@@ -634,6 +634,35 @@ begin
   end;
 end; 
 ```
++ 2.7 去修改「TimeSeriesProcessingInput01Geo_OpenFolder_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessingInput01Geo_OpenFolder_ButtonClick(
+  Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  // 1. 從完整路徑中提取資料夾路徑
+  temp_str := ExtractFilePath(TimeSeriesProcessingInput01Geo_Edit.Text);
+  // 2. 檢查路徑是否存在
+  if DirectoryExists(temp_str) then
+  begin
+    // 3. 使用系統預設檔案瀏覽器開啟資料夾
+    // 記得在 uses 區塊中加入 Windows, ShellApi
+    // 使用 ShellExecute 打開該資料夾
+    //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
+    ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // 如果路徑無效，給予使用者提示
+    temp_str := '錯誤:' + #13#10 +
+      '資料夾不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+  end;
+end; 
+```
+
+
 
 + 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」的「Lines」為以下文字。
 ```
