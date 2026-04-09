@@ -790,7 +790,7 @@ begin
   end
   else
   begin
-    temp_str := '錯誤:' + #13#10 + 'ohm檔案不存在。';
+    temp_str := '錯誤:' + #13#10 + 'csv檔案不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
     TimeSeriesProcessingInput03v299Scsv_Edit.Text := '';
     Exit;
