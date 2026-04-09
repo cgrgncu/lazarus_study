@@ -32,10 +32,12 @@
   ...\ERTMaker_CreateAndModifyMesh_v20260112a.cpython-312.pyc
   ...\ERTMaker_SimulateForTimeSeries_v20251031b.cpython-312.pyc
   ...\ERTMaker_SimulateForTimeSeries_v20251101b.cpython-312.pyc
+  ...\ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc
   ...\Input_ERTMaker_CreateAndModifyMesh\
   ...\Input_ERTMaker_SimulateForTimeSeries\
   ...\Input_ERTMaker_SimulateForTimeSeries\Configs\
   ...\Input_ERTMaker_SimulateForTimeSeries\Configs\... (許多放電檔案)
+  ...\Input_ERTMaker_v299ScsvToUrf\
   ...\PythonEnv\
   ...\PythonEnv\python.exe
   ...\PythonEnv\... (許多其他python所需檔案)
