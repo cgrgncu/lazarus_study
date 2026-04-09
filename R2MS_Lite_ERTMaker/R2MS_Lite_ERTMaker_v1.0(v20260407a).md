@@ -539,9 +539,49 @@ begin
   //--------------------------------------------------------------------------
 end;      
 ```
+### 修改功能
++ 2.2 去修改「CreateMeshOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```
+procedure TForm1.CreateMeshOpenOutputFolder_ToolButtonClick(Sender: TObject);
+var
+  temp_str: string;
+begin
+  // 取得資料夾路徑
+  temp_str:=CreateMeshSettingsDefaultJson_Memo.Lines.Strings[41-1];
+  temp_str:=StringReplace(temp_str, '"OutputFile06_BasicMeshPNG_FileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=ExtractFilePath(Application.ExeName)+temp_str;
+  temp_str:=ExtractFilePath(temp_str);
+  ForceDirectories(temp_str);
+  // 記得在 uses 區塊中加入 Windows, ShellApi
+  // 使用 ShellExecute 打開該資料夾
+  //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
+  ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
+end; 
+```
++ 2.3 去修改「CreateMeshOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```
+procedure TForm1.ForwardModelingOpenOutputFolder_ToolButtonClick(Sender: TObject
+  );
+var
+  temp_str: string;
+begin
+  // 取得資料夾路徑
+  temp_str:=ForwardModelingSettingsDefaultJson_Memo.Lines.Strings[25-1];
+  temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=ExtractFilePath(Application.ExeName)+temp_str;
+  temp_str:=ExtractFilePath(temp_str);
+  ForceDirectories(temp_str);
+  // 記得在 uses 區塊中加入 Windows, ShellApi
+  // 使用 ShellExecute 打開該資料夾
+  //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
+  ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
+end;  
+```
 ### 寫功能
-+ 2.1拖拉一個「Dialog>TOpenDialog」到「Form1」中。預設名稱會是「OpenDialog1」。
-+ 2.2 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.4拖拉一個「Dialog>TOpenDialog」到「Form1」中。預設名稱會是「OpenDialog1」。
++ 2.5 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.TimeSeriesProcessingInput01Geo_ManualSelect_ButtonClick(
   Sender: TObject);
@@ -573,7 +613,7 @@ begin
   end;
 end;   
 ```
-+ 2.3 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.6 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.TimeSeriesProcessingInput01Geo_AutoDetect_ButtonClick(
   Sender: TObject);
