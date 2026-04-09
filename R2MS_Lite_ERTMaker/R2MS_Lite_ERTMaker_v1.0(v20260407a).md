@@ -397,7 +397,7 @@
       + **1.1.45.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
       + **1.1.45.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.45.1.5 設定完後關閉Anchors設定視窗。**
-    + **1.1.45.2 設定「Caption」為「保留B端電極:」。**
+    + **1.1.45.2 設定「Caption」為「Select保留B端電極:」。**
     + **1.1.45.3 設定「Height」為「48」。**
   + **1.1.46 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingSelectKeepB_Edit」。**
     + **1.1.46.1 設定「Anchors」。**  
@@ -414,7 +414,7 @@
       + **1.1.47.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
       + **1.1.47.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.47.1.5 設定完後關閉Anchors設定視窗。**
-    + **1.1.47.2 設定「Caption」為「保留M端電極:」。**
+    + **1.1.47.2 設定「Caption」為「Select保留M端電極:」。**
     + **1.1.47.3 設定「Height」為「48」。**
   + **1.1.48 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingSelectKeepM_Edit」。**
     + **1.1.48.1 設定「Anchors」。**  
@@ -431,7 +431,7 @@
       + **1.1.49.1.3 「Right anchoring>Slbling」選為「TimeSeriesProcessingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
       + **1.1.49.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.1.49.1.5 設定完後關閉Anchors設定視窗。**
-    + **1.1.49.2 設定「Caption」為「保留N端電極:」。**
+    + **1.1.49.2 設定「Caption」為「Select保留N端電極:」。**
     + **1.1.49.3 設定「Height」為「48」。**
   + **1.1.50 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingParameters_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「TimeSeriesProcessingSelectKeepN_Edit」。**
     + **1.1.50.1 設定「Anchors」。**  
@@ -919,6 +919,40 @@ begin
   end;
 end; 
 ```
++ 2.17 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepA_PopupMenu」。
+  + 2.17.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepA_PopupMenu_1_1」。
+    + 2.17.1.1 設定「TimeSeriesProcessingSelectKeepA_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
+    ```pascal
+    procedure TForm1.TimeSeriesProcessingSelectKeepA_PopupMenu_1_1Click(
+      Sender: TObject);
+    begin
+      TimeSeriesProcessingSelectKeepA_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
+    end;  
+    ```
++ 2.18 修改「TimeSeriesProcessingSelectKeepA_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepA_PopupMenu」。
++ 2.19 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepB_PopupMenu」。
+  + 2.19.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepB_PopupMenu_1_1」。
+    + 2.19.1.1 設定「TimeSeriesProcessingSelectKeepB_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
+    ```pascal
+    procedure TForm1.TimeSeriesProcessingSelectKeepB_PopupMenu_1_1Click(
+      Sender: TObject);
+    begin
+      TimeSeriesProcessingSelectKeepB_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
+    end; 
+    ```
++ 2.20 修改「TimeSeriesProcessingSelectKeepB_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepB_PopupMenu」。 
++ 2.21 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「TimeSeriesProcessingSelectKeepC_PopupMenu」。
+  + 2.21.1 點兩下元件，進入編輯模式，建立第一層第一個選單「使用預設值」，「Caption」設為「使用預設值」，「Name」設為「TimeSeriesProcessingSelectKeepC_PopupMenu_1_1」。
+    + 2.19.1.1 設定「TimeSeriesProcessingSelectKeepC_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**
+    ```pascal
+    procedure TForm1.TimeSeriesProcessingSelectKeepC_PopupMenu_1_1Click(
+      Sender: TObject);
+    begin
+      TimeSeriesProcessingSelectKeepC_Edit.Text := '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64';
+    end; 
+    ```
++ 2.20 修改「TimeSeriesProcessingSelectKeepB_GroupBox」的「PopupMenu」為「TimeSeriesProcessingSelectKeepB_PopupMenu」。
+
 
 
 + 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」的「Lines」為以下文字。
