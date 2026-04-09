@@ -542,7 +542,7 @@ end;
 ### 寫功能
 + 2.1拖拉一個「Dialog>TOpenDialog」到「Form1」中。預設名稱會是「OpenDialog1」。
 + 2.2 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
-```
+```pascal
 procedure TForm1.TimeSeriesProcessingInput01Geo_ManualSelect_ButtonClick(
   Sender: TObject);
 begin
@@ -573,7 +573,27 @@ begin
   end;
 end;   
 ```
-
++ 2.3 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessingInput01Geo_AutoDetect_ButtonClick(
+  Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  temp_str := 'Output_ERTMaker_CreateAndModifyMesh\'+CreateMeshModelName_Edit.Text+'_SyntheticModel.geo';
+  TimeSeriesProcessingInput01Geo_Edit.Text := temp_str;
+  if FileExists(temp_str) then
+  begin
+    //Application.MessageBox(PChar(temp_str), '檔案存在!', 64);
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 + 'geo檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+end; 
+```
 
 + 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」的「Lines」為以下文字。
 ```
