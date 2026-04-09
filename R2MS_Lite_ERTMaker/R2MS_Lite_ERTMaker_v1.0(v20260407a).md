@@ -46,23 +46,7 @@
   ...\PythonEnv\vcruntime140_1.dll
   ```
 
-## 開發紀錄(寫功能部分)
-### 版本
-+ 1.1選Form，去編輯FormCreate，修改部分:
-```pascal
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  //--------------------------------------------------------------------------
-  // 在這裡對全域變數進行初始化
-  version_str := 'v1.0(v20260407a)';
-  Current_Folder_Path := ExtractFilePath(Application.ExeName);
-  //--------------------------------------------------------------------------
-  //--------------------------------------------------------------------------
-  // 表單標題追加版本
-  Form1.Caption := Form1.Caption + ' ' + version_str;
-  //--------------------------------------------------------------------------
-end;      
-```
+## 開發紀錄(寫UI部分)
 ### 追加設計UI
 + 1.1 第5個分頁「時間序列解算」(TimeSeriesProcessing_TabSheet):
   + **1.1.1 拖拉一個「Standard>TToolBar」到「TimeSeriesProcessing_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「TimeSeriesProcessing_ToolBar」。**
@@ -538,6 +522,23 @@ end;
     + **1.2.8.3 設定「ReadOnly」為「True」。**
     + **1.2.8.4 設定「ScrollBars」為「ssBoth」。**
     + **1.2.8.5 設定「WordWrap」為「False」。**
+## 開發紀錄(寫功能部分)
+### 版本
++ 2.1選Form，去編輯FormCreate，修改部分:
+```pascal
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  //--------------------------------------------------------------------------
+  // 在這裡對全域變數進行初始化
+  version_str := 'v1.0(v20260407a)';
+  Current_Folder_Path := ExtractFilePath(Application.ExeName);
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 表單標題追加版本
+  Form1.Caption := Form1.Caption + ' ' + version_str;
+  //--------------------------------------------------------------------------
+end;      
+```
 ### 寫功能
 + 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」。
   + 2.1.1 設定「Lines」為以下文字。
@@ -627,7 +628,7 @@ end;
   "OutputFile24_PNG_Select_Enable":"No"
   }
   ```
-+ 2.1 去修改「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.2 去修改「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 ```
 
