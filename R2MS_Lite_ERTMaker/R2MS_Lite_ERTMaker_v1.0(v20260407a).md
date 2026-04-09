@@ -540,94 +540,473 @@ begin
 end;      
 ```
 ### 寫功能
-+ 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」。
-  + 2.1.1 設定「Lines」為以下文字。
-  ```
-  {
-  "v299ScsvToUrf_Version":"v20260217a",
-  "v299ScsvToUrf_Author":"HsiupoYeh",
-  "InputFile01_Geo_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "InputFile01_Geo_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.geo",
-  "InputFile02_Ohm_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "InputFile02_Ohm_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.ohm",
-  "InputFile03_v299Scsv_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "InputFile03_v299Scsv_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.csv",
-  "InputFile04_Keep_ABMN_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "InputFile04_Keep_ABMN_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.abmn",
-  "OutputFile01_Urf_All_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile01_Urf_All_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.urf",
-  "OutputFile02_Urf_All_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile02_Urf_All_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.SNR.urf",
-  "OutputFile03_Ohm_All_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile03_Ohm_All_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.ohm",
-  "OutputFile04_PNG_All_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile04_PNG_All_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S",
-  "OutputFile04_PNG_All_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile04_PNG_All_Enable":"No",
-  "OutputFile05_Urf_WS_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile05_Urf_WS_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.urf",
-  "OutputFile06_Urf_WS_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile06_Urf_WS_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.SNR.urf",
-  "OutputFile07_Ohm_WS_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile07_Ohm_WS_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.ohm",
-  "OutputFile08_PNG_WS_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile08_PNG_WS_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS",
-  "OutputFile08_PNG_WS_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile08_PNG_WS_Enable":"No",
-  "OutputFile09_Urf_MGD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile09_Urf_MGD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.urf",
-  "OutputFile10_Urf_MGD_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile10_Urf_MGD_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.SNR.urf",
-  "OutputFile11_Ohm_MGD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile11_Ohm_MGD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.ohm",
-  "OutputFile12_PNG_MGD_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile12_PNG_MGD_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD",
-  "OutputFile12_PNG_MGD_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile12_PNG_MGD_Enable":"No",
-  "OutputFile13_Urf_MPR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile13_Urf_MPR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.urf",
-  "OutputFile14_Urf_MPR_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile14_Urf_MPR_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.SNR.urf",
-  "OutputFile15_Ohm_MPR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile15_Ohm_MPR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.ohm",
-  "OutputFile16_PNG_MPR_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile16_PNG_MPR_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR",
-  "OutputFile16_PNG_MPR_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile16_PNG_MPR_Enable":"No",
-  "OutputFile17_Urf_GD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile17_Urf_GD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.urf",
-  "OutputFile18_Urf_GD_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile18_Urf_GD_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.SNR.urf",
-  "OutputFile19_Ohm_GD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile19_Ohm_GD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.ohm",
-  "OutputFile20_PNG_GD_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile20_PNG_GD_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD",
-  "OutputFile20_PNG_GD_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile20_PNG_GD_Enable":"No",
-  "Select_From_Readme":"請填入字串「All」、「WS」、「MGD」、「MPR」或「GD」。",
-  "Select_From":"All",
-  "Select_Keep_A_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
-  "Select_Keep_A_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
-  "Select_Keep_B_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
-  "Select_Keep_B_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
-  "Select_Keep_M_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
-  "Select_Keep_M_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
-  "Select_Keep_N_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
-  "Select_Keep_N_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
-  "Select_Keep_ABMN_Enable_Readme":"是否啟用ABMN檔案清單篩選。若要啟用請填入字串No，若不啟用請填入字串No。",
-  "Select_Keep_ABMN_Enable":"No",
-  "OutputFile21_Urf_Select_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile21_Urf_Select_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.urf",
-  "OutputFile22_Urf_Select_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile22_Urf_Select_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.SNR.urf",
-  "OutputFile23_Ohm_Select_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile23_Ohm_Select_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.ohm",
-  "OutputFile24_PNG_Select_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
-  "OutputFile24_PNG_Select_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select",
-  "OutputFile24_PNG_Select_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
-  "OutputFile24_PNG_Select_Enable":"No"
-  }
-  ```
++ 2.1拖拉一個「Dialog>TOpenDialog」到「Form1」中。預設名稱會是「OpenDialog1」。
++ 2.2 去修改「TimeSeriesProcessingInput01Geo_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```
+procedure TForm1.TimeSeriesProcessingInput01Geo_ManualSelect_ButtonClick(
+  Sender: TObject);
+begin
+  //--------------------------------------------------------------------------
+  // OpenDialog1設定對話框標題
+  OpenDialog1.Title := '請選擇一個geo檔案';
+  // 設定預設開啟的目錄
+  OpenDialog1.InitialDir := Current_Folder_Path;
+  // 設定過濾檔案名稱
+  OpenDialog1.Filter := 'geo檔案(*.geo)|*.geo';
+  // 設定開啟選項 (Options)
+  // ofFileMustExist: 強制檔案必須存在，否則會跳出警告
+  // ofPathMustExist: 強制路徑必須存在
+  // ofEnableSizing: 允許調整對話框大小
+  OpenDialog1.Options := OpenDialog1.Options + [ofFileMustExist, ofPathMustExist];
+  //--
+  // 執行選取，如果使用者點擊「開啟」則回傳 True
+  if OpenDialog1.Execute then
+  begin
+    // 取得選取的完整路徑
+    //ShowMessage('你選擇了：' + OpenDialog1.FileName);
+    TimeSeriesProcessingInput01Geo_Edit.Text := OpenDialog1.FileName;
+  end
+  else
+  begin
+    // 使用者點擊了「取消」
+    //ShowMessage('取消選取');
+  end;
+end;   
+```
+
+
++ 2.1 修改「TimeSeriesProcessingSettingsDefaultJson_Memo」的「Lines」為以下文字。
+```
+{
+"v299ScsvToUrf_Version":"v20260217a",
+"v299ScsvToUrf_Author":"HsiupoYeh",
+"InputFile01_Geo_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile01_Geo_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.geo",
+"InputFile02_Ohm_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile02_Ohm_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.ohm",
+"InputFile03_v299Scsv_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile03_v299Scsv_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.csv",
+"InputFile04_Keep_ABMN_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile04_Keep_ABMN_FileName":"Input_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.abmn",
+"OutputFile01_Urf_All_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile01_Urf_All_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.urf",
+"OutputFile02_Urf_All_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile02_Urf_All_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.SNR.urf",
+"OutputFile03_Ohm_All_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile03_Ohm_All_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.ohm",
+"OutputFile04_PNG_All_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile04_PNG_All_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S",
+"OutputFile04_PNG_All_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile04_PNG_All_Enable":"No",
+"OutputFile05_Urf_WS_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile05_Urf_WS_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.urf",
+"OutputFile06_Urf_WS_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile06_Urf_WS_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.SNR.urf",
+"OutputFile07_Ohm_WS_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile07_Ohm_WS_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS.ohm",
+"OutputFile08_PNG_WS_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile08_PNG_WS_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.WS",
+"OutputFile08_PNG_WS_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile08_PNG_WS_Enable":"No",
+"OutputFile09_Urf_MGD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile09_Urf_MGD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.urf",
+"OutputFile10_Urf_MGD_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile10_Urf_MGD_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.SNR.urf",
+"OutputFile11_Ohm_MGD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile11_Ohm_MGD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD.ohm",
+"OutputFile12_PNG_MGD_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile12_PNG_MGD_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MGD",
+"OutputFile12_PNG_MGD_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile12_PNG_MGD_Enable":"No",
+"OutputFile13_Urf_MPR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile13_Urf_MPR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.urf",
+"OutputFile14_Urf_MPR_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile14_Urf_MPR_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.SNR.urf",
+"OutputFile15_Ohm_MPR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile15_Ohm_MPR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR.ohm",
+"OutputFile16_PNG_MPR_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile16_PNG_MPR_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.MPR",
+"OutputFile16_PNG_MPR_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile16_PNG_MPR_Enable":"No",
+"OutputFile17_Urf_GD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile17_Urf_GD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.urf",
+"OutputFile18_Urf_GD_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile18_Urf_GD_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.SNR.urf",
+"OutputFile19_Ohm_GD_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile19_Ohm_GD_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD.ohm",
+"OutputFile20_PNG_GD_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile20_PNG_GD_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.GD",
+"OutputFile20_PNG_GD_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile20_PNG_GD_Enable":"No",
+"Select_From_Readme":"請填入字串「All」、「WS」、「MGD」、「MPR」或「GD」。",
+"Select_From":"All",
+"Select_Keep_A_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
+"Select_Keep_A_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
+"Select_Keep_B_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
+"Select_Keep_B_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
+"Select_Keep_M_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
+"Select_Keep_M_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
+"Select_Keep_N_index_Readme":"請填入陣列。例如：「[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64]」",
+"Select_Keep_N_index":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
+"Select_Keep_ABMN_Enable_Readme":"是否啟用ABMN檔案清單篩選。若要啟用請填入字串No，若不啟用請填入字串No。",
+"Select_Keep_ABMN_Enable":"No",
+"OutputFile21_Urf_Select_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile21_Urf_Select_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.urf",
+"OutputFile22_Urf_Select_SNR_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile22_Urf_Select_SNR_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.SNR.urf",
+"OutputFile23_Ohm_Select_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile23_Ohm_Select_FileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select.ohm",
+"OutputFile24_PNG_Select_MainFileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"OutputFile24_PNG_Select_MainFileName":"Output_ERTMaker_v299ScsvToUrf/Demo_SyntheticModel.v299S.Select",
+"OutputFile24_PNG_Select_Enable_Readme":"是否啟用輸出PNG。若要啟用請填入字串No，若不啟用請填入字串No。輸出PNG每張圖約耗時?",
+"OutputFile24_PNG_Select_Enable":"No"
+}
+```
++ 2.2 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「TimeSeriesProcessing_AsyncProcess」。
++ 2.3 去修改「TimeSeriesProcessing_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessing_AsyncProcessReadData(Sender: TObject);
+var
+  temp_Buffer:string='';
+  temp_BytesAvailable:DWord;
+begin
+  //--------------------------------------------------------------------------
+  // 顯示外部cmd.exe運行內容
+  temp_BytesAvailable:=TimeSeriesProcessing_AsyncProcess.Output.NumBytesAvailable;
+  if temp_BytesAvailable>0 Then begin
+    setlength(temp_Buffer,temp_BytesAvailable);
+    TimeSeriesProcessing_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+    temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+    temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+    TimeSeriesProcessingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+  end;
+  //--------------------------------------------------------------------------
+end;   
+```
++ 2.4 去修改「TimeSeriesProcessing_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModeling_AsyncProcessTerminate(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  // 啟用元件
+  ForwardModelingRun_ToolButton.Enabled:=True;
+  CreateMeshParameters_GroupBox.Enabled:=True;
+  ForwardModelingParameters_GroupBox.Enabled:=True;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 更新狀態列
+  //--
+  if ForwardModelingSettingsCmdLog_Memo.Lines.Count=0 Then
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...異常結束!';
+    ForwardModeling_Timer.Enabled:=False;
+    StatusBar1.Panels[4].Text:='自動播放: 停用';
+    Exit;
+  end;
+  //--
+  // 檢查結果csv
+  temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+  temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=temp_str+'_CurrentFlowLinesAB.v299S.csv';
+  if FileExists(temp_str) then
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...完成!';
+    // 成功提示
+    temp_str := '成功:' + #13#10 +
+      '運行順推模擬...完成!';
+    Application.MessageBox(PChar(temp_str), '提示', 64);
+    Exit;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='運行順推模擬...運作異常，請檢查紀錄!';
+    ForwardModeling_Timer.Enabled:=False;
+    StatusBar1.Panels[4].Text:='自動播放: 停用';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.5 去修改「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.ForwardModelingRun_ToolButtonClick(Sender: TObject);
+var
+  temp_i: Integer;
+  RegexObj: TRegExpr;
+  temp_str: AnsiString;
+  temp_StartTime: DWord;
+begin
+  ForwardModelingSettingsNowJson_Memo.Clear;
+  ForwardModelingPreview_Image.Picture.Clear;
+  //--
+  StatusBar1.Panels[0].Text:='運行順推模擬...請稍後!';
+  StatusBar1.Panels[1].Text:='0';
+  //--------------------------------------------------------------------------
+  ForwardModelingSettingsNowJson_Memo.Lines:=ForwardModelingSettingsDefaultJson_Memo.Lines;
+  //--
+  if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[1] := '"SimulateForTimeSeriesSettings_Version":"v20251101a",';
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[1] := '"SimulateForTimeSeriesSettings_Version":"v20251031a",';
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.vtk';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[4] := '"InputFile01_MeshVTK_FileName":"'+temp_str+'",';
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'vtk檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModelBCMarkers.json';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[6] := '"InputFile02_MeshBCMarkersJSON_FileName":"'+temp_str+'",';
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'json檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  temp_str:='Output_ERTMaker_CreateAndModifyMesh/'+CreateMeshModelName_Edit.Text+'_SyntheticModel.ohm';
+  if FileExists(temp_str) then
+  begin
+     ForwardModelingSettingsNowJson_Memo.Lines.Strings[8] := '"InputFile03_OHM_FileName":"'+temp_str+'",';
+     ForwardModelingSettingsCmdLog_Memo.Lines.LoadFromFile(temp_str);
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'ohm檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--
+  if ForwardModelingCurrentMode_CheckBox.Checked then
+  begin
+    for temp_i := 0 to ForwardModelingSettingsCmdLog_Memo.Lines.Count - 1 do
+    begin
+      if Pos('#x z', ForwardModelingSettingsCmdLog_Memo.Lines[temp_i]) = 1 then
+      begin
+        // 找到了！
+        ForwardModelingCurrentMode_ComboBox.ItemIndex:=-1;
+        if ForwardModelingSettingsCmdLog_Memo.Lines.Strings[temp_i-1].ToInteger > 64 then
+        begin
+          ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_S64NCurrentMode/Current Mode.csv",';
+        end
+        else
+        begin
+          ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_S'+ForwardModelingSettingsCmdLog_Memo.Lines.Strings[temp_i-1]+'NCurrentMode/Current Mode.csv",';
+        end;
+        Break;          // 立即跳出迴圈，因為找到了第一個目標
+      end;
+    end;
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[10] := '"InputFile04_CurrentMode_FileName":"Input_ERTMaker_SimulateForTimeSeries/Configs/v299_'+ForwardModelingCurrentMode_ComboBox.Text+'CurrentMode/Current Mode.csv",';
+  end;
+  //--
+  ForwardModelingSettingsNowJson_Memo.Lines.Strings[18] := '"MeshPNG_Title":"'+CreateMeshModelName_Edit.Text+' Synthetic Model",';
+  //--
+  ForwardModelingSettingsNowJson_Memo.Lines.Strings[26] := '"Output_MainFileName":"'+CreateMeshModelName_Edit.Text+'_SyntheticModel",';
+  //--
+  if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[28] := '"Output_PNG_Enable":"Yes",';
+  end
+  else
+  begin
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[28] := '"Output_PNG_Enable":"No",';
+  end;
+  //--
+  RegexObj := TRegExpr.Create;
+  try
+    //--------------------------------------------------------------------------
+    // CreateMeshColorbarMinMax_Edit
+    RegexObj.Expression := '^\s*([-+]?(\d+\.?\d*|\.\d+))\s*,\s*([-+]?(\d+\.?\d*|\.\d+))\s*$';
+    if not RegexObj.Exec(CreateMeshColorbarMinMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if StrToFloat(RegexObj.Match[1]) >= StrToFloat(RegexObj.Match[3]) then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '電阻率色階最小值必須小於最大值。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[20] := ('"MeshPNG_ColorBarResistivityMin":'+RegexObj.Match[1]+',');
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[22] := ('"MeshPNG_ColorBarResistivityMax":'+RegexObj.Match[3]+',');
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABTxVoltageMax_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABTxVoltageMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的發射器最大電壓數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[30] := '"ElectrodeIndexAB_TxVoltageMax":'+ForwardModelingElectrodeIndexABTxVoltageMax_Edit.Text+',';
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABTxCurrentMax_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABTxCurrentMax_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的發射器最大電流數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[32] := '"ElectrodeIndexAB_TxCurrentMax":'+ForwardModelingElectrodeIndexABTxCurrentMax_Edit.Text+',';
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // ForwardModelingElectrodeIndexABResistance_Edit
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(ForwardModelingElectrodeIndexABResistance_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'AB電極的接地電阻數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    ForwardModelingSettingsNowJson_Memo.Lines.Strings[34] := '"ElectrodeIndexAB_Resistance":'+ForwardModelingElectrodeIndexABResistance_Edit.Text;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 儲存預設JSON檔案
+    ForceDirectories('Input_ERTMaker_SimulateForTimeSeries');
+    ForwardModelingSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_SimulateForTimeSeries/SimulateForTimeSeriesSettings.json',TEncoding.UTF8);
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 刪除預覽png
+    temp_str:=ForwardModelingSettingsNowJson_Memo.Lines.Strings[24]+ForwardModelingSettingsNowJson_Memo.Lines.Strings[26];
+    temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '","Output_MainFileName":"', '', [rfReplaceAll]);
+    temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+    temp_str:=temp_str;
+    if FileExists(temp_str+'.png') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的預覽圖片，請稍後!';
+    end;
+    // 刪除結果npy'
+    if FileExists(temp_str+'_electric_potential.npy') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的npy，請稍後!';
+    end;
+    // 刪除結果csv
+    if FileExists(temp_str+'_CurrentFlowLinesAB.v299S.csv') then
+    begin
+      DeleteFile(PChar(temp_str));
+      StatusBar1.Panels[0].Text:='建立模型網格...已刪除舊的csv，請稍後!';
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 等待1秒，讓刪除檔案有時間完成
+    temp_StartTime := GetTickCount; // 獲取當前系統時間(ms)
+    while(GetTickCount() - temp_StartTime < 1000*1) do//1000*1=等1秒
+    begin
+      Application.ProcessMessages;
+      Sleep(1);//休眠1msend;
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 外部Python程式檢查
+    if not FileExists('PythonEnv\Python.exe') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python環境不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if not FileExists('ERTMaker_SimulateForTimeSeries_v20251031a.cpython-312.pyc') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python程式不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if not FileExists('ERTMaker_SimulateForTimeSeries_v20251101a.cpython-312.pyc') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python程式不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    ForwardModelingSettingsCmdLog_Memo.Lines.Clear;
+    // 使用 CreateMesh_AsyncProcess 運行外部程式
+    ForwardModeling_AsyncProcess.Executable:='cmd.exe';
+    ForwardModeling_AsyncProcess.Parameters.Clear;
+    ForwardModeling_AsyncProcess.Parameters.Add('/c');
+    if ForwardModelingOutputPNGEnable_CheckBox.Checked then
+    begin
+      ForwardModeling_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_SimulateForTimeSeries_v20251101a.cpython-312.pyc');
+    end
+    else
+    begin
+      ForwardModeling_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_SimulateForTimeSeries_v20251031a.cpython-312.pyc');
+    end;
+    ForwardModeling_AsyncProcess.Options:=[poUsePipes] + [poNoConsole];
+    ForwardModeling_AsyncProcess.Execute;
+    // 啟用Timer
+    ForwardModeling_Timer.Enabled:=True;
+    StatusBar1.Panels[4].Text:='自動播放: 啟用';
+    // 禁用元件，等背景運作完再從事件重新啟用按鈕
+    ForwardModelingRun_ToolButton.Enabled:=False;
+    CreateMeshParameters_GroupBox.Enabled:=False;
+    ForwardModelingParameters_GroupBox.Enabled:=False;
+    //--------------------------------------------------------------------------
+  finally
+    RegexObj.Free; // 釋放 TRegExpr 物件
+  end;
+end;
+```
++ 2.10 去修改「TimeSeriesProcessingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessingOpenOutputFolder_ToolButtonClick(Sender: TObject
+  );
+var
+  temp_str: string;
+begin
+  // 取得資料夾路徑
+  temp_str:=ForwardModelingSettingsDefaultJson_Memo.Lines.Strings[25-1];
+  temp_str:=StringReplace(temp_str, '"OutputFolderPath":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  temp_str:=ExtractFilePath(Application.ExeName)+temp_str;
+  temp_str:=ExtractFilePath(temp_str);
+  // 記得在 uses 區塊中加入 Windows, ShellApi
+  // 使用 ShellExecute 打開該資料夾
+  ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);
+end;     
+```
 + 2.2 去修改「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 ```
