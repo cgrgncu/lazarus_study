@@ -1171,6 +1171,7 @@ begin
     temp_str := '錯誤:' + #13#10 +
       'geo檔案不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:geo檔案不存在。';
     Exit;
   end;
   //--------------------------------------------------------------------------
@@ -1190,6 +1191,7 @@ begin
     temp_str := '錯誤:' + #13#10 +
       'ohm檔案不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:ohm檔案不存在。';
     Exit;
   end;
   //--------------------------------------------------------------------------
@@ -1307,6 +1309,7 @@ begin
     temp_str := '錯誤:' + #13#10 +
       'csv檔案不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:csv檔案不存在。';
     Exit;
   end;
   //--------------------------------------------------------------------------
@@ -1335,6 +1338,7 @@ begin
     temp_str := '錯誤:' + #13#10 +
       'abmn檔案不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:abmn檔案不存在。';
     Exit;
   end;
   //--------------------------------------------------------------------------
@@ -1397,12 +1401,12 @@ begin
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
   // 外部Python程式檢查
-  //if not FileExists('PythonEnv\Python.exe') then
-  if not FileExists('ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc') then
+  if not FileExists('PythonEnv\Python.exe') then
   begin
     temp_str := '錯誤:' + #13#10 +
       '外部Python環境不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:外部Python環境不存在。';
     Exit;
   end;
   if not FileExists('ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc') then
@@ -1410,6 +1414,7 @@ begin
     temp_str := '錯誤:' + #13#10 +
       '外部Python程式不存在。';
     Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:外部Python程式不存在。';
     Exit;
   end;
   //--------------------------------------------------------------------------
