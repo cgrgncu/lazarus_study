@@ -219,10 +219,10 @@
     + **1.10.25.1 設定「Anchors」。**  
       + **1.10.25.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
       + **1.10.25.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-      + **1.10.25.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.25.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
       + **1.10.25.1.4 設定完後關閉Anchors設定視窗。**
     + **1.10.25.2 設定「Enabled」為「False」。**
-    + **1.10.25.4 設定「Items」為如下內容。**
+    + **1.10.25.3 設定「Items」為如下內容。**
     ```
     32.0
     32.1
@@ -246,7 +246,9 @@
     33.9
     34.0
     ```
-    + **1.10.25.4 設定「Width」為「100」。** 
+    + **1.10.25.4 設定「ItemIndex」為「0」。**
+    + **1.10.25.5 設定「Style」為「csDropDownList」。**
+    + **1.10.25.6 設定「Width」為「80」。** 
 +   + 1.3.2 設定「Enabled」為「False」。
   + 1.3.3 設定「Items」為如下內容。
   ```
