@@ -214,7 +214,7 @@
       + **1.10.24.1.4 設定完後關閉Anchors設定視窗。**
     + **1.10.24.2 設定「Caption」為「三角網格品質:」。**
     + **1.10.24.3 設定「Height」為「48」。**
-    + **1.10.24.4 設定「Hint」為「三角形的最小內角限制角度，單位:度」。**
+    + **1.10.24.4 設定「Hint」為「三角形的最小內角限制角度，單位:度。預設值=32。」。**
     + **1.10.24.5 設定「ShowHint」為「True」。**
     + **1.10.24.6 設定「Width」為「100」。**
 + **1.10.25 拖拉一個「Standard>TComboBox」到「InversionModelingInvAutoMesh_quality_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingInvAutoMesh_quality_ComboBox」。**
@@ -251,9 +251,58 @@
     + **1.10.25.4 設定「ItemIndex」為「0」。**
     + **1.10.25.5 設定「Style」為「csDropDownList」。**
     + **1.10.25.6 設定「Width」為「80」。** 
-+   + 1.3.2 設定「Enabled」為「False」。
-  + 1.3.3 設定「Items」為如下內容。
-  ```
++ **1.10.26 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraDepth_GroupBox」。**
+    + **1.10.26.1 設定「Anchors」。**  
+      + **1.10.26.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.26.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.26.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.26.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.26.2 設定「Caption」為「研究區域深度:」。**
+    + **1.10.26.3 設定「Height」為「48」。**
+    + **1.10.26.4 設定「Hint」為「預設值:-1，單位:[m]，設定小於0的數字會自動設定為測線電極X方向長度的0.4倍。」。**
+    + **1.10.26.5 設定「ShowHint」為「True」。**
+    + **1.10.26.6 設定「Width」為「100」。**
++ **1.10.27 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraDepth_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraDepth_Edit」**
+  + **1.10.27.1 設定「Anchors」。**  
+    + **1.10.27.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.27.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.27.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.27.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.27.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.27.6 設定「Text」為「-1」。**
+  + **1.10.27.7 設定「Width」為「80」。**
++ **1.10.28 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_boundary_GroupBox」。**
+    + **1.10.28.1 設定「Anchors」。**  
+      + **1.10.28.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.28.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.28.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.28.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.28.2 設定「Caption」為「外邊界倍數:」。**
+    + **1.10.28.3 設定「Height」為「48」。**
+    + **1.10.28.4 設定「Hint」為「依照此倍數追加左側、右側、下方外網格。追加長度=測線電極X方向長度乘上外邊界倍數。預設值=4。」。**
+    + **1.10.28.5 設定「ShowHint」為「True」。**
+    + **1.10.28.6 設定「Width」為「100」。**
++ **1.10.29 拖拉一個「Standard>TComboBox」到「InversionModelingInvAutoMesh_quality_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingInvAutoMesh_boundary_ComboBox」。**
+    + **1.10.29.1 設定「Anchors」。**  
+      + **1.10.29.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.29.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.29.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.29.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.29.2 設定「Enabled」為「False」。**
+    + **1.10.29.3 設定「Items」為如下內容。**
+    ```
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    ```
+    + **1.10.29.4 設定「ItemIndex」為「0」。**
+    + **1.10.29.5 設定「Style」為「csDropDownList」。**
+    + **1.10.29.6 設定「Width」為「80」。** 
+
 ## 開發紀錄(寫功能部分)
 ### 版本
 + 2.1選Form，去編輯FormCreate，修改部分:
