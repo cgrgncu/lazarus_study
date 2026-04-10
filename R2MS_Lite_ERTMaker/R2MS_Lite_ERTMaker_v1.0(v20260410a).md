@@ -49,11 +49,11 @@
 
 ## 開發紀錄(寫UI部分)
 ### 追加設計UI
-1. 繼續編輯有關第2個分頁「逆推工具」(Inversion_TabSheet):  
++ 1. 繼續編輯有關第2個分頁「逆推工具」(Inversion_TabSheet):  
   + **1.1 拖拉一個「Common Controls>TPageControl」到「Inversion_TabSheet」中。預設名稱會是「PageControl1」，修改「Name」為「Inversion_PageControl」。**  
     + **1.1.1 設定「Align」為「AlClient」。**
     + **1.1.2 設定「TabStop」為「False」。**
- + **1.2 在「Inversion_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InversionModeling_TabSheet」。**
+  + **1.2 在「Inversion_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InversionModeling_TabSheet」。**
     + **1.2.1 設定「Caption」為「逆推模擬運算」。**
   + **1.3 在「Inversion_PageControl」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」，修改「Name」為「InversionModelingSettings_TabSheet」。**
     + **1.3.1 設定「Caption」為「逆推模擬運算參數」。**
@@ -67,7 +67,93 @@
     + **1.7.1 設定「Caption」為「進階分析資訊」。**
   + **1.8 略過。**
   + **1.9 略過。**
-
+  + 1.10 第1個分頁「逆推模擬運算」(InversionModeling_TabSheet):
+    + **1.10.1 拖拉一個「Standard>TToolBar」到「InversionModeling_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionModeling_ToolBar」。**
+    + **1.10.2 設定「BorderSpacing>Top」為「1」。**
+    + **1.10.3 設定「Edge>Borders>ebBottom」為「True」。**
+    + **1.10.4 設定「Edge>Borders>ebLeft」為「True」。**
+    + **1.10.5 設定「Edge>Borders>ebRight」為「True」。**
+    + **1.10.6 設定「ShowCaptions」為「True」。**
+    + **1.10.7 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionModelingRun_ToolButton」**
+      + **1.10.7.1 設定「Caption」為「運行逆推模擬」。**
+    + **1.10.8 在「ToolBar1」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionModelingOpenOutputFolder_ToolButton」**
+      + **1.10.8.1 設定「Caption」為「開啟輸出資料夾」。**
+    + **1.10.9 拖拉一個「Standard>TGroupBox」到「InversionModeling_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingParameters_GroupBox」。**
+      + **1.10.9.1 設定「Align」為「alClient」。**
+      + **1.10.9.2 設定「BorderSpacing>Right」為「1」。**
+      + **1.10.9.3 設定「Caption」為「參數設定:」。**
+    + **1.10.10 拖拉一個「Standard>TGroupBox」到「InversionModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInput01Ohm_GroupBox」。**
+      + **1.10.10.1 設定「Anchors」。**  
+        + **1.10.10.1.1 「Top anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+        + **1.10.10.1.2 「Left anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **1.10.10.1.3 「Right anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.10.10.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+        + **1.10.10.1.5 設定完後關閉Anchors設定視窗。**
+      + **1.10.10.2 設定「Caption」為「必要輸入檔案#1(.ohm/.dat):」。**
+      + **1.10.10.3 設定「Height」為「48」。**
+    + **1.10.11 拖拉一個「Standard>TButton」到「InversionModelingInput01Ohm_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「InversionModelingInput01Ohm_OpenFolder_Button」**
+      + **1.10.11.1 設定「Anchors」。**  
+        + **1.10.11.1.1 「Top anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+        + **1.10.11.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+        + **1.10.11.1.3 「Right anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.10.11.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+        + **1.10.11.1.5 設定完後關閉Anchors設定視窗。**  
+      + **1.10.11.2 設定「Caption」為「開啟資料夾」。**
+      + **1.10.11.3 設定「Width」為「75」。**
+  + **1.10.12 拖拉一個「Standard>TButton」到「InversionModelingInput01Ohm_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「InversionModelingInput01Ohm_ManualSelect_Button」**
+    + **1.10.12.1 設定「Anchors」。**  
+      + **1.10.12.1.1 「Top anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.12.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**   
+      + **1.10.12.1.3 「Right anchoring>Slbling」選為「InversionModelingInput01Ohm_OpenFolder_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.10.12.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.12.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.10.12.2 設定「Caption」為「選擇檔案」。**
+    + **1.10.12.3 設定「Width」為「75」。**
+  + **1.10.13 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput01Geo_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInput01Ohm_Edit」**
+    + **1.10.13.1 設定「Anchors」。**  
+      + **1.10.13.1.1 「Top anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.10.13.1.2 「Left anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.13.1.3 「Right anchoring>Slbling」選為「InversionModelingInput01Ohm_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.10.13.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.13.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.10.13.2 設定「ReadOnly」為「True」。**
+    + **1.10.13.3 設定「Text」為空白。**
+    + **1.10.14 拖拉一個「Standard>TGroupBox」到「InversionModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInput02VTK_GroupBox」。**
+      + **1.10.14.1 設定「Anchors」。**  
+        + **1.10.14.1.1 「Top anchoring>Slbling」選為「InversionModelingInput01Ohm_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+        + **1.10.14.1.2 「Left anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **1.10.14.1.3 「Right anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.10.14.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+        + **1.10.14.1.5 設定完後關閉Anchors設定視窗。**
+      + **1.10.14.2 設定「Caption」為「必要輸入檔案#2(.vtk):」。**
+      + **1.10.14.3 設定「Height」為「48」。**
+    + **1.10.15 拖拉一個「Standard>TButton」到「InversionModelingInput02VTK_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「InversionModelingInput02VTK_OpenFolder_Button」**
+      + **1.10.15.1 設定「Anchors」。**  
+        + **1.10.15.1.1 「Top anchoring>Slbling」選為「InversionModelingInput02VTK_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+        + **1.10.15.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**  
+        + **1.10.15.1.3 「Right anchoring>Slbling」選為「InversionModelingInput02VTK_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.10.15.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+        + **1.10.15.1.5 設定完後關閉Anchors設定視窗。**  
+      + **1.10.15.2 設定「Caption」為「開啟資料夾」。**
+      + **1.10.15.3 設定「Width」為「75」。**
+  + **1.10.16 拖拉一個「Standard>TButton」到「InversionModelingInput02VTK_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「InversionModelingInput02VTK_ManualSelect_Button」**
+    + **1.10.16.1 設定「Anchors」。**  
+      + **1.10.16.1.1 「Top anchoring>Slbling」選為「InversionModelingInput02VTK_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.16.1.2 「Left anchoring>Slbling」修改「Left anchoring>Enable」為不打勾。**   
+      + **1.10.16.1.3 「Right anchoring>Slbling」選為「InversionModelingInput02VTK_OpenFolder_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.10.16.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.16.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.10.16.2 設定「Caption」為「選擇檔案」。**
+    + **1.10.16.3 設定「Width」為「75」。**
+  + **1.10.17 拖拉一個「Standard>TEdit」到「TimeSeriesProcessingInput01Geo_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInput02VTK_Edit」**
+    + **1.10.17.1 設定「Anchors」。**  
+      + **1.10.17.1.1 「Top anchoring>Slbling」選為「InversionModelingInput02VTK_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+      + **1.10.17.1.2 「Left anchoring>Slbling」選為「InversionModelingInput02VTK_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.17.1.3 「Right anchoring>Slbling」選為「InversionModelingInput02VTK_ManualSelect_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+      + **1.10.17.1.4 「Border space」正中間那格填「0」，上面那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.17.1.5 設定完後關閉Anchors設定視窗。**  
+    + **1.10.17.2 設定「ReadOnly」為「True」。**
+    + **1.10.17.3 設定「Text」為空白。**
 ## 開發紀錄(寫功能部分)
 ### 版本
 + 2.1選Form，去編輯FormCreate，修改部分:
