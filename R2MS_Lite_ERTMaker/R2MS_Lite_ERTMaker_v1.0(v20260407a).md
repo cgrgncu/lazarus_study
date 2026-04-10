@@ -59,29 +59,8 @@
   + **1.1.6 設定「ShowCaptions」為「True」。**
   + **1.1.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「TimeSeriesProcessingRun_ToolButton」**
     + **1.1.7.1 設定「Caption」為「運行時間序列解算」。**
-    + **1.1.7.2 設定「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-    ```pascal
-
-    ```
-+ 1.2 第5個分頁「時間序列解算」(TimeSeriesProcessing_TabSheet):
-  + **1.1.1 拖拉一個「Standard>TToolBar」到「TimeSeriesProcessing_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「TimeSeriesProcessing_ToolBar」。**
-  + **1.1.2 設定「BorderSpacing>Top」為「1」。**
-  + **1.1.3 設定「Edge>Borders>ebBottom」為「True」。**
-  + **1.1.4 設定「Edge>Borders>ebLeft」為「True」。**
-  + **1.1.5 設定「Edge>Borders>ebRight」為「True」。**
-  + **1.1.6 設定「ShowCaptions」為「True」。**
-  + **1.1.7 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「TimeSeriesProcessingRun_ToolButton」**
-    + **1.1.7.1 設定「Caption」為「運行時間序列解算」。**
-    + **1.1.7.2 設定「TimeSeriesProcessingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-    ```pascal
-
-    ```
   + **1.1.8 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「TimeSeriesProcessingOpenOutputFolder_ToolButton」**
     + **1.1.8.1 設定「Caption」為「開啟輸出資料夾」。**
-    + **1.1.8.2 設定「TimeSeriesProcessingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
-    ```pascal
-
-    ```
   + **1.1.9 拖拉一個「Standard>TGroupBox」到「TimeSeriesProcessing_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「TimeSeriesProcessingParameters_GroupBox」。**
     + **1.1.9.1 設定「Align」為「alClient」。**
     + **1.1.9.2 設定「BorderSpacing>Right」為「1」。**
