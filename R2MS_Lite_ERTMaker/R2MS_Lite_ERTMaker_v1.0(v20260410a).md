@@ -214,7 +214,9 @@
       + **1.10.24.1.4 設定完後關閉Anchors設定視窗。**
     + **1.10.24.2 設定「Caption」為「三角網格品質:」。**
     + **1.10.24.3 設定「Height」為「48」。**
-    + **1.10.24.4 設定「Width」為「100」。**
+    + **1.10.24.4 設定「Hint」為「三角形的最小內角限制角度，單位:度」。**
+    + **1.10.24.5 設定「ShowHint」為「True」。**
+    + **1.10.24.6 設定「Width」為「100」。**
 + **1.10.25 拖拉一個「Standard>TComboBox」到「InversionModelingInvAutoMesh_quality_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingInvAutoMesh_quality_ComboBox」。**
     + **1.10.25.1 設定「Anchors」。**  
       + **1.10.25.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
