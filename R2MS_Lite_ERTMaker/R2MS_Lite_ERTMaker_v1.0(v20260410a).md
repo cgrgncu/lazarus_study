@@ -301,7 +301,329 @@
     ```
     + **1.10.29.4 設定「ItemIndex」為「0」。**
     + **1.10.29.5 設定「Style」為「csDropDownList」。**
-    + **1.10.29.6 設定「Width」為「80」。** 
+    + **1.10.29.6 設定「Width」為「80」。**
++ **1.10.30 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox」。**
+    + **1.10.30.1 設定「Anchors」。**  
+      + **1.10.30.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.30.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_boundary_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.30.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.30.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.30.2 設定「Caption」為「網格面積上限:」。**
+    + **1.10.30.3 設定「Height」為「48」。**
+    + **1.10.30.4 設定「Hint」為「預設值=0，單位:[m^2]，設定0表示不限制單一網格面積上限。」。**
+    + **1.10.30.5 設定「ShowHint」為「True」。**
+    + **1.10.30.6 設定「Width」為「100」。**
++ **1.10.31 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraMaxCellSize_Edit」**
+  + **1.10.31.1 設定「Anchors」。**  
+    + **1.10.31.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.31.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.31.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.31.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.31.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.31.6 設定「Text」為「0」。**
+  + **1.10.31.7 設定「Width」為「80」。**
++ **1.10.32 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_addNodes_GroupBox」。**
+    + **1.10.32.1 設定「Anchors」。**  
+      + **1.10.32.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.32.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.32.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.32.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.32.2 設定「Caption」為「addNodes:」。**
+    + **1.10.32.3 設定「Height」為「48」。**
+    + **1.10.32.4 設定「Hint」為「限制填入正整數。此值填「1」時無效果，改由paraDX決定增加的方式；填其他正整數則線性均勻增加兩個電極之間的節點數量。預設值=1。」。**
+    + **1.10.32.5 設定「ShowHint」為「True」。**
+    + **1.10.32.6 設定「Width」為「100」。**
++ **1.10.33 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_addNodes_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_addNodes_Edit」**
+  + **1.10.33.1 設定「Anchors」。**  
+    + **1.10.33.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.33.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.33.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.33.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.33.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.33.6 設定「Text」為「1」。**
+  + **1.10.33.7 設定「Width」為「80」。**
++ **1.10.34 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraDX_GroupBox」。**
+    + **1.10.34.1 設定「Anchors」。**  
+      + **1.10.34.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.34.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.34.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.34.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.34.2 設定「Caption」為「paraDX:」。**
+    + **1.10.34.3 設定「Height」為「48」。**
+    + **1.10.34.4 設定「Hint」為「限制填入浮點數。僅有addNodes小於等於1的時候有效。此值大於等於0.5時，等於在兩個電極正中間增加一個節點。小於0.5的時候，在每個電極的左右兩邊各增加一個節點，距離是電極間距乘以此浮點數。預設值=1。」。**
+    + **1.10.34.5 設定「ShowHint」為「True」。**
+    + **1.10.34.6 設定「Width」為「100」。**
++ **1.10.35 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraDX_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraDX_Edit」**
+  + **1.10.35.1 設定「Anchors」。**  
+    + **1.10.35.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.35.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.35.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.35.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.35.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.35.6 設定「Text」為「1」。**
+  + **1.10.35.7 設定「Width」為「80」。**
++ **1.10.36 拖拉一個「Standard>TGroupBox」到「InversionModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_GroupBox」。**
+    + **1.10.36.1 設定「Anchors」。**  
+      + **1.10.36.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.10.36.1.2 「Left anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.36.1.3 「Right anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.10.36.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.36.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.10.36.2 設定「Caption」為「觀測資料設定:」。**
+    + **1.10.36.3 設定「Height」為「70」。** 
++ **1.10.37 拖拉一個「Standard>TGroupBox」到「InversionModelingDataSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_ReCalMode_GroupBox」。**
+    + **1.10.37.1 設定「Anchors」。**  
+      + **1.10.37.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.37.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.37.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.37.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.37.2 設定「Caption」為「觀測資料欄位:」。**
+    + **1.10.37.3 設定「Height」為「48」。**
+    + **1.10.37.4 設定「Hint」為「從觀測資料提取視電阻率的方式。r=使用r欄位，將重算幾何因子求得視電阻率作為觀測資料；rhoa=使用rhoa欄位，直接將視電阻率當作觀測資料。預設值=r。」。**
+    + **1.10.37.5 設定「ShowHint」為「True」。**
+    + **1.10.37.6 設定「Width」為「100」。**
++ **1.10.38 拖拉一個「Standard>TComboBox」到「InversionModelingDataSettings_ReCalMode_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingDataSettings_ReCalMode_ComboBox」。**
+    + **1.10.38.1 設定「Anchors」。**  
+      + **1.10.38.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_ReCalMode_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.38.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_ReCalMode_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.38.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.38.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.38.2 設定「Items」為如下內容。**
+    ```
+    r
+    rhoa
+    ```
+    + **1.10.38.3 設定「ItemIndex」為「0」。**
+    + **1.10.38.4 設定「Style」為「csDropDownList」。**
+    + **1.10.38.5 設定「Width」為「80」。**
++ **1.10.39 拖拉一個「Standard>TGroupBox」到「InversionModelingDataSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_RelativeError_GroupBox」。**
+    + **1.10.39.1 設定「Anchors」。**  
+      + **1.10.39.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.39.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_ReCalMode_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.39.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.39.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.39.2 設定「Caption」為「資料相對誤差:」。**
+    + **1.10.39.3 設定「Height」為「48」。**
+    + **1.10.39.4 設定「Hint」為「資料相對誤差，單位:%。在缺乏資料標準差的先驗知識(例如:反向觀測誤差/交互誤差)時，您可以假設數據中存在一定比例的誤差。這個數值通常落在1到5之間(單位:%)，預設值=3。過高的值會產生過於平滑（模糊）的模型；過低的值會強迫逆推程序去擬合數據中的雜訊，進而產生偽影（假像）。」。**
+    + **1.10.39.5 設定「ShowHint」為「True」。**
+    + **1.10.39.6 設定「Width」為「100」。**
++ **1.10.40 拖拉一個「Standard>TEdit」到「InversionModelingDataSettings_RelativeError_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataSettings_RelativeError_Edit」**
+  + **1.10.40.1 設定「Anchors」。**  
+    + **1.10.40.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.40.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.40.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.40.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.40.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.40.6 設定「Text」為「3」。**
+  + **1.10.40.7 設定「Width」為「80」。**
++ **1.10.41 拖拉一個「Standard>TGroupBox」到「InversionModelingDataSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_InvK_GroupBox」。**
+    + **1.10.41.1 設定「Anchors」。**  
+      + **1.10.41.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.41.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_RelativeError_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.41.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.41.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.41.2 設定「Caption」為「逆推用幾何因子:」。**
+    + **1.10.41.3 設定「Height」為「48」。**
+    + **1.10.41.4 設定「Hint」為「逆推運算內部採用的幾何因子。K_Mesh=使用網格綁定的數值解；K0_Mesh=使用解析解公式，建議僅有水平地層可以用「K0_Mesh」。預設值=「K_Mesh」。」。**
+    + **1.10.41.5 設定「ShowHint」為「True」。**
+    + **1.10.41.6 設定「Width」為「110」。**
++ **1.10.42 拖拉一個「Standard>TComboBox」到「InversionModelingDataSettings_InvK_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingDataSettings_InvK_ComboBox」。**
+    + **1.10.42.1 設定「Anchors」。**  
+      + **1.10.42.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_InvK_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.42.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_InvK_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.42.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.42.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.42.2 設定「Items」為如下內容。**
+    ```
+    K_Mesh
+    K0_Mesh
+    ```
+    + **1.10.42.3 設定「ItemIndex」為「0」。**
+    + **1.10.42.4 設定「Style」為「csDropDownList」。**
+    + **1.10.42.5 設定「Width」為「90」。**
++ **1.10.43 拖拉一個「Standard>TGroupBox」到「InversionModelingDataSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_ReCalK_GroupBox」。**
+    + **1.10.43.1 設定「Anchors」。**  
+      + **1.10.43.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.43.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_InvK_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.43.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.43.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.43.2 設定「Caption」為「轉換用幾何因子:」。**
+    + **1.10.43.3 設定「Height」為「48」。**
+    + **1.10.43.4 設定「Hint」為「從觀測資料「r」欄位提取視電阻率所採用的幾何因子。K_Mesh=使用網格綁定的數值解；K0_Mesh=使用解析解公式；Ideal_Mesh=使用自訂理想網格(要填寫網格參數)計算數值解。預設值=「K_Mesh」。」。**
+    + **1.10.43.5 設定「ShowHint」為「True」。**
+    + **1.10.43.6 設定「Width」為「110」。**
++ **1.10.44 拖拉一個「Standard>TComboBox」到「InversionModelingDataSettings_ReCalK_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingDataSettings_ReCalK_ComboBox」。**
+    + **1.10.44.1 設定「Anchors」。**  
+      + **1.10.44.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_ReCalK_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.44.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_ReCalK_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.44.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.44.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.44.2 設定「Items」為如下內容。**
+    ```
+    K_Mesh
+    K0_Mesh
+    Ideal_Mesh
+    ```
+    + **1.10.44.3 設定「ItemIndex」為「0」。**
+    + **1.10.44.4 設定「Style」為「csDropDownList」。**
+    + **1.10.44.5 設定「Width」為「90」。**
++ **1.10.45 拖拉一個「Standard>TGroupBox」到「InversionModelingDataSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataSettings_quality_GroupBox」。**
+    + **1.10.45.1 設定「Anchors」。**  
+      + **1.10.45.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.45.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_ReCalK_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.45.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.45.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.45.2 設定「Caption」為「理想網格品質:」。**
+    + **1.10.45.3 設定「Height」為「48」。**
+    + **1.10.45.4 設定「Hint」為「三角形的最小內角限制角度，單位:度。預設值=32。」。**
+    + **1.10.45.5 設定「ShowHint」為「True」。**
+    + **1.10.45.6 設定「Width」為「100」。**
++ **1.10.46 拖拉一個「Standard>TComboBox」到「InversionModelingDataSettings_quality_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingDataSettings_quality_ComboBox」。**
+    + **1.10.46.1 設定「Anchors」。**  
+      + **1.10.46.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_quality_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.46.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.46.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.46.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.46.2 設定「Enabled」為「False」。**
+    + **1.10.46.3 設定「Items」為如下內容。**
+    ```
+    32.0
+    32.1
+    32.2
+    32.3
+    32.4
+    32.5
+    32.6
+    32.7
+    32.8
+    32.9
+    33.0
+    33.1
+    33.2
+    33.3
+    33.4
+    33.5
+    33.6
+    33.7
+    33.8
+    33.9
+    34.0
+    ```
+    + **1.10.25.4 設定「ItemIndex」為「0」。**
+    + **1.10.25.5 設定「Style」為「csDropDownList」。**
+    + **1.10.25.6 設定「Width」為「80」。** 
++ **1.10.26 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraDepth_GroupBox」。**
+    + **1.10.26.1 設定「Anchors」。**  
+      + **1.10.26.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.26.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.26.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.26.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.26.2 設定「Caption」為「研究區域深度:」。**
+    + **1.10.26.3 設定「Height」為「48」。**
+    + **1.10.26.4 設定「Hint」為「預設值:-1，單位:[m]，設定小於0的數字會自動設定為測線電極X方向長度的0.4倍。」。**
+    + **1.10.26.5 設定「ShowHint」為「True」。**
+    + **1.10.26.6 設定「Width」為「100」。**
++ **1.10.27 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraDepth_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraDepth_Edit」**
+  + **1.10.27.1 設定「Anchors」。**  
+    + **1.10.27.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.27.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.27.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.27.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.27.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.27.6 設定「Text」為「-1」。**
+  + **1.10.27.7 設定「Width」為「80」。**
++ **1.10.28 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_boundary_GroupBox」。**
+    + **1.10.28.1 設定「Anchors」。**  
+      + **1.10.28.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.28.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.28.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.28.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.28.2 設定「Caption」為「外邊界倍數:」。**
+    + **1.10.28.3 設定「Height」為「48」。**
+    + **1.10.28.4 設定「Hint」為「依照此倍數追加左側、右側、下方外網格。追加長度=測線電極X方向長度乘上外邊界倍數。預設值=4。」。**
+    + **1.10.28.5 設定「ShowHint」為「True」。**
+    + **1.10.28.6 設定「Width」為「100」。**
++ **1.10.29 拖拉一個「Standard>TComboBox」到「InversionModelingInvAutoMesh_quality_GroupBox」中。預設名稱會是「ComboBox1」，修改「Name」為「InversionModelingInvAutoMesh_boundary_ComboBox」。**
+    + **1.10.29.1 設定「Anchors」。**  
+      + **1.10.29.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.29.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_quality_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.29.1.3 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+      + **1.10.29.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.29.2 設定「Enabled」為「False」。**
+    + **1.10.29.3 設定「Items」為如下內容。**
+    ```
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    ```
+    + **1.10.29.4 設定「ItemIndex」為「0」。**
+    + **1.10.29.5 設定「Style」為「csDropDownList」。**
+    + **1.10.29.6 設定「Width」為「80」。**
++ **1.10.30 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox」。**
+    + **1.10.30.1 設定「Anchors」。**  
+      + **1.10.30.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.30.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_boundary_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.30.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.30.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.30.2 設定「Caption」為「網格面積上限:」。**
+    + **1.10.30.3 設定「Height」為「48」。**
+    + **1.10.30.4 設定「Hint」為「預設值=0，單位:[m^2]，設定0表示不限制單一網格面積上限。」。**
+    + **1.10.30.5 設定「ShowHint」為「True」。**
+    + **1.10.30.6 設定「Width」為「100」。**
++ **1.10.31 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraMaxCellSize_Edit」**
+  + **1.10.31.1 設定「Anchors」。**  
+    + **1.10.31.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.31.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.31.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.31.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.31.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.31.6 設定「Text」為「0」。**
+  + **1.10.31.7 設定「Width」為「80」。**
++ **1.10.32 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_addNodes_GroupBox」。**
+    + **1.10.32.1 設定「Anchors」。**  
+      + **1.10.32.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.32.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.32.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.32.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.32.2 設定「Caption」為「addNodes:」。**
+    + **1.10.32.3 設定「Height」為「48」。**
+    + **1.10.32.4 設定「Hint」為「限制填入正整數。此值填「1」時無效果，改由paraDX決定增加的方式；填其他正整數則線性均勻增加兩個電極之間的節點數量。預設值=1。」。**
+    + **1.10.32.5 設定「ShowHint」為「True」。**
+    + **1.10.32.6 設定「Width」為「100」。**
++ **1.10.33 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_addNodes_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_addNodes_Edit」**
+  + **1.10.33.1 設定「Anchors」。**  
+    + **1.10.33.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.33.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.33.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.33.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.33.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.33.6 設定「Text」為「1」。**
+  + **1.10.33.7 設定「Width」為「80」。**
++ **1.10.34 拖拉一個「Standard>TGroupBox」到「InversionModelingInvAutoMesh_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvAutoMesh_paraDX_GroupBox」。**
+    + **1.10.34.1 設定「Anchors」。**  
+      + **1.10.34.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.34.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_addNodes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.34.1.3 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.34.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.34.2 設定「Caption」為「paraDX:」。**
+    + **1.10.34.3 設定「Height」為「48」。**
+    + **1.10.34.4 設定「Hint」為「限制填入浮點數。僅有addNodes小於等於1的時候有效。此值大於等於0.5時，等於在兩個電極正中間增加一個節點。小於0.5的時候，在每個電極的左右兩邊各增加一個節點，距離是電極間距乘以此浮點數。預設值=1。」。**
+    + **1.10.34.5 設定「ShowHint」為「True」。**
+    + **1.10.34.6 設定「Width」為「100」。**
++ **1.10.35 拖拉一個「Standard>TEdit」到「InversionModelingInvAutoMesh_paraDX_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvAutoMesh_paraDX_Edit」**
+  + **1.10.35.1 設定「Anchors」。**  
+    + **1.10.35.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.35.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.35.1.3 「Right anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDX_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.35.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.35.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.35.6 設定「Text」為「1」。**
+  + **1.10.35.7 設定「Width」為「80」。**
+
 
 ## 開發紀錄(寫功能部分)
 ### 版本
