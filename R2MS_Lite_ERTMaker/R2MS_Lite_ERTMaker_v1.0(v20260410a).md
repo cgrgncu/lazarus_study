@@ -623,6 +623,49 @@
     + **1.10.56.1.5 設定完後關閉Anchors設定視窗。**  
   + **1.10.56.6 設定「Text」為「1」。**
   + **1.10.56.7 設定「Width」為「80」。**
++ **1.10.57 拖拉一個「Standard>TGroupBox」到「InversionModelingParameters_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_GroupBox」。**
+    + **1.10.57.1 設定「Anchors」。**  
+      + **1.10.57.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.10.57.1.2 「Left anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.57.1.3 「Right anchoring>Slbling」選為「InversionModelingParameters_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+      + **1.10.57.1.4 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.57.1.5 設定完後關閉Anchors設定視窗。**
+    + **1.10.57.2 設定「Caption」為「觀測資料調整:」。**
+    + **1.10.57.3 設定「Height」為「70」。** 
++ **1.10.58 拖拉一個「Standard>TCheckBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「InversionModelingDataPrepare_UseFakeDataEnable_CheckBox」。**
+    + **1.10.58.1 設定「Anchors」。**  
+      + **1.10.58.1.1 「Top anchoring>Slbling」選為「InversionModelingInvAutoMesh_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.58.1.2 「Left anchoring>Slbling」選為「InversionModelingInvAutoMesh_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.58.1.3 「Border space」正中間那格填「1」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.58.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.58.2 設定「Caption」為「所有資料以相同視電阻率取代，單位=[Ohm-m]。改寫為:」。**
++ **1.10.59 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_UseFakeDataRhoa_Edit」**
+  + **1.10.59.1 設定「Anchors」。**  
+    + **1.10.59.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.59.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_UseFakeDataEnable_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.59.1.3 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「0」。**  
+    + **1.10.59.1.4 設定完後關閉Anchors設定視窗。**  
+  + **1.10.59.2 設定「Text」為「100」。**
+  + **1.10.59.3 設定「Width」為「80」。**
++ **1.10.60 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox」。**
+    + **1.10.60.1 設定「Anchors」。**  
+      + **1.10.60.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_UseFakeDataEnable_CheckBox:TCheckBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選下面的。**
+      + **1.10.60.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.60.1.3 「Border space」正中間那格填「0」，上面那格填「8」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.60.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.60.2 設定「Caption」為「移除電流[A]低於:」。**
+    + **1.10.60.3 設定「Height」為「48」。**
+    + **1.10.60.4 設定「Hint」為「觀測資料的電流低於指定數值時將移除，電流單位:[A]。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。預設值=0.01。」。**
+    + **1.10.60.5 設定「ShowHint」為「True」。**
+    + **1.10.60.6 設定「Width」為「110」。**
++ **1.10.61 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveCurrentLowerThan_Edit」**
+  + **1.10.61.1 設定「Anchors」。**  
+    + **1.10.61.1.1 「Top anchoring>Slbling」選為「InversionModelingDataSettings_paraDepth_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.61.1.2 「Left anchoring>Slbling」選為「InversionModelingDataSettings_paraDepth_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.61.1.3 「Right anchoring>Slbling」選為「InversionModelingDataSettings_paraDepth_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.61.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.61.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.61.6 設定「Text」為「0.01」。**
 
 
 ## 開發紀錄(寫功能部分)
