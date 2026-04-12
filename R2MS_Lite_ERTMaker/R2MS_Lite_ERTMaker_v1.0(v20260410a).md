@@ -723,6 +723,60 @@
     + **1.10.67.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
     + **1.10.67.1.5 設定完後關閉Anchors設定視窗。**  
   + **1.10.67.6 設定「Text」為「99999」。**
++ **1.10.68 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox」。**
+    + **1.10.68.1 設定「Anchors」。**  
+      + **1.10.68.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.68.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.68.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.68.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.68.2 設定「Caption」為「移除Rhoa[Ohm-m]低於:」。**
+    + **1.10.68.3 設定「Height」為「48」。**
+    + **1.10.68.4 設定「Hint」為「觀測資料的視電阻率(Rhoa)低於指定數值時將移除且不參與後續逆推運算，Rhoa單位:[Ohm-m]。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。預設值=0。」。**
+    + **1.10.68.5 設定「ShowHint」為「True」。**
+    + **1.10.68.6 設定「Width」為「150」。**
++ **1.10.69 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveAppResLowerThan_Edit」**
+  + **1.10.69.1 設定「Anchors」。**  
+    + **1.10.69.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.69.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.69.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.69.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.69.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.69.6 設定「Text」為「0」。**
++ **1.10.70 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveAppResHigherThan_GroupBox」。**
+    + **1.10.70.1 設定「Anchors」。**  
+      + **1.10.70.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.70.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.70.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.70.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.70.2 設定「Caption」為「移除Rhoa[Ohm-m]高於:」。**
+    + **1.10.70.3 設定「Height」為「48」。**
+    + **1.10.70.4 設定「Hint」為「觀測資料的視電阻率(Rhoa)高於指定數值時將移除且不參與後續逆推運算，Rhoa單位:[Ohm-m]。限制填大於等於0的數字。注意，全部刪除資料會造成後續異常錯誤。預設值=999999。」。**
+    + **1.10.70.5 設定「ShowHint」為「True」。**
+    + **1.10.70.6 設定「Width」為「150」。**
++ **1.10.71 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveAppResHigherThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveAppResHigherThan_Edit」**
+  + **1.10.71.1 設定「Anchors」。**  
+    + **1.10.71.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResHigherThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.71.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResHigherThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.71.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveAppResHigherThan_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.71.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.71.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.71.6 設定「Text」為「999999」。**
++ **1.10.72 拖拉一個「Standard>TCheckBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「CheckBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveBadElectrode_CheckBox」。**
+    + **1.10.72.1 設定「Anchors」。**  
+      + **1.10.72.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_UseFakeDataEnable_CheckBox:TCheckBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.72.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_UseFakeDataRhoa_Edit:TEdit」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.72.1.3 「Border space」正中間那格填「0」，左邊那格填「16」，右邊那格填「3」。**  
+      + **1.10.72.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.72.2 設定「Caption」為「移除指定電極有關資料。移除電極索引:」。**
++ **1.10.73 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveBadElectrode_Edit」**
+  + **1.10.73.1 設定「Anchors」。**  
+    + **1.10.73.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_UseFakeDataRhoa_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.73.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveBadElectrode_CheckBox:TCheckBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**
+    + **1.10.73.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.73.1.4 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**  
+    + **1.10.73.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.73.2 設定「Text」為「1,2,3,25,28」。**
+
 
 ## 開發紀錄(寫功能部分)
 ### 版本
