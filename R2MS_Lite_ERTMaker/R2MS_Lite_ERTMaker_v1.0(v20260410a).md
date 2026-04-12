@@ -669,7 +669,7 @@
 + **1.10.62 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox」。**
     + **1.10.62.1 設定「Anchors」。**  
       + **1.10.62.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
-      + **1.10.62.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+      + **1.10.62.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
       + **1.10.62.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
       + **1.10.62.1.4 設定完後關閉Anchors設定視窗。**
     + **1.10.62.2 設定「Caption」為「移除電流[A]高於:」。**
@@ -677,7 +677,7 @@
     + **1.10.62.4 設定「Hint」為「觀測資料的電流高於指定數值時將移除且不參與後續逆推運算，電流單位:[A]。限制填大於等於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。預設值=99999。」。**
     + **1.10.62.5 設定「ShowHint」為「True」。**
     + **1.10.62.6 設定「Width」為「110」。**
-+ **1.10.63 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveCurrentLowerThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveCurrentHigherThan_Edit」**
++ **1.10.63 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveCurrentHigherThan_Edit」**
   + **1.10.63.1 設定「Anchors」。**  
     + **1.10.63.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
     + **1.10.63.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
@@ -685,6 +685,44 @@
     + **1.10.63.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
     + **1.10.63.1.5 設定完後關閉Anchors設定視窗。**  
   + **1.10.63.6 設定「Text」為「99999」。**
++ **1.10.64 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox」。**
+    + **1.10.64.1 設定「Anchors」。**  
+      + **1.10.64.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.64.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveCurrentHigherThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.64.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.64.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.64.2 設定「Caption」為「移除電壓[V]低於:」。**
+    + **1.10.64.3 設定「Height」為「48」。**
+    + **1.10.64.4 設定「Hint」為「觀測資料的電壓低於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=0.01。」。**
+    + **1.10.64.5 設定「ShowHint」為「True」。**
+    + **1.10.64.6 設定「Width」為「110」。**
++ **1.10.65 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageLowerThan_Edit」**
+  + **1.10.65.1 設定「Anchors」。**  
+    + **1.10.65.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.65.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.65.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.65.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.65.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.65.6 設定「Text」為「0.01」。**
++ **1.10.66 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox」。**
+    + **1.10.66.1 設定「Anchors」。**  
+      + **1.10.66.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.66.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.66.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.66.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.66.2 設定「Caption」為「移除電壓[V]高於:」。**
+    + **1.10.66.3 設定「Height」為「48」。**
+    + **1.10.66.4 設定「Hint」為「觀測資料的電壓高於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填大於等於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=99999。」。**
+    + **1.10.66.5 設定「ShowHint」為「True」。**
+    + **1.10.66.6 設定「Width」為「110」。**
++ **1.10.67 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageHigherThan_Edit」**
+  + **1.10.67.1 設定「Anchors」。**  
+    + **1.10.67.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.67.1.2 「Left anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.67.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.67.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.67.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.67.6 設定「Text」為「99999」。**
 
 ## 開發紀錄(寫功能部分)
 ### 版本
