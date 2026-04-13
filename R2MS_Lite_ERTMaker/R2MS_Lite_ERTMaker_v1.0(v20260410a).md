@@ -842,9 +842,27 @@
     + **1.10.80.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
     + **1.10.80.1.5 設定完後關閉Anchors設定視窗。**  
   + **1.10.80.6 設定「Text」為「[0,0]」。**
++ **1.10.81 拖拉一個「Standard>TGroupBox」到「InversionModelingInvSettings_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingInvSettings_RemoveTimes_GroupBox」。**
+    + **1.10.81.1 設定「Anchors」。**  
+      + **1.10.81.1.1 「Top anchoring>Slbling」選為「InversionModelingInvSettings_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
+      + **1.10.81.1.2 「Left anchoring>Slbling」選為「InversionModelingInvSettings_limitModelCell_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+      + **1.10.81.1.3 「Border space」正中間那格填「0」，上面那格填「0」，左邊那格填「3」，右邊那格填「3」。**  
+      + **1.10.81.1.4 設定完後關閉Anchors設定視窗。**
+    + **1.10.81.2 設定「Caption」為「資料剔除次數:」。**
+    + **1.10.81.3 設定「Height」為「48」。**
+    + **1.10.81.4 設定「Hint」為「基於最終模型下的擬合誤差進行資料剔除的次數，單位:次。預設值=2。若不刪除任何資料，填「0」。」。**
+    + **1.10.81.5 設定「ShowHint」為「True」。**
+    + **1.10.81.6 設定「Width」為「100」。**
++ **1.10.82 拖拉一個「Standard>TEdit」到「InversionModelingInvSettings_RemoveTimes_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvSettings_RemoveTimes_Edit」**
+  + **1.10.82.1 設定「Anchors」。**  
+    + **1.10.82.1.1 「Top anchoring>Slbling」選為「InversionModelingInvSettings_RemoveTimes_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**  
+    + **1.10.82.1.2 「Left anchoring>Slbling」選為「InversionModelingInvSettings_RemoveTimes_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+    + **1.10.82.1.3 「Right anchoring>Slbling」選為「InversionModelingInvSettings_RemoveTimes_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+    + **1.10.82.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
+    + **1.10.82.1.5 設定完後關閉Anchors設定視窗。**  
+  + **1.10.82.6 設定「Text」為「2」。**
 
 
-limitModelCell
 ## 開發紀錄(寫功能部分)
 ### 版本
 + 2.1選Form，去編輯FormCreate，修改部分:
