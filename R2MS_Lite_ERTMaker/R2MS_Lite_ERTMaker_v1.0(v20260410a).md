@@ -1097,3 +1097,35 @@ begin
   //--------------------------------------------------------------------------
 end;      
 ```  
++ 2.2 去修改「InversionModelingInput01Ohm_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingInput01Ohm_ManualSelect_ButtonClick(
+  Sender: TObject);
+begin
+  //--------------------------------------------------------------------------
+  // OpenDialog1設定對話框標題
+  OpenDialog1.Title := '請選擇一個ohm或dat檔案';
+  // 設定預設開啟的目錄
+  OpenDialog1.InitialDir := Current_Folder_Path;
+  // 設定過濾檔案名稱
+  OpenDialog1.Filter := '資料檔案(*.ohm;*.dat)|*.ohm;*.dat';
+  // 設定開啟選項 (Options)
+  // ofFileMustExist: 強制檔案必須存在，否則會跳出警告
+  // ofPathMustExist: 強制路徑必須存在
+  // ofEnableSizing: 允許調整對話框大小
+  OpenDialog1.Options := OpenDialog1.Options + [ofFileMustExist, ofPathMustExist];
+  //--
+  // 執行選取，如果使用者點擊「開啟」則回傳 True
+  if OpenDialog1.Execute then
+  begin
+    // 取得選取的完整路徑
+    //ShowMessage('你選擇了：' + OpenDialog1.FileName);
+    InversionModelingInput01Ohm_Edit.Text := OpenDialog1.FileName;
+  end
+  else
+  begin
+    // 使用者點擊了「取消」
+    //ShowMessage('取消選取');
+  end;
+end;   
+```
