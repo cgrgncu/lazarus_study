@@ -1334,3 +1334,13 @@ begin
   InversionModelingDataPrepare_RemoveBadElectrode_Edit.Enabled := InversionModelingDataPrepare_RemoveBadElectrode_CheckBox.Checked;
 end;  
 ```
++ 2.23 去修改「InversionModelingInvSettings_XYMinMax_Edit」的「Enabled」為「False」。
++ 2.24 去修改「InversionModelingInvSettings_XYMinMax_CheckBox」的「Event」頁面下「OnChange」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingDataPrepare_RemoveBadElectrode_CheckBoxChange(
+  Sender: TObject);
+begin
+  //隨 CheckBox 狀態連動 (打勾 = 可用)
+  InversionModelingDataPrepare_RemoveBadElectrode_Edit.Enabled := InversionModelingDataPrepare_RemoveBadElectrode_CheckBox.Checked;
+end;  
+```
