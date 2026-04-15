@@ -1300,3 +1300,17 @@ end;
 + 2.15 去修改「InversionModelingDataSettings_paraMaxCellSize_GroupBox」的「Enabled」為「False」。
 + 2.16 去修改「InversionModelingDataSettings_addNodes_GroupBox」的「Enabled」為「False」。
 + 2.17 去修改「InversionModelingDataSettings_paraDX_GroupBox」的「Enabled」為「False」。
++ 2.18 去修改「InversionModelingDataSettings_ReCalK_ComboBox」的「Event」頁面下「OnChange」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingDataSettings_ReCalK_ComboBoxChange(
+  Sender: TObject);
+begin
+  // 只有當選取的文字完全符合 "Ideal_Mesh" 時才啟用
+  InversionModelingDataSettings_quality_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+  InversionModelingDataSettings_paraDepth_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+  InversionModelingDataSettings_boundary_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+  InversionModelingDataSettings_paraMaxCellSize_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+  InversionModelingDataSettings_addNodes_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+  InversionModelingDataSettings_paraDX_GroupBox.Enabled := (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh');
+end; 
+```
