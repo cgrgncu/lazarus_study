@@ -1274,4 +1274,23 @@ begin
   end;
 end;
 ```
-InversionModelingInput03MeshJSON_ManualSelect_Button
++ 2.8 去修改「InversionModelingInput02VTK_GroupBox」的「Enabled」為「False」。
++ 2.9 去修改「InversionModelingInput03MeshJSON_GroupBox」的「Enabled」為「False」。
++ 2.10 去修改「InversionModelingInvAutoMesh_Enable_CheckBox」的「Checked」為「True」。
++ 2.11 去修改「InversionModelingInvAutoMesh_Enable_CheckBox」的「Event」頁面下「OnChange」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingInvAutoMesh_Enable_CheckBoxChange(
+  Sender: TObject);
+begin
+  //隨 CheckBox 狀態連動 (打勾 = 可用)
+  InversionModelingInvAutoMesh_quality_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInvAutoMesh_paraDepth_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInvAutoMesh_boundary_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInvAutoMesh_paraMaxCellSize_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInvAutoMesh_addNodes_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInvAutoMesh_paraDX_GroupBox.Enabled := InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  // 與 CheckBox 狀態相反 (打勾 = 不可用)
+  InversionModelingInput02VTK_GroupBox.Enabled := not InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+  InversionModelingInput03MeshJSON_GroupBox.Enabled := not InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
+end;
+```
