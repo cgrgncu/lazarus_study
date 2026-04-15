@@ -1294,3 +1294,9 @@ begin
   InversionModelingInput03MeshJSON_GroupBox.Enabled := not InversionModelingInvAutoMesh_Enable_CheckBox.Checked;
 end;
 ```
++ 2.12 去修改「InversionModelingDataSettings_quality_GroupBox」的「Enabled」為「False」。
++ 2.13 去修改「InversionModelingDataSettings_paraDepth_GroupBox」的「Enabled」為「False」。
++ 2.14 去修改「InversionModelingDataSettings_boundary_GroupBox」的「Enabled」為「False」。
++ 2.15 去修改「InversionModelingDataSettings_paraMaxCellSize_GroupBox」的「Enabled」為「False」。
++ 2.16 去修改「InversionModelingDataSettings_addNodes_GroupBox」的「Enabled」為「False」。
++ 2.17 去修改「InversionModelingDataSettings_paraDX_GroupBox」的「Enabled」為「False」。
