@@ -1324,3 +1324,13 @@ begin
   InversionModelingDataPrepare_UseFakeDataRhoa_Edit.Enabled := InversionModelingDataPrepare_UseFakeDataEnable_CheckBox.Checked;
 end;  
 ```
++ 2.21 去修改「InversionModelingDataPrepare_RemoveBadElectrode_Edit」的「Enabled」為「False」。
++ 2.22 去修改「InversionModelingDataPrepare_RemoveBadElectrode_CheckBox」的「Event」頁面下「OnChange」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingDataPrepare_RemoveBadElectrode_CheckBoxChange(
+  Sender: TObject);
+begin
+  //隨 CheckBox 狀態連動 (打勾 = 可用)
+  InversionModelingDataPrepare_RemoveBadElectrode_Edit.Enabled := InversionModelingDataPrepare_RemoveBadElectrode_CheckBox.Checked;
+end;  
+```
