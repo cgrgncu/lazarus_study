@@ -1215,3 +1215,63 @@ begin
   end;
 end;
 ```
++ 2.6 去修改「InversionModelingInput03MeshJSON_ManualSelect_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingInput03MeshJSON_ManualSelect_ButtonClick(
+  Sender: TObject);
+begin
+  //--------------------------------------------------------------------------
+  // OpenDialog1設定對話框標題
+  OpenDialog1.Title := '請選擇一個ohm或dat檔案';
+  // 設定預設開啟的目錄
+  OpenDialog1.InitialDir := Current_Folder_Path;
+  // 設定過濾檔案名稱
+  OpenDialog1.Filter := 'json檔案(*.json)|*.json';
+  // 設定開啟選項 (Options)
+  // ofFileMustExist: 強制檔案必須存在，否則會跳出警告
+  // ofPathMustExist: 強制路徑必須存在
+  // ofEnableSizing: 允許調整對話框大小
+  OpenDialog1.Options := OpenDialog1.Options + [ofFileMustExist, ofPathMustExist];
+  //--
+  // 執行選取，如果使用者點擊「開啟」則回傳 True
+  if OpenDialog1.Execute then
+  begin
+    // 取得選取的完整路徑
+    //ShowMessage('你選擇了：' + OpenDialog1.FileName);
+    InversionModelingInput03MeshJSON_Edit.Text := OpenDialog1.FileName;
+  end
+  else
+  begin
+    // 使用者點擊了「取消」
+    //ShowMessage('取消選取');
+  end;
+end;  
+```
++ 2.7 去修改「InversionModelingInput03MeshJSON_OpenFolder_Button」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingInput03MeshJSON_OpenFolder_ButtonClick(
+  Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  // 1. 從完整路徑中提取資料夾路徑
+  temp_str := ExtractFilePath(InversionModelingInput03MeshJSON_Edit.Text);
+  // 2. 檢查路徑是否存在
+  if DirectoryExists(temp_str) then
+  begin
+    // 3. 使用系統預設檔案瀏覽器開啟資料夾
+    // 記得在 uses 區塊中加入 Windows, ShellApi
+    // 使用 ShellExecute 打開該資料夾
+    //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
+    ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // 如果路徑無效，給予使用者提示
+    temp_str := '錯誤:' + #13#10 +
+      '資料夾不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+  end;
+end;
+```
+InversionModelingInput03MeshJSON_ManualSelect_Button
