@@ -888,7 +888,7 @@
         + **1.10.85.1.4 設定完後關閉Anchors設定視窗。**
       + **1.10.85.2 設定「Caption」為「逆推起始模型:」。**
       + **1.10.85.3 設定「Height」為「48」。**
-      + **1.10.85.4 設定「Hint」為「起始模型，單位:[Ohm-m]。預設值=「-1」。限制填正數或「-1」或「-2」或「-3」。填正數則用該值製作均值起始模型。填「-1」表示使用資料的中位數製作均值起始模型。填「-2」表示使用前面已經載入的全網格MeshVTK內的電阻率值。填「-3」表示使用另外準備的研究區域網格StartModelVTK內的電阻率值，該檔案名稱必須是「????」。」。**
+      + **1.10.85.4 設定「Hint」為「起始模型，單位:[Ohm-m]。預設值=「-1」。限制填正數或「-1」或「-2」或「-3」。填正數則用該值製作均值起始模型。填「-1」表示使用資料的中位數製作均值起始模型。填「-2」表示使用前面已經載入的全網格MeshVTK內的電阻率值。填「-3」表示使用另外準備的研究區域網格StartModelVTK內的電阻率值，該檔案必須是「Input_ERTMaker_Inversion2D/InputFile05_StudyAreaStartModelVTK.vtk」。」。**
       + **1.10.85.5 設定「ShowHint」為「True」。**
       + **1.10.85.6 設定「Width」為「100」。**
   + **1.10.86 拖拉一個「Standard>TEdit」到「InversionModelingInvSettings_startModel_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingInvSettings_startModel_Edit」**
