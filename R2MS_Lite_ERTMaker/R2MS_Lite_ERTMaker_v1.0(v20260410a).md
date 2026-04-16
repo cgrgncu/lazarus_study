@@ -693,7 +693,7 @@
         + **1.10.64.1.4 設定完後關閉Anchors設定視窗。**
       + **1.10.64.2 設定「Caption」為「移除電壓[V]低於:」。**
       + **1.10.64.3 設定「Height」為「48」。**
-      + **1.10.64.4 設定「Hint」為「觀測資料的電壓低於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=0.01。」。**
+      + **1.10.64.4 設定「Hint」為「觀測資料的電壓低於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填浮點數。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=-99999。」。**
       + **1.10.64.5 設定「ShowHint」為「True」。**
       + **1.10.64.6 設定「Width」為「110」。**
   + **1.10.65 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageLowerThan_Edit」**
@@ -703,7 +703,7 @@
       + **1.10.65.1.3 「Right anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
       + **1.10.65.1.4 「Border space」正中間那格填「0」，左邊那格填「8」，右邊那格填「8」。**  
       + **1.10.65.1.5 設定完後關閉Anchors設定視窗。**  
-    + **1.10.65.6 設定「Text」為「0.01」。**
+    + **1.10.65.6 設定「Text」為「-99999」。**
   + **1.10.66 拖拉一個「Standard>TGroupBox」到「InversionModelingDataPrepare_GroupBox」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox」。**
       + **1.10.66.1 設定「Anchors」。**  
         + **1.10.66.1.1 「Top anchoring>Slbling」選為「InversionModelingDataPrepare_RemoveVoltageLowerThan_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。維持「Top anchoring」右側三個鈕選上面的。**
@@ -712,7 +712,7 @@
         + **1.10.66.1.4 設定完後關閉Anchors設定視窗。**
       + **1.10.66.2 設定「Caption」為「移除電壓[V]高於:」。**
       + **1.10.66.3 設定「Height」為「48」。**
-      + **1.10.66.4 設定「Hint」為「觀測資料的電壓高於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填大於等於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=99999。」。**
+      + **1.10.66.4 設定「Hint」為「觀測資料的電壓高於指定數值時將移除且不參與後續逆推運算，電壓單位:[V]。限制填浮點數。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電壓情形。預設值=99999。」。**
       + **1.10.66.5 設定「ShowHint」為「True」。**
       + **1.10.66.6 設定「Width」為「110」。**
   + **1.10.67 拖拉一個「Standard>TEdit」到「InversionModelingDataPrepare_RemoveVoltageHigherThan_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「InversionModelingDataPrepare_RemoveVoltageHigherThan_Edit」**
@@ -1456,4 +1456,387 @@ end;
 "Output_Inversion_YMax_Readme":"繪製研究區域網格-使用Y範圍上限。請填入網格範圍內的數字，必須大於YMin。",
 "Output_Inversion_YMax":64
 }
+```
++ 2.26 拖拉一個「System>TAsyncProcess」到「Form1」中。預設名稱會是「AsyncProcess1」，修改「Name」為「InversionModeling_AsyncProcess」。
++ 2.27 去修改「InversionModeling_AsyncProcess」的「Event」頁面下「OnReadData」為如下程式碼。
+```pascal
+procedure TForm1.InversionModeling_AsyncProcessReadData(Sender: TObject);
+var
+  temp_Buffer:string='';
+  temp_BytesAvailable:DWord;
+begin
+  //--------------------------------------------------------------------------
+  // 顯示外部cmd.exe運行內容
+  temp_BytesAvailable:=InversionModeling_AsyncProcess.Output.NumBytesAvailable;
+  if temp_BytesAvailable>0 Then begin
+    setlength(temp_Buffer,temp_BytesAvailable);
+    InversionModeling_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
+    temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
+    temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
+    InversionModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+  end;
+  //--------------------------------------------------------------------------
+end;   
+```
++ 2.28 去修改「InversionModeling_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessing_AsyncProcessTerminate(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  // 啟用元件
+  CreateMeshRun_ToolButton.Enabled:=True;
+  ForwardModelingRun_ToolButton.Enabled:=True;
+  TimeSeriesProcessingRun_ToolButton.Enabled:=True;
+  CreateMeshParameters_GroupBox.Enabled:=True;
+  ForwardModelingParameters_GroupBox.Enabled:=True;
+  TimeSeriesProcessingParameters_GroupBox.Enabled:=True;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 更新狀態列
+  //--
+  if TimeSeriesProcessingSettingsCmdLog_Memo.Lines.Count=0 Then
+  begin
+    StatusBar1.Panels[0].Text:='運行時間序列解算...異常結束!';
+    Exit;
+  end;
+  //--
+  // 檢查結果ohm
+  temp_str:=TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1];
+  temp_str:=StringReplace(temp_str, '"OutputFile23_Ohm_Select_FileName":"', '', [rfReplaceAll]);
+  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  if FileExists(temp_str) then
+  begin
+    StatusBar1.Panels[0].Text:='運行時間序列解算...完成!';
+    // 成功提示
+    temp_str := '成功:' + #13#10 +
+      '時間序列解算...完成!';
+    Application.MessageBox(PChar(temp_str), '提示', 64);
+    Exit;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='運行時間序列解算...運作異常，請檢查紀錄!';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+end; 
+```
++ 2.29 去修改「InversionModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessingRun_ToolButtonClick(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  //--------------------------------------------------------------------------
+  TimeSeriesProcessingSettingsNowJson_Memo.Clear;
+  //--
+  StatusBar1.Panels[0].Text:='運行時間序列解算...請稍後!';
+  //--
+  if DirectoryExists('Output_ERTMaker_v299ScsvToUrf') then
+  begin
+    // 記得在 uses 區塊中加入 FileUtil
+    DeleteDirectory('Output_ERTMaker_v299ScsvToUrf', True);// 第二個參數 True 表示如果資料夾裡面有檔案也一併刪除
+  end;
+  //--
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines:=TimeSeriesProcessingSettingsDefaultJson_Memo.Lines;
+  //--------------------------------------------------------------------------
+  temp_str:=TimeSeriesProcessingInput01Geo_Edit.Text;
+  if FileExists(temp_str) then
+  begin
+    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
+    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
+    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[5-1] := ('"InputFile01_Geo_FileName":"'+temp_str+'",');
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'geo檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:geo檔案不存在。';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  temp_str:=TimeSeriesProcessingInput02Ohm_Edit.Text;
+  if FileExists(temp_str) then
+  begin
+    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
+    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
+    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[7-1] := ('"InputFile02_Ohm_FileName":"'+temp_str+'",');
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'ohm檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:ohm檔案不存在。';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  temp_str:=TimeSeriesProcessingInput03v299Scsv_Edit.Text;
+  if FileExists(temp_str) then
+  begin
+    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
+    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+    //--
+    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
+    temp_str  :=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[9-1] := ('"InputFile03_v299Scsv_FileName":"'+temp_str+'",');
+    //--
+    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Output_v299ScsvToUrf\'+ChangeFileExt(ExtractFileName(temp_str),'.urf');
+    temp_str := StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1] := ('"OutputFile01_Urf_All_FileName":"'+temp_str+'",');
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1], 'OutputFile01_Urf_All_FileName', 'OutputFile02_Urf_All_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1], '.urf"', '.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1], 'OutputFile01_Urf_All_FileName', 'OutputFile03_Ohm_All_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1], '.urf"', '.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1], 'OutputFile01_Urf_All_FileName', 'OutputFile04_PNG_All_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1], '.urf"', '"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1], 'OutputFile01_Urf_All_FileName', 'OutputFile05_Urf_WS_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1], '.urf"', '.WS.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1], 'OutputFile01_Urf_All_FileName', 'OutputFile06_Urf_WS_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1], '.urf"', '.WS.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1], 'OutputFile01_Urf_All_FileName', 'OutputFile07_Ohm_WS_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1], '.urf"', '.WS.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1], 'OutputFile01_Urf_All_FileName', 'OutputFile08_PNG_WS_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1], '.urf"', '.WS"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1], 'OutputFile01_Urf_All_FileName', 'OutputFile09_Urf_MGD_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1], '.urf"', '.MGD.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1], 'OutputFile01_Urf_All_FileName', 'OutputFile10_Urf_MGD_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1], '.urf"', '.MGD.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1], 'OutputFile01_Urf_All_FileName', 'OutputFile11_Ohm_MGD_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1], '.urf"', '.MGD.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1], 'OutputFile01_Urf_All_FileName', 'OutputFile12_PNG_MGD_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1], '.urf"', '.MGD"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1], 'OutputFile01_Urf_All_FileName', 'OutputFile13_Urf_MPR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1], '.urf"', '.MPR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1], 'OutputFile01_Urf_All_FileName', 'OutputFile14_Urf_MPR_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1], '.urf"', '.MPR.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1], 'OutputFile01_Urf_All_FileName', 'OutputFile15_Ohm_MPR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1], '.urf"', '.MPR.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1], 'OutputFile01_Urf_All_FileName', 'OutputFile16_PNG_MPR_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1], '.urf"', '.MPR"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1], 'OutputFile01_Urf_All_FileName', 'OutputFile17_Urf_GD_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1], '.urf"', '.GD.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1], 'OutputFile01_Urf_All_FileName', 'OutputFile18_Urf_GD_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1], '.urf"', '.GD.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1], 'OutputFile01_Urf_All_FileName', 'OutputFile19_Ohm_GD_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1], '.urf"', '.GD.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1], 'OutputFile01_Urf_All_FileName', 'OutputFile20_PNG_GD_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1], '.urf"', '.GD"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1], 'OutputFile01_Urf_All_FileName', 'OutputFile21_Urf_Select_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1], '.urf"', '.Select.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1], 'OutputFile01_Urf_All_FileName', 'OutputFile22_Urf_Select_SNR_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1], '.urf"', '.Select.SNR.urf"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1], 'OutputFile01_Urf_All_FileName', 'OutputFile23_Ohm_Select_FileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1], '.urf"', '.Select.ohm"', [rfReplaceAll]);
+    //--
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1], 'OutputFile01_Urf_All_FileName', 'OutputFile24_PNG_Select_MainFileName', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1], '.urf"', '.Select"', [rfReplaceAll]);
+    //--
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'csv檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:csv檔案不存在。';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  temp_str:=TimeSeriesProcessingInput04ABMN_Edit.Text;
+  if FileExists(temp_str) then
+  begin
+    // ABMN檔案是否為空，空的就關閉檔案清單篩選
+    if (FileSize(temp_str) > 0) then
+    begin
+      TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[73-1] := '"Select_Keep_ABMN_Enable":"Yes",';
+    end
+    else
+    begin
+      TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[73-1] := '"Select_Keep_ABMN_Enable":"No",';
+    end;
+    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
+    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
+    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[11-1] := ('"InputFile04_Keep_ABMN_FileName":"'+temp_str+'",');
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'abmn檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:abmn檔案不存在。';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  if TimeSeriesProcessingOutputPNG_All_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[21-1] := '"OutputFile04_PNG_All_Enable":"Yes",';
+  end;
+  if TimeSeriesProcessingOutputPNG_WS_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[31-1] := '"OutputFile08_PNG_WS_Enable":"Yes",';
+  end;
+  if TimeSeriesProcessingOutputPNG_MGD_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[41-1] := '"OutputFile12_PNG_MGD_Enable":"Yes",';
+  end;
+  if TimeSeriesProcessingOutputPNG_MPR_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[51-1] := '"OutputFile16_PNG_MPR_Enable":"Yes",';
+  end;
+  if TimeSeriesProcessingOutputPNG_GD_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[61-1] := '"OutputFile20_PNG_GD_Enable":"Yes",';
+  end;
+  if TimeSeriesProcessingOutputPNG_Select_CheckBox.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[83-1] := '"OutputFile24_PNG_Select_Enable":"Yes",';
+  end;
+  //--------------------------------------------------------------------------
+  if TimeSeriesProcessingSelectFrom_All_RadioButton.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"All",';
+  end;
+  if TimeSeriesProcessingSelectFrom_WS_RadioButton.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"WS",';
+  end;
+  if TimeSeriesProcessingSelectFrom_MGD_RadioButton.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"MGD",';
+  end;
+  if TimeSeriesProcessingSelectFrom_MPR_RadioButton.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"MPR",';
+  end;
+  if TimeSeriesProcessingSelectFrom_GD_RadioButton.Checked then
+  begin
+    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"GD",';
+  end;
+  //--------------------------------------------------------------------------
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[65-1] := ('"Select_Keep_A_index":['+TimeSeriesProcessingSelectKeepA_Edit.Text+'],');
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[67-1] := ('"Select_Keep_B_index":['+TimeSeriesProcessingSelectKeepB_Edit.Text+'],');
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[69-1] := ('"Select_Keep_M_index":['+TimeSeriesProcessingSelectKeepM_Edit.Text+'],');
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[71-1] := ('"Select_Keep_N_index":['+TimeSeriesProcessingSelectKeepN_Edit.Text+'],');
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 儲存預設JSON檔案
+  ForceDirectories('Input_ERTMaker_v299ScsvToUrf');
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_v299ScsvToUrf/v299ScsvToUrf.json',TEncoding.UTF8);
+  TimeSeriesProcessingSettingsNowJson_Memo.Lines.SaveToFile('Output_ERTMaker_v299ScsvToUrf/Input_v299ScsvToUrf/v299ScsvToUrf.json',TEncoding.UTF8);
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 外部Python程式檢查
+  if not FileExists('PythonEnv\Python.exe') then
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      '外部Python環境不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:外部Python環境不存在。';
+    Exit;
+  end;
+  if not FileExists('ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc') then
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      '外部Python程式不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    StatusBar1.Panels[0].Text:='錯誤:外部Python程式不存在。';
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  TimeSeriesProcessingSettingsCmdLog_Memo.Lines.Clear;
+  // 使用 TimeSeriesProcessing_AsyncProcess 運行外部程式
+  TimeSeriesProcessing_AsyncProcess.Executable:='cmd.exe';
+  TimeSeriesProcessing_AsyncProcess.Parameters.Clear;
+  TimeSeriesProcessing_AsyncProcess.Parameters.Add('/c');
+  TimeSeriesProcessing_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc');
+  TimeSeriesProcessing_AsyncProcess.Options:=[poUsePipes] + [poNoConsole];
+  TimeSeriesProcessing_AsyncProcess.Execute;
+  // 禁用元件，等背景運作完再從事件重新啟用按鈕
+  CreateMeshRun_ToolButton.Enabled:=False;
+  ForwardModelingRun_ToolButton.Enabled:=False;
+  TimeSeriesProcessingRun_ToolButton.Enabled:=False;
+  CreateMeshParameters_GroupBox.Enabled:=False;
+  ForwardModelingParameters_GroupBox.Enabled:=False;
+  TimeSeriesProcessingParameters_GroupBox.Enabled:=False;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.31 去修改「InversionModelingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.TimeSeriesProcessingOpenOutputFolder_ToolButtonClick(
+  Sender: TObject);
+var
+  temp_str: string;
+begin
+  // 取得資料夾路徑
+  temp_str:='Output_ERTMaker_v299ScsvToUrf';
+  ForceDirectories(temp_str);
+  // 記得在 uses 區塊中加入 Windows, ShellApi
+  // 使用 ShellExecute 打開該資料夾
+  //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
+  ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
+end;   
 ```
