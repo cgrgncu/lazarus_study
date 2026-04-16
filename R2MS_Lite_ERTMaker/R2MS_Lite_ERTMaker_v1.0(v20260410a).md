@@ -1473,370 +1473,638 @@ begin
     InversionModeling_AsyncProcess.Output.Read(temp_Buffer[1],temp_BytesAvailable);
     temp_Buffer := StringReplace(temp_Buffer, #13#10, #10, [rfReplaceAll]);
     temp_Buffer := StringReplace(temp_Buffer, #10, #13#10, [rfReplaceAll]);
-    InversionModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+    //InversionModelingSettingsCmdLog_Memo.Lines.Add(WinCPToUTF8(temp_Buffer));
+    // 當呼叫Python程式強制使用UTF-8時，不需要重新編碼
+    InversionModelingSettingsCmdLog_Memo.Lines.Add(temp_Buffer);
   end;
   //--------------------------------------------------------------------------
 end;   
 ```
 + 2.28 去修改「InversionModeling_AsyncProcess」的「Event」頁面下「OnTerminate」為如下程式碼。
 ```pascal
-procedure TForm1.TimeSeriesProcessing_AsyncProcessTerminate(Sender: TObject);
+procedure TForm1.InversionModeling_AsyncProcessTerminate(Sender: TObject);
 var
   temp_str: AnsiString;
 begin
   //--------------------------------------------------------------------------
   // 啟用元件
-  CreateMeshRun_ToolButton.Enabled:=True;
-  ForwardModelingRun_ToolButton.Enabled:=True;
-  TimeSeriesProcessingRun_ToolButton.Enabled:=True;
-  CreateMeshParameters_GroupBox.Enabled:=True;
-  ForwardModelingParameters_GroupBox.Enabled:=True;
-  TimeSeriesProcessingParameters_GroupBox.Enabled:=True;
+  Forward_TabSheet.Enabled:=True;
+  InversionModelingRun_ToolButton.Enabled:=True;
+  InversionModelingParameters_GroupBox.Enabled:=True;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
   // 更新狀態列
   //--
-  if TimeSeriesProcessingSettingsCmdLog_Memo.Lines.Count=0 Then
+  if InversionModelingSettingsCmdLog_Memo.Lines.Count=0 Then
   begin
-    StatusBar1.Panels[0].Text:='運行時間序列解算...異常結束!';
+    StatusBar1.Panels[0].Text:='運行逆推模擬...異常結束!';
     Exit;
   end;
   //--
-  // 檢查結果ohm
-  temp_str:=TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1];
-  temp_str:=StringReplace(temp_str, '"OutputFile23_Ohm_Select_FileName":"', '', [rfReplaceAll]);
-  temp_str:=StringReplace(temp_str, '",', '', [rfReplaceAll]);
+  // 檢查結果log
+  temp_str :='Output_ERTMaker_Inversion2D/ERTMaker_Inversion2D.log';
   if FileExists(temp_str) then
   begin
-    StatusBar1.Panels[0].Text:='運行時間序列解算...完成!';
+    StatusBar1.Panels[0].Text:='運行逆推模擬...完成!';
     // 成功提示
     temp_str := '成功:' + #13#10 +
-      '時間序列解算...完成!';
+      '運行逆推模擬...完成!';
     Application.MessageBox(PChar(temp_str), '提示', 64);
     Exit;
   end
   else
   begin
-    StatusBar1.Panels[0].Text:='運行時間序列解算...運作異常，請檢查紀錄!';
+    StatusBar1.Panels[0].Text:='運行逆推模擬...運作異常，請檢查紀錄!';
     Exit;
   end;
-  //--------------------------------------------------------------------------
-end; 
-```
-+ 2.29 去修改「InversionModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
-```pascal
-procedure TForm1.TimeSeriesProcessingRun_ToolButtonClick(Sender: TObject);
-var
-  temp_str: AnsiString;
-begin
-  //--------------------------------------------------------------------------
-  TimeSeriesProcessingSettingsNowJson_Memo.Clear;
-  //--
-  StatusBar1.Panels[0].Text:='運行時間序列解算...請稍後!';
-  //--
-  if DirectoryExists('Output_ERTMaker_v299ScsvToUrf') then
-  begin
-    // 記得在 uses 區塊中加入 FileUtil
-    DeleteDirectory('Output_ERTMaker_v299ScsvToUrf', True);// 第二個參數 True 表示如果資料夾裡面有檔案也一併刪除
-  end;
-  //--
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines:=TimeSeriesProcessingSettingsDefaultJson_Memo.Lines;
-  //--------------------------------------------------------------------------
-  temp_str:=TimeSeriesProcessingInput01Geo_Edit.Text;
-  if FileExists(temp_str) then
-  begin
-    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
-    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
-          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
-          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
-    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
-    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[5-1] := ('"InputFile01_Geo_FileName":"'+temp_str+'",');
-  end
-  else
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      'geo檔案不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:geo檔案不存在。';
-    Exit;
-  end;
-  //--------------------------------------------------------------------------
-  temp_str:=TimeSeriesProcessingInput02Ohm_Edit.Text;
-  if FileExists(temp_str) then
-  begin
-    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
-    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
-          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
-          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
-    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
-    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[7-1] := ('"InputFile02_Ohm_FileName":"'+temp_str+'",');
-  end
-  else
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      'ohm檔案不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:ohm檔案不存在。';
-    Exit;
-  end;
-  //--------------------------------------------------------------------------
-  temp_str:=TimeSeriesProcessingInput03v299Scsv_Edit.Text;
-  if FileExists(temp_str) then
-  begin
-    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
-    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
-          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
-          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
-    //--
-    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
-    temp_str  :=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[9-1] := ('"InputFile03_v299Scsv_FileName":"'+temp_str+'",');
-    //--
-    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Output_v299ScsvToUrf\'+ChangeFileExt(ExtractFileName(temp_str),'.urf');
-    temp_str := StringReplace(temp_str, '\', '/', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1] := ('"OutputFile01_Urf_All_FileName":"'+temp_str+'",');
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1], 'OutputFile01_Urf_All_FileName', 'OutputFile02_Urf_All_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[15-1], '.urf"', '.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1], 'OutputFile01_Urf_All_FileName', 'OutputFile03_Ohm_All_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[17-1], '.urf"', '.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1], 'OutputFile01_Urf_All_FileName', 'OutputFile04_PNG_All_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[19-1], '.urf"', '"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1], 'OutputFile01_Urf_All_FileName', 'OutputFile05_Urf_WS_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[23-1], '.urf"', '.WS.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1], 'OutputFile01_Urf_All_FileName', 'OutputFile06_Urf_WS_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[25-1], '.urf"', '.WS.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1], 'OutputFile01_Urf_All_FileName', 'OutputFile07_Ohm_WS_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[27-1], '.urf"', '.WS.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1], 'OutputFile01_Urf_All_FileName', 'OutputFile08_PNG_WS_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[29-1], '.urf"', '.WS"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1], 'OutputFile01_Urf_All_FileName', 'OutputFile09_Urf_MGD_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[33-1], '.urf"', '.MGD.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1], 'OutputFile01_Urf_All_FileName', 'OutputFile10_Urf_MGD_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[35-1], '.urf"', '.MGD.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1], 'OutputFile01_Urf_All_FileName', 'OutputFile11_Ohm_MGD_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[37-1], '.urf"', '.MGD.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1], 'OutputFile01_Urf_All_FileName', 'OutputFile12_PNG_MGD_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[39-1], '.urf"', '.MGD"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1], 'OutputFile01_Urf_All_FileName', 'OutputFile13_Urf_MPR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[43-1], '.urf"', '.MPR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1], 'OutputFile01_Urf_All_FileName', 'OutputFile14_Urf_MPR_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[45-1], '.urf"', '.MPR.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1], 'OutputFile01_Urf_All_FileName', 'OutputFile15_Ohm_MPR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[47-1], '.urf"', '.MPR.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1], 'OutputFile01_Urf_All_FileName', 'OutputFile16_PNG_MPR_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[49-1], '.urf"', '.MPR"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1], 'OutputFile01_Urf_All_FileName', 'OutputFile17_Urf_GD_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[53-1], '.urf"', '.GD.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1], 'OutputFile01_Urf_All_FileName', 'OutputFile18_Urf_GD_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[55-1], '.urf"', '.GD.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1], 'OutputFile01_Urf_All_FileName', 'OutputFile19_Ohm_GD_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[57-1], '.urf"', '.GD.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1], 'OutputFile01_Urf_All_FileName', 'OutputFile20_PNG_GD_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[59-1], '.urf"', '.GD"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1], 'OutputFile01_Urf_All_FileName', 'OutputFile21_Urf_Select_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[75-1], '.urf"', '.Select.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1], 'OutputFile01_Urf_All_FileName', 'OutputFile22_Urf_Select_SNR_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[77-1], '.urf"', '.Select.SNR.urf"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1], 'OutputFile01_Urf_All_FileName', 'OutputFile23_Ohm_Select_FileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[79-1], '.urf"', '.Select.ohm"', [rfReplaceAll]);
-    //--
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[13-1];
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1], 'OutputFile01_Urf_All_FileName', 'OutputFile24_PNG_Select_MainFileName', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1] := StringReplace(TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[81-1], '.urf"', '.Select"', [rfReplaceAll]);
-    //--
-  end
-  else
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      'csv檔案不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:csv檔案不存在。';
-    Exit;
-  end;
-  //--------------------------------------------------------------------------
-  temp_str:=TimeSeriesProcessingInput04ABMN_Edit.Text;
-  if FileExists(temp_str) then
-  begin
-    // ABMN檔案是否為空，空的就關閉檔案清單篩選
-    if (FileSize(temp_str) > 0) then
-    begin
-      TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[73-1] := '"Select_Keep_ABMN_Enable":"Yes",';
-    end
-    else
-    begin
-      TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[73-1] := '"Select_Keep_ABMN_Enable":"No",';
-    end;
-    ForceDirectories('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\');
-    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
-          PWideChar(UTF8ToUTF16('Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str))),
-          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
-    temp_str := 'Output_ERTMaker_v299ScsvToUrf\Input_v299ScsvToUrf\'+ExtractFileName(temp_str);
-    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[11-1] := ('"InputFile04_Keep_ABMN_FileName":"'+temp_str+'",');
-  end
-  else
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      'abmn檔案不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:abmn檔案不存在。';
-    Exit;
-  end;
-  //--------------------------------------------------------------------------
-  if TimeSeriesProcessingOutputPNG_All_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[21-1] := '"OutputFile04_PNG_All_Enable":"Yes",';
-  end;
-  if TimeSeriesProcessingOutputPNG_WS_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[31-1] := '"OutputFile08_PNG_WS_Enable":"Yes",';
-  end;
-  if TimeSeriesProcessingOutputPNG_MGD_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[41-1] := '"OutputFile12_PNG_MGD_Enable":"Yes",';
-  end;
-  if TimeSeriesProcessingOutputPNG_MPR_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[51-1] := '"OutputFile16_PNG_MPR_Enable":"Yes",';
-  end;
-  if TimeSeriesProcessingOutputPNG_GD_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[61-1] := '"OutputFile20_PNG_GD_Enable":"Yes",';
-  end;
-  if TimeSeriesProcessingOutputPNG_Select_CheckBox.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[83-1] := '"OutputFile24_PNG_Select_Enable":"Yes",';
-  end;
-  //--------------------------------------------------------------------------
-  if TimeSeriesProcessingSelectFrom_All_RadioButton.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"All",';
-  end;
-  if TimeSeriesProcessingSelectFrom_WS_RadioButton.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"WS",';
-  end;
-  if TimeSeriesProcessingSelectFrom_MGD_RadioButton.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"MGD",';
-  end;
-  if TimeSeriesProcessingSelectFrom_MPR_RadioButton.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"MPR",';
-  end;
-  if TimeSeriesProcessingSelectFrom_GD_RadioButton.Checked then
-  begin
-    TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[63-1] := '"Select_From":"GD",';
-  end;
-  //--------------------------------------------------------------------------
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[65-1] := ('"Select_Keep_A_index":['+TimeSeriesProcessingSelectKeepA_Edit.Text+'],');
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[67-1] := ('"Select_Keep_B_index":['+TimeSeriesProcessingSelectKeepB_Edit.Text+'],');
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[69-1] := ('"Select_Keep_M_index":['+TimeSeriesProcessingSelectKeepM_Edit.Text+'],');
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[71-1] := ('"Select_Keep_N_index":['+TimeSeriesProcessingSelectKeepN_Edit.Text+'],');
-  //--------------------------------------------------------------------------
-  //--------------------------------------------------------------------------
-  // 儲存預設JSON檔案
-  ForceDirectories('Input_ERTMaker_v299ScsvToUrf');
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_v299ScsvToUrf/v299ScsvToUrf.json',TEncoding.UTF8);
-  TimeSeriesProcessingSettingsNowJson_Memo.Lines.SaveToFile('Output_ERTMaker_v299ScsvToUrf/Input_v299ScsvToUrf/v299ScsvToUrf.json',TEncoding.UTF8);
-  //--------------------------------------------------------------------------
-  //--------------------------------------------------------------------------
-  // 外部Python程式檢查
-  if not FileExists('PythonEnv\Python.exe') then
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      '外部Python環境不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:外部Python環境不存在。';
-    Exit;
-  end;
-  if not FileExists('ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc') then
-  begin
-    temp_str := '錯誤:' + #13#10 +
-      '外部Python程式不存在。';
-    Application.MessageBox(PChar(temp_str), '錯誤', 16);
-    StatusBar1.Panels[0].Text:='錯誤:外部Python程式不存在。';
-    Exit;
-  end;
-  //--------------------------------------------------------------------------
-  //--------------------------------------------------------------------------
-  TimeSeriesProcessingSettingsCmdLog_Memo.Lines.Clear;
-  // 使用 TimeSeriesProcessing_AsyncProcess 運行外部程式
-  TimeSeriesProcessing_AsyncProcess.Executable:='cmd.exe';
-  TimeSeriesProcessing_AsyncProcess.Parameters.Clear;
-  TimeSeriesProcessing_AsyncProcess.Parameters.Add('/c');
-  TimeSeriesProcessing_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc');
-  TimeSeriesProcessing_AsyncProcess.Options:=[poUsePipes] + [poNoConsole];
-  TimeSeriesProcessing_AsyncProcess.Execute;
-  // 禁用元件，等背景運作完再從事件重新啟用按鈕
-  CreateMeshRun_ToolButton.Enabled:=False;
-  ForwardModelingRun_ToolButton.Enabled:=False;
-  TimeSeriesProcessingRun_ToolButton.Enabled:=False;
-  CreateMeshParameters_GroupBox.Enabled:=False;
-  ForwardModelingParameters_GroupBox.Enabled:=False;
-  TimeSeriesProcessingParameters_GroupBox.Enabled:=False;
   //--------------------------------------------------------------------------
 end;
 ```
-+ 2.31 去修改「InversionModelingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.29 去修改「InversionModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
-procedure TForm1.TimeSeriesProcessingOpenOutputFolder_ToolButtonClick(
+procedure TForm1.InversionModelingRun_ToolButtonClick(Sender: TObject);
+var
+  temp_str: AnsiString;
+  temp_str1: AnsiString;
+  temp_str2: AnsiString;
+  temp_str3: AnsiString;
+  temp_str4: AnsiString;
+  RegexObj: TRegExpr;
+begin
+  //--------------------------------------------------------------------------
+  InversionModelingSettingsCmdLog_Memo.Clear;
+  //--
+  StatusBar1.Panels[0].Text:='運行逆推模擬...請稍後!';
+  StatusBar1.Panels[1].Text:='';
+  StatusBar1.Panels[2].Text:='';
+  StatusBar1.Panels[3].Text:='';
+  StatusBar1.Panels[4].Text:='';
+  //--
+  if DirectoryExists('Output_ERTMaker_Inversion2D') then
+  begin
+    // 記得在 uses 區塊中加入 FileUtil
+    DeleteDirectory('Output_ERTMaker_Inversion2D', True);// 第二個參數 True 表示如果資料夾裡面有檔案也一併刪除
+  end;
+  //--
+  InversionModelingSettingsNowJson_Memo.Lines:=InversionModelingSettingsDefaultJson_Memo.Lines;
+  //--------------------------------------------------------------------------
+  temp_str:=InversionModelingInput01Ohm_Edit.Text;
+  if FileExists(temp_str) then
+  begin
+    ForceDirectories('Output_ERTMaker_Inversion2D\Input_Inversion2D\');
+    CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+    temp_str := 'Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str);
+    temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[5-1] := ('"InputFile01_Ohm_FileName":"'+temp_str+'",');
+  end
+  else
+  begin
+    temp_str := '錯誤:' + #13#10 +
+      'ohm/dat檔案不存在。';
+    Application.MessageBox(PChar(temp_str), '錯誤', 16);
+    Exit;
+  end;
+  //--------------------------------------------------------------------------
+  RegexObj := TRegExpr.Create;
+  try
+    //--------------------------------------------------------------------------
+    if InversionModelingInvAutoMesh_Enable_CheckBox.Checked then
+    begin
+      //--
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[7-1] := ('"Mesh_Setting01_AutoMesh_Enable":"Yes",');
+      //--
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[9-1] := ('"Mesh_Setting02_AutoMesh_quality":'+InversionModelingInvAutoMesh_quality_ComboBox.Text+',');
+      //--
+      RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingInvAutoMesh_paraDepth_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '研究區域深度數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[11-1] := ('"Mesh_Setting03_AutoMesh_paraDepth":'+InversionModelingInvAutoMesh_paraDepth_Edit.Text+',');
+      //--
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[13-1] := ('"Mesh_Setting04_AutoMesh_boundary":'+InversionModelingInvAutoMesh_boundary_ComboBox.Text+',');
+      //--
+      RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingInvAutoMesh_paraMaxCellSize_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '網格面積上限數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[15-1] := ('"Mesh_Setting05_AutoMesh_paraMaxCellSize":'+InversionModelingInvAutoMesh_paraMaxCellSize_Edit.Text+',');
+      //--
+      RegexObj.Expression := '^\+?\d+$';
+      if not RegexObj.Exec(InversionModelingInvAutoMesh_addNodes_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          'addNodes數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[17-1] := ('"Mesh_Setting06_AutoMesh_addNodes":'+InversionModelingInvAutoMesh_addNodes_Edit.Text+',');
+      //--
+      RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingInvAutoMesh_paraDX_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          'paraDX數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[19-1] := ('"Mesh_Setting07_AutoMesh_paraDX":'+InversionModelingInvAutoMesh_paraDX_Edit.Text+',');
+      //--
+    end
+    else
+    begin
+      temp_str:=InversionModelingInput02VTK_Edit.Text;
+      if FileExists(temp_str) then
+      begin
+        ForceDirectories('Output_ERTMaker_Inversion2D\Input_Inversion2D\');
+        CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+              PWideChar(UTF8ToUTF16('Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str))),
+              False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+        temp_str := 'Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str);
+        temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[21-1] := ('"InputFile02_MeshVTK_FileName":"'+temp_str+'",');
+      end
+      else
+      begin
+        temp_str := '錯誤:' + #13#10 +
+          'vtk檔案不存在。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      temp_str:=InversionModelingInput03MeshJSON_Edit.Text;
+      if FileExists(temp_str) then
+      begin
+        ForceDirectories('Output_ERTMaker_Inversion2D\Input_Inversion2D\');
+        CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+              PWideChar(UTF8ToUTF16('Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str))),
+              False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+        temp_str := 'Output_ERTMaker_Inversion2D\Input_Inversion2D\'+ExtractFileName(temp_str);
+        temp_str:=StringReplace(temp_str, '\', '/', [rfReplaceAll]);
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[23-1] := ('"InputFile03_MeshBCMarkersJSON_FileName":"'+temp_str+'",');
+      end
+      else
+      begin
+        temp_str := '錯誤:' + #13#10 +
+          'json檔案不存在。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[25-1] := ('"Data_Setting00_RecalculateDataMode":"'+InversionModelingDataSettings_ReCalMode_ComboBox.Text+'",');
+    //--
+    RegexObj.Expression := '^\+?((0\.[0-9]*[1-9][0-9]*)|([1-9][0-9]*(\.[0-9]*)?))$';
+    if not RegexObj.Exec(InversionModelingDataSettings_RelativeError_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '資料相對誤差數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[27-1] := ('"Data_Setting01_Relative_Error_Percentage":'+InversionModelingDataSettings_RelativeError_Edit.Text+',');
+    //--
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[29-1] := ('"Data_Setting02_GeometricFactorForInversion":"'+InversionModelingDataSettings_InvK_ComboBox.Text+'",');
+    //--
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[31-1] := ('"Data_Setting03_GeometricFactorForRecalculateData":"'+InversionModelingDataSettings_ReCalK_ComboBox.Text+'",');
+    if  (InversionModelingDataSettings_ReCalK_ComboBox.Text = 'Ideal_Mesh') then
+    begin
+      //--
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[33-1] := ('"Ideal_Mesh_Setting01_AutoMesh_quality":'+InversionModelingDataSettings_quality_ComboBox.Text+',');
+      //--
+      RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingDataSettings_paraDepth_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '理想網格研究區域深度數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[35-1] := ('"Ideal_Mesh_Setting02_AutoMesh_paraDepth":'+InversionModelingDataSettings_paraDepth_Edit.Text+',');
+      //--
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[37-1] := ('"Ideal_Mesh_Setting03_AutoMesh_boundary":'+InversionModelingDataSettings_boundary_ComboBox.Text+',');
+      //--
+      RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingDataSettings_paraMaxCellSize_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '理想網格網格面積上限數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[39-1] := ('"Ideal_Mesh_Setting04_AutoMesh_paraMaxCellSize":'+InversionModelingDataSettings_paraMaxCellSize_Edit.Text+',');
+      //--
+      RegexObj.Expression := '^\+?\d+$';
+      if not RegexObj.Exec(InversionModelingDataSettings_addNodes_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '理想網格addNodes數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[41-1] := ('"Ideal_Mesh_Setting05_AutoMesh_addNodes":'+InversionModelingDataSettings_addNodes_Edit.Text+',');
+      //--
+      RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+      if not RegexObj.Exec(InversionModelingDataSettings_paraDX_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '理想網格paraDX數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[43-1] := ('"Ideal_Mesh_Setting06_AutoMesh_paraDX":'+InversionModelingDataSettings_paraDX_Edit.Text+',');
+      //--
+    end;
+    //--
+    //--------------------------------------------------------------------------
+    RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveCurrentLowerThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除電流低於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[45-1] := ('"Data_Setting03_RemoveLowCurrentData_LowerThan_A":'+InversionModelingDataPrepare_RemoveCurrentLowerThan_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^\+?((0\.[0-9]*[1-9][0-9]*)|([1-9][0-9]*(\.[0-9]*)?))$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveCurrentHigherThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除電流高於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[47-1] := ('"Data_Setting04_RemoveHighCurrentData_HigherThan_A":'+InversionModelingDataPrepare_RemoveCurrentHigherThan_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveVoltageLowerThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除電壓低於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[49-1] := ('"Data_Setting05_RemoveLowVoltageData_LowerThan_V":'+InversionModelingDataPrepare_RemoveVoltageLowerThan_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^[-+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveVoltageHigherThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除電壓高於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[51-1] := ('"Data_Setting06_RemoveHighVoltageData_HigherThan_V":'+InversionModelingDataPrepare_RemoveVoltageHigherThan_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveAppResLowerThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除視電阻率低於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[53-1] := ('"Data_Setting07_RemoveLowAppResData_LowerThan_OhmM":'+InversionModelingDataPrepare_RemoveAppResLowerThan_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^[+]?(\d+(\.\d*)?|\.\d+)$';
+    if not RegexObj.Exec(InversionModelingDataPrepare_RemoveAppResHigherThan_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '移除視電阻率高於數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[55-1] := ('"Data_Setting08_RemoveHighAppResData_HigherThan_OhmM":'+InversionModelingDataPrepare_RemoveAppResHigherThan_Edit.Text+',');
+    //--
+    if InversionModelingDataPrepare_RemoveBadElectrode_CheckBox.Checked then
+    begin
+      RegexObj.Expression := '^\d+(,\d+)*$';
+      if not RegexObj.Exec(InversionModelingDataPrepare_RemoveBadElectrode_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '移除電極索引數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[57-1] := ('"Data_Setting09_RemoveBadElectrodeData_List":['+InversionModelingDataPrepare_RemoveBadElectrode_Edit.Text+'],');
+      //--
+    end;
+    //--
+    if InversionModelingDataPrepare_UseFakeDataEnable_CheckBox.Checked then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[63-1] := ('"Data_Setting12_UseFakeData_Enable":"Yes",');
+      //--
+      RegexObj.Expression := '^\+?((0\.[0-9]*[1-9][0-9]*)|([1-9][0-9]*(\.[0-9]*)?))$';
+      if not RegexObj.Exec(InversionModelingDataPrepare_UseFakeDataRhoa_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '電阻率取代數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[65-1] := ('"Data_Setting13_UseFakeData_rhoa":'+InversionModelingDataPrepare_UseFakeDataRhoa_Edit.Text+',');
+      //--
+    end;
+    //--
+    RegexObj.Expression := '^\+?\d+$';
+    if not RegexObj.Exec(InversionModelingInvSettings_RemoveTimes_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '資料剔除次數數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[73-1] := ('"Inversion_Setting01_Remove_Data_Times":'+InversionModelingInvSettings_RemoveTimes_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^\+?([1-9][0-9]?)$';
+    if not RegexObj.Exec(InversionModelingInvSettings_RemovePercentage_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '資料剔除[%]數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[75-1] := ('"Inversion_Setting02_Remove_Data_Percentage":'+InversionModelingInvSettings_RemovePercentage_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^\[\s*\d+(\.\d*)?\s*(,\s*\d+(\.\d*)?\s*)*\]$';
+    if not RegexObj.Exec(InversionModelingInvSettings_Lambda_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        'Lambda數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[77-1] := ('"Inversion_Setting03_Lamda":'+InversionModelingInvSettings_Lambda_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^\+?\d+$';
+    if not RegexObj.Exec(InversionModelingInvSettings_maxIter_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '最大迭代次數數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[79-1] := ('"Inversion_Setting04_maxIter":'+InversionModelingInvSettings_maxIter_Edit.Text+',');
+    //--
+    RegexObj.Expression := '^([1-9]\d*|-(1|2|3))$';
+    if not RegexObj.Exec(InversionModelingInvSettings_startModel_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '逆推起始模型數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[81-1] := ('"Inversion_Setting05_startModel":'+InversionModelingInvSettings_startModel_Edit.Text+',');
+    //--
+    if (InversionModelingInvSettings_startModel_Edit.Text = '-3') then
+    begin
+      temp_str:='Input_ERTMaker_Inversion2D/InputFile05_StudyAreaStartModelVTK.vtk';
+      if FileExists(temp_str) then
+      begin
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[83-1] := ('"InputFile05_StudyAreaStartModelVTK_FileName":"'+temp_str+'",');
+        CopyFileW(PWideChar(UTF8ToUTF16(temp_str)),
+          PWideChar(UTF8ToUTF16('Output_ERTMaker_Inversion2D/Input_Inversion2D/'+ExtractFileName(temp_str))),
+          False);// 第三個參數為 False 表示如果目標已存在則覆蓋 (Overwrite)
+      end
+      else
+      begin
+        temp_str := '錯誤:' + #13#10 +
+          '逆推起始模型vtk檔案不存在。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+    end;
+    //--
+    if InversionModelingOutputSettings_verbose_ComboBox.Text = '停用' then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[85-1] := ('"Inversion_Setting06_verbose_Enable":"No",');
+    end;
+    //--
+    RegexObj.Expression := '^\[\s*(\d+(\.\d*)?|\.\d+)\s*,\s*(\d+(\.\d*)?|\.\d+)\s*\]$';
+    if not RegexObj.Exec(InversionModelingInvSettings_limitModelCell_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '模型電阻率範圍數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    temp_str := InversionModelingInvSettings_limitModelCell_Edit.Text;
+    temp_str1 := temp_str.Substring(1, temp_str.IndexOf(',') - 1);
+    //--
+    temp_str := InversionModelingInvSettings_limitModelCell_Edit.Text;
+    temp_str2 := temp_str.Substring(temp_str.IndexOf(',') + 1).Trim([']']);
+    //--
+    if (StrToFloat(temp_str1) = 0) and (StrToFloat(temp_str2) = 0) then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[87-1] := ('"Inversion_Setting07_limitModelCellMinValue":'+temp_str1+',');
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[89-1] := ('"Inversion_Setting08_limitModelCellMaxValue":'+temp_str2+',');
+    end
+    else if StrToFloat(temp_str1) < StrToFloat(temp_str2) then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[87-1] := ('"Inversion_Setting07_limitModelCellMinValue":'+temp_str1+',');
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[89-1] := ('"Inversion_Setting08_limitModelCellMaxValue":'+temp_str2+',');
+    end
+    else
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '模型電阻率範圍數值大小錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    //--
+    RegexObj.Expression := '^[^\\/:\*\?"<>\|]+$';
+    if not RegexObj.Exec(InversionModelingOutputSettings_MainName_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '測線名稱錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    InversionModelingSettingsNowJson_Memo.Lines.Strings[95-1] := ('"Output_MainFileName":"'+InversionModelingOutputSettings_MainName_Edit.Text+'",');
+    //--
+    RegexObj.Expression := '^\[\s*(\d+(\.\d*)?|\.\d+)\s*,\s*(\d+(\.\d*)?|\.\d+)\s*\]$';
+    if not RegexObj.Exec(InversionModelingInvSettings_ColorBar_Edit.Text) then
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '色階範圍數值錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    temp_str := InversionModelingInvSettings_ColorBar_Edit.Text;
+    temp_str1 := temp_str.Substring(1, temp_str.IndexOf(',') - 1);
+    //--
+    temp_str := InversionModelingInvSettings_ColorBar_Edit.Text;
+    temp_str2 := temp_str.Substring(temp_str.IndexOf(',') + 1).Trim([']']);
+    //--
+    if StrToFloat(temp_str1) < StrToFloat(temp_str2) then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[97-1] := ('"Output_Inversion_ColorBarResistivityMin":'+temp_str1+',');
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[99-1] := ('"Output_Inversion_ColorBarResistivityMax":'+temp_str2+',');
+    end
+    else
+    begin
+      // 錯誤的資料內容
+      temp_str := '錯誤:' + #13#10 +
+        '裁切範圍數值大小錯誤。請檢查。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    //--
+    if InversionModelingInvSettings_XYMinMax_CheckBox.Checked then
+    begin
+      InversionModelingSettingsNowJson_Memo.Lines.Strings[101-1] := ('"Output_Inversion_XMinMax_Enable":"Yes",');
+      //--
+      RegexObj.Expression := '^\[\s*(-?\d+(\.\d*)?|-?\.\d+)\s*,\s*(-?\d+(\.\d*)?|-?\.\d+)\s*,\s*(-?\d+(\.\d*)?|-?\.\d+)\s*,\s*(-?\d+(\.\d*)?|-?\.\d+)\s*\]$';
+      if not RegexObj.Exec(InversionModelingInvSettings_XYMinMax_Edit.Text) then
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '裁切範圍數值錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      temp_str := InversionModelingInvSettings_XYMinMax_Edit.Text;
+      temp_str1 := temp_str.Substring(1, temp_str.IndexOf(',') - 1);
+      //--
+      temp_str := InversionModelingInvSettings_XYMinMax_Edit.Text;
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str2 := temp_str.Substring(0, temp_str.IndexOf(','));
+      //--
+      temp_str := InversionModelingInvSettings_XYMinMax_Edit.Text;
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str3 := temp_str.Substring(0, temp_str.IndexOf(','));
+      //--
+      temp_str := InversionModelingInvSettings_XYMinMax_Edit.Text;
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str := temp_str.Substring(temp_str.IndexOf(',') + 1);
+      temp_str4 := temp_str.Substring(0, temp_str.Length - 1);
+      //--
+      if StrToFloat(temp_str1) < StrToFloat(temp_str2) then
+      begin
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[103-1] := ('"Output_Inversion_XMin":'+temp_str1+',');
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[105-1] := ('"Output_Inversion_XMax":'+temp_str2+',');
+      end
+      else
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '裁切範圍數值大小錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      //--
+      if StrToFloat(temp_str3) < StrToFloat(temp_str4) then
+      begin
+        InversionModelingSettingsNowJson_Memo.Lines.Strings[107-1] := ('"Output_Inversion_YMin":'+temp_str3+',');
+       InversionModelingSettingsNowJson_Memo.Lines.Strings[109-1] := ('"Output_Inversion_YMax":'+temp_str4+',');
+      end
+      else
+      begin
+        // 錯誤的資料內容
+        temp_str := '錯誤:' + #13#10 +
+          '裁切範圍數值大小錯誤。請檢查。';
+        Application.MessageBox(PChar(temp_str), '錯誤', 16);
+        Exit;
+      end;
+      //--
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 儲存預設JSON檔案
+    ForceDirectories('Input_ERTMaker_Inversion2D');
+    InversionModelingSettingsNowJson_Memo.Lines.SaveToFile('Input_ERTMaker_Inversion2D/Inversion2D.json',TEncoding.UTF8);
+    InversionModelingSettingsNowJson_Memo.Lines.SaveToFile('Output_ERTMaker_Inversion2D/Input_Inversion2D/Inversion2D.json',TEncoding.UTF8);
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 外部Python程式檢查
+    if not FileExists('PythonEnv\Python.exe') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python環境不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    if not FileExists('ERTMaker_Inversion2D_v20260401a.cpython-312.pyc') then
+    begin
+      temp_str := '錯誤:' + #13#10 +
+        '外部Python程式不存在。';
+      Application.MessageBox(PChar(temp_str), '錯誤', 16);
+      Exit;
+    end;
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    InversionModelingSettingsCmdLog_Memo.Lines.Clear;
+    // 使用 InversionModeling_AsyncProcess 運行外部程式
+    InversionModeling_AsyncProcess.Executable:='cmd.exe';
+    InversionModeling_AsyncProcess.Parameters.Clear;
+    InversionModeling_AsyncProcess.Parameters.Add('/c');
+    InversionModeling_AsyncProcess.Parameters.Add('set PYTHONIOENCODING=utf-8 && .\PythonEnv\Python.exe -u ERTMaker_Inversion2D_v20260401a.cpython-312.pyc');
+    InversionModeling_AsyncProcess.Options:=[poUsePipes, poStderrToOutPut, poNoConsole];
+    InversionModeling_AsyncProcess.Execute;
+    // 啟用Timer
+    //ForwardModeling_Timer.Enabled:=True;
+    //StatusBar1.Panels[4].Text:='自動播放: 啟用';
+    // 禁用元件，等背景運作完再從事件重新啟用按鈕
+    Forward_TabSheet.Enabled:=False;
+    InversionModelingRun_ToolButton.Enabled:=False;
+    InversionModelingParameters_GroupBox.Enabled:=False;
+    //--------------------------------------------------------------------------
+  finally
+    RegexObj.Free; // 釋放 TRegExpr 物件
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.30 去修改「InversionModelingOpenOutputFolder_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionModelingOpenOutputFolder_ToolButtonClick(
   Sender: TObject);
 var
   temp_str: string;
 begin
   // 取得資料夾路徑
-  temp_str:='Output_ERTMaker_v299ScsvToUrf';
+  temp_str:='Output_ERTMaker_Inversion2D';
   ForceDirectories(temp_str);
   // 記得在 uses 區塊中加入 Windows, ShellApi
   // 使用 ShellExecute 打開該資料夾
   //ShellExecute(0, 'open', PChar(temp_str), nil, nil, SW_SHOWNORMAL);//這個不支援中文，改用ShellExecuteW
   ShellExecuteW(0, 'open', PWideChar(UTF8ToUTF16(temp_str)), nil, nil, SW_SHOWNORMAL);
-end;   
+end;    
 ```
