@@ -221,12 +221,32 @@ begin
         InversionInputMeshPreviewFullMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_InputFullMesh.png');
         InversionInputMeshPreviewStudyAreaMeshMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_StudyAreaMesh.png');
         Inversion_PageControl.ActivePage:=InversionInputMeshPreview_TabSheet;
-        InversionModeling_Timer.Enabled:=False;
-        StatusBar1.Panels[4].Text:='停止自動更新資訊';
-        StatusBar1.Panels[1].Text:='1';
+        StatusBar1.Panels[1].Text:='2';
         Exit;
       except
-        StatusBar1.Panels[0].Text:='載入失敗: '+InversionModelingOutputSettings_MainName_Edit.Text+'_01_InputFullMesh.png';
+        StatusBar1.Panels[0].Text:='載入圖片失敗!';
+      end;
+    end;
+    //--------------------------------------------------------------------------
+  end;
+  if StrToInt(StatusBar1.Panels[1].Text) = 2 then
+  begin
+    //--------------------------------------------------------------------------
+    // 載入圖片
+    if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_02_Histogram_AppRes_Accept.png') then
+    begin
+      try
+        InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_All.png');
+        InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_Accept.png');
+        Inversion_PageControl.ActivePage:=InversionInputObsDataPreview_TabSheet;
+        InversionInputObsDataPreviewLeft_ToolButton.Enabled:=True;
+        InversionInputObsDataPreviewRight_ToolButton.Enabled:=True;
+        InversionModeling_Timer.Enabled:=False;
+        StatusBar1.Panels[4].Text:='停止自動更新資訊';
+        StatusBar1.Panels[1].Text:='3';
+        Exit;
+      except
+        StatusBar1.Panels[0].Text:='載入圖片失敗!';
       end;
     end;
     //--------------------------------------------------------------------------
@@ -799,6 +819,15 @@ begin
     Forward_TabSheet.Enabled:=False;
     InversionModelingRun_ToolButton.Enabled:=False;
     InversionModelingParameters_GroupBox.Enabled:=False;
+    InversionInputObsDataPreviewLeft_ToolButton.Enabled:=False;
+    InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的觀測資料';
+    InversionInputObsDataPreviewRight_ToolButton.Enabled:=False;
+    InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的觀測資料';
+    // 清空圖片
+    InversionInputMeshPreviewFullMesh_Image.Picture.Clear;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Picture.Clear;
+    InversionInputObsDataPreviewLeft_Image.Picture.Clear;
+    InversionInputObsDataPreviewRight_Image.Picture.Clear;
     //--------------------------------------------------------------------------
   finally
     RegexObj.Free; // 釋放 TRegExpr 物件
@@ -806,4 +835,129 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-
++ 2.5 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_1Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的視電阻率';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_All.png');
+end;
+```
++ 2.6 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_2Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的電壓資料';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_V_All.png');
+end;
+```
++ 2.7 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_3Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的電流資料';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_I_All.png');
+end; 
+```
++ 2.8 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_4Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的電阻資料';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_VoverI_All.png');
+end;  
+```
++ 2.9 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_5Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的誤差資料';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_Error_All.png');
+end;
+```
++ 2.10 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_6Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的幾何因子';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_K_All.png');
+end; 
+```
++ 2.11 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_7Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的網格效應';
+  InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_MeshEffect_All.png');
+end;
+```
++ 2.12 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_1Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的視電阻率';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_Accept.png');
+end;
+```
++ 2.13 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_2Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的電壓資料';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_V_Accept.png');
+end;
+```
++ 2.14 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_3Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的電流資料';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_I_Accept.png');
+end;
+```
++ 2.15 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_4Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的電阻資料';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_VoverI_Accept.png');
+end; 
+```
++ 2.16 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_5Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的誤差資料';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_Error_Accept.png');
+end;
+```
++ 2.17 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_6Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的幾何因子';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_K_Accept.png');
+end; 
+```
++ 2.18 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_7Click(
+  Sender: TObject);
+begin
+  InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的網格效應';
+  InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_MeshEffect_Accept.png');
+end;
+```
