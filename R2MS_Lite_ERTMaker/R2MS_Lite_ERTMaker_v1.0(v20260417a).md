@@ -145,8 +145,6 @@
       + **1.2.9.3 設定「Center」為「True」。**
       + **1.2.9.4 設定「Proportional」為「True」。**
       + **1.2.9.5 設定「Stretch」為「True」。**
-
-1.4 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「ChannelDisplayStyle_PopupMenu」。
 ## 開發紀錄(寫功能部分)
 ### 版本
 + 2.1選Form，去編輯FormCreate，修改部分:
