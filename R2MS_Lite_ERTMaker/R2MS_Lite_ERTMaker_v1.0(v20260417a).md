@@ -112,6 +112,7 @@
       + **1.2.3.1 設定「Caption」為「所有的觀測資料」。**
       + **1.2.3.2 設定「Style」為「tbsButtonDrop」。**
       + **1.2.3.3 設定「DropdownMenu」為「InversionInputObsDataPreviewLeft_PopupMenu」。**
+      + **1.2.3.4 設定「Enabled」為「False」。**
     + **1.2.4 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewDivider1_ToolButton」**
     + **1.2.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「InversionInputObsDataPreviewRight_PopupMenu」。**
       + **1.2.5.1 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的視電阻率」，「Caption」設為「採用的視電阻率」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_1」。**
@@ -125,6 +126,7 @@
       + **1.2.6.1 設定「Caption」為「採用的觀測資料」。**
       + **1.2.6.2 設定「Style」為「tbsButtonDrop」。**
       + **1.2.6.3 設定「DropdownMenu」為「InversionInputObsDataPreviewRight_PopupMenu」。**
+      + **1.2.6.4 設定「Enabled」為「False」。**
     + **1.2.7 拖拉一個「Standard>TPanel」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionInputObsDataPreview_Panel」。**
       + **1.2.7.1 設定「Anchors」。**  
         + **1.2.7.1.1 「Top anchoring>Slbling」選為「InversionInputObsDataPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
