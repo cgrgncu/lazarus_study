@@ -148,6 +148,7 @@ begin
       try
         InversionInputMeshPreviewFullMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_InputFullMesh.png');
         InversionInputMeshPreviewStudyAreaMeshMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_StudyAreaMesh.png');
+        Inversion_PageControl.ActivePage:=InversionInputMeshPreview_TabSheet;
         InversionModeling_Timer.Enabled:=False;
         StatusBar1.Panels[4].Text:='停止自動更新資訊';
         StatusBar1.Panels[1].Text:='1';
