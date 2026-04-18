@@ -1,7 +1,7 @@
 # R2MS_Lite_ERTMaker 開發筆記
 + 作者: HsiupoYeh  
 + 更新日期: 2026-04-18
-+ 從 **R2MS_Lite_ERTMaker_v1.0(v20260410a).md** 開始，修正錯誤。
++ 從 **R2MS_Lite_ERTMaker_v1.0(v20260417a).md** 開始，新增功能。
 
 ## 開發環境  
 + 使用「Win10_64_CHT_Lazarus4.2_v20250915a.ova」。**匯入為「Win10_Lazarus4.2_R2MS_Lite_ERTMaker_v20251105a.ova」。**
@@ -51,60 +51,88 @@
 ## 開發紀錄(寫UI部分)
 ### 追加設計UI
 + 1. 繼續編輯有關第2個分頁「逆推工具」(Inversion_TabSheet):  
-  + 1.1 第3個分頁「輸入網格預覽」(InversionInputMeshPreview_TabSheet):
-    + **1.1.1 拖拉一個「Standard>TToolBar」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionInputMeshPreview_ToolBar」。**
+  + 1.1 第5個分頁「逆推結果展示」(InversionResultPreview_TabSheet):
+    + **1.1.1 拖拉一個「Standard>TToolBar」到「InversionResultPreview_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionResultPreview_ToolBar」。**
       + **1.1.1.1 設定「BorderSpacing>Top」為「1」。**
       + **1.1.1.2 設定「Edge>Borders>ebBottom」為「True」。**
       + **1.1.1.3 設定「Edge>Borders>ebLeft」為「True」。**
       + **1.1.1.4 設定「Edge>Borders>ebRight」為「True」。**
       + **1.1.1.5 設定「ShowCaptions」為「True」。**
-    + **1.1.2 在「InversionInputMeshPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputMeshPreviewFullMesh_ToolButton」**
-      + **1.1.2.1 設定「Caption」為「全區域網格」。**
-    + **1.1.3 在「InversionInputMeshPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton」**
-      + **1.1.3.1 設定「Caption」為「研究區域網格」。**
-    + **1.1.4 在「InversionInputMeshPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputMeshPreviewBoth_ToolButton」**
-      + **1.1.4.1 設定「Caption」為「同時展示」。**
-      + **1.1.4.2 設定「Down」為「True」。**
-    + **1.1.5 拖拉一個「Standard>TPanel」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionInputMeshPreview_Panel」。**
-      + **1.1.5.1 設定「Anchors」。**  
-        + **1.1.5.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.5.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
-        + **1.1.5.1.3 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
-        + **1.1.5.1.4 設定完後關閉Anchors設定視窗。**  
-      + **1.1.5.2  設定「Caption」為空白。**
-      + **1.1.5.3  設定「Width」為「0」。**
-    + **1.1.6 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewFullMesh_GroupBox」。**
-      + **1.1.6.1 設定「Anchors」。**  
-        + **1.1.6.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.6.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **1.1.6.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-        + **1.1.6.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
-        + **1.1.6.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
-        + **1.1.6.1.6 設定完後關閉Anchors設定視窗。**  
-      + **1.1.6.2  設定「Caption」為「全區域網格預覽:」。**
-    + **1.1.7 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewFullMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewFullMesh_Image」。**
-      + **1.1.7.1 設定「Align」為「alClient」。**
-      + **1.1.7.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.1.7.3 設定「Center」為「True」。**
-      + **1.1.7.4 設定「Proportional」為「True」。**
-      + **1.1.7.5 設定「Stretch」為「True」。**
-    + **1.1.8 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」。**
-      + **1.1.8.1 設定「Anchors」。**  
-        + **1.1.8.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.8.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **1.1.8.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **1.1.8.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
-        + **1.1.8.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
-        + **1.1.8.1.6 設定完後關閉Anchors設定視窗。**  
-      + **1.1.8.2  設定「Caption」為「研究區域網格預覽:」。**
-    + **1.1.9 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_Image」。**
-      + **1.1.9.1 設定「Align」為「alClient」。**
-      + **1.1.9.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.1.9.3 設定「Center」為「True」。**
-      + **1.1.9.4 設定「Proportional」為「True」。**
-      + **1.1.9.5 設定「Stretch」為「True」。**
-    + **1.1.10 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「InversionModeling_Timer」。**
-      + **1.1.10.1 設定「Enabled」為「False」。** 
+    + **1.1.2 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「InversionResultPreviewType_PopupMenu」。**
+      + **1.1.2.1 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「順推用H2模型(有網格線)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_1」。**
+      + **1.1.2.2 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「順推用H2模型(無網格線)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_2」。**
+      + **1.1.2.3 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(有網格線自動色階無覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_3」。**
+      + **1.1.2.4 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(無網格線自動色階無覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_4」。**
+      + **1.1.2.5 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(有網格線手動色階無覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_5」。**
+      + **1.1.2.6 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(無網格線手動色階無覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_6」。**
+      + **1.1.2.7 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(有網格線自動色階有覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_7」。**
+      + **1.1.2.8 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(無網格線自動色階有覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_8」。**
+      + **1.1.2.9 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(有網格線手動色階有覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_9」。**
+      + **1.1.2.10 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「逆推結果(無網格線手動色階有覆蓋度)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_10」。**
+      + **1.1.2.11 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「觀測資料(視電阻率)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_11」。**
+      + **1.1.2.12 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「理論資料(視電阻率)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_12」。**
+      + **1.1.2.13 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「相對資料偏差[(1-(Cal/Obs))*100%]」，「Name」設為「InversionResultPreviewType_PopupMenu_1_13」。**
+      + **1.1.2.14 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「相對資料偏差統計直方圖」，「Name」設為「InversionResultPreviewType_PopupMenu_1_14」。**
+      + **1.1.2.15 點兩下元件，進入編輯模式，建立第一層第一個選單，「Caption」設為「交叉圖(Cross Plot)」，「Name」設為「InversionResultPreviewType_PopupMenu_1_15」。**
+    + **1.1.3 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewType_ToolButton」**
+      + **1.1.3.1 設定「Caption」為「逆推結果(有網格線自動色階無覆蓋度)」。**
+      + **1.1.3.2 設定「DropdownMenu」為「InversionResultPreviewType_PopupMenu」。**
+      + **1.1.3.3 設定「Style」為「tbsButtonDrop」。**
+      + **1.1.3.4 設定「Enabled」為「False」。**
+    + **1.1.4 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewDivider1_ToolButton」**
+    + **1.1.5 在「InversionResultPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewShowImage_ToolButton」**
+      + **1.1.5.1 設定「Caption」為「逆推結果圖片」。**
+    + **1.1.6 在「InversionResultPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewShowGrid_ToolButton」**
+      + **1.1.6.1 設定「Caption」為「逆推資訊表格」。**
+    + **1.1.7 在「InversionResultPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewShowBoth_ToolButton」**
+      + **1.1.7.1 設定「Caption」為「同時展示」。**
+      + **1.1.7.2 設定「Down」為「True」。**
+    + **1.1.8 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewDivider2_ToolButton」**
+    + **1.1.9 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewPrevious_ToolButton」**
+      + **1.1.9.1 設定「Caption」為「前一次」。**
+    + **1.1.10 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewNext_ToolButton」**
+      + **1.1.10.1 設定「Caption」為「後一次」。**
+    + **1.1.11 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewFinal_ToolButton」**
+      + **1.1.11.1 設定「Caption」為「最後次」。**
+    + **1.1.12 拖拉一個「Standard>TPanel」到「InversionResultPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionResultPreview_Panel」。**
+      + **1.1.12.1 設定「Anchors」。**  
+        + **1.1.12.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.12.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
+        + **1.1.12.1.3 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+        + **1.1.12.1.4 設定完後關閉Anchors設定視窗。**  
+      + **1.1.12.2  設定「Caption」為空白。**
+      + **1.1.12.3  設定「Width」為「0」。**
+    + **1.1.13 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewImage_GroupBox」。**
+      + **1.1.13.1 設定「Anchors」。**  
+        + **1.1.13.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.13.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **1.1.13.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+        + **1.1.13.1.4 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
+        + **1.1.13.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
+        + **1.1.13.1.6 設定完後關閉Anchors設定視窗。**  
+      + **1.1.13.2  設定「Caption」為「結果預覽:」。**
+    + **1.1.14 拖拉一個「Additional>TImage」到「InversionResultPreviewImage_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionResultPreviewImage_Image」。**
+      + **1.1.14.1 設定「Align」為「alClient」。**
+      + **1.1.14.2 設定「AntialiasingMode」為「amOn」。**
+      + **1.1.14.3 設定「Center」為「True」。**
+      + **1.1.14.4 設定「Proportional」為「True」。**
+      + **1.1.14.5 設定「Stretch」為「True」。**
+    + **1.1.15 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewGrid_GroupBox」。**
+      + **1.1.15.1 設定「Anchors」。**  
+        + **1.1.15.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.15.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+        + **1.1.15.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.1.15.1.4 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
+        + **1.1.15.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
+        + **1.1.15.1.6 設定完後關閉Anchors設定視窗。**  
+      + **1.1.15.2  設定「Caption」為「資訊表格:」。**
+    + **1.1.16 拖拉一個「Additional>TStringGrid」到「InversionResultPreviewGrid_GroupBox」中。預設名稱會是「StringGrid1」，修改「Name」為「InversionResultPreviewGrid_StringGrid」。**
+      + **1.1.16.1 設定「Align」為「alClient」。**
+      + **1.1.16.2 設定「AutoFillColumns」為「True」。**
+      + **1.1.16.3 設定「FixedCols」為「0」。**
+      + **1.1.16.4 設定「Options>goRowSelect」為「True」。**
+      + **1.1.16.4 設定「RowCount」為「1」。**
+      + **1.1.16.5 設定「ScrollBars」為「ssBoth」。**   
   + 1.2 第4個分頁「觀測資料預覽」(InversionInputObsDataPreview_TabSheet):
     + **1.2.1 拖拉一個「Standard>TToolBar」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionInputObsDataPreview_ToolBar」。**
       + **1.2.1.1 設定「BorderSpacing>Top」為「1」。**
@@ -185,7 +213,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   //--------------------------------------------------------------------------
   // 在這裡對全域變數進行初始化
-  version_str := 'v1.0(v20260417a)';
+  version_str := 'v1.0(v20260418a)';
   Current_Folder_Path := ExtractFilePath(Application.ExeName);
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
