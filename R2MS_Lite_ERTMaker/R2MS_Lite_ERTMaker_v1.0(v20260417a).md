@@ -62,37 +62,49 @@
       + **1.1.2.1 設定「Caption」為「全區域網格」。**
     + **1.1.3 在「InversionInputMeshPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton」**
       + **1.1.3.1 設定「Caption」為「研究區域網格」。**
-      + **1.1.3.2 設定「Down」為「True」。**
-    + **1.1.4 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewFullMesh_GroupBox」。**
-      + **1.1.4.1 設定「Anchors」。**  
-        + **1.1.4.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.4.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **1.1.4.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **1.1.4.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
-        + **1.1.4.1.5 設定完後關閉Anchors設定視窗。**  
-      + **1.1.4.2  設定「Caption」為「全區域網格預覽:」。**
-    + **1.1.5 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewFullMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewFullMesh_Image」。**
-      + **1.1.5.1 設定「Align」為「alClient」。**
-      + **1.1.5.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.1.5.3 設定「Center」為「True」。**
-      + **1.1.5.4 設定「Proportional」為「True」。**
-      + **1.1.5.5 設定「Stretch」為「True」。**
-    + **1.1.6 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」。**
+    + **1.1.4 在「InversionInputMeshPreview_ToolBar」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputMeshPreviewBoth_ToolButton」**
+      + **1.1.4.1 設定「Caption」為「同時展示」。**
+      + **1.1.4.2 設定「Down」為「True」。**
+    + **1.1.5 拖拉一個「Standard>TPanel」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionInputMeshPreview_Panel」。**
+      + **1.1.5.1 設定「Anchors」。**  
+        + **1.1.5.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.5.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
+        + **1.1.5.1.3 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+        + **1.1.5.1.4 設定完後關閉Anchors設定視窗。**  
+      + **1.1.5.2  設定「Caption」為空白。**
+      + **1.1.5.3  設定「Width」為「0」。**
+    + **1.1.6 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewFullMesh_GroupBox」。**
       + **1.1.6.1 設定「Anchors」。**  
         + **1.1.6.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
         + **1.1.6.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **1.1.6.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **1.1.6.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
-        + **1.1.6.1.5 設定完後關閉Anchors設定視窗。**  
-      + **1.1.6.2  設定「Caption」為「研究區域網格預覽:」。**
-    + **1.1.7 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_Image」。**
+        + **1.1.6.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+        + **1.1.6.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
+        + **1.1.6.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
+        + **1.1.6.1.6 設定完後關閉Anchors設定視窗。**  
+      + **1.1.6.2  設定「Caption」為「全區域網格預覽:」。**
+    + **1.1.7 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewFullMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewFullMesh_Image」。**
       + **1.1.7.1 設定「Align」為「alClient」。**
       + **1.1.7.2 設定「AntialiasingMode」為「amOn」。**
       + **1.1.7.3 設定「Center」為「True」。**
       + **1.1.7.4 設定「Proportional」為「True」。**
       + **1.1.7.5 設定「Stretch」為「True」。**
-    + **1.1.8 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「InversionModeling_Timer」。**
-      + **1.1.8.1 設定「Enabled」為「False」。** 
+    + **1.1.8 拖拉一個「Standard>TGroupBox」到「InversionInputMeshPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」。**
+      + **1.1.8.1 設定「Anchors」。**  
+        + **1.1.8.1.1 「Top anchoring>Slbling」選為「InversionInputMeshPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.8.1.2 「Left anchoring>Slbling」選為「InversionInputMeshPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+        + **1.1.8.1.3 「Right anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.1.8.1.4 「Bottom anchoring>Slbling」選為「InversionInputMeshPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
+        + **1.1.8.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
+        + **1.1.8.1.6 設定完後關閉Anchors設定視窗。**  
+      + **1.1.8.2  設定「Caption」為「研究區域網格預覽:」。**
+    + **1.1.9 拖拉一個「Additional>TImage」到「InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputMeshPreviewStudyAreaMeshMesh_Image」。**
+      + **1.1.9.1 設定「Align」為「alClient」。**
+      + **1.1.9.2 設定「AntialiasingMode」為「amOn」。**
+      + **1.1.9.3 設定「Center」為「True」。**
+      + **1.1.9.4 設定「Proportional」為「True」。**
+      + **1.1.9.5 設定「Stretch」為「True」。**
+    + **1.1.10 拖拉一個「System>TTimer」到「Form1」中。預設名稱會是「Timer1」，修改「Name」為「InversionModeling_Timer」。**
+      + **1.1.10.1 設定「Enabled」為「False」。** 
   + 1.2 第4個分頁「觀測資料預覽」(InversionInputObsDataPreview_TabSheet):
     + **1.2.1 拖拉一個「Standard>TToolBar」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionInputObsDataPreview_ToolBar」。**
       + **1.2.1.1 設定「BorderSpacing>Top」為「1」。**
@@ -110,8 +122,8 @@
       + **1.2.2.7 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的網格效應」，「Caption」設為「所有的網格效應」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_7」。**
     + **1.2.3 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewLeft_ToolButton」**
       + **1.2.3.1 設定「Caption」為「所有的觀測資料」。**
-      + **1.2.3.2 設定「Style」為「tbsButtonDrop」。**
-      + **1.2.3.3 設定「DropdownMenu」為「InversionInputObsDataPreviewLeft_PopupMenu」。**
+      + **1.2.3.2 設定「DropdownMenu」為「InversionInputObsDataPreviewLeft_PopupMenu」。**
+      + **1.2.3.3 設定「Style」為「tbsButtonDrop」。**
       + **1.2.3.4 設定「Enabled」為「False」。**
     + **1.2.4 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewDivider1_ToolButton」**
     + **1.2.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「InversionInputObsDataPreviewRight_PopupMenu」。**
@@ -124,8 +136,8 @@
       + **1.2.5.7 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的網格效應」，「Caption」設為「採用的網格效應」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_7」。**
     + **1.2.6 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewRight_ToolButton」**
       + **1.2.6.1 設定「Caption」為「採用的觀測資料」。**
-      + **1.2.6.2 設定「Style」為「tbsButtonDrop」。**
-      + **1.2.6.3 設定「DropdownMenu」為「InversionInputObsDataPreviewRight_PopupMenu」。**
+      + **1.2.6.2 設定「DropdownMenu」為「InversionInputObsDataPreviewRight_PopupMenu」。**
+      + **1.2.6.3 設定「Style」為「tbsButtonDrop」。**
       + **1.2.6.4 設定「Enabled」為「False」。**
     + **1.2.7 拖拉一個「Standard>TPanel」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionInputObsDataPreview_Panel」。**
       + **1.2.7.1 設定「Anchors」。**  
@@ -190,9 +202,12 @@ procedure TForm1.InversionInputMeshPreviewFullMesh_ToolButtonClick(
 begin
   InversionInputMeshPreviewFullMesh_ToolButton.Down:=True;
   InversionInputMeshPreviewFullMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Control := InversionInputMeshPreview_TabSheet;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Side := asrRight;
   InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=False;
   InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=False;
-end;     
+  InversionInputMeshPreviewBoth_ToolButton.Down:=False;
+end;    
 ```
 + 2.3 去修改「InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
@@ -203,9 +218,27 @@ begin
   InversionInputMeshPreviewFullMesh_GroupBox.Visible:=False;
   InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=True;
   InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Control := InversionInputMeshPreview_TabSheet;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Side := asrLeft;
+  InversionInputMeshPreviewBoth_ToolButton.Down:=False;
+end;     
+```
++ 2.4 去修改「InversionInputMeshPreviewBoth_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionInputMeshPreviewBoth_ToolButtonClick(Sender: TObject);
+begin
+  InversionInputMeshPreviewFullMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewFullMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Control := InversionInputMeshPreview_Panel;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Side := asrLeft;
+  InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Control := InversionInputMeshPreview_Panel;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Side := asrRight;
+  InversionInputMeshPreviewBoth_ToolButton.Down:=True;
 end;    
 ```
-+ 2.4 去修改「InversionModeling_Timer」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.5 去修改「InversionModeling_Timer」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionModeling_TimerTimer(Sender: TObject);
 var
@@ -253,7 +286,7 @@ begin
   end;
 end; 
 ```
-+ 2.5 去修改「InversionModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.6 去修改「InversionModelingRun_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionModelingRun_ToolButtonClick(Sender: TObject);
 var
@@ -835,7 +868,7 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-+ 2.5 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.7 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_1Click(
   Sender: TObject);
@@ -844,7 +877,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_All.png');
 end;
 ```
-+ 2.6 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.8 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_2Click(
   Sender: TObject);
@@ -853,7 +886,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_V_All.png');
 end;
 ```
-+ 2.7 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.9 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_3Click(
   Sender: TObject);
@@ -862,7 +895,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_I_All.png');
 end; 
 ```
-+ 2.8 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.10 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_4Click(
   Sender: TObject);
@@ -871,7 +904,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_VoverI_All.png');
 end;  
 ```
-+ 2.9 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.11 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_5Click(
   Sender: TObject);
@@ -880,7 +913,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_Error_All.png');
 end;
 ```
-+ 2.10 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.12 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_6Click(
   Sender: TObject);
@@ -889,7 +922,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_K_All.png');
 end; 
 ```
-+ 2.11 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.13 去修改「InversionInputObsDataPreviewLeft_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewLeft_PopupMenu_1_7Click(
   Sender: TObject);
@@ -898,7 +931,7 @@ begin
   InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_MeshEffect_All.png');
 end;
 ```
-+ 2.12 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.14 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_1Click(
   Sender: TObject);
@@ -907,7 +940,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_Accept.png');
 end;
 ```
-+ 2.13 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.15 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_2Click(
   Sender: TObject);
@@ -916,7 +949,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_V_Accept.png');
 end;
 ```
-+ 2.14 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.16 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_3Click(
   Sender: TObject);
@@ -925,7 +958,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_I_Accept.png');
 end;
 ```
-+ 2.15 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.17 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_4Click(
   Sender: TObject);
@@ -934,7 +967,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_VoverI_Accept.png');
 end; 
 ```
-+ 2.16 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.18 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_5」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_5Click(
   Sender: TObject);
@@ -943,7 +976,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_Error_Accept.png');
 end;
 ```
-+ 2.17 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.19 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_6」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_6Click(
   Sender: TObject);
@@ -952,7 +985,7 @@ begin
   InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_K_Accept.png');
 end; 
 ```
-+ 2.18 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.20 去修改「InversionInputObsDataPreviewRight_PopupMenu_1_7」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
 procedure TForm1.InversionInputObsDataPreviewRight_PopupMenu_1_7Click(
   Sender: TObject);
