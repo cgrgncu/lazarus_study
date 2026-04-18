@@ -133,78 +133,7 @@
       + **1.1.16.4 設定「Options>goRowSelect」為「True」。**
       + **1.1.16.4 設定「RowCount」為「1」。**
       + **1.1.16.5 設定「ScrollBars」為「ssBoth」。**   
-  + 1.2 第4個分頁「觀測資料預覽」(InversionInputObsDataPreview_TabSheet):
-    + **1.2.1 拖拉一個「Standard>TToolBar」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「ToolBar1」，修改「Name」為「InversionInputObsDataPreview_ToolBar」。**
-      + **1.2.1.1 設定「BorderSpacing>Top」為「1」。**
-      + **1.2.1.2 設定「Edge>Borders>ebBottom」為「True」。**
-      + **1.2.1.3 設定「Edge>Borders>ebLeft」為「True」。**
-      + **1.2.1.4 設定「Edge>Borders>ebRight」為「True」。**
-      + **1.2.1.5 設定「ShowCaptions」為「True」。**
-    + **1.2.2 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「InversionInputObsDataPreviewLeft_PopupMenu」。**
-      + **1.2.2.1 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的視電阻率」，「Caption」設為「所有的視電阻率」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_1」。**
-      + **1.2.2.2 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的電壓資料」，「Caption」設為「所有的電壓資料」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_2」。**
-      + **1.2.2.3 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的電流資料」，「Caption」設為「所有的電流資料」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_3」。**
-      + **1.2.2.4 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的電阻資料」，「Caption」設為「所有的電阻資料」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_4」。**
-      + **1.2.2.5 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的誤差資料」，「Caption」設為「所有的誤差資料」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_5」。**
-      + **1.2.2.6 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的幾何因子」，「Caption」設為「所有的幾何因子」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_6」。**
-      + **1.2.2.7 點兩下元件，進入編輯模式，建立第一層第一個選單「所有的網格效應」，「Caption」設為「所有的網格效應」，「Name」設為「InversionInputObsDataPreviewLeft_PopupMenu_1_7」。**
-    + **1.2.3 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewLeft_ToolButton」**
-      + **1.2.3.1 設定「Caption」為「所有的觀測資料」。**
-      + **1.2.3.2 設定「DropdownMenu」為「InversionInputObsDataPreviewLeft_PopupMenu」。**
-      + **1.2.3.3 設定「Style」為「tbsButtonDrop」。**
-      + **1.2.3.4 設定「Enabled」為「False」。**
-    + **1.2.4 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewDivider1_ToolButton」**
-    + **1.2.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「InversionInputObsDataPreviewRight_PopupMenu」。**
-      + **1.2.5.1 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的視電阻率」，「Caption」設為「採用的視電阻率」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_1」。**
-      + **1.2.5.2 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的電壓資料」，「Caption」設為「採用的電壓資料」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_2」。**
-      + **1.2.5.3 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的電流資料」，「Caption」設為「採用的電流資料」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_3」。**
-      + **1.2.5.4 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的電阻資料」，「Caption」設為「採用的電阻資料」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_4」。**
-      + **1.2.5.5 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的誤差資料」，「Caption」設為「採用的誤差資料」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_5」。**
-      + **1.2.5.6 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的幾何因子」，「Caption」設為「採用的幾何因子」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_6」。**
-      + **1.2.5.7 點兩下元件，進入編輯模式，建立第一層第一個選單「採用的網格效應」，「Caption」設為「採用的網格效應」，「Name」設為「InversionInputObsDataPreviewRight_PopupMenu_1_7」。**
-    + **1.2.6 在「InversionInputObsDataPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionInputObsDataPreviewRight_ToolButton」**
-      + **1.2.6.1 設定「Caption」為「採用的觀測資料」。**
-      + **1.2.6.2 設定「DropdownMenu」為「InversionInputObsDataPreviewRight_PopupMenu」。**
-      + **1.2.6.3 設定「Style」為「tbsButtonDrop」。**
-      + **1.2.6.4 設定「Enabled」為「False」。**
-    + **1.2.7 拖拉一個「Standard>TPanel」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionInputObsDataPreview_Panel」。**
-      + **1.2.7.1 設定「Anchors」。**  
-        + **1.2.7.1.1 「Top anchoring>Slbling」選為「InversionInputObsDataPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.2.7.1.2 「Left anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
-        + **1.2.7.1.3 「Bottom anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
-        + **1.2.7.1.4 設定完後關閉Anchors設定視窗。**  
-      + **1.2.7.2  設定「Caption」為空白。**
-      + **1.2.7.3  設定「Width」為「0」。**
-    + **1.2.8 拖拉一個「Standard>TGroupBox」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputObsDataPreviewLeft_GroupBox」。**
-      + **1.2.8.1 設定「Anchors」。**  
-        + **1.2.8.1.1 「Top anchoring>Slbling」選為「InversionInputObsDataPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.2.8.1.2 「Left anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **1.2.8.1.3 「Right anchoring>Slbling」選為「InversionInputObsDataPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-        + **1.2.8.1.4 「Bottom anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
-        + **1.2.8.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**  
-        + **1.2.8.1.6 設定完後關閉Anchors設定視窗。**  
-      + **1.2.8.2  設定「Caption」為「所有的觀測資料:」。**
-    + **1.2.9 拖拉一個「Additional>TImage」到「InversionInputObsDataPreviewLeft_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputObsDataPreviewLeft_Image」。**
-      + **1.2.9.1 設定「Align」為「alClient」。**
-      + **1.2.9.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.2.9.3 設定「Center」為「True」。**
-      + **1.2.9.4 設定「Proportional」為「True」。**
-      + **1.2.9.5 設定「Stretch」為「True」。**
-    + **1.2.10 拖拉一個「Standard>TGroupBox」到「InversionInputObsDataPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionInputObsDataPreviewRight_GroupBox」。**
-      + **1.2.10.1 設定「Anchors」。**  
-        + **1.2.10.1.1 「Top anchoring>Slbling」選為「InversionInputObsDataPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.2.10.1.2 「Left anchoring>Slbling」選為「InversionInputObsDataPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **1.2.10.1.3 「Right anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
-        + **1.2.10.1.4 「Bottom anchoring>Slbling」選為「InversionInputObsDataPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
-        + **1.2.10.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**  
-        + **1.2.10.1.6 設定完後關閉Anchors設定視窗。**
-      + **1.2.10.2  設定「Caption」為「採用的觀測資料:」。**
-    + **1.2.11 拖拉一個「Additional>TImage」到「InversionInputObsDataPreviewRight_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionInputObsDataPreviewRight_Image」。**
-      + **1.2.11.1 設定「Align」為「alClient」。**
-      + **1.2.11.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.2.11.3 設定「Center」為「True」。**
-      + **1.2.11.4 設定「Proportional」為「True」。**
-      + **1.2.11.5 設定「Stretch」為「True」。**
+
 ## 開發紀錄(寫功能部分)
 ### 版本
 + 2.1選Form，去編輯FormCreate，修改部分:
