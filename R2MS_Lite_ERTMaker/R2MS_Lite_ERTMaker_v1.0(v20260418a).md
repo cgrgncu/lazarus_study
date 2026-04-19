@@ -1448,26 +1448,6 @@ begin
     begin
       InversionResultPreviewType_PopupMenu_1_8.Click;
     end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_4.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_5.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_6.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_7.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_8.Click;
-    end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
     begin
       InversionResultPreviewType_PopupMenu_1_9.Click;
@@ -1497,7 +1477,7 @@ begin
       InversionResultPreviewType_PopupMenu_1_15.Click;
     end;
   end;
-end; 
+end;  
 ```
 + 2.23 去修改「InversionResultPreviewNext_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
@@ -1545,26 +1525,6 @@ begin
     begin
       InversionResultPreviewType_PopupMenu_1_8.Click;
     end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_4.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_5.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_6.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_7.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_8.Click;
-    end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
     begin
       InversionResultPreviewType_PopupMenu_1_9.Click;
@@ -1594,7 +1554,7 @@ begin
       InversionResultPreviewType_PopupMenu_1_15.Click;
     end;
   end;
-end;   
+end;  
 ```
 + 2.24 去修改「InversionResultPreviewFinal_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
@@ -1621,26 +1581,6 @@ begin
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_3.Caption then
     begin
       InversionResultPreviewType_PopupMenu_1_3.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_4.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_5.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_6.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_7.Click;
-    end
-    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
-    begin
-      InversionResultPreviewType_PopupMenu_1_8.Click;
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
     begin
