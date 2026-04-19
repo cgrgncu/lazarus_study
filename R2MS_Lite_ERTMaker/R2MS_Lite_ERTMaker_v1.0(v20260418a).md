@@ -1572,63 +1572,63 @@ begin
     InversionResultPreviewRLI_ToolButton.Caption:=temp_str;
     if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_1.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_1.Click;
+      InversionResultPreviewType_PopupMenu_1_1Click(InversionResultPreviewType_PopupMenu_1_1);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_2.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_2.Click;
+      InversionResultPreviewType_PopupMenu_1_2Click(InversionResultPreviewType_PopupMenu_1_2);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_3.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_3.Click;
+      InversionResultPreviewType_PopupMenu_1_3Click(InversionResultPreviewType_PopupMenu_1_3);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_4.Click;
+      InversionResultPreviewType_PopupMenu_1_4Click(InversionResultPreviewType_PopupMenu_1_4);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_5.Click;
+      InversionResultPreviewType_PopupMenu_1_5Click(InversionResultPreviewType_PopupMenu_1_5);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_6.Click;
+      InversionResultPreviewType_PopupMenu_1_6Click(InversionResultPreviewType_PopupMenu_1_6);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_7.Click;
+      InversionResultPreviewType_PopupMenu_1_7Click(InversionResultPreviewType_PopupMenu_1_7);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_8.Click;
+      InversionResultPreviewType_PopupMenu_1_8Click(InversionResultPreviewType_PopupMenu_1_8);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_9.Click;
+      InversionResultPreviewType_PopupMenu_1_9Click(InversionResultPreviewType_PopupMenu_1_9);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_10.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_10.Click;
+      InversionResultPreviewType_PopupMenu_1_10Click(InversionResultPreviewType_PopupMenu_1_10);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_11.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_11.Click;
+      InversionResultPreviewType_PopupMenu_1_11Click(InversionResultPreviewType_PopupMenu_1_11);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_12.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_12.Click;
+      InversionResultPreviewType_PopupMenu_1_12Click(InversionResultPreviewType_PopupMenu_1_12);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_13.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_13.Click;
+      InversionResultPreviewType_PopupMenu_1_13Click(InversionResultPreviewType_PopupMenu_1_13);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_14.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_14.Click;
+      InversionResultPreviewType_PopupMenu_1_14Click(InversionResultPreviewType_PopupMenu_1_14);
     end
     else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_15.Caption then
     begin
-      InversionResultPreviewType_PopupMenu_1_15.Click;
+      InversionResultPreviewType_PopupMenu_1_15Click(InversionResultPreviewType_PopupMenu_1_15);
     end;
   end;
 end;  
