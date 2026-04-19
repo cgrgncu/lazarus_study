@@ -1247,14 +1247,159 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.17 去修改「InversionResultPreviewType_PopupMenu_1_11」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_11Click(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_DataObs.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='觀測資料(視電阻率)';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end;
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.18 去修改「InversionResultPreviewType_PopupMenu_1_12」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_12Click(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_DataCal.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='理論資料(視電阻率)';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end;
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.19 去修改「InversionResultPreviewType_PopupMenu_1_13」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_13Click(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_DataRMisfit.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='相對資料偏差[(1-(Cal/Obs))*100%]';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
++ 2.20 去修改「InversionResultPreviewType_PopupMenu_1_14」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_14Click(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_Misfit.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='相對資料偏差統計直方圖';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end; 
+```
++ 2.21 去修改「InversionResultPreviewType_PopupMenu_1_15」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_15Click(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_CrossPlot.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='交叉圖(Cross Plot)';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //-
 ```
 + 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
