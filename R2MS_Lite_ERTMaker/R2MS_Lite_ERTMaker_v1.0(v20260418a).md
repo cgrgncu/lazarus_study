@@ -769,7 +769,7 @@ begin
     InversionInputObsDataPreviewLeft_ToolButton.Caption:='所有的觀測資料';
     InversionInputObsDataPreviewRight_ToolButton.Enabled:=False;
     InversionInputObsDataPreviewRight_ToolButton.Caption:='採用的觀測資料';
-    InversionInputMeshPreviewBoth_ToolButton.Click;
+    InversionInputMeshPreviewBoth_ToolButtonClick(InversionInputMeshPreviewBoth_ToolButton);
     InversionResultPreviewType_ToolButton.Enabled:=False;
     InversionResultPreviewType_ToolButton.Caption:='逆推結果(有網格線自動色階無覆蓋度)';
     InversionResultPreviewPrevious_ToolButton.Enabled:=False;
@@ -785,7 +785,7 @@ begin
     RegexObj.Free; // 釋放 TRegExpr 物件
   end;
   //--------------------------------------------------------------------------
-end;
+end; 
 ```
 + 2.6 去修改「InversionModeling_Timer」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
