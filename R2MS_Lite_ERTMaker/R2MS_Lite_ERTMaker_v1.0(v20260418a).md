@@ -907,7 +907,7 @@ begin
               if InversionResultPreviewRLI_ToolButton.Caption = 'R00_L01_I00' then
               begin
                  Inversion_PageControl.ActivePage:=InversionResultPreview_TabSheet;
-                 InversionResultPreviewShowImage_ToolButton.Click;
+                 InversionResultPreviewShowImage_ToolButtonClick(InversionResultPreviewShowImage_ToolButton);
               end;
               // 畫圖
               try
@@ -944,7 +944,7 @@ begin
     end;
     //--------------------------------------------------------------------------
   end;
-end;
+end; 
 ```
 + 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
