@@ -1006,11 +1006,65 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.9 去修改「InversionResultPreviewType_PopupMenu_1_3」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_3Click(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_INV.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='逆推結果(有網格線自動色階無覆蓋度)';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end; 
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.10 去修改「InversionResultPreviewType_PopupMenu_1_4」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewType_PopupMenu_1_4Click(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  temp_str:=('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_INV1.png');
+  //--------------------------------------------------------------------------
+  // 載入圖片
+  if FileExists(temp_str) then
+  begin
+    InversionResultPreviewType_ToolButton.Caption:='逆推結果(無網格線自動色階無覆蓋度)';
+    try
+      InversionResultPreviewImage_Image.Picture.LoadFromFile(temp_str);
+      // 將目前的選中列設為指定行
+      InversionResultPreviewGrid_StringGrid.Row := StrToInt(StatusBar1.Panels[3].Text);
+      // 確保滾輪也捲動到那裡
+      InversionResultPreviewGrid_StringGrid.TopRow := StrToInt(StatusBar1.Panels[3].Text);
+      Exit;
+    except
+      StatusBar1.Panels[0].Text:='載入圖片失敗!';
+    end;
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text:='找不到圖片!';
+  end;
+  //--------------------------------------------------------------------------
+end;
 ```
 + 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
