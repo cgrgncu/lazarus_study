@@ -1401,6 +1401,295 @@ begin
   end;
   //-
 ```
-+ 2.7 去修改「InversionResultPreviewType_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。
++ 2.22 去修改「InversionResultPreviewPrevious_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```pascal
+procedure TForm1.InversionResultPreviewPrevious_ToolButtonClick(Sender: TObject
+  );
+var
+  temp_str: AnsiString;
+begin
+  if StrToInt(StatusBar1.Panels[3].Text) > 1 then
+  begin
+    StatusBar1.Panels[3].Text:= IntToStr(StrToInt(StatusBar1.Panels[3].Text)-1);
+    // 準備繪圖用的圖檔部分名稱
+    temp_str := 'R' + InversionResultPreviewGrid_StringGrid.Cells[3, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_L' + InversionResultPreviewGrid_StringGrid.Cells[28, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_I' + InversionResultPreviewGrid_StringGrid.Cells[5, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    InversionResultPreviewRLI_ToolButton.Caption:=temp_str;
+    if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_1.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_1.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_2.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_2.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_3.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_3.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_9.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_10.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_10.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_11.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_11.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_12.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_12.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_13.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_13.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_14.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_14.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_15.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_15.Click;
+    end;
+  end;
+end; 
+```
++ 2.23 去修改「InversionResultPreviewNext_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionResultPreviewNext_ToolButtonClick(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  if StrToInt(StatusBar1.Panels[3].Text) < (StrToInt(StatusBar1.Panels[2].Text)-1) then
+  begin
+    StatusBar1.Panels[3].Text:= IntToStr(StrToInt(StatusBar1.Panels[3].Text)+1);
+    // 準備繪圖用的圖檔部分名稱
+    temp_str := 'R' + InversionResultPreviewGrid_StringGrid.Cells[3, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_L' + InversionResultPreviewGrid_StringGrid.Cells[28, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_I' + InversionResultPreviewGrid_StringGrid.Cells[5, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    InversionResultPreviewRLI_ToolButton.Caption:=temp_str;
+    if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_1.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_1.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_2.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_2.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_3.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_3.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_9.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_10.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_10.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_11.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_11.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_12.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_12.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_13.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_13.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_14.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_14.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_15.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_15.Click;
+    end;
+  end;
+end;   
+```
++ 2.24 去修改「InversionResultPreviewFinal_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
+```pascal
+procedure TForm1.InversionResultPreviewFinal_ToolButtonClick(Sender: TObject);
+var
+  temp_str: AnsiString;
+begin
+  if StrToInt(StatusBar1.Panels[3].Text) < (StrToInt(StatusBar1.Panels[2].Text)-1) then
+  begin
+    StatusBar1.Panels[3].Text:= IntToStr(StrToInt(StatusBar1.Panels[2].Text)-1);
+    // 準備繪圖用的圖檔部分名稱
+    temp_str := 'R' + InversionResultPreviewGrid_StringGrid.Cells[3, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_L' + InversionResultPreviewGrid_StringGrid.Cells[28, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    temp_str := temp_str + '_I' + InversionResultPreviewGrid_StringGrid.Cells[5, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+    InversionResultPreviewRLI_ToolButton.Caption:=temp_str;
+    if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_1.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_1.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_2.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_2.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_3.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_3.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_4.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_4.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_5.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_5.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_6.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_6.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_7.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_7.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_8.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_8.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_9.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_9.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_10.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_10.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_11.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_11.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_12.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_12.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_13.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_13.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_14.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_14.Click;
+    end
+    else if InversionResultPreviewType_ToolButton.Caption = InversionResultPreviewType_PopupMenu_1_15.Caption then
+    begin
+      InversionResultPreviewType_PopupMenu_1_15.Click;
+    end;
+  end;
+end;  
 ```
