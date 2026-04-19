@@ -94,45 +94,48 @@
       + **1.1.10.1 設定「Caption」為「後一次」。**
     + **1.1.11 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewFinal_ToolButton」**
       + **1.1.11.1 設定「Caption」為「最後次」。**
-    + **1.1.12 拖拉一個「Standard>TPanel」到「InversionResultPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionResultPreview_Panel」。**
-      + **1.1.12.1 設定「Anchors」。**  
-        + **1.1.12.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.12.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
-        + **1.1.12.1.3 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
-        + **1.1.12.1.4 設定完後關閉Anchors設定視窗。**  
-      + **1.1.12.2  設定「Caption」為空白。**
-      + **1.1.12.3  設定「Width」為「0」。**
-    + **1.1.13 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewImage_GroupBox」。**
-      + **1.1.13.1 設定「Anchors」。**  
-        + **1.1.13.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.13.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
-        + **1.1.13.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
-        + **1.1.13.1.4 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
-        + **1.1.13.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
-        + **1.1.13.1.6 設定完後關閉Anchors設定視窗。**  
-      + **1.1.13.2  設定「Caption」為「結果預覽:」。**
-    + **1.1.14 拖拉一個「Additional>TImage」到「InversionResultPreviewImage_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionResultPreviewImage_Image」。**
-      + **1.1.14.1 設定「Align」為「alClient」。**
-      + **1.1.14.2 設定「AntialiasingMode」為「amOn」。**
-      + **1.1.14.3 設定「Center」為「True」。**
-      + **1.1.14.4 設定「Proportional」為「True」。**
-      + **1.1.14.5 設定「Stretch」為「True」。**
-    + **1.1.15 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewGrid_GroupBox」。**
+    + **1.1.12 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Divider」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewDivider3_ToolButton」**
+    + **1.1.13 在「InversionResultPreview_ToolBar」元件上按「右鍵>New Button」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「InversionResultPreviewRLI_ToolButton」**
+      + **1.1.13.1 設定「Caption」為空白。**
+    + **1.1.14 拖拉一個「Standard>TPanel」到「InversionResultPreview_TabSheet」中。預設名稱會是「Panel1」，修改「Name」為「InversionResultPreview_Panel」。**
+      + **1.1.14.1 設定「Anchors」。**  
+        + **1.1.14.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.14.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選中邊的。**  
+        + **1.1.14.1.3 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。** 
+        + **1.1.14.1.4 設定完後關閉Anchors設定視窗。**  
+      + **1.1.14.2  設定「Caption」為空白。**
+      + **1.1.14.3  設定「Width」為「0」。**
+    + **1.1.15 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewImage_GroupBox」。**
       + **1.1.15.1 設定「Anchors」。**  
         + **1.1.15.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
-        + **1.1.15.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **1.1.15.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.1.15.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **1.1.15.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
         + **1.1.15.1.4 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
         + **1.1.15.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
         + **1.1.15.1.6 設定完後關閉Anchors設定視窗。**  
-      + **1.1.15.2  設定「Caption」為「資訊表格:」。**
-    + **1.1.16 拖拉一個「Additional>TStringGrid」到「InversionResultPreviewGrid_GroupBox」中。預設名稱會是「StringGrid1」，修改「Name」為「InversionResultPreviewGrid_StringGrid」。**
+      + **1.1.15.2  設定「Caption」為「結果預覽:」。**
+    + **1.1.16 拖拉一個「Additional>TImage」到「InversionResultPreviewImage_GroupBox」中。預設名稱會是「Image1」，修改「Name」為「InversionResultPreviewImage_Image」。**
       + **1.1.16.1 設定「Align」為「alClient」。**
-      + **1.1.16.2 設定「AutoFillColumns」為「True」。**
-      + **1.1.16.3 設定「FixedCols」為「0」。**
-      + **1.1.16.4 設定「Options>goRowSelect」為「True」。**
-      + **1.1.16.4 設定「RowCount」為「1」。**
-      + **1.1.16.5 設定「ScrollBars」為「ssBoth」。**   
+      + **1.1.16.2 設定「AntialiasingMode」為「amOn」。**
+      + **1.1.16.3 設定「Center」為「True」。**
+      + **1.1.16.4 設定「Proportional」為「True」。**
+      + **1.1.16.5 設定「Stretch」為「True」。**
+    + **1.1.17 拖拉一個「Standard>TGroupBox」到「InversionResultPreview_TabSheet」中。預設名稱會是「GroupBox1」，修改「Name」為「InversionResultPreviewGrid_GroupBox」。**
+      + **1.1.17.1 設定「Anchors」。**  
+        + **1.1.17.1.1 「Top anchoring>Slbling」選為「InversionResultPreview_ToolBar:TToolBar」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。** 
+        + **1.1.17.1.2 「Left anchoring>Slbling」選為「InversionResultPreview_Panel:TPanel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+        + **1.1.17.1.3 「Right anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **1.1.17.1.4 「Bottom anchoring>Slbling」選為「InversionResultPreview_TabSheet:TTabSheet」。勾選「Bottom anchoring>Enable」為打勾。選擇「Bottom anchoring」右側三個鈕選下面的。**
+        + **1.1.17.1.5 「Border space」正中間那格填「0」，左邊那格填「0」，右邊那格填「3」。**
+        + **1.1.17.1.6 設定完後關閉Anchors設定視窗。**  
+      + **1.1.17.2  設定「Caption」為「資訊表格:」。**
+    + **1.1.18 拖拉一個「Additional>TStringGrid」到「InversionResultPreviewGrid_GroupBox」中。預設名稱會是「StringGrid1」，修改「Name」為「InversionResultPreviewGrid_StringGrid」。**
+      + **1.1.18.1 設定「Align」為「alClient」。**
+      + **1.1.18.2 設定「AutoFillColumns」為「True」。**
+      + **1.1.18.3 設定「FixedCols」為「0」。**
+      + **1.1.18.4 設定「Options>goRowSelect」為「True」。**
+      + **1.1.18.4 設定「RowCount」為「1」。**
+      + **1.1.18.5 設定「ScrollBars」為「ssBoth」。**   
 
 ## 開發紀錄(寫功能部分)
 ### 版本
