@@ -1809,3 +1809,4 @@ begin
   end;
 end;
 ```
++ 2.26 去修改「Form1」的「Properties」頁面下「KeyPreview」為「True」。
