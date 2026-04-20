@@ -721,3 +721,211 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
++ 2.6 去修改「InversionModeling_Timer」的「Event」頁面下「OnTimer」為如下程式碼。
+```pascal
+procedure TForm1.InversionModeling_TimerTimer(Sender: TObject);
+var
+  temp_FileStream: TFileStream;
+  temp_i: Integer;
+  temp_str: AnsiString;
+begin
+  if StrToInt(StatusBar1.Panels[1].Text) = 1 then
+  begin
+    //--------------------------------------------------------------------------
+    // 載入圖片
+    if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_StudyAreaMesh.png') then
+    begin
+      try
+        InversionInputMeshPreviewFullMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_InputFullMesh.png');
+        InversionInputMeshPreviewStudyAreaMeshMesh_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_01_StudyAreaMesh.png');
+        Inversion_PageControl.ActivePage:=InversionInputMeshPreview_TabSheet;
+        StatusBar1.Panels[1].Text:='2';
+        Exit;
+      except
+        on E: Exception do
+        begin
+          RunningLog_Memo.Lines.Add('載入圖片失敗！錯誤原因：' + E.Message);
+        end;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+  end;
+  if StrToInt(StatusBar1.Panels[1].Text) = 2 then
+  begin
+    //--------------------------------------------------------------------------
+    // 載入圖片
+    if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_02_Histogram_AppRes_Accept.png') then
+    begin
+      try
+        InversionInputObsDataPreviewLeft_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_All.png');
+        InversionInputObsDataPreviewRight_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_Distribution_AppRes_Accept.png');
+        Inversion_PageControl.ActivePage:=InversionInputObsDataPreview_TabSheet;
+        InversionInputObsDataPreviewLeft_ToolButton.Enabled:=True;
+        InversionInputObsDataPreviewRight_ToolButton.Enabled:=True;
+        StatusBar1.Panels[1].Text:='3';
+        Exit;
+      except
+        on E: Exception do
+        begin
+          RunningLog_Memo.Lines.Add('載入圖片失敗！錯誤原因：' + E.Message);
+        end;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+  end;
+  if StrToInt(StatusBar1.Panels[1].Text) = 3 then
+  begin
+    //--------------------------------------------------------------------------
+    // 初次載入csv，紀錄行數
+    if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_03_Inversion_Log.csv') then
+    begin
+      try
+        temp_FileStream := TFileStream.Create(('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_03_Inversion_Log.csv'), fmOpenRead or fmShareDenyNone);
+        try
+          //Inversion_PageControl.ActivePage:=InversionResultPreview_TabSheet;
+          InversionResultPreviewRLI_ToolButton.Caption:='';
+          InversionResultPreviewGrid_StringGrid.AutoFillColumns:=False;
+          InversionResultPreviewGrid_StringGrid.LoadFromCSVStream(temp_FileStream, ',', True);
+          // 逐行調整尺寸，避免用戶覺得卡住。
+          for temp_i := InversionResultPreviewGrid_StringGrid.FixedCols to InversionResultPreviewGrid_StringGrid.ColCount - 1 do
+          begin
+            InversionResultPreviewGrid_StringGrid.AutoSizeColumn(temp_i);
+            Application.ProcessMessages;
+          end;
+        finally
+          temp_FileStream.Free;
+        end;
+        StatusBar1.Panels[1].Text:='4';
+        StatusBar1.Panels[2].Text:=IntToStr(InversionResultPreviewGrid_StringGrid.RowCount);
+        Exit;
+      except
+        on E: Exception do
+        begin
+          RunningLog_Memo.Lines.Add('載入Log.csv失敗!錯誤原因：' + E.Message);
+        end;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+  end;
+  if StrToInt(StatusBar1.Panels[1].Text) = 4 then
+  begin
+    //--------------------------------------------------------------------------
+    // 重複載入csv，行數變化才做事
+    if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_03_Inversion_Log.csv') then
+    begin
+      try
+        temp_FileStream := TFileStream.Create(('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_03_Inversion_Log.csv'), fmOpenRead or fmShareDenyNone);
+        try
+          InversionResultPreviewGrid_StringGrid.AutoFillColumns:=False;
+          InversionResultPreviewGrid_StringGrid.LoadFromCSVStream(temp_FileStream, ',', True);
+          // 逐行調整尺寸，避免用戶覺得卡住。
+          for temp_i := InversionResultPreviewGrid_StringGrid.FixedCols to InversionResultPreviewGrid_StringGrid.ColCount - 1 do
+          begin
+            InversionResultPreviewGrid_StringGrid.AutoSizeColumn(temp_i);
+            Application.ProcessMessages;
+          end;
+        finally
+          temp_FileStream.Free;
+        end;
+        //--
+        if StatusBar1.Panels[2].Text=IntToStr(InversionResultPreviewGrid_StringGrid.RowCount) then
+        begin
+          if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_04_Convergence_Curve.png') then
+          begin
+            // 畫圖
+            try
+              InversionAdvancedAnalysisInfoImage_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_04_Convergence_Curve.png');
+            except
+              on E: Exception do
+              begin
+                RunningLog_Memo.Lines.Add('載入圖片失敗！錯誤原因：' + E.Message);
+              end;
+            end;
+            StatusBar1.Panels[1].Text:='5';
+            InversionModeling_Timer.Enabled:=False;
+            StatusBar1.Panels[4].Text:='停止自動更新資訊';
+            InversionResultPreviewType_ToolButton.Enabled:=True;
+            InversionResultPreviewPrevious_ToolButton.Enabled:=True;
+            InversionResultPreviewNext_ToolButton.Enabled:=True;
+            InversionResultPreviewFinal_ToolButton.Enabled:=True;
+            InversionAdvancedAnalysisInfoType_ToolButton.Enabled:=True;
+          end;
+          if InversionResultPreviewRLI_ToolButton.Enabled=False then
+          begin
+            //--------------------------------------------------------------------------
+            // 載入圖片
+            if FileExists('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_INV.png') then
+            begin
+              // 第一次畫圖就跳轉頁面
+              if InversionResultPreviewRLI_ToolButton.Caption = 'R00_L01_I00' then
+              begin
+                 Inversion_PageControl.ActivePage:=InversionResultPreview_TabSheet;
+                 InversionResultPreviewShowImage_ToolButtonClick(InversionResultPreviewShowImage_ToolButton);
+              end;
+              // 畫圖
+              try
+                InversionResultPreviewImage_Image.Picture.LoadFromFile('Output_ERTMaker_Inversion2D/'+InversionModelingOutputSettings_MainName_Edit.Text+'_'+InversionResultPreviewRLI_ToolButton.Caption+'_INV.png');
+                InversionResultPreviewRLI_ToolButton.Enabled:=True;
+                Exit;
+              except
+                on E: Exception do
+                begin
+                  RunningLog_Memo.Lines.Add('載入圖片失敗！錯誤原因：' + E.Message);
+                end;
+              end;
+            end;
+            //--------------------------------------------------------------------------
+          end;
+        end
+        else
+        begin
+          StatusBar1.Panels[2].Text:=IntToStr(InversionResultPreviewGrid_StringGrid.RowCount);
+          // 將目前的選中列設為最後一行 (索引是總列數 - 1)
+          InversionResultPreviewGrid_StringGrid.Row := InversionResultPreviewGrid_StringGrid.RowCount - 1;
+          // 確保滾輪也捲動到那裡，讓最後一行出現在畫面上
+          InversionResultPreviewGrid_StringGrid.TopRow := InversionResultPreviewGrid_StringGrid.RowCount - 1;
+          // 標註繪圖要用哪個Row。
+          StatusBar1.Panels[3].Text:=IntToStr(InversionResultPreviewGrid_StringGrid.Row);
+          // 準備繪圖用的圖檔部分名稱
+          temp_str := 'R' + InversionResultPreviewGrid_StringGrid.Cells[3, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+          temp_str := temp_str + '_L' + InversionResultPreviewGrid_StringGrid.Cells[28, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+          temp_str := temp_str + '_I' + InversionResultPreviewGrid_StringGrid.Cells[5, StrToInt(StatusBar1.Panels[3].Text)].Trim.PadLeft(2, '0');
+          InversionResultPreviewRLI_ToolButton.Caption:=temp_str;
+          InversionResultPreviewRLI_ToolButton.Enabled:=False;
+        end;
+        Exit;
+      except
+        on E: Exception do
+        begin
+          RunningLog_Memo.Lines.Add('載入Log.csv失敗!錯誤原因：' + E.Message);
+        end;
+      end;
+    end;
+    //--------------------------------------------------------------------------
+  end;
+end;
+```
++ 2.6 去修改「InversionResultPreviewType_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵上」、「Ctrl+方向鍵下」進行快速切換。」。
++ 2.7 去修改「InversionResultPreviewType_ToolButton」的「ShowHint」為「True」。
++ 2.8 去修改「InversionResultPreviewPrevious_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵左」進行快速切換。」。
++ 2.9 去修改「InversionResultPreviewPrevious_ToolButton」的「ShowHint」為「True」。
++ 2.10 去修改「InversionResultPreviewNext_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵右」進行快速切換。」。
++ 2.11 去修改「InversionResultPreviewNext_ToolButton」的「ShowHint」為「True」。
++ 3.1 去修改「ForwardModelingOutputPNGEnable_CheckBox」的「Checked」為「False」。
+
+### 更新紀錄
++ 3.1 選「UpdateLog_Memo」，去編輯「Lines」
+```
+軟體名稱: R2MS_Lite_ERTMaker
+作者: HsiupoYeh
+--
+v20260420a
+完整功能版 (包含順推模擬:建立模型網格、模擬時間序列蒐集、時間序列資料處理以及逆推模擬)
+建議作業系統: Windows 10
+搭配Python版本: 3.12.7 (64-bit)
+搭配PyGimli版本: v1.5.4 
+--
+v20251105a
+初版 (僅設計排版)
+
+```
