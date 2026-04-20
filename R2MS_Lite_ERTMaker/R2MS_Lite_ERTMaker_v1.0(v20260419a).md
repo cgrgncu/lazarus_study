@@ -905,16 +905,129 @@ begin
   end;
 end;
 ```
-+ 2.6 去修改「InversionResultPreviewType_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵上」、「Ctrl+方向鍵下」進行快速切換。」。
-+ 2.7 去修改「InversionResultPreviewType_ToolButton」的「ShowHint」為「True」。
-+ 2.8 去修改「InversionResultPreviewPrevious_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵左」進行快速切換。」。
-+ 2.9 去修改「InversionResultPreviewPrevious_ToolButton」的「ShowHint」為「True」。
-+ 2.10 去修改「InversionResultPreviewNext_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵右」進行快速切換。」。
-+ 2.11 去修改「InversionResultPreviewNext_ToolButton」的「ShowHint」為「True」。
++ 2.6 修改「InversionModelingSettingsDefaultJson_Memo」的「Lines」為以下文字。
+```
+{
+"Inversion2D_Version":"v20260419a",
+"Inversion2D_Author":"HsiupoYeh",
+"InputFile01_Ohm_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile01_Ohm_FileName":"Input_ERTMaker_Inversion2D/XP2_R01_L01_I01_CalData.dat",
+"Mesh_Setting01_AutoMesh_Enable_Readme":"逆推參數-使用自動三角網格。若要啟用請填入字串Yes，若不啟用請填入字串No。若啟用則使用自動產生三角網格，不會讀取VTK檔案與JSON檔案。",
+"Mesh_Setting01_AutoMesh_Enable":"Yes",
+"Mesh_Setting02_AutoMesh_quality_Readme":"逆推參數-設定自動三角網格的網格品質。控制不要讓三角形太扁長。預設值:32，建議填入32.0~34.0之間的浮點數。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting02_AutoMesh_quality":33,
+"Mesh_Setting03_AutoMesh_paraDepth_Readme":"逆推參數-設定自動三角網格的研究區域內最大深度。預設值:-1，單位:[m]，設定小於0的數字會自動設定為測線電極X方向長度的0.4倍。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting03_AutoMesh_paraDepth":-1,
+"Mesh_Setting04_AutoMesh_boundary_Readme":"逆推參數-設定自動三角網格的外邊界倍數。預設值:-1，建議填入4~10之間的整數，設定小於4的數字仍會強制設定為4。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting04_AutoMesh_boundary":-1,
+"Mesh_Setting05_AutoMesh_paraMaxCellSize_Readme":"逆推參數-設定自動三角網格的網格面積上限。單位:[m^2]。預設值:0，表示自動決定。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting05_AutoMesh_paraMaxCellSize":0,
+"Mesh_Setting06_AutoMesh_addNodes_Readme":"逆推參數-設定自動三角網格的網格地表電極之間的節點數量。預設值:1。限制填入正整數。此值填「1」時無效果，改由paraDX決定增加的方式；填其他正整數則線性均勻增加兩個電極之間的節點數量。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting06_AutoMesh_addNodes":1,
+"Mesh_Setting07_AutoMesh_paraDX_Readme":"逆推參數-設定自動三角網格的網格地表電極之間的節點數量。預設值:1。限制填入浮點數。僅有addNodes小於等於1的時候有效。此值大於等於0.5時，等於在兩個電極正中間增加一個節點。小於0.5的時候，在每個電極的左右兩邊各增加一個節點，距離是電極間距乘以此浮點數。此設定只有啟用自動網格才會有效。",
+"Mesh_Setting07_AutoMesh_paraDX":1,
+"InputFile02_MeshVTK_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile02_MeshVTK_FileName":"Input_ERTMaker_Inversion2D/InputFile02_MeshVTK_FileName.vtk",
+"InputFile03_MeshBCMarkersJSON_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile03_MeshBCMarkersJSON_FileName":"Input_ERTMaker_Inversion2D/InputFile03_MeshBCMarkersJSON_FileName.json",
+"Data_Setting00_RecalculateDataMode_Readme":"逆推參數-重新計算觀測資料方式。預設值:「r」。可填選項:「r」、「rhoa」。",
+"Data_Setting00_RecalculateDataMode":"r",
+"Data_Setting01_Relative_Error_Percentage_Readme":"逆推參數-資料預估相對誤差百分比，單位:[%]。用於建構目標函數，野外蒐集的資料品質好的推薦使用3[%]，若品質不好則考慮增加。",
+"Data_Setting01_Relative_Error_Percentage":3,
+"Data_Setting02_GeometricFactorForInversion_Readme":"逆推參數-逆推內部採用的幾何因子計算。若要使用網格綁定的數值解(K_Mesh)請填入字串「K_Mesh」。若要使用解析解公式(K0_Mesh)請填入字串「K0_Mesh」，建議僅有水平地層可以填「K0_Mesh」。",
+"Data_Setting02_GeometricFactorForInversion":"K_Mesh",
+"Data_Setting03_GeometricFactorForRecalculateData_Readme":"逆推參數-觀測資料轉換視電阻率採用的理想幾何因子計算。若要使用自訂理想網格計算數值解(K_Ideal)請填入字串「Ideal_Mesh」，此時後方要填入網格設定。若要使用前面的網格綁定的數值解(K_Mesh)請填入字串「K_Mesh」。若要使用解析解公式(K0_Mesh)請填入字串「K0_Mesh」，建議僅有水平地層可以填「K0_Mesh」。",
+"Data_Setting03_GeometricFactorForRecalculateData":"K_Mesh",
+"Ideal_Mesh_Setting01_AutoMesh_quality_Readme":"理想幾何因子計算網格-設定三角網格的網格品質。控制不要讓三角形太扁長。預設值:32，建議填入32.0~34.0之間的浮點數。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting01_AutoMesh_quality":33,
+"Ideal_Mesh_Setting02_AutoMesh_paraDepth_Readme":"理想幾何因子計算網格-設定三角網格的研究區域內最大深度。預設值:-1，單位:[m]，設定小於0的數字會自動設定為測線電極X方向長度的0.4倍。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting02_AutoMesh_paraDepth":-1,
+"Ideal_Mesh_Setting03_AutoMesh_boundary_Readme":"理想幾何因子計算網格-設定三角網格的外邊界倍數。預設值:-1，建議填入4~10之間的整數，設定小於4的數字仍會強制設定為4。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting03_AutoMesh_boundary":-1,
+"Ideal_Mesh_Setting04_AutoMesh_paraMaxCellSize_Readme":"理想幾何因子計算網格-設定三角網格的網格面積上限。單位:[m^2]。預設值:0，表示自動決定。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting04_AutoMesh_paraMaxCellSize":0,
+"Ideal_Mesh_Setting05_AutoMesh_addNodes_Readme":"理想幾何因子計算網格-設定三角網格的網格地表電極之間的節點數量。預設值:1。限制填入正整數。此值填「1」時無效果，改由paraDX決定增加的方式；填其他正整數則線性均勻增加兩個電極之間的節點數量。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting05_AutoMesh_addNodes":1,
+"Ideal_Mesh_Setting06_AutoMesh_paraDX_Readme":"理想幾何因子計算網格-設定三角網格的網格地表電極之間的節點數量。預設值:1。限制填入浮點數。僅有addNodes小於等於1的時候有效。此值大於等於0.5時，等於在兩個電極正中間增加一個節點。小於0.5的時候，在每個電極的左右兩邊各增加一個節點，距離是電極間距乘以此浮點數。此設定只有啟用自動網格才會有效。",
+"Ideal_Mesh_Setting06_AutoMesh_paraDX":1,
+"Data_Setting03_RemoveLowCurrentData_LowerThan_A_Readme":"逆推參數-移除過低電流觀測資料，單位:[A]。建議值:0.01。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting03_RemoveLowCurrentData_LowerThan_A":0,
+"Data_Setting04_RemoveHighCurrentData_HigherThan_A_Readme":"逆推參數-移除過大電流觀測資料，單位:[A]。建議值:0.5。限制填大於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting04_RemoveHighCurrentData_HigherThan_A":10.0,
+"Data_Setting05_RemoveLowVoltageData_LowerThan_V_Readme":"逆推參數-移除過低電壓觀測資料，單位:[V]。建議值:0.01。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting05_RemoveLowVoltageData_LowerThan_V":0,
+"Data_Setting06_RemoveHighVoltageData_HigherThan_V_Readme":"逆推參數-移除過大電壓觀測資料，單位:[V]。建議值:400。限制填大於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting06_RemoveHighVoltageData_HigherThan_V":999999,
+"Data_Setting07_RemoveLowAppResData_LowerThan_OhmM_Readme":"逆推參數-移除過低視電阻率觀測資料，單位:[Ohm-m]。建議值:0.01。限制填大於等於0的數字，填「0」表示不移除。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting07_RemoveLowAppResData_LowerThan_OhmM":0,
+"Data_Setting08_RemoveHighAppResData_HigherThan_OhmM_Readme":"逆推參數-移除過大視電阻率觀測資料，單位:[Ohm-m]。建議值:100000。限制填大於0的數字。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting08_RemoveHighAppResData_HigherThan_OhmM":999999,
+"Data_Setting09_RemoveBadElectrodeData_List_Readme":"逆推參數-移除損毀電極觀測資料。建議值:[]。限制填正整數。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting09_RemoveBadElectrodeData_List":[],
+"Data_Setting10_RemoveLowMeshEffectData_LowerThan_Percent_Readme":"逆推參數-移除過低網格效應觀測資料，單位:[%]。建議值:99。限制填浮點數。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting10_RemoveLowMeshEffectData_LowerThan_Percent":-999999,
+"Data_Setting11_RemoveHighMeshEffectData_HigherThan_Percent_Readme":"逆推參數-移除過高網格效應觀測資料，單位:[%]。建議值:101。限制浮點數。注意，全部刪除資料會造成後續異常錯誤。請考量正確的儀器電流情形。",
+"Data_Setting11_RemoveHighMeshEffectData_HigherThan_Percent":999999,
+"Data_Setting12_UseFakeData_Enable_Readme":"逆推參數-使用假的觀測資料。建議值:「No」。若要啟用(把觀測資料變成全部都是1[Ohm-m])請填入字串Yes，若不啟用(使用實際資料)請填入字串No。",
+"Data_Setting12_UseFakeData_Enable":"No",
+"Data_Setting13_UseFakeData_rhoa_Readme":"逆推參數-使用假的觀測資料值(視電阻率值)，單位:[Ohm-m]。建議值:「100」，限制填正數。",
+"Data_Setting13_UseFakeData_rhoa":100,
+"OutputFile01_GeometricFactor_K_CrossPlot_PNG_Enable_Readme":"幾何因子分析圖。若要啟用請填入字串Yes，若不啟用請填入字串No。不啟用可節省計算時間。",
+"OutputFile01_GeometricFactor_K_CrossPlot_PNG_Enable":"Yes",
+"Inversion_Setting00_getOptimizeLamda_Enable_Readme":"查找最佳lamda。若要啟用請填入字串Yes，若不啟用請填入字串No。啟用的話只會跑一次迭代，用L曲線法找出第一次迭代的最佳lamda。",
+"Inversion_Setting00_getOptimizeLamda_Enable":"No",
+"Inversion_Setting00_getOptimizeLamda_StartingLamda_Readme":"查找最佳lamda的起始值。將固定逐點測試0.8",
+"Inversion_Setting00_getOptimizeLamda_StartingLamda":10,
+"Inversion_Setting01_Remove_Data_Times_Readme":"逆推參數-刪除擬合不佳的觀測資料次數，單位:[次]。建議值3，若不刪除任何資料，填「0」。",
+"Inversion_Setting01_Remove_Data_Times":1,
+"Inversion_Setting02_Remove_Data_Percentage_Readme":"逆推參數-刪除擬合不佳的觀測資料百分比，單位:[%]。建議值5[%]。限制填入1-99的正整數，請注意刪除過多可能導致程式錯誤。",
+"Inversion_Setting02_Remove_Data_Percentage":5,
+"Inversion_Setting03_Lamda_Readme":"逆推參數-權重參數Lamda，單位:[無]。建議值20。更相信資料就將lamda減小。lamda調大通常造成模型更加平滑。lamda太小模型將由資料主宰有過擬合的風險；lamda太大模型將過度平滑無法反映細節。",
+"Inversion_Setting03_Lamda":[20],
+"Inversion_Setting04_maxIter_Readme":"逆推參數-最大迭代次數，單位:[次]。建議值20。",
+"Inversion_Setting04_maxIter":20,
+"Inversion_Setting05_startModel_Readme":"逆推參數-起始模型，單位:[Ohm-m]。建議值:「-1」，限制填正數或「-1」或「-2」或「-3」。填「-1」表示使用資料的中位數製作均值起始模型。若填正數則用該值製作均值起始模型。填「-2」表示使用全網格MeshVTK內的電阻率值。填「-3」表示使用研究區域網格StartModelVTK內的電阻率值。",
+"Inversion_Setting05_startModel":-1,
+"InputFile05_StudyAreaStartModelVTK_FileName_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
+"InputFile05_StudyAreaStartModelVTK_FileName":"Input_ERTMaker_Inversion2D/InputFile05_StudyAreaStartModelVTK_FileName.vtk",
+"Inversion_Setting06_verbose_Enable_Readme":"逆推參數-詳細運行資訊。若要啟用請填入字串Yes，若不啟用請填入字串No。",
+"Inversion_Setting06_verbose_Enable":"Yes",
+"Inversion_Setting07_limitModelCellMinValue_Readme":"逆推參數-模型電阻率下限。預設值:「0」，限制填正數或「0」。填「0」表示不限制。",
+"Inversion_Setting07_limitModelCellMinValue":0,
+"Inversion_Setting08_limitModelCellMaxValue_Readme":"逆推參數-模型電阻率上限。預設值:「0」，限制填正數或「0」。填「0」表示不限制。",
+"Inversion_Setting08_limitModelCellMaxValue":0,
+"Inversion_Setting09_SR_Enable_Readme":"逆推參數-奇異值移除技術(SR技術)。若要啟用請填入字串Yes，若不啟用請填入字串No。預設值:「Yes」",
+"Inversion_Setting09_SR_Enable":"Yes",
+"OutputMainFolderPath_Readme":"不論Winodws或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。務必要使用「/」在結尾，表示資料夾。",
+"OutputMainFolderPath":"Output_ERTMaker_Inversion2D/",
+"Output_MainFileName_Readme":"會產生很多檔案，這些檔案的主要檔名。",
+"Output_MainFileName":"XP2",
+"Output_Inversion_ColorBarResistivityMin_Readme":"電阻率色階下限，線性數值，必為正數。建議:1。",
+"Output_Inversion_ColorBarResistivityMin":50,
+"Output_Inversion_ColorBarResistivityMax_Readme":"電阻率色階上限，線性數值，必為正數。建議:10000。",
+"Output_Inversion_ColorBarResistivityMax":2000,
+"Output_Inversion_XMinMax_Enable_Readme":"繪製研究區域網格-使用自訂X範圍。若要啟用請填入字串Yes，若不啟用請填入字串No。預設值:「No」",
+"Output_Inversion_XMinMax_Enable":"No",
+"Output_Inversion_XMin_Readme":"繪製研究區域網格-使用X範圍下限。請填入網格範圍內的數字，必須小於XMax。",
+"Output_Inversion_XMin":-40,
+"Output_Inversion_XMax_Readme":"繪製研究區域網格-使用X範圍上限。請填入網格範圍內的數字，必須大於XMin。",
+"Output_Inversion_XMax":1600,
+"Output_Inversion_YMin_Readme":"繪製研究區域網格-使用Y範圍下限。請填入網格範圍內的數字，必須小於YMax。",
+"Output_Inversion_YMin":-624,
+"Output_Inversion_YMax_Readme":"繪製研究區域網格-使用Y範圍上限。請填入網格範圍內的數字，必須大於YMin。",
+"Output_Inversion_YMax":64
+}
+```
++ 2.7 去修改「InversionResultPreviewType_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵上」、「Ctrl+方向鍵下」進行快速切換。」。
++ 2.8 去修改「InversionResultPreviewType_ToolButton」的「ShowHint」為「True」。
++ 2.9 去修改「InversionResultPreviewPrevious_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵左」進行快速切換。」。
++ 2.10 去修改「InversionResultPreviewPrevious_ToolButton」的「ShowHint」為「True」。
++ 2.11 去修改「InversionResultPreviewNext_ToolButton」的「Hint」為「可以使用快捷鍵:「Ctrl+方向鍵右」進行快速切換。」。
++ 2.12 去修改「InversionResultPreviewNext_ToolButton」的「ShowHint」為「True」。
 + 3.1 去修改「ForwardModelingOutputPNGEnable_CheckBox」的「Checked」為「False」。
 
 ### 更新紀錄
-+ 3.1 選「UpdateLog_Memo」，去編輯「Lines」
++ 4.1 選「UpdateLog_Memo」，去編輯「Lines」
 ```
 軟體名稱: R2MS_Lite_ERTMaker
 作者: HsiupoYeh
