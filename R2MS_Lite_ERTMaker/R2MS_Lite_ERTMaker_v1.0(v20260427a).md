@@ -96,7 +96,62 @@ var
 
 {$R *.lfm}
 ```
-
++ 2.2
+```pascal
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  // 使焦點落在一個沒有用處的東西上面，避免使用者鍵盤操作發生不預期的影響。
+  EmptyPanel.SetFocus;
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  Form1CreateMeshPreview_ImageWidthDiffPx:=Form1.Width-CreateMeshPreview_Image.Width;
+  Form1CreateMeshPreview_ImageHeightDiffPx:=Form1.Height-CreateMeshPreview_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1ForwardModelingPreview_ImageWidthDiffPx:=Form1CreateMeshPreview_ImageWidthDiffPx;
+  Form1ForwardModelingPreview_ImageHeightDiffPx:=Form1CreateMeshPreview_ImageHeightDiffPx;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionInputMeshPreviewFullMesh_ImageWidthDiffPx:=Form1.Width-InversionInputMeshPreviewFullMesh_Image.Width;
+  Form1InversionInputMeshPreviewFullMesh_ImageHeightDiffPx:=Form1.Height-InversionInputMeshPreviewFullMesh_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageWidthDiffPx:=Form1.Width-InversionInputMeshPreviewStudyAreaMeshMesh_Image.Width;
+  Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageHeightDiffPx:=Form1.Height-InversionInputMeshPreviewStudyAreaMeshMesh_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx:=Form1.Width-InversionInputObsDataPreviewLeft_Image.Width;
+  Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx:=Form1.Height-InversionInputObsDataPreviewLeft_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx:=Form1.Width-InversionInputObsDataPreviewRight_Image.Width;
+  Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx:=Form1.Height-InversionInputObsDataPreviewRight_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionResultPreviewImage_ImageWidthDiffPx:=Form1.Width-InversionResultPreviewImage_Image.Width;
+  Form1InversionResultPreviewImage_ImageHeightDiffPx:=Form1.Height-InversionResultPreviewImage_Image.Height;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 計算經過DPI縮放後的圖片與主視窗的寬高差，用於修補TImage在不可見的時候會自行改變尺寸的bug。修補方式:手動限制尺寸。
+  // 只能用一開始就有顯示的元件尺寸
+  Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx:=Form1.Width-InversionAdvancedAnalysisInfoImage_Image.Width;
+  Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx:=Form1.Height-InversionAdvancedAnalysisInfoImage_Image.Height;
+  //--------------------------------------------------------------------------
+end; 
+```
++ 
 ### 更新紀錄
 + 3.1 選「UpdateLog_Memo」，去編輯「Lines」
 ```
