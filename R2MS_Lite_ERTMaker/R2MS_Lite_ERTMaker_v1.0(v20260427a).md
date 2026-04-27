@@ -151,12 +151,96 @@ begin
   //--------------------------------------------------------------------------
 end; 
 ```
-+ 
++ 2.3
+```pascal
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  //--------------------------------------------------------------------------
+  // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+  if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
+  begin
+    CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+    CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
+    ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+    ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
+  end;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+  if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
+  begin
+    CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+    CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
+    ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+    ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
+  end;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+  if Inversion_PageControl.ActivePage = InversionInputMeshPreview_TabSheet then
+  begin
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewFullMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewFullMesh_ImageHeightDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageHeightDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionResultPreviewImage_ImageWidthDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionResultPreviewImage_ImageHeightDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx;
+  end;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+  if Inversion_PageControl.ActivePage = InversionInputObsDataPreview_TabSheet then
+  begin
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewFullMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewFullMesh_ImageHeightDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageHeightDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionResultPreviewImage_ImageWidthDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionResultPreviewImage_ImageHeightDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx;
+  end;
+  //--------------------------------------------------------------------------
+  //--------------------------------------------------------------------------
+  // 限制圖片尺寸，來修補圖片尺寸異常的Bug
+  if Inversion_PageControl.ActivePage = InversionResultPreview_TabSheet then
+  begin
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewFullMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewFullMesh_ImageHeightDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageWidthDiffPx;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputMeshPreviewStudyAreaMeshMesh_ImageHeightDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx;
+    InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx;
+    InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionResultPreviewImage_ImageWidthDiffPx;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionResultPreviewImage_ImageHeightDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx;
+    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx;
+  end;
+  //--------------------------------------------------------------------------
+end; 
+```
+
+  
 ### 更新紀錄
 + 3.1 選「UpdateLog_Memo」，去編輯「Lines」
 ```
 軟體名稱: R2MS_Lite_ERTMaker
 作者: HsiupoYeh
+--
+v20260427a
+修正不同DPI圖片縮放錯誤的問題。
 --
 v20260423a
 完整功能版 (包含順推模擬:建立模型網格、模擬時間序列蒐集、時間序列資料處理以及逆推模擬)
