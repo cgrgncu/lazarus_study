@@ -96,7 +96,7 @@ var
 
 {$R *.lfm}
 ```
-+ 2.2
++ 2.2 去修改「Form1」的「Event」頁面下「OnShow」為如下程式碼。
 ```pascal
 procedure TForm1.FormShow(Sender: TObject);
 begin
@@ -151,87 +151,90 @@ begin
   //--------------------------------------------------------------------------
 end; 
 ```
-+ 2.3
++ 2.3 去修改「Form1」的「Event」頁面下「OnResize」為如下程式碼。
 ```pascal
 procedure TForm1.FormResize(Sender: TObject);
+var
+  temp_ImageFullWidth: Integer;
+  temp_ImageFullHeight: Integer;
+  temp_ImageLeftWidth: Integer;
+  temp_ImageLeftHeight: Integer;
+  temp_ImageRightWidth: Integer;
+  temp_ImageRightHeight: Integer;
 begin
   //--------------------------------------------------------------------------
   // 限制圖片尺寸，來修補圖片尺寸異常的Bug
-  if Forward_PageControl.ActivePage = CreateMesh_TabSheet then
-  begin
-    CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
-    CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
-    ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
-    ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
-  end;
+  CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+  CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
+  ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+  ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
   // 限制圖片尺寸，來修補圖片尺寸異常的Bug
-  if Forward_PageControl.ActivePage = ForwardModeling_TabSheet then
-  begin
-    CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
-    CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
-    ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
-    ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
-  end;
+  CreateMeshPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1CreateMeshPreview_ImageWidthDiffPx;
+  CreateMeshPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1CreateMeshPreview_ImageHeightDiffPx;
+  ForwardModelingPreview_Image.Constraints.MaxWidth:=Form1.Width-Form1ForwardModelingPreview_ImageWidthDiffPx;
+  ForwardModelingPreview_Image.Constraints.MaxHeight:=Form1.Height-Form1ForwardModelingPreview_ImageHeightDiffPx;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
   // 限制圖片尺寸，來修補圖片尺寸異常的Bug
-  if Main_PageControl.ActivePage = Inversion_TabSheet then
+  temp_ImageFullWidth:=Form1.Width-Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx;
+  temp_ImageFullHeight:=Form1.Height-Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx;
+  temp_ImageLeftWidth:=Form1.Width-Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx;
+  temp_ImageLeftHeight:=Form1.Height-Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx;
+  temp_ImageRightWidth:=Form1.Width-Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx;
+  temp_ImageRightHeight:=Form1.Height-Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx;
+  //--
+  if InversionInputMeshPreviewBoth_ToolButton.Down then
   begin
-    //--
-    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionAdvancedAnalysisInfoImage_ImageWidthDiffPx;
-    InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionAdvancedAnalysisInfoImage_ImageHeightDiffPx;
-    //--
-    InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewLeft_ImageWidthDiffPx;
-    InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewLeft_ImageHeightDiffPx;
-    //--
-    InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth:=Form1.Width-Form1InversionInputObsDataPreviewRight_ImageWidthDiffPx;
-    InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight:=Form1.Height-Form1InversionInputObsDataPreviewRight_ImageHeightDiffPx;
-    //--
-    if InversionInputMeshPreviewBoth_ToolButton.Down then
-    begin
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight;
-    end;
-    if InversionInputMeshPreviewFullMesh_ToolButton.Down then
-    begin
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-    end;
-    if InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down then
-    begin
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-    end;
-    //--
-    if InversionResultPreviewShowImage_ToolButton.Down then
-    begin
-      InversionResultPreviewImage_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionResultPreviewImage_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-    end;
-    if InversionResultPreviewShowGrid_ToolButton.Down then
-    begin
-      InversionResultPreviewImage_Image.Constraints.MaxWidth:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth;
-      InversionResultPreviewImage_Image.Constraints.MaxHeight:=InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight;
-    end;
-    if InversionResultPreviewShowBoth_ToolButton.Down then
-    begin
-      InversionResultPreviewImage_Image.Constraints.MaxWidth:=InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth;
-      InversionResultPreviewImage_Image.Constraints.MaxHeight:=InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight;
-    end;
-    //--
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=temp_ImageLeftWidth;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=temp_ImageLeftHeight;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=temp_ImageRightWidth;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=temp_ImageRightHeight;
   end;
+  if InversionInputMeshPreviewFullMesh_ToolButton.Down then
+  begin
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+  end;
+  if InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down then
+  begin
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionInputMeshPreviewFullMesh_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionInputMeshPreviewStudyAreaMeshMesh_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+  end;
+  //--
+  if InversionResultPreviewShowImage_ToolButton.Down then
+  begin
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+  end;
+  if InversionResultPreviewShowGrid_ToolButton.Down then
+  begin
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+  end;
+  if InversionResultPreviewShowBoth_ToolButton.Down then
+  begin
+    InversionResultPreviewImage_Image.Constraints.MaxWidth:=temp_ImageLeftWidth;
+    InversionResultPreviewImage_Image.Constraints.MaxHeight:=temp_ImageLeftHeight;
+  end;
+  //--
+  InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxWidth:=temp_ImageFullWidth;
+  InversionAdvancedAnalysisInfoImage_Image.Constraints.MaxHeight:=temp_ImageFullHeight;
+  //--
+  InversionInputObsDataPreviewLeft_Image.Constraints.MaxWidth:=temp_ImageLeftWidth;
+  InversionInputObsDataPreviewLeft_Image.Constraints.MaxHeight:=temp_ImageLeftHeight;
+  //--
+  InversionInputObsDataPreviewRight_Image.Constraints.MaxWidth:=temp_ImageRightWidth;
+  InversionInputObsDataPreviewRight_Image.Constraints.MaxHeight:=temp_ImageRightHeight;
   //--------------------------------------------------------------------------
 end;
 ```
-+2.4
++2.4 去修改「InversionInputMeshPreviewFullMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionInputMeshPreviewFullMesh_ToolButtonClick(
   Sender: TObject);
@@ -246,7 +249,7 @@ begin
   Form1.FormResize(Form1);
 end;
 ```
-+ 2.5
++ 2.5 去修改「InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionInputMeshPreviewStudyAreaMeshMesh_ToolButtonClick(
   Sender: TObject);
@@ -261,7 +264,7 @@ begin
   Form1.FormResize(Form1);
 end;
 ```
-+2.6
++2.6 去修改「InversionInputMeshPreviewBoth_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionInputMeshPreviewBoth_ToolButtonClick(Sender: TObject);
 begin
@@ -277,7 +280,7 @@ begin
   Form1.FormResize(Form1);
 end;  
 ```
-+ 2.7
++ 2.7 去修改「InversionResultPreviewShowImage_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionResultPreviewShowImage_ToolButtonClick(Sender: TObject
   );
@@ -292,7 +295,7 @@ begin
   Form1.FormResize(Form1);
 end;
 ```
-+ 2.8
++ 2.8 去修改「InversionResultPreviewShowGrid_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionResultPreviewShowGrid_ToolButtonClick(Sender: TObject
   );
@@ -307,7 +310,7 @@ begin
   Form1.FormResize(Form1);
 end;
 ```
-+ 2.9
++ 2.9 去修改「InversionResultPreviewShowBoth_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。
 ```
 procedure TForm1.InversionResultPreviewShowBoth_ToolButtonClick(Sender: TObject
   );
