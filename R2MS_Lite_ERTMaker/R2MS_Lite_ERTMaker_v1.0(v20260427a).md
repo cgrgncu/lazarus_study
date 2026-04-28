@@ -231,7 +231,99 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
-
++2.4
+```
+procedure TForm1.InversionInputMeshPreviewFullMesh_ToolButtonClick(
+  Sender: TObject);
+begin
+  InversionInputMeshPreviewFullMesh_ToolButton.Down:=True;
+  InversionInputMeshPreviewFullMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Control := InversionInputMeshPreview_TabSheet;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Side := asrRight;
+  InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=False;
+  InversionInputMeshPreviewBoth_ToolButton.Down:=False;
+  Form1.FormResize(Form1);
+end;
+```
++ 2.5
+```
+procedure TForm1.InversionInputMeshPreviewStudyAreaMeshMesh_ToolButtonClick(
+  Sender: TObject);
+begin
+  InversionInputMeshPreviewFullMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewFullMesh_GroupBox.Visible:=False;
+  InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=True;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Control := InversionInputMeshPreview_TabSheet;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Side := asrLeft;
+  InversionInputMeshPreviewBoth_ToolButton.Down:=False;
+  Form1.FormResize(Form1);
+end;
+```
++2.6
+```
+procedure TForm1.InversionInputMeshPreviewBoth_ToolButtonClick(Sender: TObject);
+begin
+  InversionInputMeshPreviewFullMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewFullMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Control := InversionInputMeshPreview_Panel;
+  InversionInputMeshPreviewFullMesh_GroupBox.AnchorSideRight.Side := asrLeft;
+  InversionInputMeshPreviewStudyAreaMeshMesh_ToolButton.Down:=False;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.Visible:=True;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Control := InversionInputMeshPreview_Panel;
+  InversionInputMeshPreviewStudyAreaMeshMesh_GroupBox.AnchorSideLeft.Side := asrRight;
+  InversionInputMeshPreviewBoth_ToolButton.Down:=True;
+  Form1.FormResize(Form1);
+end;  
+```
++ 2.7
+```
+procedure TForm1.InversionResultPreviewShowImage_ToolButtonClick(Sender: TObject
+  );
+begin
+  InversionResultPreviewShowImage_ToolButton.Down:=True;
+  InversionResultPreviewImage_GroupBox.Visible:=True;
+  InversionResultPreviewImage_GroupBox.AnchorSideRight.Control := InversionResultPreview_TabSheet;
+  InversionResultPreviewImage_GroupBox.AnchorSideRight.Side := asrRight;
+  InversionResultPreviewShowGrid_ToolButton.Down:=False;
+  InversionResultPreviewGrid_GroupBox.Visible:=False;
+  InversionResultPreviewShowBoth_ToolButton.Down:=False;
+  Form1.FormResize(Form1);
+end;
+```
++ 2.8
+```
+procedure TForm1.InversionResultPreviewShowGrid_ToolButtonClick(Sender: TObject
+  );
+begin
+  InversionResultPreviewShowImage_ToolButton.Down:=False;
+  InversionResultPreviewImage_GroupBox.Visible:=False;
+  InversionResultPreviewShowGrid_ToolButton.Down:=True;
+  InversionResultPreviewGrid_GroupBox.Visible:=True;
+  InversionResultPreviewGrid_GroupBox.AnchorSideLeft.Control := InversionResultPreview_TabSheet;
+  InversionResultPreviewGrid_GroupBox.AnchorSideLeft.Side := asrLeft;
+  InversionResultPreviewShowBoth_ToolButton.Down:=False;
+  Form1.FormResize(Form1);
+end;
+```
++ 2.9
+```
+procedure TForm1.InversionResultPreviewShowBoth_ToolButtonClick(Sender: TObject
+  );
+begin
+  InversionResultPreviewShowImage_ToolButton.Down:=False;
+  InversionResultPreviewImage_GroupBox.Visible:=True;
+  InversionResultPreviewImage_GroupBox.AnchorSideRight.Control := InversionResultPreview_Panel;
+  InversionResultPreviewImage_GroupBox.AnchorSideRight.Side := asrLeft;
+  InversionResultPreviewShowGrid_ToolButton.Down:=False;
+  InversionResultPreviewGrid_GroupBox.Visible:=True;
+  InversionResultPreviewGrid_GroupBox.AnchorSideLeft.Control := InversionResultPreview_Panel;
+  InversionResultPreviewGrid_GroupBox.AnchorSideLeft.Side := asrRight;
+  InversionResultPreviewShowBoth_ToolButton.Down:=True;
+  Form1.FormResize(Form1);
+end;
+```
   
 ### 更新紀錄
 + 3.1 選「UpdateLog_Memo」，去編輯「Lines」
