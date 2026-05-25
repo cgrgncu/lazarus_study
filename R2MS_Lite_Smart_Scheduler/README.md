@@ -16,3 +16,7 @@
 + R2MS_Lite_Smart_Scheduler_v20260525a_S006.zip
 
 
+### 建議放置位置
++ C:\R2MS_Lite_Smart_Scheduler_v20260525a\R2MS_Lite_Smart_Scheduler.exe
++ C:\R2MS_Lite_Smart_Scheduler_v20260525a\R2MS_Lite_CSV_Viewer.exe
++ 並且建立捷徑到桌面
