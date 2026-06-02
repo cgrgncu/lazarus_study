@@ -7,4 +7,6 @@
   + 主要下載庫: https://sourceforge.net/projects/muldersoft/files/cURL/
   + 選擇版本: curl-8.20.0-win-x86-full.2026-05-02.zip
   + 裡面有用的只有EXE和crt。
+  + CRT效期通常只有一年，沒事就不要用。
+  + 可以透過--ssl-revoke-best-effort改用微軟內建的
 
