@@ -98,3 +98,104 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
+
+### A命令(切換4個頻道並送出索引值)
++ 範例
+```pascal
+procedure TForm1.Button9Click(Sender: TObject);
+var
+  DataBuffer: array[0..3] of Byte;
+  ByteValue: Byte;
+  i: Integer;
+  Response: String;
+  A_currentstate_decimal: Integer;
+begin
+  //--------------------------------------------------------------------------
+  // --- 韌體 'a' 指令參數結構 (總計 4 bytes) ---
+  // 順序說明：由韌體接收 USBread() 的順序定義
+  DataBuffer[0] := $61; // [Byte 0] 指令碼 'a' (ASCII 97)，觸發韌體進入通道模式
+  DataBuffer[1] := $40; // [Byte 1] channel_count: 通道數量 (0x40 = 64 個通道)
+  // 索引值(0~65534，65535被保留): (Byte 2 * 256) + (Byte 3)
+  A_currentstate_decimal := StrToInt(A_Index.Text);
+  DataBuffer[2] := A_currentstate_decimal div 256; // [Byte 2] current_state 高位元 (MSB)
+  DataBuffer[3] := A_currentstate_decimal mod 256; // [Byte 3] current_state 低位元 (LSB)
+  //--------------------------------------------------------------------------
+  LazSerial1.Device := ESP32_COM_Edit.Text;
+  LazSerial1.BaudRate:= br115200;
+  try
+    // 步驟0：開啟COM裝置
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...');
+    LazSerial1.Open;
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...完成!');
+    // 步驟1：發送A命令
+    Memo1.Lines.Add('發送A命令(0x'+IntToHex(DataBuffer[0], 2)+', 0x'+IntToHex(DataBuffer[1], 2)+', 0x'+IntToHex(DataBuffer[2], 2)+', 0x'+IntToHex(DataBuffer[3], 2)+')...');
+    LazSerial1.WriteBuffer(DataBuffer[0], 4);
+    Memo1.Lines.Add('發送A命令...完成!');
+    // 步驟2：發送64個頻道設定
+    Memo1.Lines.Add('發送64個頻道設定...');
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit1.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit2.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit3.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit4.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit5.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit6.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit7.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    for i := 1 to 8 do
+    begin
+      ByteValue := StrToInt(LabeledEdit8.Text[i]);
+      LazSerial1.WriteBuffer(ByteValue, 1);
+    end;
+    Sleep(100);
+    Response := Trim(LazSerial1.ReadData);//因為韌體回傳必為數字的文字並代換行字元，但在特殊情況下會回傳#開頭的文字
+    if Pos('#', Response) > 0 then
+    begin
+      Memo1.Lines.Add(Response);
+    end
+    else
+    begin
+      Memo1.Lines.Add(Response);
+      if StrToInt(Response) = DataBuffer[2]*256 + DataBuffer[3] then
+      begin
+        Memo1.Lines.Add('回傳了正確的編號!(' + Response + ')');
+      end;
+    end;
+    Memo1.Lines.Add('發送64個頻道設定...完成!');
+    // 步驟999：關閉COM裝置
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...');
+    LazSerial1.Close;
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...完成!');
+  except
+    on E: Exception do
+      Memo1.Lines.Add('開啟序列埠失敗：' + E.Message);
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
