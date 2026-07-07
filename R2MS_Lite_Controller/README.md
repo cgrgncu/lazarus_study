@@ -46,3 +46,55 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
+
+### 設定操作模式(73 64 64 00 00 01 00 00 64)
++ 常常重新設定
+```pascal
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  DataBuffer: array[0..8] of Byte;
+begin
+  //--------------------------------------------------------------------------
+  // --- 韌體 's' 指令參數結構 (總計 9 bytes) ---
+  // 順序說明：由韌體接收 USBread() 的順序定義
+  DataBuffer[0] := $73; // [Byte 0] 指令碼 's' (ASCII 115)，觸發韌體進入參數設定模式
+  DataBuffer[1] := $64; // [Byte 1] switchTurnOnTime: 高電位導通時間 (0x64 = 100us)
+  DataBuffer[2] := $64; // [Byte 2] switchTurnOffTime: 低電位截止時間 (0x64 = 100us)
+  // [Byte 3] setting_temp: Bitwise 設定
+  // Bit 0: accurate_I_only (1=僅精準電流模式, 0=一般模式)
+  // Bit 1: enable_accurate (1=啟用精準測量, 0=關閉)
+  DataBuffer[3] := $00; // 使用一般模式並關閉精準測量
+  // --- 樣本數 (16-bit, 小端序 LSB first) ---
+  // 韌體邏輯: (Byte 4) + (Byte 5 * 256)
+  DataBuffer[4] := $00; // [Byte 4] sample_number 低位元 (LSB)
+  DataBuffer[5] := $01; // [Byte 5] sample_number 高位元 (MSB) -> 0x0100 = 256 筆
+  // --- 掃描模式 ---
+  DataBuffer[6] := $00; // [Byte 6] scan_mode: 0=單次掃描, 1=連續循環掃描
+  // --- 測量週期 (16-bit, 小端序 LSB first) ---
+  // 韌體邏輯: (Byte 7) + (Byte 8 * 256)
+  DataBuffer[7] := $00; // [Byte 7] measuring_time_temp 低位元 (LSB)
+  DataBuffer[8] := $64; // [Byte 8] measuring_time_temp 高位元 (MSB) -> 0x6400 = 25600ms
+  //--------------------------------------------------------------------------
+  LazSerial1.Device := ESP32_COM_Edit.Text;
+  LazSerial1.BaudRate:= br115200;
+  try
+    // 步驟0：開啟COM裝置
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...');
+    LazSerial1.Open;
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...完成!');
+    // 步驟1：發送命令設定操作模式(73 64 64 00 00 01 00 00 64)
+    Memo1.Lines.Add('發送命令設定操作模式(73 64 64 00 00 01 00 00 64)...');
+    LazSerial1.WriteBuffer(DataBuffer[0], 9);
+    Sleep(100);
+    Memo1.Lines.Add('發送命令設定操作模式(73 64 64 00 00 01 00 00 64)...完成!');
+    // 步驟999：關閉COM裝置
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...');
+    LazSerial1.Close;
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...完成!');
+  except
+    on E: Exception do
+      Memo1.Lines.Add('開啟序列埠失敗：' + E.Message);
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
