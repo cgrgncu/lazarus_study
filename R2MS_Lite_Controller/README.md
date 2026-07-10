@@ -99,7 +99,7 @@ begin
 end;
 ```
 
-### A命令(切換4個頻道並送出索引值)
+### A命令(切換64個頻道並送出索引值)
 + 範例
 ```pascal
 procedure TForm1.Button9Click(Sender: TObject);
@@ -192,6 +192,310 @@ begin
     Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...');
     LazSerial1.Close;
     Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...完成!');
+  except
+    on E: Exception do
+      Memo1.Lines.Add('開啟序列埠失敗：' + E.Message);
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
+
+# BK 9185B溝通
+
+### CP2102
++ 測試溝通的命令
+```pascal
+procedure TForm1.Button11Click(Sender: TObject);
+var
+  Response: String;
+  i: Integer;
+begin
+  LazSerial2.Device := PSU_COM_Edit.Text;
+  LazSerial2.BaudRate:= br_57600;
+  try
+    // 步驟0：開啟COM裝置
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial2.Device + ')...');
+    LazSerial2.Open;
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial2.Device + ')...完成!');
+    // 步驟1：發送命令查儀器基本資訊(*IDN?)
+    Memo1.Lines.Add('發送命令查儀器基本資訊(*IDN?)...');
+    LazSerial2.WriteData('*IDN?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU基本資訊 =' + Trim(Response));
+    Memo1.Lines.Add('發送命令查儀器基本資訊(*IDN?)...完成!');
+    // 步驟2：發送命令查型號(MODEL?)
+    Memo1.Lines.Add('發送命令查型號(MODEL?)...');
+    LazSerial2.WriteData('MODEL?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU型號 = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查型號(MODEL?)...完成!');
+    // 步驟3：發送命令查序號(SYS:SER?)
+    Memo1.Lines.Add('發送命令查序號(SYS:SER?)...');
+    LazSerial2.WriteData('SYS:SER?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU序號 = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查序號(SYS:SER?)...完成!');
+    // 步驟4：發送命令查韌體版本(VERsion?)
+    Memo1.Lines.Add('發送命令查韌體版本(VERsion?)...');
+    LazSerial2.WriteData('VERsion?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU韌體版本 = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查韌體版本(VERsion?)...完成!');
+    // 步驟5：發送命令設定並查電壓範圍(SOUR:VOLT:RANG LOW)(SOUR:VOLT:RANG?)
+    Memo1.Lines.Add('發送命令設定並查電壓範圍(SOUR:VOLT:RANG LOW)(SOUR:VOLT:RANG?)...');
+    LazSerial2.WriteData('SOUR:VOLT:RANG LOW' + #13#10);
+    LazSerial2.WriteData('SOUR:VOLT:RANG?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU電壓範圍(HIGH=600V/0.35A, LOW=400V/0.5A) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查電壓範圍(SOUR:VOLT:RANG LOW)(SOUR:VOLT:RANG?)...完成!');
+    // 步驟6：發送命令設定並查蜂鳴器設定(BEEP OFF)(SYS:BEEP?)
+    Memo1.Lines.Add('發送命令設定並查蜂鳴器設定(BEEP OFF)(SYS:BEEP?)...');
+    LazSerial2.WriteData('BEEP OFF' + #13#10);
+    LazSerial2.WriteData('SYS:BEEP?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSU蜂鳴器設定 = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查蜂鳴器設定(BEEP OFF)(SYS:BEEP?)...完成!');
+    // 步驟7：發送命令設定並查LED模式設定(SYS:LED ON)(SYS:LED?)
+    Memo1.Lines.Add('發送命令設定並查LED模式設定(SYS:LED ON)(SYS:LED?)...');
+    LazSerial2.WriteData('SYS:LED ON' + #13#10);
+    LazSerial2.WriteData('SYS:LED?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('PSULED模式 = ' + Trim(Response));
+     Memo1.Lines.Add('發送命令設定並查LED模式設定(SYS:LED ON)(SYS:LED?)...完成!');
+    // 步驟999：關閉COM裝置
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial2.Device + ')...');
+    LazSerial2.Close;
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial2.Device + ')...完成!');
+  except
+    on E: Exception do
+      Memo1.Lines.Add('開啟序列埠失敗：' + E.Message);
+  end;
+  //--------------------------------------------------------------------------
+end;
+```
+
+### 放電
+```pascal
+procedure TForm1.Button12Click(Sender: TObject);
+var
+  Response: String;
+  i: Integer;
+begin
+  LazSerial2.Device := PSU_COM_Edit.Text;
+  LazSerial2.BaudRate:= br_57600;
+  try
+    // 步驟0：開啟COM裝置
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial2.Device + ')...');
+    LazSerial2.Open;
+    Memo1.Lines.Add('嘗試開啟序列埠(' + LazSerial2.Device + ')...完成!');
+    // 步驟1：發送命令設定並查上限電壓(SOUR:VOLT 5.000)(SOUR:VOLT?)
+    Memo1.Lines.Add('發送命令設定並查上限電壓(SOUR:VOLT 5.000)(SOUR:VOLT?)...');
+    LazSerial2.WriteData('SOUR:VOLT 5.000' + #13#10);
+    LazSerial2.WriteData('SOUR:VOLT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('上限電壓(V) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查上限電壓(SOUR:VOLT 5.000)(SOUR:VOLT?)...完成!');
+    // 步驟2：發送命令設定並查上限電流(SOUR:CURR 0.05)(SOUR:CURR?)
+    Memo1.Lines.Add('發送命令設定並查上限電流(SOUR:CURR 0.05)(SOUR:CURR?)...');
+    LazSerial2.WriteData('SOUR:CURR 0.05' + #13#10);
+    LazSerial2.WriteData('SOUR:CURR?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('上限電流(A) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查上限電流(SOUR:CURR 0.05)(SOUR:CURR?)...完成!');
+    // 步驟3：發送命令設定並查輸出狀態(OUT ON)(OUT?)
+    Memo1.Lines.Add('發送命令設定並查輸出狀態(OUT ON)(OUT?)...');
+    LazSerial2.WriteData('OUT ON' + #13#10);
+    LazSerial2.WriteData('OUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('輸出狀態(ON/OFF) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查輸出狀態(OUT ON)(OUT?)...完成!');
+    // 等待一秒(讓PSU持續放電1秒)
+    Sleep(1000);
+    // 步驟4：發送命令查電壓(VOUT?)
+    Memo1.Lines.Add('發送命令查電壓(VOUT?)...');
+    LazSerial2.WriteData('VOUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('目前電壓(V) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查電壓(VOUT?)...完成!');
+    // 步驟5：發送命令查電流(IOUT?)
+    Memo1.Lines.Add('發送命令查電流(IOUT?)...');
+    LazSerial2.WriteData('IOUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('目前電流(A) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查電壓(IOUT?)...完成!');
+    // 步驟6：發送命令設定並查輸出狀態(OUT OFF)(OUT?)
+    Memo1.Lines.Add('發送命令設定並查輸出狀態(OUT OFF)(OUT?)...');
+    LazSerial2.WriteData('OUT OFF' + #13#10);
+    LazSerial2.WriteData('OUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('輸出狀態(ON/OFF) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令設定並查輸出狀態(OUT OFF)(OUT?)...完成!');
+    // 步驟7：發送命令查電壓(VOUT?)
+    Memo1.Lines.Add('發送命令查電壓(VOUT?)...');
+    LazSerial2.WriteData('VOUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('目前電壓(V) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查電壓(VOUT?)...完成!');
+    // 步驟8：發送命令查電流(IOUT?)
+    Memo1.Lines.Add('發送命令查電流(IOUT?)...');
+    LazSerial2.WriteData('IOUT?' + #13#10);
+    // 給儀器 200ms 的總等待窗口
+    for i := 1 to 200 do
+    begin
+      if LazSerial2.DataAvailable then
+      begin
+        Response := LazSerial2.ReadData;
+        Memo1.Lines.Add('儀器回應耗時: ' + IntToStr(i) + ' ms');
+        Break;
+      end;
+      Sleep(1);
+    end;
+    Memo1.Lines.Add('目前電流(A) = ' + Trim(Response));
+    Memo1.Lines.Add('發送命令查電壓(IOUT?)...完成!');
+    // 步驟999：關閉COM裝置
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial2.Device + ')...');
+    LazSerial2.Close;
+    Memo1.Lines.Add('嘗試關閉序列埠(' + LazSerial2.Device + ')...完成!');
   except
     on E: Exception do
       Memo1.Lines.Add('開啟序列埠失敗：' + E.Message);
