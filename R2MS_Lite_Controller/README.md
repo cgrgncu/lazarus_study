@@ -503,3 +503,105 @@ begin
   //--------------------------------------------------------------------------
 end;
 ```
+
+## DMM溝通
++ 開啟
+```pascal
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  Status: ViStatus;
+  AddressName: AnsiString;
+begin
+  //------------------------------------------------------------------
+  // 錯誤預防
+  if GlobalSession <> VI_NULL then
+  begin
+    Memo1.Lines.Add('【提示】 DMM連線已經建立，無需重複執行');
+    Exit;
+  end;
+  //------------------------------------------------------------------
+  //------------------------------------------------------------------
+  AddressName := Edit1.Text; // 填入實際位址
+  // 初始化 VISA 資源管理器
+  Status := viOpenDefaultRM(@GlobalRM);
+
+  if Status < VI_SUCCESS then
+  begin
+    Memo1.Lines.Add('【錯誤】 無法初始化 NI-VISA 驅動層。');
+    Exit;
+  end;
+  //------------------------------------------------------------------
+  //------------------------------------------------------------------
+  // 建立實體連線通道並存入 GlobalSession
+  Status := viOpen(GlobalRM, PAnsiChar(AddressName), VI_NULL, VI_NULL, @GlobalSession);
+
+  if Status = VI_SUCCESS then
+  begin
+    // 成功提示
+    Memo1.Lines.Add('【成功】已建立與儀器的連線。');
+  end
+  else
+  begin
+    // 失敗提示 (詳細錯誤處理)
+    Memo1.Lines.Add('【錯誤】無法開啟 USB 裝置 (錯誤代碼: ' + IntToHex(Status, 8) + ')');
+
+    // 釋放資源
+    viClose(GlobalRM);
+    GlobalRM := VI_NULL;
+    GlobalSession := VI_NULL;
+    Exit;
+  end;
+  //------------------------------------------------------------------
+  //------------------------------------------------------------------
+  // 儀器緩衝區清空
+  Status := viClear(GlobalSession);
+
+  if Status = VI_SUCCESS then
+  begin
+    Memo1.Lines.Add('【設定】儀器緩衝區清空，狀態已重置。');
+  end
+  else
+  begin
+    Memo1.Lines.Add('【錯誤】無法執行 viClear，錯誤碼: ' + IntToHex(Status, 8));
+  end;
+  //------------------------------------------------------------------
+  //------------------------------------------------------------------
+  // 設定連線超時時間為 1 秒
+  Status := viSetAttribute(GlobalSession, VI_ATTR_TMO_VALUE, 1000);
+
+  if Status = VI_SUCCESS then
+  begin
+    Memo1.Lines.Add('【設定】超時參數已更新為 1000ms。');
+    Memo1.Lines.Add('【成功】USB 通訊管道已成功開啟並保持常駐！');
+  end
+  else
+  begin
+    Memo1.Lines.Add('【警告】連線已建立，但設定屬性失敗 (錯誤碼: ' + IntToHex(Status, 8) + ')。');
+  end;
+  //------------------------------------------------------------------
+end;   
+```
+
++ 關閉
+```pascal
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  // 如果本來就沒連線，直接無視
+  if GlobalSession = VI_NULL then
+  begin
+    Memo1.Lines.Add('提示：目前本來就沒有開啟任何連線。');
+    Exit;
+  end;
+
+  // 安全關閉 Session 釋放 USB 資源
+  viClose(GlobalSession);
+  viClose(GlobalRM);
+
+  // 關鍵：將全域變數重設為空，讓程式知道管線已經斷了
+  GlobalSession := VI_NULL;
+  GlobalRM := VI_NULL;
+
+  Memo1.Lines.Add('【安全釋放】USB 通訊管道已成功關閉。');
+end; 
+```
+
