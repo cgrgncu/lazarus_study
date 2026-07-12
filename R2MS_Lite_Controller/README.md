@@ -504,7 +504,7 @@ begin
 end;
 ```
 
-## DMM(34456A)溝通
+## DMM(34465A)溝通
 + REF: https://www.batronix.com/files/Keysight/DMM/34460-34470/34460-70-Manual.pdf
 + 通訊協定: SCPI指令集。
 + 傳輸方式:
