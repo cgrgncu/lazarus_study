@@ -504,7 +504,16 @@ begin
 end;
 ```
 
-## DMM溝通
+## DMM(34456A)溝通
++ REF: https://www.batronix.com/files/Keysight/DMM/34460-34470/34460-70-Manual.pdf
++ 通訊協定: SCPI指令集。
++ 傳輸方式:
+  + USB
+    + 中層: VISA(例如封裝為visa.dll。稍微高階一些與多數儀器方案相同的API但其實裡面就包含了等效於底層SICL的溝通。)
+    + 底層: SICL(例如封裝為sicl.dll。允許直接使用底層方式溝通，理論上效率可更高。)
+  + LAN
+    + 底層: TCP socket(使用OS原生dll)
+  
 + 開啟
 ```pascal
 procedure TForm1.Button1Click(Sender: TObject);
