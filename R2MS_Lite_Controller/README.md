@@ -511,9 +511,10 @@ end;
   + USB
     + 中層: VISA(例如封裝為visa.dll。稍微高階一些與多數儀器方案相同的API但其實裡面就包含了等效於底層SICL的溝通。)
     + 底層: SICL(例如封裝為sicl.dll。允許直接使用底層方式溝通，理論上效率可更高。)
+    + 以上兩個命令都提供了viClear這樣的功能，可以插隊中斷目前不明原因卡住的指令。
   + LAN
     + 底層: TCP socket(使用OS原生dll)
-  
+
 + 開啟
 ```pascal
 procedure TForm1.Button1Click(Sender: TObject);
