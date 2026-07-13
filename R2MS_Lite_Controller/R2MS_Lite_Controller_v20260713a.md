@@ -64,7 +64,7 @@
         + 4.1.2.1 說明:設定窗體的標題列文字。  
       + **4.1.3 設定「Form1」的「properties」頁面下「Color」為「clWindow」。**  
         + 4.1.3.1 說明:設定成白色使工具列元件底色是白色。  
-      + **4.1.4 設定「Form1」的「properties」頁面下「Height」為「700」。**  
+      + **4.1.4 設定「Form1」的「properties」頁面下「Height」為「600」。**  
         + 4.1.4.1 說明:設定窗體的外框高度。Lazarus比較特別，窗體不含標題之類的區域，只有內部，所以會比Delphi還大一點。
       + **4.1.5 設定「Form1」的「properties」頁面下「Position」為「poScreenCenter」。**  
         + 4.1.5.1 說明:設定窗體的出現位置，建議是用「poScreenCenter」，在螢幕中央。  
@@ -198,7 +198,7 @@
       + **7.2.1.1 設定「EmptyPanel」的「Properties」頁面下「BevelOuter」為「bvNone」。**
       + **7.2.1.2 設定「EmptyPanel」的「Properties」頁面下「Caption」為空白。**
       + **7.2.1.3 設定「EmptyPanel」的「Properties」頁面下「Left」為「926」。**
-      + **7.2.1.4 設定「EmptyPanel」的「Properties」頁面下「Top」為「624」。**
+      + **7.2.1.4 設定「EmptyPanel」的「Properties」頁面下「Top」為「524」。**
 
 ### 開發紀錄(主頁面)  
 1. 6個分頁(TPageControl):  
