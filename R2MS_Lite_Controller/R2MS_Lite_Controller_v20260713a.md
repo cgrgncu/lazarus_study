@@ -201,59 +201,60 @@
       + **7.2.1.4 設定「EmptyPanel」的「Properties」頁面下「Top」為「624」。**
 
 ### 開發紀錄(主頁面)  
-1. 五個分頁(TPageControl):  
+1. 6個分頁(TPageControl):  
     + **1.1 拖拉一個「Common Controls>TPageControl」到「ScrollBox1」中。預設名稱會是「PageControl1」。**  
       + **1.1.1 設定「Align」為「AlClient」。**
-      + **1.1.2 設定「Font」，按下「...」，選「大小」為「14」。**
     + **1.2 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet1」。**
-      + **1.2.1 設定「Caption」為「智慧排程工具」。**
+      + **1.2.1 設定「Caption」為「控制器」。**
     + **1.3 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet2」。**
-      + **1.3.1 設定「Caption」為「參數檔案內容」。**
+      + **1.3.1 設定「Caption」為「資料波形」。**
     + **1.4 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet3」。** 
-      + **1.4.1 設定「Caption」為「支援外部裝置」。**
-    + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。**
-      + **1.5.1 設定「Caption」為「運行紀錄」。**
+      + **1.4.1 設定「Caption」為「資料內容」。**
+    + **1.5 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet4」。** 
+      + **1.5.1 設定「Caption」為「支援外部裝置」。**
     + **1.6 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet5」。**
-      + **1.6.1 設定「Caption」為「更新紀錄」。**
+      + **1.6.1 設定「Caption」為「運行紀錄」。**
+    + **1.7 在「PageControl1」元件上按「右鍵>Add Page」，會增加一個新頁面。預設名稱會是「TabSheet6」。**
+      + **1.7.1 設定「Caption」為「更新紀錄」。**
             
-2. 第一個分頁「智慧排程工具」(TabSheet1):  
-    + **2.1 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「ERT_ver2_9_9_Client_GroupBox」**
+2. 第一個分頁「控制器」(TabSheet1):  
+    + **2.1 拖拉一個「Standard>TGroupBox」到「TabSheet1」中。預設名稱會是「GroupBox1」，修改「Name」為「R2MS_Lite_Controller_GroupBox」**
       + **2.1.1 設定「Align」為「AlTop」。**
-      + **2.1.2 設定「Caption」為「ERT_ver2_9_9_Client」。**
+      + **2.1.2 設定「Caption」為「R2MS_Lite_Controller」。**
       + **2.1.3 設定「Height」為「550」。**
-    + **2.2 拖拉一個「Standard>TLabel」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Label」**
+    + **2.2 拖拉一個「Standard>TLabel」到「R2MS_Lite_Controller_GroupBox」中。預設名稱會是「Label1」，修改「Name」為「R2MS_Lite_Controller_SavePath_Label」**
       + **2.2.1 設定「Caption」為「存檔路徑:」。**
-      + **2.2.2 設定「Left」為「27」。**
-      + **2.2.3 設定「Top」為「23」。**
-    + **2.3 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「ERT_ver2_9_9_Client_OpenSavePath_Button」**
+      + **2.2.2 設定「Left」為「16」。**
+      + **2.2.3 設定「Top」為「14」。**
+    + **2.3 拖拉一個「Standard>TButton」到「R2MS_Lite_Controller_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「R2MS_Lite_Controller_OpenSavePath_Button」**
       + **2.3.1 設定「Anchors」。**  
         + **2.3.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
         + **2.3.1.2 「Left anchoring>Slbling」維持「(nil)」。取消「Left anchoring>Enable」為不打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
-        + **2.3.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **2.3.1.3 「Right anchoring>Slbling」選為「R2MS_Lite_Controller_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
         + **2.3.1.4 「Border space」右邊那格填「16」。**  
         + **2.3.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.3.2 設定「Caption」為「開啟資料夾」。**
-      + **2.3.2 設定「Height」為「41」。**
-      + **2.3.2 設定「Top」為「16」。**
-      + **2.3.2 設定「Width」為「105」。**
-    + **2.4 拖拉一個「Standard>TEdit」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「ERT_ver2_9_9_Client_SavePath_Edit」**
+      + **2.3.3 設定「Top」為「10」。**
+      + **2.3.4 設定「Width」為「105」。**
+    + **2.4 拖拉一個「Standard>TEdit」到「R2MS_Lite_Controller_GroupBox」中。預設名稱會是「Edit1」，修改「Name」為「R2MS_Lite_Controller_SavePath_Edit」**
       + **2.4.1 設定「Anchors」。**  
         + **2.4.1.1 「Top anchoring>Slbling」維持「(nil)」。取消「Top anchoring>Enable」為不打勾。維持「Top anchoring」右側三個鈕選上面的。**  
-        + **2.4.1.2 「Left anchoring>Slbling」選為「ERT_ver2_9_9_Client_SavePath_Label:TLabel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
-        + **2.4.1.3 「Right anchoring>Slbling」選為「ERT_ver2_9_9_Client_OpenSavePath_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
+        + **2.4.1.2 「Left anchoring>Slbling」選為「R2MS_Lite_Controller_SavePath_Label:TLabel」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選右邊的。**  
+        + **2.4.1.3 「Right anchoring>Slbling」選為「R2MS_Lite_Controller_OpenSavePath_Button:TButton」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選左邊的。**  
         + **2.4.1.4 「Border space」正中間那格填「0」，左邊那格填「5」，右邊那格填「15」。**  
         + **2.4.1.5 設定完後關閉Anchors設定視窗。**  
       + **2.4.2 設定「ReadOnly」為「True」。**
       + **2.4.3 設定「Text」為空白。**  
-      + **2.4.4 設定「Top」為「20」。**
-    + **2.5 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「CheckExternalDevices_Button」**
+      + **2.4.4 設定「Top」為「11」。**
+    + **2.5 拖拉一個「Standard>TButton」到「R2MS_Lite_Controller_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「CheckExternalDevices_Button」**
       + **2.5.1 設定「Caption」為「偵測外部裝置」。**
-      + **2.5.2 設定「Height」為「49」。**
-      + **2.5.3 設定「Left」為「8」。**
-      + **2.5.4 設定「Top」為「77」。**
-      + **2.5.5 設定「Width」為「163」。** 
+      + **2.5.2 設定「Anchors」。**  
+        + **2.5.2.1 「Top anchoring>Slbling」選為「R2MS_Lite_Controller_SavePath_Edit:TEdit」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選下面的。**  
+        + **2.5.2.2 「Left anchoring>Slbling」選為「R2MS_Lite_Controller_SavePath_Label:TLabel」。維持「Left anchoring>Enable」為打勾。維持「Left anchoring」右側三個鈕選左邊的。**  
+        + **2.5.2.3 設定完後關閉Anchors設定視窗。**  
+      + **2.5.3 設定「Width」為「120」。** 
     + **2.6 拖拉一個「Standard>TButton」到「ERT_ver2_9_9_Client_GroupBox」中。預設名稱會是「Button1」，修改「Name」為「NowRun_Button」**
-      + **2.6.1 設定「Caption」為「立刻單次運行」。**
+      + **2.6.1 設定「Caption」為「初始化外部裝置」。**
       + **2.6.2 設定「Height」為「49」。**
       + **2.6.3 設定「Left」為「8」。**
       + **2.6.4 設定「Top」為「144」。**
