@@ -412,7 +412,7 @@
       + **2.24.2 設定「ReadOnly」為「True」。**
       + **2.24.2 設定「Text」為空白。**
 3. 第2個分頁「資料波形」(TabSheet2):
-+ **2.1 拖拉一個「Standard>TToolBar」到「TabSheet1」中。預設名稱會是「ToolBar1」。**
+    + **2.1 拖拉一個「Standard>TToolBar」到「TabSheet1」中。預設名稱會是「ToolBar1」。**
       + **2.1.1 設定「ShowCaptions」為「True」。**
       + **2.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VerticalChartLayout_ToolButton」**
         + **2.1.2.1 設定「Caption」為「垂直分割」。**
