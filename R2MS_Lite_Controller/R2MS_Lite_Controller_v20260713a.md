@@ -412,39 +412,39 @@
       + **2.24.2 設定「ReadOnly」為「True」。**
       + **2.24.2 設定「Text」為空白。**
 3. 第2個分頁「資料波形」(TabSheet2):
-    + **2.1 拖拉一個「Standard>TToolBar」到「TabSheet1」中。預設名稱會是「ToolBar1」。**
-      + **2.1.1 設定「ShowCaptions」為「True」。**
-      + **2.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VerticalChartLayout_ToolButton」**
-        + **2.1.2.1 設定「Caption」為「垂直分割」。**
-        + **2.1.2.2 設定「Down」為「True」。**
-        + **2.1.2.3 設定「Grouped」為「True」。**
-      + **2.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「HorizontalChartLayout_ToolButton」**
-        + **2.1.2.1 設定「Caption」為「水平分割」。**
-        + **2.1.2.2 設定「Grouped」為「True」。**
-      + **2.1.3 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VoltageChartOnlyLayout_ToolButton」**
-        + **2.1.3.1 設定「Caption」為「電壓波形」。**
-        + **2.1.3.2 設定「Grouped」為「True」。**
-      + **2.1.4 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CurrentChartOnlyLayout_ToolButton」**
-        + **2.1.4.1 設定「Caption」為「電流波形」。**
-        + **2.1.4.2 設定「Grouped」為「True」。**             
-    + **2.2 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「VoltageChart_Panel」**
-      + **2.2.1 設定「Align」為「alLeft」。**
-      + **2.2.2 設定「BevelOuter」為「bvNone」。**
-      + **2.2.3 設定「Caption」為空白。**
-      + **2.2.4 設定「Width」為「544」。**
-    + **2.3 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「CurrentChart_Panel」**
-      + **2.3.1 設定「Align」為「AlClient」。**
-      + **2.3.2 設定「BevelOuter」為「bvNone」。**
-      + **2.3.3 設定「Caption」為空白。**
-    + **2.4 拖拉一個「Chart>TChart」到「VoltageChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Voltage_Chart」**
-      + **2.4.1 設定「Align」為「AlClient」。**
-      + **2.4.2 設定「AxisList>Left>Title>Caption」為「Voltage[V]」。**
-      + **2.4.3 設定「AxisList>Left>Title>Visible」為「True」。**
-      + **2.4.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
-      + **2.4.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
-      + **2.4.6 設定「Color」為「clWindow」。**
-      + **2.4.7 設定「Series」按下「...」。**
-        + **2.4.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Voltage_PSU、Voltage_CH01、Voltage_CH02、...、Voltage_CH64」。**
+    + **3.1 拖拉一個「Standard>TToolBar」到「TabSheet1」中。預設名稱會是「ToolBar1」。**
+      + **3.1.1 設定「ShowCaptions」為「True」。**
+      + **3.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VerticalChartLayout_ToolButton」**
+        + **3.1.2.1 設定「Caption」為「垂直分割」。**
+        + **3.1.2.2 設定「Down」為「True」。**
+        + **3.1.2.3 設定「Grouped」為「True」。**
+      + **3.1.2 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「HorizontalChartLayout_ToolButton」**
+        + **3.1.2.1 設定「Caption」為「水平分割」。**
+        + **3.1.2.2 設定「Grouped」為「True」。**
+      + **3.1.3 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「VoltageChartOnlyLayout_ToolButton」**
+        + **3.1.3.1 設定「Caption」為「電壓波形」。**
+        + **3.1.3.2 設定「Grouped」為「True」。**
+      + **3.1.4 在「ToolBar1」元件上按「右鍵>New CheckButton」，會增加一個新按鈕。預設名稱會是「ToolButton1」，修改「Name」為「CurrentChartOnlyLayout_ToolButton」**
+        + **3.1.4.1 設定「Caption」為「電流波形」。**
+        + **3.1.4.2 設定「Grouped」為「True」。**             
+    + **3.2 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「VoltageChart_Panel」**
+      + **3.2.1 設定「Align」為「alLeft」。**
+      + **3.2.2 設定「BevelOuter」為「bvNone」。**
+      + **3.2.3 設定「Caption」為空白。**
+      + **3.2.4 設定「Width」為「544」。**
+    + **3.3 拖拉一個「Standard>TPanel」到「TabSheet1」中。預設名稱會是「Panel1」，修改「Name」為「CurrentChart_Panel」**
+      + **3.3.1 設定「Align」為「AlClient」。**
+      + **3.3.2 設定「BevelOuter」為「bvNone」。**
+      + **3.3.3 設定「Caption」為空白。**
+    + **3.4 拖拉一個「Chart>TChart」到「VoltageChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Voltage_Chart」**
+      + **3.4.1 設定「Align」為「AlClient」。**
+      + **3.4.2 設定「AxisList>Left>Title>Caption」為「Voltage[V]」。**
+      + **3.4.3 設定「AxisList>Left>Title>Visible」為「True」。**
+      + **3.4.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
+      + **3.4.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
+      + **3.4.6 設定「Color」為「clWindow」。**
+      + **3.4.7 設定「Series」按下「...」。**
+        + **3.4.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Voltage_PSU、Voltage_CH01、Voltage_CH02、...、Voltage_CH64」。**
           + Series的Title:
           ```
           PSU
@@ -521,11 +521,11 @@
           #63: RGB(120, 40, 200)   // 柔和藍紫色
           #64: RGB(120, 120, 90)   // 柔和卡其色
           ```
-      + **2.4.8 設定「Title>Text」為「Voltage Chart」。**
-      + **2.4.9 設定「Title>Visible」為「True」。**
-    + **2.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Voltage_PopupMenu」**
-      + **2.5.1 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Voltage_PopupMenu_1_1」。**
-        + **2.5.1.1 設定「Voltage_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
+      + **3.4.8 設定「Title>Text」為「Voltage Chart」。**
+      + **3.4.9 設定「Title>Visible」為「True」。**
+    + **3.5 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Voltage_PopupMenu」**
+      + **3.5.1 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Voltage_PopupMenu_1_1」。**
+        + **3.5.1.1 設定「Voltage_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal
         procedure TForm1.Voltage_PopupMenu_1_1Click(Sender: TObject);
         begin
@@ -596,8 +596,8 @@
           Voltage_CH64.Active := True;
         end; 
         ```
-      + **2.5.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Voltage_PopupMenu_1_2」。**
-        + **2.5.2.1 設定「Voltage_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
+      + **3.5.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Voltage_PopupMenu_1_2」。**
+        + **3.5.2.1 設定「Voltage_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal
         procedure TForm1.Voltage_PopupMenu_1_2Click(Sender: TObject);
         begin
@@ -668,25 +668,25 @@
           Voltage_CH64.Active := False;
         end; 
         ```
-    + **2.6 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
-      + **2.6.1 設定「Align」為「alRight」。**
-      + **2.6.2 設定「BorderSpacing>Bottom」為「40」。**
-      + **2.6.3 設定「BorderSpacing>Top」為「30」。**
-      + **2.6.4 設定「Chart」為「Voltage_Chart」。**
-      + **2.6.5 設定「Color」為「clWindow」。**
-      + **2.6.6 設定「FontSize」為「10」。**
-      + **2.6.7 設定「PopupMenu」為「Voltage_PopupMenu」。**
-      + **2.6.8 設定「Width」為「120」。**
-    + **2.7 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
-      + **2.7.1 設定「Align」為「AlClient」。**
-      + **2.7.2 設定「AxisList>Left>Title>Caption」為「Current[A]」。**
-      + **2.7.3 設定「AxisList>Left>Title>Visible」為「True」。**
-      + **2.7.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
-      + **2.7.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
-      + **2.7.6 設定「Color」為「clWindow」。**
-      + **2.7.7 設定「Series」按下「...」。**
-        + **2.7.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Current_PSU、Current_CH01、Current_CH02、...、Current_CH64」。**
-        + Caption:
+    + **3.6 拖拉一個「Chart>TChartListbox」到「VoltageChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Voltage_ChartListbox」**
+      + **3.6.1 設定「Align」為「alRight」。**
+      + **3.6.2 設定「BorderSpacing>Bottom」為「40」。**
+      + **3.6.3 設定「BorderSpacing>Top」為「30」。**
+      + **3.6.4 設定「Chart」為「Voltage_Chart」。**
+      + **3.6.5 設定「Color」為「clWindow」。**
+      + **3.6.6 設定「FontSize」為「10」。**
+      + **3.6.7 設定「PopupMenu」為「Voltage_PopupMenu」。**
+      + **3.6.8 設定「Width」為「120」。**
+    + **3.7 拖拉一個「Chart>TChart」到「CurrentChart_Panel」中。預設名稱會是「Chart1」，修改「Name」為「Current_Chart」**
+      + **3.7.1 設定「Align」為「AlClient」。**
+      + **3.7.2 設定「AxisList>Left>Title>Caption」為「Current[A]」。**
+      + **3.7.3 設定「AxisList>Left>Title>Visible」為「True」。**
+      + **3.7.4 設定「AxisList>Bottom>Title>Caption」為「Index[count]」。**
+      + **3.7.5 設定「AxisList>Bottom>Title>Visible」為「True」。**
+      + **3.7.6 設定「Color」為「clWindow」。**
+      + **3.7.7 設定「Series」按下「...」。**
+        + **3.7.7.1 建立65個「Line Series」，預設名稱會是「Voltage_ChartLineSeries1」，修改「Name」為分別為「Current_PSU、Current_CH01、Current_CH02、...、Current_CH64」。**
+        + Series的Title:
         ```
         PSU
         CH01
@@ -762,10 +762,10 @@
         #63: RGB(120, 40, 200)   // 柔和藍紫色
         #64: RGB(120, 120, 90)   // 柔和卡其色
         ```
-      + **2.7.8 設定「Title>Text」為「Current Chart」。**
-      + **2.7.9 設定「Title>Visible」為「True」。**
-    + **2.8 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Current_PopupMenu」**
-      + **2.8.1 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Current_PopupMenu_1_1」。**
+      + **3.7.8 設定「Title>Text」為「Current Chart」。**
+      + **3.7.9 設定「Title>Visible」為「True」。**
+    + **3.8 拖拉一個「Standerd>TPopupMenu」到「Form1」中。預設名稱會是「PopupMenu1」，修改「Name」為「Current_PopupMenu」**
+      + **3.8.1 點兩下元件，進入編輯模式，建立第一層第一個選單「全選」，「Caption」設為「全選」，「Name」設為「Current_PopupMenu_1_1」。**
         + **2.8.1.1 設定「Current_PopupMenu_1_1」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal
         procedure TForm1.Current_PopupMenu_1_1Click(Sender: TObject);
@@ -837,8 +837,8 @@
           Current_CH64.Active := True;
         end; 
         ```
-      + **2.8.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Current_PopupMenu_1_2」。**
-        + **2.8.2.1 設定「Current_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
+      + **3.8.2 點兩下元件，進入編輯模式，建立第一層第二個選單「全不選」，「Caption」設為「全不選」，「Name」設為「Current_PopupMenu_1_2」。**
+        + **3.8.2.1 設定「Current_PopupMenu_1_2」的「Event」頁面下「OnClick」為如下程式碼。**  
         ```pascal
         procedure TForm1.Current_PopupMenu_1_2Click(Sender: TObject);
         begin
@@ -909,17 +909,17 @@
           Current_CH64.Active := False;
         end; 
         ```
-    + **2.9 拖拉一個「Chart>TChartListbox」到「CurrentChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Current_ChartListbox」**
-      + **2.9.1 設定「Align」為「alRight」。**
-      + **2.9.2 設定「BorderSpacing>Bottom」為「40」。**
-      + **2.9.3 設定「BorderSpacing>Top」為「30」。**
-      + **2.9.4 設定「Chart」為「Current_Chart」。**
-      + **2.9.5 設定「Color」為「clWindow」。**
-      + **2.9.6 設定「FontSize」為「10」。**
-      + **2.9.7 設定「PopupMenu」為「Current_PopupMenu」。**
-      + **2.9.8 設定「Width」為「120」。**
-    + **2.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
-      + **2.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+    + **3.9 拖拉一個「Chart>TChartListbox」到「CurrentChart_Panel」中。預設名稱會是「ChartListbox1」，修改「Name」為「Current_ChartListbox」**
+      + **3.9.1 設定「Align」為「alRight」。**
+      + **3.9.2 設定「BorderSpacing>Bottom」為「40」。**
+      + **3.9.3 設定「BorderSpacing>Top」為「30」。**
+      + **3.9.4 設定「Chart」為「Current_Chart」。**
+      + **3.9.5 設定「Color」為「clWindow」。**
+      + **3.9.6 設定「FontSize」為「10」。**
+      + **3.9.7 設定「PopupMenu」為「Current_PopupMenu」。**
+      + **3.9.8 設定「Width」為「120」。**
+    + **3.10 相關元件都建立好預設排版後回頭寫之前元件的功能，**
+      + **3.9.1 設定「VerticalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
       procedure TForm1.VerticalChartLayout_ToolButtonClick(Sender: TObject);
       begin
@@ -933,7 +933,7 @@
         VoltageChart_Panel.Width:=10;
       end; 
       ```
-      + **2.9.2 設定「HorizontalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **3.9.2 設定「HorizontalChartLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
       procedure TForm1.HorizontalChartLayout_ToolButtonClick(Sender: TObject);
       begin
@@ -947,7 +947,7 @@
         VoltageChart_Panel.Width:=10;
       end;
       ```
-      + **2.9.3 設定「VoltageChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **3.9.3 設定「VoltageChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
       procedure TForm1.VoltageChartOnlyLayout_ToolButtonClick(Sender: TObject);
       begin
@@ -957,7 +957,7 @@
         VoltageChart_Panel.Visible := True;
       end; 
       ```
-      + **2.9.4 設定「CurrentChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
+      + **3.9.4 設定「CurrentChartOnlyLayout_ToolButton」的「Event」頁面下「OnClick」為如下程式碼。**
       ```pascal
       procedure TForm1.CurrentChartOnlyLayout_ToolButtonClick(Sender: TObject);
       begin
@@ -967,7 +967,7 @@
         CurrentChart_Panel.Visible := True;
       end; 
       ```
-      + **2.9.5 設定「VoltageChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
+      + **3.9.5 設定「VoltageChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
       ```pascal
       procedure TForm1.VoltageChart_PanelResize(Sender: TObject);
       begin
@@ -983,7 +983,7 @@
         end;
       end; 
       ```
-       + **2.9.6 設定「CurrentChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
+       + **3.9.6 設定「CurrentChart_Panel」的「Event」頁面下「OnResize」為如下程式碼。**
       ```pascal
       procedure TForm1.CurrentChart_PanelResize(Sender: TObject);
       begin
