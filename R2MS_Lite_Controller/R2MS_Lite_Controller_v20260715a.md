@@ -46,17 +46,7 @@ MY64001649
 MY64004458
 ```
 
-+ 2.2 選「PSU_SupportedSerialNumbers_Memo」，去編輯「Lines」
-```
-508I23118
-508F24126
-508F24128
-508F24129
-508F24130
-508F24133
-508F25105
-```
-+ 2.3 選「ESP32_SupportedSerialNumbers_Memo」，去編輯「Lines」
++ 2.2 選「ESP32_SupportedSerialNumbers_Memo」，去編輯「Lines」
 ```
 2025-S000
 2025-S001
@@ -71,6 +61,18 @@ MY64004458
 2026-S009
 2026-S010
 ```
+
++ 2.3 選「PSU_SupportedSerialNumbers_Memo」，去編輯「Lines」
+```
+508I23118
+508F24126
+508F24128
+508F24129
+508F24130
+508F24133
+508F25105
+```
+
 
 ### 偵測外部裝置
 + 3.1 去implementation區塊追加宣告uses
