@@ -71,3 +71,16 @@ MY64004458
 2026-S009
 2026-S010
 ```
+
+### 更新紀錄
++ 3.1 選「Update_Memo」，去編輯「Lines」
+```
+軟體名稱: R2MS_Lite_控制器(R2MS_Lite_Controller)
+作者: HsiupoYeh
+--
+v20250918b:
+重新調整UI。
+--
+v20260713a:
+初版
+```
