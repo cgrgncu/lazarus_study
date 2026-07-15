@@ -999,7 +999,61 @@
         end;
       end; 
       ```     
-3. 第2個分頁「參數檔案內容」(TabSheet2):  
+4. 第3個分頁「資料內容」(TabSheet3):  
+    + **4.1 拖拉一個「Additional>TStringGrid」到「TabSheet3」中。預設名稱會是「StringGrid1」，修改「Name」為「v299_csv_StringGrid」**
+      + **4.1.1 設定「Align」為「alClient」。**
+      + **4.1.2 設定「ColCount」為「100」。**
+      + **4.1.3 設定「MouseWheelOption」為「mwGrid」。**
+      + **4.1.4 設定「Options>goColSizing」為「True」。**
+      + **4.1.5 設定「Options>goDblClickAutoSize」為「True」。**
+      + **4.1.6 設定「RowCount」為「100」。**
+5. 第4個分頁「支援外部裝置」(TabSheet4):  
+    + **5.1 拖拉一個「Standard>TGroupBox」到「TabSheet4」中。預設名稱會是「GroupBox1」，修改「Name」為「DMM_SupportedSerialNumbers_GroupBox」**
+      + **5.1.1 設定「Align」為「AlTop」。**
+      + **5.1.2 設定「Caption」為「DMM支援裝置序號清單:」。**
+      + **5.1.3 設定「Height」為「200」。**
+    + **5.2 拖拉一個「Standard>TMemo」到「DMM_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「DMM_SupportedSerialNumbers_Memo」**
+      + **5.2.1 設定「Anchors」。**  
+        + **5.2.1.1 「Top anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **5.2.1.2 「Left anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **5.2.1.3 「Right anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **5.2.1.4 「Bottom anchoring>Slbling」選為「DMM_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **5.2.1.5 「Border space」正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **5.2.1.6 設定完後關閉Anchors設定視窗。**  
+      + **5.2.2 設定「Lines」清空。**
+      + **5.2.3 設定「ReadOnly」為「True」。**
+      + **5.2.4 設定「ScrollBars」為「ssBoth」。**
+    + **5.3 拖拉一個「Standard>TGroupBox」到「TabSheet4」中。預設名稱會是「GroupBox1」，修改「Name」為「ESP32_SupportedSerialNumbers_GroupBox」**
+      + **5.3.1 設定「Align」為「AlTop」。**
+      + **5.3.2 設定「Caption」為「SwitchArray支援裝置序號清單:」。**
+      + **5.3.3 設定「Height」為「200」。**
+    + **5.4 拖拉一個「Standard>TMemo」到「ESP32_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「ESP32_SupportedSerialNumbers_Memo」**
+      + **5.4.1 設定「Anchors」。**  
+        + **5.4.1.1 「Top anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **5.4.1.2 「Left anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **5.4.1.3 「Right anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **5.4.1.4 「Bottom anchoring>Slbling」選為「ESP32_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **5.4.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **5.4.1.6 設定完後關閉Anchors設定視窗。**  
+      + **5.4.2 設定「Lines」清空。**
+      + **5.4.3 設定「ReadOnly」為「True」。**
+      + **5.4.4 設定「ScrollBars」為「ssBoth」。**
+    + **5.5 拖拉一個「Standard>TGroupBox」到「TabSheet4」中。預設名稱會是「GroupBox1」，修改「Name」為「PSU_SupportedSerialNumbers_GroupBox」**
+      + **5.5.1 設定「Align」為「AlTop」。**
+      + **5.5.2 設定「Caption」為「PSU支援裝置序號清單:」。**
+      + **5.5.3 設定「Height」為「200」。**
+    + **5.6 拖拉一個「Standard>TMemo」到「PSU_SupportedSerialNumbers_GroupBox」中。預設名稱會是「Memo1」，修改「Name」為「PSU_SupportedSerialNumbers_Memo」**
+      + **5.6.1 設定「Anchors」。**  
+        + **5.6.1.1 「Top anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Top anchoring>Enable」為打勾。選擇「Top anchoring」右側三個鈕選上面的。** 
+        + **5.6.1.2 「Left anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。維持「Left anchoring>Enable」為打勾。選擇「Left anchoring」右側三個鈕選左邊的。**  
+        + **5.6.1.3 「Right anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選右邊的。**  
+        + **5.6.1.4 「Bottom anchoring>Slbling」選為「PSU_SupportedSerialNumbers_GroupBox:TGroupBox」。勾選「Right anchoring>Enable」為打勾。選擇「Right anchoring」右側三個鈕選下面的。** 
+        + **5.6.1.5 「Border space」正中間那格填正中間那格填「0」，左邊那格填「3」，右邊那格填「3」，下面那格填「3」。**  
+        + **5.6.1.6 設定完後關閉Anchors設定視窗。**  
+      + **5.6.2 設定「Lines」清空。**
+      + **5.6.3 設定「ReadOnly」為「True」。**
+      + **5.6.4 設定「ScrollBars」為「ssBoth」。**    
+5. 第4個分頁「參數檔案內容」(TabSheet2):  
     + **3.1 拖拉一個「Standard>TGroupBox」到「TabSheet2」中。預設名稱會是「GroupBox1」，修改「Name」為「v299_DefaultSetting_GroupBox」**
       + **3.1.1 設定「Align」為「AlTop」。**
       + **3.1.2 設定「Caption」為「v299_DefaultSetting」。**
