@@ -110,6 +110,8 @@ var
   temp_i: Integer;
 begin
   CheckExternalDevices_Button.Enabled := False;
+  PSU_Edit.Font.Color := clBlue;
+  ESP32_Edit.Font.Color := clBlue;
   //--------------------------------------------------------------------------
   // 用WMI查詢外部裝置的資訊(包含VISA路徑或COM值)
   RunningLog_Memo.Lines.Add('正在使用 WMI 查詢 Win32_PnPEntity...');
@@ -204,166 +206,122 @@ begin
   //--
   PSU_Edit.Font.Color := clRed;
   Application.ProcessMessages;
-  LazSerial1.Device := PSU_Edit.Text;
-  LazSerial1.BaudRate:= br_57600;
+  PSU_LazSerial.Device := PSU_Edit.Text;
+  PSU_LazSerial.BaudRate:= br_57600;
   try
     // 步驟0：開啟COM裝置
-    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...');
-    LazSerial1.Open;
-    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + LazSerial1.Device + ')...完成!');
+    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + PSU_LazSerial.Device + ')...');
+    PSU_LazSerial.Open;
+    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + PSU_LazSerial.Device + ')...完成!');
     // 步驟1：發送命令查儀器基本資訊(*IDN?)
-    LazSerial1.WriteData('*IDN?' + #13#10);
+    PSU_LazSerial.WriteData('*IDN?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU基本資訊 =' + Trim(Response));
     // 步驟2：發送命令查型號(MODEL?)
-    LazSerial1.WriteData('MODEL?' + #13#10);
+    PSU_LazSerial.WriteData('MODEL?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU型號 = ' + Trim(Response));
     // 步驟3：發送命令查序號(SYS:SER?)
-    LazSerial1.WriteData('SYS:SER?' + #13#10);
+    PSU_LazSerial.WriteData('SYS:SER?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU序號 = ' + Trim(Response));
     // 步驟4：發送命令查韌體版本(VERsion?)
-    LazSerial1.WriteData('VERsion?' + #13#10);
+    PSU_LazSerial.WriteData('VERsion?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU韌體版本 = ' + Trim(Response));
-    // 步驟5：發送命令查電壓範圍(SOUR:VOLT:RANG?)
-    if PSU_RangeHIGH_CheckBox.Checked then
-    begin
-      LazSerial1.WriteData('SOUR:VOLT:RANG HIGH' + #13#10);
-    end
-    else
-    begin
-      LazSerial1.WriteData('SOUR:VOLT:RANG LOW' + #13#10);
-    end;
-    LazSerial1.WriteData('SOUR:VOLT:RANG?' + #13#10);
+    // 步驟5：發送命令查電壓範圍(SOUR:VOLT:RANG LOW)(SOUR:VOLT:RANG?)
+    PSU_LazSerial.WriteData('SOUR:VOLT:RANG LOW' + #13#10);
+    PSU_LazSerial.WriteData('SOUR:VOLT:RANG?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU電壓範圍(HIGH=600V/0.35A, LOW=400V/0.5A) = ' + Trim(Response));
-    if SameText(Trim(Response), 'HIGH') then
+    if SameText(Trim(Response), 'LOW') then
     begin
-      if PSU_RangeHIGH_CheckBox.Checked then
-      begin
-        PSU_Edit.Font.Color := clGreen;
-        Application.ProcessMessages;
-      end;
-    end
-    else if SameText(Trim(Response), 'LOW') then
-    begin
-      if PSU_RangeLOW_CheckBox.Checked then
-      begin
-        PSU_Edit.Font.Color := clGreen;
-        Application.ProcessMessages;
-      end;
+      PSU_Edit.Font.Color := clGreen;
+      Application.ProcessMessages;
     end
     else
     begin
       RunningLog_Memo.Lines.Add('警告：PSU電壓範圍無效或與預期不符。是否沒有開啟PSU電源?或是PSU被其他軟體占用?');
     end;
     // 步驟6：發送命令查蜂鳴器設定(BEEP OFF)(SYS:BEEP?)
-    LazSerial1.WriteData('BEEP OFF' + #13#10);
-    LazSerial1.WriteData('SYS:BEEP?' + #13#10);
+    PSU_LazSerial.WriteData('BEEP OFF' + #13#10);
+    PSU_LazSerial.WriteData('SYS:BEEP?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSU蜂鳴器設定 = ' + Trim(Response));
     // 步驟7：發送命令查LED模式設定(SYS:LED ON)(SYS:LED?)
-    LazSerial1.WriteData('SYS:LED ON' + #13#10);
-    LazSerial1.WriteData('SYS:LED?' + #13#10);
+    PSU_LazSerial.WriteData('SYS:LED ON' + #13#10);
+    PSU_LazSerial.WriteData('SYS:LED?' + #13#10);
     Sleep(100);
-    Response := LazSerial1.ReadData;
+    Response := PSU_LazSerial.ReadData;
     RunningLog_Memo.Lines.Add('PSULED模式 = ' + Trim(Response));
+    PSU_Edit.Font.Color := clGreen;
     // 步驟999：關閉COM裝置
-    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...');
-    LazSerial1.Close;
-    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + LazSerial1.Device + ')...完成!');
+    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + PSU_LazSerial.Device + ')...');
+    PSU_LazSerial.Close;
+    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + PSU_LazSerial.Device + ')...完成!');
   except
     on E: Exception do
       RunningLog_Memo.Lines.Add('開啟序列埠失敗：' + E.Message);
   end;
   //--------------------------------------------------------------------------
   //--------------------------------------------------------------------------
-  // 更新INI 及 設定按鈕啟用禁用
-  if (DMM_Edit.Font.Color = clGreen) and (ESP32_Edit.Font.Color = clGreen) and (PSU_Edit.Font.Color = clGreen) then
+  // 開啟ESP32的COM裝置來檢查是否設定正確
+  if (ESP32_Edit.Font.Color = clBlue) then
   begin
-    //--------------------------------------------------------------------------
-    // 讀INI檔案
-    TXT_Memo.Lines.LoadFromFile( ChangeFileExt(ExtractFileName(Application.ExeName), '.ini'));
-    //--------------------------------------------------------------------------
-    // DMM_SN
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+    RunningLog_Memo.Lines.Add('警告：SwitchArray裝置資訊異常。是否沒有連接SwitchArray?或是不在支援清單中?');
+    PSU_Edit.Color := clYellow;
+    Exit;
+  end;
+  //--
+  ESP32_Edit.Font.Color := clRed;
+  Application.ProcessMessages;
+  ESP32_LazSerial.Device := ESP32_Edit.Text;
+  ESP32_LazSerial.BaudRate:= br115200;
+  try
+    // 步驟0：開啟COM裝置
+    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + ESP32_LazSerial.Device + ')...');
+    ESP32_LazSerial.Open;
+    RunningLog_Memo.Lines.Add('嘗試開啟序列埠(' + ESP32_LazSerial.Device + ')...完成!');
+    // 步驟1：發送命令查儀器基本資訊(*IDN?)
+    ESP32_LazSerial.WriteData('*IDN?' + #10);
+    Sleep(100);
+    Response := ESP32_LazSerial.ReadData;
+    if Trim(Response) = 'IDN= ESP32_2_9' then
     begin
-      if Pos('DMM_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'DMM_SN="' + DMM_SN_Edit.Text + '"';
-        break;
-      end;
-    end;
-    //--------------------------------------------------------------------------
-    // DMM_ComPort
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
+      //RunningLog_Memo.Lines.Add('與ControlBoard溝通成功!');
+      RunningLog_Memo.Lines.Add(Trim(Response));
+      ESP32_Edit.Font.Color := clGreen;
+      Application.ProcessMessages;
+    end
+    else
     begin
-      if Pos('DMM_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'DMM_ComPort="' + DMM_Edit.Text + '"';
-        break;
-      end;
+      RunningLog_Memo.Lines.Add('錯誤!與ControlBoard溝通失敗!');
     end;
-    //--------------------------------------------------------------------------
-    // SwitchArray_SN
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
-    begin
-      if Pos('SwitchArray_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'SwitchArray_SN="' + ESP32_SN_Edit.Text + '"';
-        break;
-      end;
-    end;
-    //--------------------------------------------------------------------------
-    // SwitchArray_ComPort
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
-    begin
-      if Pos('SwitchArray_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'SwitchArray_ComPort="' + ESP32_Edit.Text + '"';
-        break;
-      end;
-    end;
-    //--------------------------------------------------------------------------
-    // PSU_SN
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
-    begin
-      if Pos('PSU_SN=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'PSU_SN="' + PSU_SN_Edit.Text + '"';
-        break;
-      end;
-    end;
-    //--------------------------------------------------------------------------
-    // PSU_ComPort
-    for temp_i := 0 to TXT_Memo.Lines.Count - 1 do
-    begin
-      if Pos('PSU_ComPort=', TXT_Memo.Lines.Strings[temp_i]) = 1 then
-      begin
-        TXT_Memo.Lines.Strings[temp_i] := 'PSU_ComPort="' + PSU_Edit.Text + '"';
-        break;
-      end;
-    end;
-    //--------------------------------------------------------------------------
-    // 存INI檔案
-    TXT_Memo.Lines.SaveToFile( ChangeFileExt(ExtractFileName(Application.ExeName), '.ini'));
-    //--------------------------------------------------------------------------
-    // 設定按鈕啟用禁用
-    NowRun_Button.Enabled := True;
-    NowSystemTest_Button.Enabled := True;
-    ScheduleRun_Button.Enabled := True;
-    //--------------------------------------------------------------------------
+    // 步驟999：關閉COM裝置
+    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + ESP32_LazSerial.Device + ')...');
+    ESP32_LazSerial.Close;
+    RunningLog_Memo.Lines.Add('嘗試關閉序列埠(' + ESP32_LazSerial.Device + ')...完成!');
+  except
+    on E: Exception do
+      RunningLog_Memo.Lines.Add('開啟序列埠失敗：' + E.Message);
   end;
   //--------------------------------------------------------------------------
-end;  
+
+
+  //--------------------------------------------------------------------------
+  // 設定按鈕啟用禁用
+  if (DMM_Edit.Font.Color = clGreen) and (ESP32_Edit.Font.Color = clGreen) and (PSU_Edit.Font.Color = clGreen) then
+  begin
+    RunningLog_Memo.Lines.Add('設定按鈕啟用禁用...');
+  end;
+  //--------------------------------------------------------------------------
+end; 
 ```
 
 ### 更新紀錄
