@@ -615,3 +615,10 @@ begin
 end; 
 ```
 
+### 流程
++ 開啟PSU
++ 開啟ESP32
++ 開啟DMM
++ 關閉PSU
++ 關閉ESP32
++ 關閉DMM
