@@ -79,18 +79,52 @@ MY64004458
 ```pascal
 implementation
 //--------------------------------------------------------------------------
-//uses add by HsiupoYeh
+// uses add by HsiupoYeh
 uses
   IniFiles, Windows, ShellApi, ComObj, ActiveX, Variants;
 //--------------------------------------------------------------------------
 //--------------------------------------------------------------------------
-//宣告全域變數 add by HsiupoYeh
+// 宣告全域變數 add by HsiupoYeh
 var
   version_str: AnsiString;
   Current_Folder_Path: AnsiString;
 //--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+// ======= 1. 底層 VISA 資料型態宣告 =======
+type
+  ViSession = LongWord;
+  ViObject  = LongWord;
+  ViStatus  = LongInt;
+  ViRsrc    = PAnsiChar;
+  ViBuf     = PAnsiChar;
+  ViPBuf    = PAnsiChar;
+  ViUInt32  = LongWord;
+  ViPUInt32 = ^ViUInt32;
+// ======= 2. 常數與 DLL 檔案名稱定義 =======
+const
+  VI_SUCCESS = 0;
+  VI_NULL = 0;
+  VI_ATTR_TMO_VALUE = $3FFF001A;
 
-{$R *.lfm} 
+  {$IFDEF WIN64}
+  VisaDLL = 'visa64.dll';
+  {$ELSE}
+  VisaDLL = 'visa32.dll';
+  {$ENDIF}
+// ======= 3. 綁定 Windows 系統內 NI-VISA 的 C 語言函式 =======
+function viOpenDefaultRM(sesn: ViPUInt32): ViStatus; stdcall; external VisaDLL;
+function viOpen(sesn: ViSession; rsrcName: ViRsrc; accessMode: ViUInt32; timeout: ViUInt32; vi: ViPUInt32): ViStatus; stdcall; external VisaDLL;
+function viWrite(vi: ViSession; buf: ViBuf; count: ViUInt32; retCount: ViPUInt32): ViStatus; stdcall; external VisaDLL;
+function viRead(vi: ViSession; buf: ViPBuf; count: ViUInt32; retCount: ViPUInt32): ViStatus; stdcall; external VisaDLL;
+function viSetAttribute(vi: ViObject; attrName: ViUInt32; attrValue: ViUInt32): ViStatus; stdcall; external VisaDLL;
+function viClose(vi: ViObject): ViStatus; stdcall; external VisaDLL;
+function viClear(vi: ViSession): ViStatus; stdcall; external VisaDLL;
+// ======= 4. 宣告常駐型全域變數，初始值給定為 VI_NULL (0)式 =======
+var
+  GlobalRM: ViSession = VI_NULL;
+  GlobalSession: ViSession = VI_NULL;
+//--------------------------------------------------------------------------
+{$R *.lfm}
 ```
 + 3.2 拖拉一個「LazSerial>TLazSerial」到「Form1」中。預設名稱會是「LazSerial1」。修改「Name」為「PSU_LazSerial」。
 + 3.3 拖拉一個「LazSerial>TLazSerial」到「Form1」中。預設名稱會是「LazSerial1」。修改「Name」為「ESP32_LazSerial」。
