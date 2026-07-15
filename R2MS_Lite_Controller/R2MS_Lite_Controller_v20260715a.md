@@ -78,7 +78,7 @@ MY64004458
 軟體名稱: R2MS_Lite_控制器(R2MS_Lite_Controller)
 作者: HsiupoYeh
 --
-v20250918b:
+v20260715a:
 重新調整UI。
 --
 v20260713a:
