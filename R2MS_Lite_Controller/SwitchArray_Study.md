@@ -41,6 +41,19 @@ void loop() {
 + 另外有一個大約5分鐘都沒有收到命令的條件下會觸發的奇怪休息命令並初始化READY_VOLTAGE。
 + 
 
+### 清除SN74HC595DR內部位移暫存器（Shift Register）內容(等於在規劃狀態的初始化)。
+```
+void resetSerial() {
+  digitalWrite(RESET, 0);
+  delayMicroseconds(pushPeriod);
+  digitalWrite(RESET, 1);
+}
+```
++ 拉低SRCLR時會清空內部位移暫存器（Shift Register）內容(等於在規劃狀態的初始化)。
++ 清除後等待一下再把SRCLR拉高，後恢復正常狀態。
++ 注意: 內部位移暫存器（Shift Register）是規劃期的，並不影響IO硬體狀態。
+
+
 ### 方法B的解析 (會觸發256?次BNC線的TRIGER)
 ```
 case 'b':  
