@@ -52,6 +52,16 @@ void resetSerial() {
 + 清除後等待一下再把SRCLR拉高，後恢復正常狀態。
 + 注意: 內部位移暫存器（Shift Register）是規劃期的，並不影響IO硬體狀態。
 
+### 斷開參考電極
+```
+void resetREF(){
+  digitalWrite(REF_PSU_NEG, 0); //空的
+  digitalWrite(REF_PSU_POS, 0); //空的
+  digitalWrite(REF_EXTERNAL, 0); //停止驅動小繼電器，等於斷開參考電極
+}
+```
+
+
 ### 用全部空的規劃，然後依序應用到硬體中。導致全部IO關閉。
 ```c
 void clearEveryOutput() {
