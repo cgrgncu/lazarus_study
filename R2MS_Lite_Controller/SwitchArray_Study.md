@@ -2,18 +2,18 @@
 
 ### 腳位定義
 ```
-#define REF_PSU_POS 5 ->ESP32板子簡介圖右邊10->線路圖H1_10:REF_PSU_POS->空的U3
-#define READY_PIN_CURRENT_NEG 12 ->ESP32板子簡介圖左邊13->線路圖H2_7:N_ready->
-#define READY_PIN_CURRENT_POS 13 ->ESP32板子簡介圖左邊15->線路圖H2_5:P_ready->
-#define RESET 14 ->ESP32板子簡介圖左邊12->線路圖H2_8:reset->接到(U101~U104)的SRCLR
-#define OFF_PSU 17 ->ESP32板子簡介圖右邊11->線路圖H1_9:根本沒接
-#define REF_EXTERNAL 18 ->ESP32板子簡介圖右邊9->線路圖H1_11:REF_EXTERNAL->有用的U1
-#define REF_PSU_NEG 19 ->ESP32板子簡介圖右邊9->線路圖H1_12:REF_PSU_NEG->空的U2
-#define DATA 21 ->ESP32板子簡介圖右邊6->線路圖H1_14:serial_data->接到(U101~U104)的SER
-#define READY_PSU  22 -> ESP32板子簡介圖右邊3->線路圖H1_17:V_PSU_ready ->接到U103的RCLK    
-#define PUSH_PIN 23  -> ESP32板子簡介圖右邊2->線路圖H1_18:clock ->接到(U101~U104)的SRCLK                                                                                                                               
-#define OFF_VOLTAGE 25 ->ESP32板子簡介圖左邊9->線路圖H2_11:V_enable->接到U104的OE#
-#define READY_VOLTAGE 26 ->ESP32板子簡介圖左邊10->線路圖H2_10:V_ready ->接到U104的RCLK
+#define REF_PSU_POS 5 ->板子右邊10->線路圖H1_10:REF_PSU_POS->空的U3
+#define READY_PIN_CURRENT_NEG 12 ->板子左邊13->線路圖H2_7:N_ready->接到U102的RCLK 
+#define READY_PIN_CURRENT_POS 13 ->板子左邊15->線路圖H2_5:P_ready->接到U101的RCLK 
+#define RESET 14 ->板子左邊12->線路圖H2_8:reset->接到(U101~U104)的SRCLR
+#define OFF_PSU 17 ->板子右邊11->線路圖H1_9:根本沒接
+#define REF_EXTERNAL 18 ->板子右邊9->線路圖H1_11:REF_EXTERNAL->有用的U1
+#define REF_PSU_NEG 19 ->板子右邊9->線路圖H1_12:REF_PSU_NEG->空的U2
+#define DATA 21 ->板子右邊6->線路圖H1_14:serial_data->接到(U101~U104)的SER
+#define READY_PSU  22 -> 板子右邊3->線路圖H1_17:V_PSU_ready ->接到U103的RCLK    
+#define PUSH_PIN 23  -> 板子右邊2->線路圖H1_18:clock ->接到(U101~U104)的SRCLK 
+#define OFF_VOLTAGE 25 ->板子左邊9->線路圖H2_11:V_enable->接到U104的OE#
+#define READY_VOLTAGE 26 ->板子左邊10->線路圖H2_10:V_ready ->接到U104的RCLK->到BNC的正
 ```
 
 ### 主要迴圈
@@ -39,19 +39,43 @@ void loop() {
 ```
 + 基本上就是一值讀一次一個Byte，然後進去readCommand來解析命令做對應的工作。
 + 另外有一個大約5分鐘都沒有收到命令的條件下會觸發的奇怪休息命令並初始化READY_VOLTAGE。
-+ 
 
 ### 清除SN74HC595DR內部位移暫存器（Shift Register）內容(等於在規劃狀態的初始化)。
-```
+```c
 void resetSerial() {
-  digitalWrite(RESET, 0);
-  delayMicroseconds(pushPeriod);
-  digitalWrite(RESET, 1);
+  digitalWrite(RESET, 0); //觸發清除(SRCLR拉高)
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(RESET, 1); // 恢復
 }
 ```
 + 拉低SRCLR時會清空內部位移暫存器（Shift Register）內容(等於在規劃狀態的初始化)。
 + 清除後等待一下再把SRCLR拉高，後恢復正常狀態。
 + 注意: 內部位移暫存器（Shift Register）是規劃期的，並不影響IO硬體狀態。
+
+### 用全部空的規劃，然後依序應用到硬體中。導致全部IO關閉。
+```c
+void clearEveryOutput() {
+  resetSerial();// 內部位移暫存器（Shift Register）全部歸0
+  digitalWrite(READY_PIN_CURRENT_POS, 1); //觸發鎖存(RCLK拉高)
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_PIN_CURRENT_POS, 0); // 恢復拉低
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_PIN_CURRENT_NEG, 1); //觸發鎖存(RCLK拉高)
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_PIN_CURRENT_NEG, 0); // 恢復拉低
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_VOLTAGE, 1); //觸發鎖存(RCLK拉高)
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_VOLTAGE, 0); // 恢復拉低
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_PSU, 1); //觸發鎖存(RCLK拉高)
+  delayMicroseconds(pushPeriod); //等待
+  digitalWrite(READY_PSU, 0); // 恢復拉低
+  delayMicroseconds(switchTurnOffTime); //等待200us
+}
+```
++ 規劃的 內部位移暫存器（Shift Register）全部歸0，然後逐個觸發鎖存(RCLK拉高)及啟用(OE#拉低)，結果就使所有繼電器關閉。
++ 後面有等待時間，200us。這個等於規格書的最大值，很合理。
 
 
 ### 方法B的解析 (會觸發256?次BNC線的TRIGER)
