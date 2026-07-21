@@ -87,6 +87,20 @@ void clearEveryOutput() {
 + 規劃的 內部位移暫存器（Shift Register）全部歸0，然後逐個觸發鎖存(RCLK拉高)及啟用(OE#拉低)，結果就使所有繼電器關閉。
 + 後面有等待時間，200us。這個等於規格書的最大值，很合理。
 
+### 每次讀一個Byte
+```c
+int USBread() {
+  int temp = -1;
+   while (temp == -1) {
+    while (Serial.available() == 0) {
+    }
+    delayMicroseconds(100);
+    temp = Serial.read();
+  }
+  return temp;
+}
+```
+
 
 ### 方法B的解析 (會觸發256?次BNC線的TRIGER)
 ```
