@@ -84,7 +84,7 @@ begin
   Form1.FormResize(Form1);
 end;
 ```
-+ 2.2 去修改「InversionModelingSettingsDefaultJson_Memo」的去編輯「Lines」:
++ 2.2 修改「InversionModelingSettingsDefaultJson_Memo」的「Lines」:
 ```
 procedure TForm1.InversionResultPreviewShowBoth_ToolButtonClick(Sender: TObject
   );
@@ -164,6 +164,17 @@ end;
   ```
       TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[83-1] := '"OutputFile24_PNG_Select_Enable":"Yes"';
   ```
++ 2.10 修改「InversionModelingOutputSettings_MainName_GroupBox」的「Hint」:
+```
+測線名稱。將作為檔案命名用途。
+```
++ 2.11 修改「InversionModelingInvSettings_Lambda_GroupBox」的「Hint」:
+```
+逆推參數中的Lambda為「正規化參數(Regularization Parameter)」，或通俗地稱為「平滑係數(Smoothing Factor)」。其值越大表示目標函數中資料項影響降低、模型項影響增加，通常導致模型更平滑但資料擬合較差。反之，其值越小，模型主要受資料項影響，通常會產生更粗糙(更不平滑)的模型。
+預設值=[20]。請填入陣列，限制陣列中元素僅可填入正數，例如:「[100,33.33,1]」。
+依序選擇陣列中的Lambda進行逆推，當該Lambda的逆推滿足終止條件時，保留該模型作為起始模型接關使用下一個Lambda繼續逆推，直到所有Lambda都執行完畢並獲得最終模型為止。
+```
+
 ### 更新紀錄
 + 3.1 選「UpdateLog_Memo」，去編輯「Lines」
 ```
