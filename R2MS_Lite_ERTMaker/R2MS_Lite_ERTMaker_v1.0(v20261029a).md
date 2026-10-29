@@ -369,7 +369,7 @@ end;
 "Inversion_Setting03_Lambda":[20],
 "Inversion_Setting04_maxIter_Readme":"逆推參數-最大迭代次數，單位:[次]。建議值20。",
 "Inversion_Setting04_maxIter":20,
-"Inversion_Setting05_startModel_Readme":"逆推參數-起始模型，單位:[Ohm-m]。建議值:「-1」，限制填正數或「-1」或「-2」或「-3」。填「-1」表示使用資料的中位數製作均值起始模型。若填正數則用該值製作均值起始模型。填「-2」表示使用全網格MeshVTK內的電阻率值。填「-3」表示使用研究區域網格StartModelVTK內的電阻率值。",
+"Inversion_Setting05_startModel_Readme":"逆推參數-起始模型，單位:[Ohm-m]。建議值:「-1」，限制填正數或「-1」或「-2」或「-3」。填「-1」表示使用資料的中位數製作均質起始模型。若填正數則用該值製作均質起始模型。填「-2」表示使用全網格MeshVTK內的電阻率值。填「-3」表示使用研究區域網格StartModelVTK內的電阻率值。",
 "Inversion_Setting05_startModel":-1,
 "InputFile05_StudyAreaStartModelVTK_FileName_Readme":"不論Windows或Linux或MAC作業系統一律使用「/」描述檔案路徑與資料夾路徑。",
 "InputFile05_StudyAreaStartModelVTK_FileName":"Input_ERTMaker_Inversion2D/InputFile05_StudyAreaStartModelVTK_FileName.vtk",
