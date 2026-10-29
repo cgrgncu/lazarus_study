@@ -474,6 +474,10 @@ end;
 預設值=[20]。請填入陣列，限制陣列中元素僅可填入正數，例如:「[100,33.33,1]」。
 依序選擇陣列中的Lambda進行逆推，當該Lambda的逆推滿足終止條件時，保留該模型作為起始模型接關使用下一個Lambda繼續逆推，直到所有Lambda都執行完畢並獲得最終模型為止。
 ```
++ 2.14 修改「InversionModelingInvSettings_startModel_GroupBox」的「Hint」:
+```
+起始模型，單位:[Ohm-m]。預設值=「-1」。限制填正數或「-1」或「-2」或「-3」。填正數則用該值製作均質起始模型。填「-1」表示使用資料的中位數製作均質起始模型。填「-2」表示使用前面已經載入的全網格MeshVTK內的電阻率值。填「-3」表示使用另外準備的研究區域網格StartModelVTK內的電阻率值，該檔案必須是「Input_ERTMaker_Inversion2D/InputFile05_StudyAreaStartModelVTK.vtk」。
+```
 
 ### 更新紀錄
 + 3.1 選「UpdateLog_Memo」，去編輯「Lines」
