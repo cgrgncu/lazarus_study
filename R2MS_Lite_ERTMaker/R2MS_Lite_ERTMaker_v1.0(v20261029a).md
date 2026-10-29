@@ -401,7 +401,7 @@ end;
 "Output_Inversion_YMax":64
 }
 ```
-+ 2.3 去修改2594行的程式碼:
++ 2.5 去修改2594行的程式碼:
   + 由這個:
   ```
       if not FileExists('ERTMaker_Inversion2D_v20260419a.cpython-312.pyc') then
@@ -410,7 +410,7 @@ end;
   ```
       if not FileExists('ERTMaker_Inversion2D_v20261029a.cpython-312.pyc') then
   ```
-+ 2.4 去修改2608行的程式碼:
++ 2.6 去修改2608行的程式碼:
   + 由這個:
   ```
      InversionModeling_AsyncProcess.Parameters.Add('set PYTHONIOENCODING=utf-8 && .\PythonEnv\Python.exe -u ERTMaker_Inversion2D_v20260419a.cpython-312.pyc');
@@ -419,7 +419,7 @@ end;
   ```
      InversionModeling_AsyncProcess.Parameters.Add('set PYTHONIOENCODING=utf-8 && .\PythonEnv\Python.exe -u ERTMaker_Inversion2D_v20261029a.cpython-312.pyc');
   ```
-+ 2.5 去修改4243行的程式碼:
++ 2.7 去修改4243行的程式碼:
   + 由這個:
   ```
     if not FileExists('ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc') then 
@@ -428,7 +428,7 @@ end;
   ```
     if not FileExists('ERTMaker_v299ScsvToUrf_v20261028a.cpython-312.pyc') then 
   ```
-+ 2.6 去修改4258行的程式碼:
++ 2.8 去修改4258行的程式碼:
   + 由這個:
   ```
     TimeSeriesProcessing_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_v299ScsvToUrf_v20260217a.cpython-312.pyc'); 
@@ -437,7 +437,7 @@ end;
   ```
     TimeSeriesProcessing_AsyncProcess.Parameters.Add('.\PythonEnv\Python.exe -u ERTMaker_v299ScsvToUrf_v20261028a.cpython-312.pyc'); 
   ```
-+ 2.7 去修改2397行的程式碼:
++ 2.9 去修改2397行的程式碼:
   + 由這個:
   ```
       InversionModelingSettingsNowJson_Memo.Lines.Strings[77-1] := ('"Inversion_Setting03_Lamda":'+InversionModelingInvSettings_Lambda_Edit.Text+',');
@@ -446,7 +446,7 @@ end;
   ```
       InversionModelingSettingsNowJson_Memo.Lines.Strings[77-1] := ('"Inversion_Setting03_Lambda":'+InversionModelingInvSettings_Lambda_Edit.Text+',');
   ```
-+ 2.8 去修改2567行的程式碼:
++ 2.10 去修改2567行的程式碼:
   + 由這個:
   ```
           InversionModelingSettingsNowJson_Memo.Lines.Strings[109-1] := ('"Output_Inversion_YMax":'+temp_str4+',');
@@ -455,7 +455,7 @@ end;
   ```
           InversionModelingSettingsNowJson_Memo.Lines.Strings[109-1] := ('"Output_Inversion_YMax":'+temp_str4);
   ```
-+ 2.9 去修改4198行的程式碼:
++ 2.11 去修改4198行的程式碼:
   + 由這個:
   ```
       TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[83-1] := '"OutputFile24_PNG_Select_Enable":"Yes",';
@@ -464,11 +464,11 @@ end;
   ```
       TimeSeriesProcessingSettingsNowJson_Memo.Lines.Strings[83-1] := '"OutputFile24_PNG_Select_Enable":"Yes"';
   ```
-+ 2.10 修改「InversionModelingOutputSettings_MainName_GroupBox」的「Hint」:
++ 2.12 修改「InversionModelingOutputSettings_MainName_GroupBox」的「Hint」:
 ```
 測線名稱。將作為檔案命名用途。
 ```
-+ 2.11 修改「InversionModelingInvSettings_Lambda_GroupBox」的「Hint」:
++ 2.13 修改「InversionModelingInvSettings_Lambda_GroupBox」的「Hint」:
 ```
 逆推參數中的Lambda為「正規化參數(Regularization Parameter)」，或通俗地稱為「平滑係數(Smoothing Factor)」。其值越大表示目標函數中資料項影響降低、模型項影響增加，通常導致模型更平滑但資料擬合較差。反之，其值越小，模型主要受資料項影響，通常會產生更粗糙(更不平滑)的模型。
 預設值=[20]。請填入陣列，限制陣列中元素僅可填入正數，例如:「[100,33.33,1]」。
